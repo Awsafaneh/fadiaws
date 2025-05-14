@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا - فادي للتمارين الرياضية</title>
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">فادي للتمارين</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="workouts.html">برامج التمارين</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nutrition.html">النصائح الغذائية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="goals.html">أهداف اللياقة</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">اتصل بنا</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold">اتصل بنا</h1>
+                    <p class="lead">نحن هنا لمساعدتك في تحقيق أهدافك في اللياقة البدنية</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="assets/images/contact-hero.jpg" alt="اتصل بنا" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Form Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card contact-form">
+                        <div class="card-body">
+                            <h3 class="card-title mb-4">راسلنا</h3>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">الاسم</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">البريد الإلكتروني</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">الموضوع</label>
+                                    <input type="text" class="form-control" id="subject" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">الرسالة</label>
+                                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">إرسال</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title mb-4">معلومات التواصل</h3>
+                            <div class="contact-info">
+                                <div class="mb-4">
+                                    <h5><i class="fas fa-map-marker-alt text-primary me-2"></i>العنوان</h5>
+                                    <p>شارع الرياض، المدينة الرياضية، الرياض، المملكة العربية السعودية</p>
+                                </div>
+                                <div class="mb-4">
+                                    <h5><i class="fas fa-phone text-primary me-2"></i>الهاتف</h5>
+                                    <p>+966 12 345 6789</p>
+                                </div>
+                                <div class="mb-4">
+                                    <h5><i class="fas fa-envelope text-primary me-2"></i>البريد الإلكتروني</h5>
+                                    <p>info@fadifitness.com</p>
+                                </div>
+                                <div class="mb-4">
+                                    <h5><i class="fas fa-clock text-primary me-2"></i>ساعات العمل</h5>
+                                    <p>السبت - الخميس: 9:00 صباحاً - 9:00 مساءً<br>الجمعة: 4:00 مساءً - 9:00 مساءً</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>تابعنا على وسائل التواصل الاجتماعي</h2>
+                <p>ابق على اطلاع بآخر الأخبار والنصائح</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="social-media-links text-center">
+                        <a href="#" class="btn btn-outline-primary btn-lg m-2">
+                            <i class="fab fa-facebook-f"></i> فيسبوك
+                        </a>
+                        <a href="#" class="btn btn-outline-primary btn-lg m-2">
+                            <i class="fab fa-instagram"></i> انستغرام
+                        </a>
+                        <a href="#" class="btn btn-outline-primary btn-lg m-2">
+                            <i class="fab fa-youtube"></i> يوتيوب
+                        </a>
+                        <a href="#" class="btn btn-outline-primary btn-lg m-2">
+                            <i class="fab fa-twitter"></i> تويتر
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="section-header">
+                <h2>الأسئلة الشائعة</h2>
+                <p>إجابات على الأسئلة الأكثر شيوعاً</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">كيف يمكنني البدء في برنامج التمارين؟</h5>
+                            <p class="card-text">يمكنك البدء باختيار البرنامج المناسب لمستواك من صفحة برامج التمارين، وسنقوم بتوجيهك خطوة بخطوة.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">هل تقدمون استشارات غذائية شخصية؟</h5>
+                            <p class="card-text">نعم، نقدم استشارات غذائية شخصية. يمكنك التواصل معنا عبر نموذج الاتصال لترتيب موعد.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>تواصل معنا</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="workouts.html" class="text-light">برامج التمارين</a></li>
+                        <li><a href="nutrition.html" class="text-light">النصائح الغذائية</a></li>
+                        <li><a href="contact.html" class="text-light">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>النشرة البريدية</h5>
+                    <form class="newsletter-form">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="البريد الإلكتروني">
+                            <button class="btn btn-primary" type="submit">اشترك</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
