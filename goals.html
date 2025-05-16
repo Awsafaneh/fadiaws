@@ -9,17 +9,21 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">فادي للتمارين</a>
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.png" alt="فادي للتمارين" height="50">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+                <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
@@ -39,89 +43,173 @@
                         <a class="nav-link" href="contact.html">اتصل بنا</a>
                     </li>
                 </ul>
+                <div class="nav-buttons">
+                    <a href="#" class="btn btn-outline-primary me-2">تسجيل الدخول</a>
+                    <a href="#" class="btn btn-primary">اشترك الآن</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero-section">
+    <!-- Page Header -->
+    <header class="page-header">
         <div class="container">
-            <div class="row align-items-center min-vh-100">
-                <div class="col-lg-6">
+            <div class="row align-items-center min-vh-50">
+                <div class="col-lg-6" data-aos="fade-right">
                     <h1 class="display-4 fw-bold">أهداف اللياقة</h1>
-                    <p class="lead">تعرف على كيفية تحديد وتحقيق أهدافك في اللياقة البدنية</p>
+                    <p class="lead">حدد أهدافك وابدأ رحلة التحول نحو حياة صحية أفضل</p>
                 </div>
-                <div class="col-lg-6">
-                    <img src="assets/images/goals-hero.jpg" alt="أهداف اللياقة" class="img-fluid rounded">
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="assets/images/goals-header.jpg" alt="أهداف اللياقة" class="img-fluid rounded-3">
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Goal Setting Section -->
-    <section class="py-5">
+    <!-- Goals Categories -->
+    <section class="goals-categories py-5">
         <div class="container">
-            <div class="section-header">
-                <h2>كيفية تحديد الأهداف</h2>
-                <p>خطوات عملية لتحقيق أهدافك في اللياقة البدنية</p>
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <h2>اختر هدفك</h2>
+                <p>نقدم لك خطط مخصصة لتحقيق أهدافك في اللياقة</p>
             </div>
             <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="feature-box">
-                        <i class="fas fa-bullseye"></i>
-                        <h5>حدد أهدافك</h5>
-                        <p>حدد أهدافاً واضحة وقابلة للقياس</p>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="goal-card">
+                        <div class="goal-icon">
+                            <i class="fas fa-weight"></i>
+                        </div>
+                        <h3>إنقاص الوزن</h3>
+                        <p>خطط متكاملة لخسارة الوزن بشكل صحي ومستدام</p>
+                        <ul class="goal-features">
+                            <li><i class="fas fa-check"></i> تمارين حرق الدهون</li>
+                            <li><i class="fas fa-check"></i> نظام غذائي متوازن</li>
+                            <li><i class="fas fa-check"></i> متابعة الوزن</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">ابدأ الآن</a>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="feature-box">
-                        <i class="fas fa-calendar-check"></i>
-                        <h5>ضع خطة</h5>
-                        <p>ضع خطة زمنية لتحقيق أهدافك</p>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="goal-card">
+                        <div class="goal-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <h3>بناء العضلات</h3>
+                        <p>برامج متخصصة لزيادة الكتلة العضلية والقوة</p>
+                        <ul class="goal-features">
+                            <li><i class="fas fa-check"></i> تمارين القوة</li>
+                            <li><i class="fas fa-check"></i> نظام غذائي غني بالبروتين</li>
+                            <li><i class="fas fa-check"></i> متابعة التقدم</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">ابدأ الآن</a>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="feature-box">
-                        <i class="fas fa-chart-line"></i>
-                        <h5>تتبع التقدم</h5>
-                        <p>راقب تقدمك وقم بتعديل خطتك عند الحاجة</p>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="goal-card">
+                        <div class="goal-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>تحسين اللياقة</h3>
+                        <p>تمارين لتحسين اللياقة البدنية والصحة العامة</p>
+                        <ul class="goal-features">
+                            <li><i class="fas fa-check"></i> تمارين القلب</li>
+                            <li><i class="fas fa-check"></i> تمارين المرونة</li>
+                            <li><i class="fas fa-check"></i> تحسين التحمل</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">ابدأ الآن</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Commitment Tips Section -->
-    <section class="py-5 bg-light">
+    <!-- Progress Tracking -->
+    <section class="progress-tracking py-5 bg-light">
         <div class="container">
-            <div class="section-header">
-                <h2>نصائح للالتزام بالروتين</h2>
-                <p>كيف تحافظ على دوافعك وتلتزم بروتينك الرياضي</p>
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <h2>تتبع تقدمك</h2>
+                <p>أدوات متكاملة لمتابعة تقدمك وتحقيق أهدافك</p>
             </div>
             <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="card program-card">
-                        <div class="card-body">
-                            <h5 class="card-title">جدولة التمارين</h5>
-                            <p class="card-text">نصائح لتنظيم وقتك والالتزام بجدول التمارين</p>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-success"></i> حدد أوقاتاً ثابتة للتمارين</li>
-                                <li><i class="fas fa-check text-success"></i> ضع التمارين في جدولك اليومي</li>
-                                <li><i class="fas fa-check text-success"></i> استخدم تطبيقات التذكير</li>
-                            </ul>
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <div class="tracking-features">
+                        <div class="tracking-item">
+                            <div class="icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="content">
+                                <h3>تتبع الوزن</h3>
+                                <p>سجل وزنك وتتبع تقدمك مع الوقت</p>
+                            </div>
+                        </div>
+                        <div class="tracking-item">
+                            <div class="icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <div class="content">
+                                <h3>تتبع التمارين</h3>
+                                <p>سجل تمارينك وتقدمك في كل تمرين</p>
+                            </div>
+                        </div>
+                        <div class="tracking-item">
+                            <div class="icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="content">
+                                <h3>تتبع التغذية</h3>
+                                <p>سجل وجباتك وسعراتك الحرارية</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="card program-card">
-                        <div class="card-body">
-                            <h5 class="card-title">الحفاظ على الدافعية</h5>
-                            <p class="card-text">طرق للحفاظ على دوافعك وتحفيز نفسك</p>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-success"></i> احتفل بإنجازاتك الصغيرة</li>
-                                <li><i class="fas fa-check text-success"></i> ابحث عن شريك للتمارين</li>
-                                <li><i class="fas fa-check text-success"></i> غير روتينك بين الحين والآخر</li>
-                            </ul>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="assets/images/progress-tracking.jpg" alt="تتبع التقدم" class="img-fluid rounded-3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="success-stories py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <h2>قصص النجاح</h2>
+                <p>قصص ملهمة من متدربينا</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="success-card">
+                        <div class="success-image">
+                            <img src="assets/images/success1.jpg" alt="قصة نجاح" class="img-fluid">
+                        </div>
+                        <div class="success-content">
+                            <h3>أحمد محمد</h3>
+                            <p class="achievement">خسر 20 كجم في 6 أشهر</p>
+                            <p class="story">"مع فادي، تمكنت من تحقيق هدفي في إنقاص الوزن بشكل صحي ومستدام"</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="success-card">
+                        <div class="success-image">
+                            <img src="assets/images/success2.jpg" alt="قصة نجاح" class="img-fluid">
+                        </div>
+                        <div class="success-content">
+                            <h3>سارة أحمد</h3>
+                            <p class="achievement">زادت كتلة العضلات 5 كجم</p>
+                            <p class="story">"البرامج المخصصة ساعدتني في بناء العضلات وتحسين قوتي"</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="success-card">
+                        <div class="success-image">
+                            <img src="assets/images/success3.jpg" alt="قصة نجاح" class="img-fluid">
+                        </div>
+                        <div class="success-content">
+                            <h3>محمد علي</h3>
+                            <p class="achievement">تحسن مستوى اللياقة 80%</p>
+                            <p class="story">"تمارين القلب والتحمل ساعدتني في تحسين لياقتي البدنية بشكل كبير"</p>
                         </div>
                     </div>
                 </div>
@@ -129,85 +217,117 @@
         </div>
     </section>
 
-    <!-- Injury Prevention Section -->
-    <section class="py-5">
+    <!-- Goal Setting Form -->
+    <section class="goal-setting py-5 bg-light">
         <div class="container">
-            <div class="section-header">
-                <h2>تجنب الإصابات</h2>
-                <p>نصائح مهمة لتجنب الإصابات أثناء التمارين</p>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <h2>حدد هدفك</h2>
+                    <p>أخبرنا عن هدفك وسنساعدك في تحقيقه</p>
+                    <form class="goal-form">
+                        <div class="mb-3">
+                            <label class="form-label">الهدف الرئيسي</label>
+                            <select class="form-select" required>
+                                <option value="">اختر هدفك</option>
+                                <option value="weight-loss">إنقاص الوزن</option>
+                                <option value="muscle-gain">بناء العضلات</option>
+                                <option value="fitness">تحسين اللياقة</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">الوزن الحالي (كجم)</label>
+                            <input type="number" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">الوزن المستهدف (كجم)</label>
+                            <input type="number" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">المدة الزمنية</label>
+                            <select class="form-select" required>
+                                <option value="">اختر المدة</option>
+                                <option value="1">شهر واحد</option>
+                                <option value="3">3 أشهر</option>
+                                <option value="6">6 أشهر</option>
+                                <option value="12">سنة</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">ابدأ رحلتك</button>
+                    </form>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="assets/images/goal-setting.jpg" alt="تحديد الهدف" class="img-fluid rounded-3">
+                </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card program-card">
-                        <div class="card-body">
-                            <h5 class="card-title">الإحماء الصحيح</h5>
-                            <p class="card-text">أهمية الإحماء قبل التمارين</p>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-success"></i> تمارين إحماء ديناميكية</li>
-                                <li><i class="fas fa-check text-success"></i> زيادة تدريجية في الكثافة</li>
-                                <li><i class="fas fa-check text-success"></i> تمارين مرونة</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card program-card">
-                        <div class="card-body">
-                            <h5 class="card-title">التقنية الصحيحة</h5>
-                            <p class="card-text">أهمية الأداء الصحيح للتمارين</p>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-success"></i> تعلم التقنية الصحيحة</li>
-                                <li><i class="fas fa-check text-success"></i> ابدأ بأوزان خفيفة</li>
-                                <li><i class="fas fa-check text-success"></i> اطلب المساعدة عند الحاجة</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card program-card">
-                        <div class="card-body">
-                            <h5 class="card-title">الراحة والتعافي</h5>
-                            <p class="card-text">أهمية الراحة والتعافي</p>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-success"></i> خذ فترات راحة كافية</li>
-                                <li><i class="fas fa-check text-success"></i> نم جيداً</li>
-                                <li><i class="fas fa-check text-success"></i> تناول غذاء متوازن</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section py-5">
+        <div class="container">
+            <div class="cta-content text-center" data-aos="fade-up">
+                <h2>جاهز لبدء رحلة تحقيق أهدافك؟</h2>
+                <p>انضم إلينا اليوم وابدأ رحلة التحول نحو حياة صحية أفضل</p>
+                <a href="#" class="btn btn-primary btn-lg">اشترك الآن</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-light py-4">
+    <footer class="footer py-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <h5>تواصل معنا</h5>
-                    <div class="social-links">
-                        <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-light me-3"><i class="fab fa-youtube"></i></a>
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-about">
+                        <img src="assets/images/logo.png" alt="فادي للتمارين" height="50" class="mb-3">
+                        <p>نقدم أفضل برامج التمارين والنصائح الغذائية لمساعدتك في تحقيق أهدافك في اللياقة البدنية</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-2 col-md-4 mb-4">
                     <h5>روابط سريعة</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="workouts.html" class="text-light">برامج التمارين</a></li>
-                        <li><a href="nutrition.html" class="text-light">النصائح الغذائية</a></li>
-                        <li><a href="contact.html" class="text-light">اتصل بنا</a></li>
+                    <ul class="footer-links">
+                        <li><a href="workouts.html">برامج التمارين</a></li>
+                        <li><a href="nutrition.html">النصائح الغذائية</a></li>
+                        <li><a href="goals.html">أهداف اللياقة</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h5>تواصل معنا</h5>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone"></i> +123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@fadi-fitness.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4">
                     <h5>النشرة البريدية</h5>
+                    <p>اشترك في نشرتنا البريدية للحصول على آخر الأخبار والنصائح</p>
                     <form class="newsletter-form">
-                        <div class="input-group mb-3">
+                        <div class="input-group">
                             <input type="email" class="form-control" placeholder="البريد الإلكتروني">
                             <button class="btn btn-primary" type="submit">اشترك</button>
                         </div>
                     </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; 2024 فادي للتمارين. جميع الحقوق محفوظة</p>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <ul class="footer-bottom-links">
+                            <li><a href="#">سياسة الخصوصية</a></li>
+                            <li><a href="#">الشروط والأحكام</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -215,7 +335,22 @@
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Custom JavaScript -->
     <script src="js/main.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Goal Setting Form
+        document.querySelector('.goal-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add form submission logic here
+            alert('سيتم إضافة منطق النموذج قريباً');
+        });
+    </script>
 </body>
 </html>
