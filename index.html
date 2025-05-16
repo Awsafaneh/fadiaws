@@ -1,121 +1,304 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مدونة فادي للياقة والتغذية</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فادي للتمارين الرياضية - الصفحة الرئيسية</title>
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- شريط التنقل -->
-  <nav>
-    <ul>
-      <li><a href="index.html">الرئيسية</a></li>
-      <li><a href="about.html">من نحن</a></li>
-      <li><a href="workout.html">التمارين</a></li>
-      <li><a href="nutrition.html">التغذية</a></li>
-      <li><a href="goals.html">الأهداف</a></li>
-      <li><a href="tips.html">نصائح</a></li>
-      <li><a href="contact.html">تواصل معنا</a></li>
-    </ul>
-  </nav>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.png" alt="فادي للتمارين" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="workouts.html">برامج التمارين</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nutrition.html">النصائح الغذائية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="goals.html">أهداف اللياقة</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tips.html">نصائح عامة</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">اتصل بنا</a>
+                    </li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="#" class="btn btn-primary">اشترك الآن</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-  <!-- الصفحة الرئيسية -->
-  <header>
-    <h1>مرحباً بكم في مدونة فادي</h1>
-    <p>كل ما تحتاجه عن التمارين، التغذية، والتحفيز في مكان واحد.</p>
-  </header>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="hero-content">
+                        <h1>ابدأ رحلة اللياقة مع فادي</h1>
+                        <p>نقدم لك أفضل برامج التمارين والنصائح الغذائية لتحقيق أهدافك في اللياقة البدنية</p>
+                        <div class="hero-buttons">
+                            <a href="workouts.html" class="btn btn-primary">برامج التمارين</a>
+                            <a href="nutrition.html" class="btn btn-outline-light">النصائح الغذائية</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hero-image">
+                        <img src="assets/images/hero-image.jpg" alt="فادي للتمارين" class="img-fluid">
+                        <div class="floating-card">
+                            <div class="card-content">
+                                <h3>+500</h3>
+                                <p>متدرب سعيد</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section>
-    <h2>محتوى مميز</h2>
-    <article>
-      <h3>أفضل 3 تمارين للقوة</h3>
-      <img src="images/strength.jpg" alt="تمارين القوة">
-      <p>تعرف على أقوى التمارين لتقوية عضلاتك مع شرح مفصل بالصور.</p>
-      <a href="workout.html">اقرأ المزيد</a>
-    </article>
+    <!-- About Section -->
+    <section class="about-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="assets/images/about-image.jpg" alt="نبذة عن فادي" class="img-fluid rounded-3">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="about-content">
+                        <h2>نبذة عن فادي</h2>
+                        <p>مدرب لياقة بدنية محترف ومؤثر على وسائل التواصل الاجتماعي، يساعد الناس على تحقيق أهدافهم في اللياقة البدنية من خلال برامج تمارين فعالة ونصائح غذائية صحية.</p>
+                        <div class="about-stats">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="stat-item">
+                                        <h3>5+</h3>
+                                        <p>سنوات خبرة</p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="stat-item">
+                                        <h3>1000+</h3>
+                                        <p>متدرب</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <article>
-      <h3>نظام غذائي لزيادة العضلات</h3>
-      <img src="images/food.jpg" alt="نظام غذائي">
-      <p>خطة أسبوعية كاملة لزيادة الكتلة العضلية بدون دهون.</p>
-      <a href="nutrition.html">اطّلع عليها</a>
-    </article>
+    <!-- Features Section -->
+    <section class="features-section py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <h2>خدماتنا</h2>
+                <p>نقدم مجموعة متكاملة من الخدمات لمساعدتك في تحقيق أهدافك</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <h3>برامج التمارين</h3>
+                        <p>برامج تمارين متنوعة تناسب جميع المستويات والأهداف</p>
+                        <a href="workouts.html" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-apple-whole"></i>
+                        </div>
+                        <h3>النصائح الغذائية</h3>
+                        <p>نصائح غذائية صحية وخطط وجبات متوازنة</p>
+                        <a href="nutrition.html" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>أهداف اللياقة</h3>
+                        <p>مساعدتك في تحديد وتحقيق أهدافك في اللياقة البدنية</p>
+                        <a href="goals.html" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <article>
-      <h3>كيف تلتزم بروتينك الرياضي؟</h3>
-      <img src="images/routine.jpg" alt="الالتزام بالروتين">
-      <p>نصائح عملية لتجنب الكسل والانقطاع عن التمارين.</p>
-      <a href="goals.html">اعرف أكثر</a>
-    </article>
-  </section>
+    <!-- Latest News Section -->
+    <section class="news-section py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <h2>آخر الأخبار</h2>
+                <p>تابع آخر المستجدات والنصائح في عالم اللياقة البدنية</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="news-card">
+                        <div class="news-image">
+                            <img src="assets/images/news-1.jpg" alt="أخبار اللياقة">
+                            <div class="news-date">
+                                <span class="day">15</span>
+                                <span class="month">مايو</span>
+                            </div>
+                        </div>
+                        <div class="news-content">
+                            <h3>أفضل تمارين الصباح</h3>
+                            <p>تعرف على أفضل تمارين الصباح لبدء يومك بنشاط وحيوية</p>
+                            <a href="#" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="news-card">
+                        <div class="news-image">
+                            <img src="assets/images/news-2.jpg" alt="أخبار التغذية">
+                            <div class="news-date">
+                                <span class="day">10</span>
+                                <span class="month">مايو</span>
+                            </div>
+                        </div>
+                        <div class="news-content">
+                            <h3>نصائح غذائية للصيف</h3>
+                            <p>نصائح غذائية مهمة للحفاظ على صحتك خلال فصل الصيف</p>
+                            <a href="#" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="news-card">
+                        <div class="news-image">
+                            <img src="assets/images/news-3.jpg" alt="أخبار اللياقة">
+                            <div class="news-date">
+                                <span class="day">5</span>
+                                <span class="month">مايو</span>
+                            </div>
+                        </div>
+                        <div class="news-content">
+                            <h3>كيفية تجنب الإصابات</h3>
+                            <p>نصائح مهمة لتجنب الإصابات أثناء ممارسة التمارين الرياضية</p>
+                            <a href="#" class="read-more">اقرأ المزيد <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- صفحات إضافية -->
+    <!-- CTA Section -->
+    <section class="cta-section py-5">
+        <div class="container">
+            <div class="cta-content text-center" data-aos="fade-up">
+                <h2>جاهز لبدء رحلة اللياقة؟</h2>
+                <p>انضم إلينا اليوم وابدأ رحلة التحول نحو حياة صحية أفضل</p>
+                <a href="#" class="btn btn-primary btn-lg">اشترك الآن</a>
+            </div>
+        </div>
+    </section>
 
-  <!-- صفحة من نحن -->
-  <section id="about">
-    <h2>من هو فادي؟</h2>
-    <p>رياضي ومؤثر على وسائل التواصل الاجتماعي يشارك رحلته في اللياقة والتغذية الصحية.</p>
-    <p>بدأت مدونة فادي لمساعدة الناس على تحسين نمط حياتهم وصحتهم بشكل عملي وبسيط.</p>
-  </section>
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-about">
+                        <img src="assets/images/logo.png" alt="فادي للتمارين" height="50" class="mb-3">
+                        <p>نقدم أفضل برامج التمارين والنصائح الغذائية لمساعدتك في تحقيق أهدافك في اللياقة البدنية</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5>روابط سريعة</h5>
+                    <ul class="footer-links">
+                        <li><a href="workouts.html">برامج التمارين</a></li>
+                        <li><a href="nutrition.html">النصائح الغذائية</a></li>
+                        <li><a href="goals.html">أهداف اللياقة</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h5>تواصل معنا</h5>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone"></i> +123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@fadi-fitness.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h5>النشرة البريدية</h5>
+                    <p>اشترك في نشرتنا البريدية للحصول على آخر الأخبار والنصائح</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="البريد الإلكتروني">
+                            <button class="btn btn-primary" type="submit">اشترك</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; 2024 فادي للتمارين. جميع الحقوق محفوظة</p>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <ul class="footer-bottom-links">
+                            <li><a href="#">سياسة الخصوصية</a></li>
+                            <li><a href="#">الشروط والأحكام</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-  <!-- صفحة التمارين -->
-  <section id="workout">
-    <h2>برامج التمارين</h2>
-    <ul>
-      <li>تمارين القوة - 3 أيام بالأسبوع، لكل عضلة رئيسية تمرينين.</li>
-      <li>تمارين الكارديو - 4 جلسات أسبوعيًا لمدة 30 دقيقة.</li>
-      <li>تمارين المرونة - تمارين إطالة يومية لمدة 10 دقائق.</li>
-    </ul>
-  </section>
-
-  <!-- صفحة التغذية -->
-  <section id="nutrition">
-    <h2>النصائح الغذائية</h2>
-    <ul>
-      <li>نظام غذائي لزيادة العضلات - بروتين عالي، كربوهيدرات معتدلة، دهون صحية.</li>
-      <li>وصفات صحية - سلطة تونة، شوفان بالموز، صدر دجاج مشوي بالخضار.</li>
-    </ul>
-  </section>
-
-  <!-- صفحة الأهداف -->
-  <section id="goals">
-    <h2>أهداف اللياقة</h2>
-    <p>ابدأ بهدف واضح وقابل للقياس. استخدم تقويم أسبوعي لتتبع التقدم وراجع نفسك شهريًا.</p>
-  </section>
-
-  <!-- صفحة النصائح العامة -->
-  <section id="tips">
-    <h2>نصائح عامة</h2>
-    <ul>
-      <li>احرص على النوم الكافي.</li>
-      <li>اشرب كمية كافية من الماء.</li>
-      <li>تجنب الحركات الخاطئة في التمارين.</li>
-    </ul>
-  </section>
-
-  <!-- صفحة التواصل -->
-  <section id="contact">
-    <h2>تواصل معنا</h2>
-    <form action="https://formspree.io/f/your-id" method="POST">
-      <label for="name">الاسم:</label>
-      <input type="text" id="name" name="name" required>
-      <label for="email">البريد الإلكتروني:</label>
-      <input type="email" id="email" name="email" required>
-      <label for="message">رسالتك:</label>
-      <textarea id="message" name="message"></textarea>
-      <button type="submit">أرسل</button>
-    </form>
-  </section>
-
-  <!-- التذييل -->
-  <footer>
-    <p>© 2025 مدونة فادي | جميع الحقوق محفوظة</p>
-    <div>
-      <a href="https://instagram.com/fadifitness">إنستغرام</a> |
-      <a href="https://youtube.com/fadifitness">يوتيوب</a> |
-      <a href="https://tiktok.com/@fadifitness">تيك توك</a>
-    </div>
-  </footer>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
 </body>
 </html>
