@@ -40,13 +40,11 @@
                         <a class="nav-link" href="goals.html">أهداف اللياقة</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tips.html">نصائح عامة</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link active" href="contact.html">اتصل بنا</a>
                     </li>
                 </ul>
                 <div class="nav-buttons">
+                    <a href="#" class="btn btn-outline-primary me-2">تسجيل الدخول</a>
                     <a href="#" class="btn btn-primary">اشترك الآن</a>
                 </div>
             </div>
@@ -73,33 +71,33 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="contact-card">
-                        <div class="contact-icon">
+                    <div class="info-card">
+                        <div class="icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>العنوان</h3>
+                        <p>الرياض، المملكة العربية السعودية</p>
+                        <p>شارع الأمير محمد بن عبدالعزيز</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-card">
+                        <div class="icon">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <h3>اتصل بنا</h3>
+                        <h3>الهاتف</h3>
                         <p>+123 456 7890</p>
                         <p>+123 456 7891</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="contact-card">
-                        <div class="contact-icon">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="info-card">
+                        <div class="icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <h3>البريد الإلكتروني</h3>
                         <p>info@fadi-fitness.com</p>
                         <p>support@fadi-fitness.com</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <h3>العنوان</h3>
-                        <p>الرياض، المملكة العربية السعودية</p>
-                        <p>شارع اللياقة، حي النخيل</p>
                     </div>
                 </div>
             </div>
@@ -110,84 +108,94 @@
     <section class="contact-form py-5 bg-light">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="section-header text-center mb-5" data-aos="fade-up">
-                        <h2>راسلنا</h2>
-                        <p>أرسل لنا رسالة وسنرد عليك في أقرب وقت ممكن</p>
-                    </div>
-                    <form class="contact-form" data-aos="fade-up" data-aos-delay="100">
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <div class="form-group">
-                                    <label for="name">الاسم</label>
-                                    <input type="text" class="form-control" id="name" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="form-group">
-                                    <label for="email">البريد الإلكتروني</label>
-                                    <input type="email" class="form-control" id="email" required>
-                                </div>
-                            </div>
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <h2>راسلنا</h2>
+                    <p>أخبرنا عن استفساراتك وسنرد عليك في أقرب وقت ممكن</p>
+                    <form class="contact-form">
+                        <div class="mb-3">
+                            <label class="form-label">الاسم الكامل</label>
+                            <input type="text" class="form-control" required>
                         </div>
                         <div class="mb-3">
-                            <div class="form-group">
-                                <label for="subject">الموضوع</label>
-                                <input type="text" class="form-control" id="subject" required>
-                            </div>
+                            <label class="form-label">البريد الإلكتروني</label>
+                            <input type="email" class="form-control" required>
                         </div>
                         <div class="mb-3">
-                            <div class="form-group">
-                                <label for="message">الرسالة</label>
-                                <textarea class="form-control" id="message" rows="5" required></textarea>
-                            </div>
+                            <label class="form-label">رقم الهاتف</label>
+                            <input type="tel" class="form-control" required>
                         </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary btn-lg">إرسال الرسالة</button>
+                        <div class="mb-3">
+                            <label class="form-label">الموضوع</label>
+                            <select class="form-select" required>
+                                <option value="">اختر الموضوع</option>
+                                <option value="general">استفسار عام</option>
+                                <option value="programs">برامج التمارين</option>
+                                <option value="nutrition">النصائح الغذائية</option>
+                                <option value="subscription">الاشتراكات</option>
+                            </select>
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label">الرسالة</label>
+                            <textarea class="form-control" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
                     </form>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.6716563761687!2d46.67527731500284!3d24.71322298410078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh%20Saudi%20Arabia!5e0!3m2!1sen!2s!4v1647881234567!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Map Section -->
-    <section class="map-section py-5">
+    <!-- FAQ Section -->
+    <section class="faq-section py-5">
         <div class="container">
             <div class="section-header text-center mb-5" data-aos="fade-up">
-                <h2>موقعنا</h2>
-                <p>يمكنك زيارة مركزنا في العنوان التالي</p>
-            </div>
-            <div class="map-container" data-aos="fade-up" data-aos-delay="100">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.6985613573167!2d46.6752773!3d24.7135517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQyJzQ4LjgiTiA0NsKwNDAnMzEuMCJF!5e0!3m2!1sen!2ssa!4v1620000000000!5m2!1sen!2ssa" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Business Hours -->
-    <section class="business-hours py-5 bg-light">
-        <div class="container">
-            <div class="section-header text-center mb-5" data-aos="fade-up">
-                <h2>ساعات العمل</h2>
-                <p>نحن متاحون لخدمتك خلال الأوقات التالية</p>
+                <h2>الأسئلة الشائعة</h2>
+                <p>إجابات على الأسئلة الأكثر شيوعاً</p>
             </div>
             <div class="row">
-                <div class="col-lg-6 mx-auto">
-                    <div class="hours-card" data-aos="fade-up" data-aos-delay="100">
-                        <ul class="hours-list">
-                            <li>
-                                <span class="day">الأحد - الخميس</span>
-                                <span class="time">9:00 صباحاً - 10:00 مساءً</span>
-                            </li>
-                            <li>
-                                <span class="day">الجمعة</span>
-                                <span class="time">2:00 مساءً - 10:00 مساءً</span>
-                            </li>
-                            <li>
-                                <span class="day">السبت</span>
-                                <span class="time">9:00 صباحاً - 10:00 مساءً</span>
-                            </li>
-                        </ul>
+                <div class="col-lg-8 mx-auto">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    كيف يمكنني الاشتراك في برامج التمارين؟
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    يمكنك الاشتراك من خلال الموقع الإلكتروني أو زيارة مركزنا. سنقوم بتقييم مستوى لياقتك وتحديد البرنامج المناسب لك.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    هل تقدمون جلسات تجريبية مجانية؟
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    نعم، نقدم جلسة تجريبية مجانية لجميع المتدربين الجدد. يمكنك حجز موعد من خلال الموقع أو الاتصال بنا.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    ما هي ساعات العمل؟
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    نحن نعمل على مدار الأسبوع من الساعة 6 صباحاً حتى 10 مساءً. يمكنك حجز مواعيد التمارين خلال هذه الساعات.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -275,6 +283,13 @@
         AOS.init({
             duration: 1000,
             once: true
+        });
+
+        // Contact Form
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add form submission logic here
+            alert('سيتم إضافة منطق النموذج قريباً');
         });
     </script>
 </body>
