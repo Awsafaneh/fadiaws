@@ -4,24 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>اتصل بنا - فادي للتمارين الرياضية</title>
-    <!-- Bootstrap RTL CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <img src="assets/images/logo.png" alt="فادي للتمارين" height="50">
-            </a>
+                </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <i class="fas fa-bars"></i>
             </button>
@@ -42,7 +36,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="contact.html">اتصل بنا</a>
                     </li>
-                </ul>
+                    </ul>
                 <div class="nav-buttons">
                     <a href="#" class="btn btn-outline-primary me-2">تسجيل الدخول</a>
                     <a href="#" class="btn btn-primary">اشترك الآن</a>
@@ -51,7 +45,6 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
     <header class="page-header">
         <div class="container">
             <div class="row align-items-center min-vh-50">
@@ -61,12 +54,11 @@
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <img src="assets/images/contact-header.jpg" alt="اتصل بنا" class="img-fluid rounded-3">
-                </div>
+                    </div>
             </div>
         </div>
     </header>
 
-    <!-- Contact Information -->
     <section class="contact-info py-5">
         <div class="container">
             <div class="row">
@@ -77,8 +69,8 @@
                         </div>
                         <h3>العنوان</h3>
                         <p>الرياض، المملكة العربية السعودية</p>
-                        <p>شارع الأمير محمد بن عبدالعزيز</p>
-                    </div>
+                        <p>شارع الأمير محمد بن عبدالعزيز، حي العليا</p>
+                        </div>
                 </div>
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="info-card">
@@ -86,9 +78,9 @@
                             <i class="fas fa-phone"></i>
                         </div>
                         <h3>الهاتف</h3>
-                        <p>+123 456 7890</p>
-                        <p>+123 456 7891</p>
-                    </div>
+                        <p>+966 50 123 4567</p>
+                        <p>+966 50 765 4321</p>
+                        </div>
                 </div>
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="info-card">
@@ -98,64 +90,63 @@
                         <h3>البريد الإلكتروني</h3>
                         <p>info@fadi-fitness.com</p>
                         <p>support@fadi-fitness.com</p>
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Form -->
     <section class="contact-form py-5 bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
                     <h2>راسلنا</h2>
                     <p>أخبرنا عن استفساراتك وسنرد عليك في أقرب وقت ممكن</p>
-                    <form class="contact-form">
+                    <form class="contact-form" action="submit-form.php" method="POST">
                         <div class="mb-3">
-                            <label class="form-label">الاسم الكامل</label>
-                            <input type="text" class="form-control" required>
+                            <label for="fullName" class="form-label">الاسم الكامل</label>
+                            <input type="text" class="form-control" id="fullName" name="fullName" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">البريد الإلكتروني</label>
-                            <input type="email" class="form-control" required>
+                            <label for="email" class="form-label">البريد الإلكتروني</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">رقم الهاتف</label>
-                            <input type="tel" class="form-control" required>
+                            <label for="phone" class="form-label">رقم الهاتف</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">الموضوع</label>
-                            <select class="form-select" required>
+                            <label for="subject" class="form-label">الموضوع</label>
+                            <select class="form-select" id="subject" name="subject" required>
                                 <option value="">اختر الموضوع</option>
                                 <option value="general">استفسار عام</option>
                                 <option value="programs">برامج التمارين</option>
                                 <option value="nutrition">النصائح الغذائية</option>
                                 <option value="subscription">الاشتراكات</option>
+                                <option value="other">أخرى</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">الرسالة</label>
-                            <textarea class="form-control" rows="5" required></textarea>
+                            <label for="message" class="form-label">الرسالة</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
                     </form>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.6716563761687!2d46.67527731500284!3d24.71322298410078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh%20Saudi%20Arabia!5e0!3m2!1sen!2s!4v1647881234567!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1dYOUR_LATITUDE!2dYOUR_LONGITUDE!3dYOUR_ALTITUDE!2dYOUR_LONGITUDE!3dYOUR_LATITUDE!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zYOUR_PLACE_ID!5e0!3m2!1sen!2s!4vYOUR_TIMESTAMP" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
     <section class="faq-section py-5">
         <div class="container">
             <div class="section-header text-center mb-5" data-aos="fade-up">
                 <h2>الأسئلة الشائعة</h2>
-                <p>إجابات على الأسئلة الأكثر شيوعاً</p>
+                <p>إجابات على الأسئلة الأكثر شيوعاً حول فادي للتمارين الرياضية</p>
             </div>
             <div class="row">
                 <div class="col-lg-8 mx-auto">
@@ -163,57 +154,54 @@
                         <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                    كيف يمكنني الاشتراك في برامج التمارين؟
+                                    ما هي أنواع التمارين التي يقدمها فادي؟
                                 </button>
                             </h2>
                             <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    يمكنك الاشتراك من خلال الموقع الإلكتروني أو زيارة مركزنا. سنقوم بتقييم مستوى لياقتك وتحديد البرنامج المناسب لك.
+                                    يقدم فادي برامج متنوعة تشمل تمارين القوة لبناء العضلات، تمارين الكارديو لتحسين اللياقة القلبية الوعائية، وتمارين المرونة لزيادة المدى الحركي وتجنب الإصابات.
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                    هل تقدمون جلسات تجريبية مجانية؟
+                                    هل تناسب النصائح الغذائية جميع الأهداف؟
                                 </button>
                             </h2>
                             <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    نعم، نقدم جلسة تجريبية مجانية لجميع المتدربين الجدد. يمكنك حجز موعد من خلال الموقع أو الاتصال بنا.
+                                    نصائح فادي الغذائية مصممة لتناسب أهدافاً مختلفة مثل زيادة الكتلة العضلية، خسارة الوزن، أو مجرد تبني نمط حياة صحي. يمكنك العثور على وصفات وخطط تناسب احتياجاتك.
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                    ما هي ساعات العمل؟
+                                    كيف يمكنني متابعة آخر أخبار فادي؟
                                 </button>
                             </h2>
                             <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    نحن نعمل على مدار الأسبوع من الساعة 6 صباحاً حتى 10 مساءً. يمكنك حجز مواعيد التمارين خلال هذه الساعات.
+                                    يمكنك متابعة آخر أخبار فادي من خلال زيارة قسم "آخر الأخبار" على الموقع، أو الاشتراك في النشرة البريدية، أو متابعة حساباته على وسائل التواصل الاجتماعي الموجودة في تذييل الصفحة.
                                 </div>
                             </div>
                         </div>
-                    </div>
+                         </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta-section py-5">
         <div class="container">
             <div class="cta-content text-center" data-aos="fade-up">
                 <h2>جاهز لبدء رحلة اللياقة؟</h2>
                 <p>انضم إلينا اليوم وابدأ رحلة التحول نحو حياة صحية أفضل</p>
-                <a href="#" class="btn btn-primary btn-lg">اشترك الآن</a>
-            </div>
+                <a href="subscription.html" class="btn btn-primary btn-lg">اشترك الآن</a> </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer py-5">
         <div class="container">
             <div class="row">
@@ -222,11 +210,11 @@
                         <img src="assets/images/logo.png" alt="فادي للتمارين" height="50" class="mb-3">
                         <p>نقدم أفضل برامج التمارين والنصائح الغذائية لمساعدتك في تحقيق أهدافك في اللياقة البدنية</p>
                         <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
+                            <a href="https://www.facebook.com/fadi.fitness" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/fadi.fitness" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/fadi.fitness" target="_blank"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.twitter.com/fadi.fitness" target="_blank"><i class="fab fa-twitter"></i></a>
+                            </div>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 mb-4">
@@ -236,22 +224,22 @@
                         <li><a href="nutrition.html">النصائح الغذائية</a></li>
                         <li><a href="goals.html">أهداف اللياقة</a></li>
                         <li><a href="contact.html">اتصل بنا</a></li>
-                    </ul>
+                        </ul>
                 </div>
                 <div class="col-lg-3 col-md-4 mb-4">
                     <h5>تواصل معنا</h5>
                     <ul class="footer-contact">
-                        <li><i class="fas fa-phone"></i> +123 456 7890</li>
+                        <li><i class="fas fa-phone"></i> +966 50 123 4567</li>
                         <li><i class="fas fa-envelope"></i> info@fadi-fitness.com</li>
                         <li><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</li>
-                    </ul>
+                        </ul>
                 </div>
                 <div class="col-lg-3 col-md-4 mb-4">
                     <h5>النشرة البريدية</h5>
                     <p>اشترك في نشرتنا البريدية للحصول على آخر الأخبار والنصائح</p>
-                    <form class="newsletter-form">
+                     <form class="newsletter-form" action="subscribe.php" method="POST">
                         <div class="input-group">
-                            <input type="email" class="form-control" placeholder="البريد الإلكتروني">
+                            <input type="email" class="form-control" placeholder="البريد الإلكتروني" name="email" required>
                             <button class="btn btn-primary" type="submit">اشترك</button>
                         </div>
                     </form>
@@ -260,7 +248,7 @@
             <div class="footer-bottom">
                 <div class="row">
                     <div class="col-md-6">
-                        <p>&copy; 2024 فادي للتمارين. جميع الحقوق محفوظة</p>
+                        <p>© 2024 فادي للتمارين. جميع الحقوق محفوظة</p>
                     </div>
                     <div class="col-md-6 text-end">
                         <ul class="footer-bottom-links">
@@ -273,11 +261,8 @@
         </div>
     </footer>
 
-    <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Custom JavaScript -->
     <script src="js/main.js"></script>
     <script>
         AOS.init({
@@ -285,11 +270,18 @@
             once: true
         });
 
-        // Contact Form
+        // ملاحظة: هذا الجزء من الكود يمنع الإرسال الافتراضي للنموذج ويعرض تنبيهاً.
+        // لمعالجة النموذج فعلياً، يجب ربطه بنص برمجي في الخلفية.
         document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Add form submission logic here
-            alert('سيتم إضافة منطق النموذج قريباً');
+            // e.preventDefault(); // قم بإزالة هذا السطر للسماح للنموذج بالإرسال إلى ملف submit-form.php
+            // Add form submission logic here (e.g., using Fetch API to send data asynchronously)
+            // alert('سيتم إضافة منطق إرسال النموذج هنا'); // قم بإزالة هذا السطر عند إضافة منطق الإرسال الفعلي
+        });
+
+         document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            // e.preventDefault(); // قم بإزالة هذا السطر للسماح للنموذج بالإرسال إلى ملف subscribe.php
+            // Add newsletter submission logic here
+            // alert('سيتم إضافة منطق الاشتراك في النشرة البريدية هنا'); // قم بإزالة هذا السطر
         });
     </script>
 </body>
