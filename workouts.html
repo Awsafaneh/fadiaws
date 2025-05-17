@@ -3,42 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>برامج التمارين - فادي للتمارين الرياضية</title>
+    <title>برامج التمارين - فادي</title>
     <!-- Bootstrap RTL CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <span class="brand-text">فادي</span>
-            </a>
+            <a class="navbar-brand" href="index.html">فادي</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="fas fa-bars"></i>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">الرئيسية</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="workouts.html">برامج التمارين</a>
+                        <a class="nav-link active" href="workouts.html">تمارين</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="nutrition.html">النصائح الغذائية</a>
+                        <a class="nav-link" href="nutrition.html">تغذية</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="goals.html">أهداف اللياقة</a>
+                        <a class="nav-link" href="goals.html">أهداف</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tips.html">نصائح عامة</a>
+                        <a class="nav-link" href="tips.html">نصائح</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">اتصل بنا</a>
@@ -54,67 +52,67 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h1>برامج التمارين</h1>
-                    <p class="lead">اكتشف مجموعة متنوعة من برامج التمارين المناسبة لمستواك وأهدافك</p>
-                </div>
-            </div>
+            <h1>برامج التمارين</h1>
+            <p class="lead">اكتشف مجموعة متنوعة من برامج التمارين المخصصة لجميع المستويات</p>
         </div>
     </section>
 
     <!-- Workout Categories -->
     <section class="workout-categories py-5">
         <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2>فئات التمارين</h2>
+                <p>اختر الفئة التي تناسب أهدافك ومستواك</p>
+            </div>
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="category-card">
-                        <div class="category-image">
-                            <img src="assets/img/strength.jpg" alt="تمارين القوة" class="img-fluid">
+                    <div class="card workout-card">
+                        <div class="card-img-top">
+                            <img src="assets/img/workout-1.jpg" alt="تمارين القوة" class="img-fluid">
                         </div>
-                        <div class="category-content p-4">
+                        <div class="card-body">
                             <h3>تمارين القوة</h3>
-                            <p>برامج تمارين القوة لبناء العضلات وزيادة القوة البدنية</p>
-                            <ul class="category-features">
-                                <li><i class="fas fa-check"></i> تمارين الأوزان الحرة</li>
-                                <li><i class="fas fa-check"></i> تمارين الآلات</li>
-                                <li><i class="fas fa-check"></i> تمارين وزن الجسم</li>
+                            <p>برامج متخصصة لبناء العضلات وزيادة القوة</p>
+                            <ul class="workout-features">
+                                <li><i class="fas fa-check"></i> تمارين متنوعة</li>
+                                <li><i class="fas fa-check"></i> خطط مخصصة</li>
+                                <li><i class="fas fa-check"></i> متابعة التقدم</li>
                             </ul>
-                            <a href="#strength" class="btn btn-primary">عرض البرامج</a>
+                            <a href="#" class="btn btn-primary w-100">ابدأ الآن</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="category-card">
-                        <div class="category-image">
-                            <img src="assets/img/cardio.jpg" alt="تمارين الكارديو" class="img-fluid">
+                    <div class="card workout-card">
+                        <div class="card-img-top">
+                            <img src="assets/img/workout-2.jpg" alt="تمارين القلب" class="img-fluid">
                         </div>
-                        <div class="category-content p-4">
-                            <h3>تمارين الكارديو</h3>
-                            <p>برامج تمارين الكارديو لتحسين اللياقة القلبية والتنفسية</p>
-                            <ul class="category-features">
-                                <li><i class="fas fa-check"></i> الجري والركض</li>
-                                <li><i class="fas fa-check"></i> ركوب الدراجة</li>
-                                <li><i class="fas fa-check"></i> تمارين HIIT</li>
+                        <div class="card-body">
+                            <h3>تمارين القلب</h3>
+                            <p>برامج لتحسين اللياقة القلبية والتنفسية</p>
+                            <ul class="workout-features">
+                                <li><i class="fas fa-check"></i> تمارين متنوعة</li>
+                                <li><i class="fas fa-check"></i> خطط مخصصة</li>
+                                <li><i class="fas fa-check"></i> متابعة التقدم</li>
                             </ul>
-                            <a href="#cardio" class="btn btn-primary">عرض البرامج</a>
+                            <a href="#" class="btn btn-primary w-100">ابدأ الآن</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="category-card">
-                        <div class="category-image">
-                            <img src="assets/img/flexibility.jpg" alt="تمارين المرونة" class="img-fluid">
+                    <div class="card workout-card">
+                        <div class="card-img-top">
+                            <img src="assets/img/workout-3.jpg" alt="تمارين المرونة" class="img-fluid">
                         </div>
-                        <div class="category-content p-4">
+                        <div class="card-body">
                             <h3>تمارين المرونة</h3>
-                            <p>برامج تمارين المرونة لتحسين مرونة الجسم وتقليل الإصابات</p>
-                            <ul class="category-features">
-                                <li><i class="fas fa-check"></i> تمارين الإطالة</li>
-                                <li><i class="fas fa-check"></i> اليوغا</li>
-                                <li><i class="fas fa-check"></i> البيلاتس</li>
+                            <p>برامج لتحسين المرونة والتوازن</p>
+                            <ul class="workout-features">
+                                <li><i class="fas fa-check"></i> تمارين متنوعة</li>
+                                <li><i class="fas fa-check"></i> خطط مخصصة</li>
+                                <li><i class="fas fa-check"></i> متابعة التقدم</li>
                             </ul>
-                            <a href="#flexibility" class="btn btn-primary">عرض البرامج</a>
+                            <a href="#" class="btn btn-primary w-100">ابدأ الآن</a>
                         </div>
                     </div>
                 </div>
@@ -122,188 +120,51 @@
         </div>
     </section>
 
-    <!-- Strength Programs -->
-    <section id="strength" class="workout-programs py-5 bg-light">
+    <!-- Featured Programs -->
+    <section class="featured-programs py-5 bg-light">
         <div class="container">
             <div class="section-header text-center mb-5">
-                <h2>برامج تمارين القوة</h2>
-                <p class="lead">برامج متنوعة لبناء العضلات وزيادة القوة البدنية</p>
+                <h2>البرامج المميزة</h2>
+                <p>اكتشف برامجنا الأكثر شعبية</p>
             </div>
             <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
+                <div class="col-lg-6">
                     <div class="program-card">
                         <div class="program-image">
-                            <img src="assets/img/strength-1.jpg" alt="برنامج المبتدئين" class="img-fluid">
+                            <img src="assets/img/program-1.jpg" alt="برنامج المبتدئين" class="img-fluid">
+                            <div class="program-overlay">
+                                <span class="program-level">مبتدئ</span>
+                            </div>
                         </div>
-                        <div class="program-content p-4">
+                        <div class="program-content">
                             <h3>برنامج المبتدئين</h3>
-                            <p>برنامج تمارين قوة للمبتدئين لبناء أساس قوي</p>
-                            <ul class="program-details">
-                                <li><i class="fas fa-clock"></i> 45 دقيقة</li>
-                                <li><i class="fas fa-fire"></i> مستوى: مبتدئ</li>
+                            <p>برنامج مثالي للمبتدئين في عالم اللياقة البدنية</p>
+                            <ul class="program-features">
+                                <li><i class="fas fa-clock"></i> 30 دقيقة يومياً</li>
                                 <li><i class="fas fa-calendar"></i> 3 مرات أسبوعياً</li>
+                                <li><i class="fas fa-dumbbell"></i> تمارين بسيطة</li>
                             </ul>
-                            <a href="#" class="btn btn-outline-primary">عرض التفاصيل</a>
+                            <a href="#" class="btn btn-primary">تعرف على البرنامج</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-lg-6">
                     <div class="program-card">
                         <div class="program-image">
-                            <img src="assets/img/strength-2.jpg" alt="برنامج المتوسطين" class="img-fluid">
+                            <img src="assets/img/program-2.jpg" alt="برنامج المتقدمين" class="img-fluid">
+                            <div class="program-overlay">
+                                <span class="program-level">متقدم</span>
+                            </div>
                         </div>
-                        <div class="program-content p-4">
-                            <h3>برنامج المتوسطين</h3>
-                            <p>برنامج تمارين قوة للمتوسطين لزيادة القوة والكتلة العضلية</p>
-                            <ul class="program-details">
-                                <li><i class="fas fa-clock"></i> 60 دقيقة</li>
-                                <li><i class="fas fa-fire"></i> مستوى: متوسط</li>
-                                <li><i class="fas fa-calendar"></i> 4 مرات أسبوعياً</li>
-                            </ul>
-                            <a href="#" class="btn btn-outline-primary">عرض التفاصيل</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="program-card">
-                        <div class="program-image">
-                            <img src="assets/img/strength-3.jpg" alt="برنامج المتقدمين" class="img-fluid">
-                        </div>
-                        <div class="program-content p-4">
+                        <div class="program-content">
                             <h3>برنامج المتقدمين</h3>
-                            <p>برنامج تمارين قوة متقدم لتحقيق أقصى استفادة</p>
-                            <ul class="program-details">
-                                <li><i class="fas fa-clock"></i> 75 دقيقة</li>
-                                <li><i class="fas fa-fire"></i> مستوى: متقدم</li>
+                            <p>برنامج مكثف للمتقدمين في اللياقة البدنية</p>
+                            <ul class="program-features">
+                                <li><i class="fas fa-clock"></i> 60 دقيقة يومياً</li>
                                 <li><i class="fas fa-calendar"></i> 5 مرات أسبوعياً</li>
+                                <li><i class="fas fa-dumbbell"></i> تمارين متقدمة</li>
                             </ul>
-                            <a href="#" class="btn btn-outline-primary">عرض التفاصيل</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cardio Programs -->
-    <section id="cardio" class="workout-programs py-5">
-        <div class="container">
-            <div class="section-header text-center mb-5">
-                <h2>برامج تمارين الكارديو</h2>
-                <p class="lead">برامج متنوعة لتحسين اللياقة القلبية والتنفسية</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="program-card">
-                        <div class="program-image">
-                            <img src="assets/img/cardio-1.jpg" alt="برنامج الجري" class="img-fluid">
-                        </div>
-                        <div class="program-content p-4">
-                            <h3>برنامج الجري</h3>
-                            <p>برنامج تدريجي للجري لتحسين اللياقة القلبية</p>
-                            <ul class="program-details">
-                                <li><i class="fas fa-clock"></i> 30 دقيقة</li>
-                                <li><i class="fas fa-fire"></i> مستوى: مبتدئ</li>
-                                <li><i class="fas fa-calendar"></i> 3 مرات أسبوعياً</li>
-                            </ul>
-                            <a href="#" class="btn btn-outline-primary">عرض التفاصيل</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="program-card">
-                        <div class="program-image">
-                            <img src="assets/img/cardio-2.jpg" alt="برنامج HIIT" class="img-fluid">
-                        </div>
-                        <div class="program-content p-4">
-                            <h3>برنامج HIIT</h3>
-                            <p>تمارين عالية الكثافة لفترات متقطعة</p>
-                            <ul class="program-details">
-                                <li><i class="fas fa-clock"></i> 45 دقيقة</li>
-                                <li><i class="fas fa-fire"></i> مستوى: متوسط</li>
-                                <li><i class="fas fa-calendar"></i> 4 مرات أسبوعياً</li>
-                            </ul>
-                            <a href="#" class="btn btn-outline-primary">عرض التفاصيل</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="program-card">
-                        <div class="program-image">
-                            <img src="assets/img/cardio-3.jpg" alt="برنامج الدراجة" class="img-fluid">
-                        </div>
-                        <div class="program-content p-4">
-                            <h3>برنامج الدراجة</h3>
-                            <p>برنامج تمارين الدراجة لتحسين اللياقة القلبية</p>
-                            <ul class="program-details">
-                                <li><i class="fas fa-clock"></i> 60 دقيقة</li>
-                                <li><i class="fas fa-fire"></i> مستوى: متقدم</li>
-                                <li><i class="fas fa-calendar"></i> 5 مرات أسبوعياً</li>
-                            </ul>
-                            <a href="#" class="btn btn-outline-primary">عرض التفاصيل</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Flexibility Programs -->
-    <section id="flexibility" class="workout-programs py-5 bg-light">
-        <div class="container">
-            <div class="section-header text-center mb-5">
-                <h2>برامج تمارين المرونة</h2>
-                <p class="lead">برامج متنوعة لتحسين مرونة الجسم وتقليل الإصابات</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="program-card">
-                        <div class="program-image">
-                            <img src="assets/img/flexibility-1.jpg" alt="برنامج الإطالة" class="img-fluid">
-                        </div>
-                        <div class="program-content p-4">
-                            <h3>برنامج الإطالة</h3>
-                            <p>تمارين إطالة أساسية لتحسين المرونة</p>
-                            <ul class="program-details">
-                                <li><i class="fas fa-clock"></i> 30 دقيقة</li>
-                                <li><i class="fas fa-fire"></i> مستوى: مبتدئ</li>
-                                <li><i class="fas fa-calendar"></i> 3 مرات أسبوعياً</li>
-                            </ul>
-                            <a href="#" class="btn btn-outline-primary">عرض التفاصيل</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="program-card">
-                        <div class="program-image">
-                            <img src="assets/img/flexibility-2.jpg" alt="برنامج اليوغا" class="img-fluid">
-                        </div>
-                        <div class="program-content p-4">
-                            <h3>برنامج اليوغا</h3>
-                            <p>تمارين يوغا لتحسين المرونة والتوازن</p>
-                            <ul class="program-details">
-                                <li><i class="fas fa-clock"></i> 45 دقيقة</li>
-                                <li><i class="fas fa-fire"></i> مستوى: متوسط</li>
-                                <li><i class="fas fa-calendar"></i> 4 مرات أسبوعياً</li>
-                            </ul>
-                            <a href="#" class="btn btn-outline-primary">عرض التفاصيل</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="program-card">
-                        <div class="program-image">
-                            <img src="assets/img/flexibility-3.jpg" alt="برنامج البيلاتس" class="img-fluid">
-                        </div>
-                        <div class="program-content p-4">
-                            <h3>برنامج البيلاتس</h3>
-                            <p>تمارين بيلاتس لتحسين القوة والمرونة</p>
-                            <ul class="program-details">
-                                <li><i class="fas fa-clock"></i> 60 دقيقة</li>
-                                <li><i class="fas fa-fire"></i> مستوى: متقدم</li>
-                                <li><i class="fas fa-calendar"></i> 5 مرات أسبوعياً</li>
-                            </ul>
-                            <a href="#" class="btn btn-outline-primary">عرض التفاصيل</a>
+                            <a href="#" class="btn btn-primary">تعرف على البرنامج</a>
                         </div>
                     </div>
                 </div>
@@ -316,8 +177,8 @@
         <div class="container">
             <div class="cta-content text-center">
                 <h2>جاهز لبدء رحلة اللياقة؟</h2>
-                <p class="lead">انضم إلينا اليوم وابدأ رحلة التحول نحو حياة صحية أفضل</p>
-                <a href="#" class="btn btn-primary btn-lg">اشترك الآن</a>
+                <p>اشترك الآن واحصل على خطة تمارين مخصصة</p>
+                <a href="#" class="btn btn-light btn-lg">اشترك الآن</a>
             </div>
         </div>
     </section>
@@ -325,53 +186,59 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="row g-4">
+            <div class="row">
                 <div class="col-lg-4">
                     <div class="footer-about">
-                        <h3 class="brand-text mb-3">فادي</h3>
-                        <p>نقدم أفضل برامج التمارين والنصائح الغذائية لمساعدتك في تحقيق أهدافك في اللياقة البدنية</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
+                        <h5>فادي</h5>
+                        <p>موقع متخصص في اللياقة والتغذية، نساعدك في تحقيق أهدافك الصحية واللياقية</p>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-4">
+                <div class="col-lg-4">
                     <h5>روابط سريعة</h5>
                     <ul class="footer-links">
-                        <li><a href="workouts.html">برامج التمارين</a></li>
-                        <li><a href="nutrition.html">النصائح الغذائية</a></li>
-                        <li><a href="goals.html">أهداف اللياقة</a></li>
-                        <li><a href="tips.html">نصائح عامة</a></li>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="workouts.html">تمارين</a></li>
+                        <li><a href="nutrition.html">تغذية</a></li>
+                        <li><a href="goals.html">أهداف</a></li>
+                        <li><a href="tips.html">نصائح</a></li>
                         <li><a href="contact.html">اتصل بنا</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-4">
+                <div class="col-lg-4">
                     <h5>تواصل معنا</h5>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-phone"></i> +123 456 7890</li>
-                        <li><i class="fas fa-envelope"></i> info@fadi-fitness.com</li>
+                    <ul class="footer-contact">
                         <li><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</li>
+                        <li><i class="fas fa-phone"></i> +966 123 456 789</li>
+                        <li><i class="fas fa-envelope"></i> info@fadi.com</li>
                     </ul>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <h5>النشرة البريدية</h5>
-                    <p>اشترك في نشرتنا البريدية للحصول على آخر الأخبار والنصائح</p>
-                    <form class="newsletter-form">
-                        <div class="input-group">
-                            <input type="email" class="form-control" placeholder="البريد الإلكتروني">
-                            <button class="btn btn-primary" type="submit">اشترك</button>
-                        </div>
-                    </form>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom text-center mt-5">
-                <p>&copy; 2024 فادي للتمارين. جميع الحقوق محفوظة</p>
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; 2024 فادي. جميع الحقوق محفوظة</p>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="footer-bottom-links">
+                            <li><a href="#">سياسة الخصوصية</a></li>
+                            <li><a href="#">الشروط والأحكام</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
