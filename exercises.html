@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برامج التمارين - فادي للياقة البدنية والتغذية الصحية</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --accent-color: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .logo i {
+            color: var(--secondary-color);
+            margin-left: 8px;
+            font-size: 1.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-right: 20px;
+        }
+        
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .active {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Mobile Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/300') center/cover no-repeat;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Exercise Programs */
+        .exercise-programs {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark-color);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 25%;
+            width: 50%;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+        
+        .program {
+            margin-bottom: 5rem;
+        }
+        
+        .program-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .exercise-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .exercise-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .exercise-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .exercise-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .exercise-card:hover .exercise-img img {
+            transform: scale(1.1);
+        }
+        
+        .exercise-content {
+            padding: 20px;
+        }
+        
+        .exercise-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .exercise-card .details {
+            margin-bottom: 15px;
+        }
+        
+        .exercise-card .detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        
+        .exercise-card .detail i {
+            color: var(--secondary-color);
+            margin-left: 5px;
+            font-size: 1rem;
+        }
+        
+        .exercise-card p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+        }
+        
+        /* Call to Action */
+        .cta {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/api/placeholder/1200/800') center/cover no-repeat;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-section p {
+            margin-bottom: 15px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: #444;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark-color);
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-dumbbell"></i>
+                فادي <span>للياقة</span>
+            </a>
+            <nav>
+                <ul id="navbar">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="exercises.html" class="active">برامج التمارين</a></li>
+                    <li><a href="nutrition.html">النصائح الغذائية</a></li>
+                    <li><a href="goals.html">أهداف اللياقة</a></li>
+                    <li><a href="blog.html">المدونة</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>برامج التمارين</h1>
+            <p>اكتشف مجموعة برامج التمارين المتخصصة التي تناسب جميع المستويات والأهداف، مع شرح مفصل لكيفية أدائها والفوائد الصحية المرتبطة بها</p>
+        </div>
+    </section>
+
+    <!-- Exercise Programs -->
+    <section class="exercise-programs">
+        <div class="container">
+            <!-- Strength Training -->
+            <div class="program">
+                <div class="section-title">
+                    <h2>تمارين القوة</h2>
+                </div>
+                <div class="program-container">
+                    <div class="exercise-card">
+                        <div class="exercise-img">
+                            <img src="/api/placeholder/400/300" alt="تمرين القرفصاء">
+                        </div>
+                        <div class="exercise-content">
+                            <h3>تمرين القرفصاء (Squat)</h3>
+                            <div class="details">
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>عدد المجموعات: 4 مجموعات</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>عدد التكرارات: 12-15 تكرار</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>المستوى: مبتدئ إلى متقدم</span>
+                                </div>
+                            </div>
+                            <p>تمرين القرفصاء هو أحد أهم تمارين القوة لتقوية عضلات الفخذين والمؤخرة والجزء السفلي من الجسم. يساعد على بناء العضلات وحرق الدهون وتحسين قوة الجسم بشكل عام.</p>
+                            <a href="#" class="btn">شاهد الشرح المفصل</a>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-img">
+                            <img src="/api/placeholder/400/300" alt="تمرين الضغط">
+                        </div>
+                        <div class="exercise-content">
+                            <h3>تمرين الضغط (Push-ups)</h3>
+                            <div class="details">
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>عدد المجموعات: 3 مجموعات</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>عدد التكرارات: 10-20 تكرار</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>المستوى: مبتدئ إلى متوسط</span>
+                                </div>
+                            </div>
+                            <p>تمرين الضغط يعمل على تقوية عضلات الصدر، الكتفين والذراعين. يمكن أداؤه في أي مكان دون الحاجة لمعدات، ويمكن تعديله ليناسب مستويات مختلفة من اللياقة البدنية.</p>
+                            <a href="#" class="btn">شاهد الشرح المفصل</a>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-img">
+                            <img src="/api/placeholder/400/300" alt="تمرين الديدلفت">
+                        </div>
+                        <div class="exercise-content">
+                            <h3>تمرين الديدلفت (Deadlift)</h3>
+                            <div class="details">
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>عدد المجموعات: 4 مجموعات</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>عدد التكرارات: 8-12 تكرار</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>المستوى: متوسط إلى متقدم</span>
+                                </div>
+                            </div>
+                            <p>تمرين الديدلفت من أفضل تمارين القوة الشاملة التي تستهدف عضلات الظهر، الأرداف، أوتار الركبة والفخذين. يساعد على تحسين القوة العامة وتصحيح وضعية الجسم.</p>
+                            <a href="#" class="btn">شاهد الشرح المفصل</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cardio Training -->
+            <div class="program">
+                <div class="section-title">
+                    <h2>تمارين الكارديو</h2>
+                </div>
+                <div class="program-container">
+                    <div class="exercise-card">
+                        <div class="exercise-img">
+                            <img src="/api/placeholder/400/300" alt="تمرين الجري">
+                        </div>
+                        <div class="exercise-content">
+                            <h3>الجري (Running)</h3>
+                            <div class="details">
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>المدة: 20-30 دقيقة</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>التكرار: 3-5 مرات أسبوعياً</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>المستوى: جميع المستويات</span>
+                                </div>
+                            </div>
+                            <p>الجري من أفضل تمارين الكارديو لحرق السعرات الحرارية وتحسين صحة القلب والأوعية الدموية. يمكن ممارسته في الهواء الطلق أو على جهاز المشي في الصالة الرياضية.</p>
+                            <a href="#" class="btn">شاهد النصائح والتقنيات</a>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-img">
+                            <img src="/api/placeholder/400/300" alt="تمرين القفز">
+                        </div>
+                        <div class="exercise-content">
+                            <h3>تمارين التدريب الفتري عالي الكثافة (HIIT)</h3>
+                            <div class="details">
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>المدة: 15-20 دقيقة</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>التكرار: 2-3 مرات أسبوعياً</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>المستوى: متوسط إلى متقدم</span>
+                                </div>
+                            </div>
+                            <p>تمارين HIIT تعتمد على فترات قصيرة من الجهد المكثف تتبعها فترات راحة قصيرة. تعتبر فعالة جداً لحرق الدهون وتحسين اللياقة البدنية في وقت قصير نسبياً.</p>
+                            <a href="#" class="btn">شاهد برنامج تدريبي كامل</a>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-img">
+                            <img src="/api/placeholder/400/300" alt="تمرين السباحة">
+                        </div>
+                        <div class="exercise-content">
+                            <h3>السباحة (Swimming)</h3>
+                            <div class="details">
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>المدة: 30-45 دقيقة</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>التكرار: 2-3 مرات أسبوعياً</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>المستوى: جميع المستويات</span>
+                                </div>
+                            </div>
+                            <p>السباحة تمرين متكامل للجسم يساعد على تقوية العضلات وتحسين القدرة على التحمل. كما أنها لطيفة على المفاصل مما يجعلها مناسبة لجميع الأعمار والمستويات.</p>
+                            <a href="#" class="btn">تعرف على تقنيات السباحة</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Flexibility Training -->
+            <div class="program">
+                <div class="section-title">
+                    <h2>تمارين المرونة</h2>
+                </div>
+                <div class="program-container">
+                    <div class="exercise-card">
+                        <div class="exercise-img">
+                            <img src="/api/placeholder/400/300" alt="تمارين اليوغا">
+                        </div>
+                        <div class="exercise-content">
+                            <h3>اليوغا (Yoga)</h3>
+                            <div class="details">
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>المدة: 30-60 دقيقة</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>التكرار: 2-5 مرات أسبوعياً</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>المستوى: جميع المستويات</span>
+                                </div>
+                            </div>
+                            <p>اليوغا تجمع بين تمارين التمدد والقوة والتوازن والتنفس. تساعد على تحسين المرونة، تقليل التوتر وتحسين الصحة العامة للجسم والعقل.</p>
+                            <a href="#" class="btn">شاهد تمارين للمبتدئين</a>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-img">
+                            <img src="/api/placeholder/400/300" alt="تمارين التمدد">
+                        </div>
+                        <div class="exercise-content">
+                            <h3>تمارين التمدد الديناميكي (Dynamic Stretching)</h3>
+                            <div class="details">
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>المدة: 10-15 دقيقة</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>التكرار: قبل كل تمرين</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>المستوى: جميع المستويات</span>
+                                </div>
+                            </div>
+                            <p>التمدد الديناميكي يشمل حركات نشطة تحضر الجسم للنشاط البدني. يساعد على تحسين نطاق الحركة، زيادة تدفق الدم للعضلات وتقليل خطر الإصابة أثناء التمرين.</p>
+                            <a href="#" class="btn">شاهد روتين التمدد الديناميكي</a>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <div class="exercise-img">
+                            <img src="/api/placeholder/400/300" alt="تمارين البيلاتس">
+                        </div>
+                        <div class="exercise-content">
+                            <h3>البيلاتس (Pilates)</h3>
+                            <div class="details">
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>المدة: 30-45 دقيقة</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>التكرار: 2-3 مرات أسبوعياً</span>
+                                </div>
+                                <div class="detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>المستوى: جميع المستويات</span>
+                                </div>
+                            </div>
+                            <p>البيلاتس يركز على تقوية عضلات البطن والظهر (عضلات الجذع) مع التركيز على التنفس والمرونة. يساعد على تحسين الوضعية، زيادة المرونة وتقوية العضلات العميقة.</p>
+                            <a href="#" class="btn">شاهد تمارين البيلاتس الأساسية</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2>جاهز لبدء رحلة اللياقة البدنية؟</h2>
+            <p>احصل على خطة تمارين مخصصة تناسب أهدافك ومستواك الحالي. تواصل معنا الآن للحصول على استشارة مجانية!</p>
+            <a href="contact.html" class="btn">تواصل معنا</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>فادي للياقة</h3>
+                    <p>منصتك الشاملة لكل ما يتعلق باللياقة البدنية والتغذية الصحية والحفاظ على نمط حياة صحي.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="exercises.html">برامج التمارين</a></li>
+                        <li><a href="nutrition.html">النصائح الغذائية</a></li>
+                        <li><a href="goals.html">أهداف اللياقة</a></li>
+                        <li><a href="blog.html">المدونة</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
