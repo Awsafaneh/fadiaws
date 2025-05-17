@@ -215,15 +215,16 @@
             transform: translateY(-2px);
         }
 
-        /* Specific styles for Contact Form and Map */
-        .contact-flex-container { /* Flexbox for form and map side-by-side */
+        /* Specific styles for Contact Form */
+        .contact-flex-container { /* Flexbox container */
             display: flex;
-            gap: 40px;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 40px; /* Kept gap */
+            flex-wrap: wrap; /* Allow wrapping */
+            /* No longer need specific styles for .map-col */
         }
 
-        .contact-form-col, .map-col {
-            flex: 1; /* Both take equal space */
+        .contact-form-col {
+            flex: 1; /* Form column takes available space */
              min-width: 300px; /* Minimum width before wrapping */
         }
 
@@ -267,21 +268,8 @@
             resize: vertical; /* Allow vertical resizing */
         }
 
+        /* Removed map-container and map-col styles */
 
-        .map-container { /* Container for the map */
-             background-color: white; /* Optional: background for the map container */
-             padding: 10px; /* Optional: padding around the map */
-             border-radius: 8px;
-             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-             height: 450px; /* Set height */
-             overflow: hidden; /* Ensure map doesn't overflow rounded corners */
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0; /* Remove iframe border */
-        }
 
         /* Specific styles for FAQ */
         .faq-item { /* Style for each FAQ question/answer block */
@@ -425,6 +413,13 @@
             .about-content {
                 flex-direction: column;
             }
+             /* Adjusted responsive style for contact form to take full width */
+             .contact-flex-container {
+                 flex-direction: column;
+             }
+             .contact-form-col { /* Removed .map-col from this rule */
+                  min-width: 100%;
+             }
         }
 
         @media (max-width: 768px) {
@@ -480,18 +475,7 @@
                  justify-content: center; /* Center social icons on mobile */
              }
 
-
         }
-        /* Responsive styles for contact page layout */
-         @media (max-width: 900px) {
-             .contact-flex-container {
-                 flex-direction: column;
-             }
-             .contact-form-col, .map-col {
-                  min-width: 100%;
-             }
-         }
-
 
         @media (max-width: 500px) {
             .hero h1 {
@@ -519,7 +503,8 @@
                     <li><a href="exercises.html">برامج التمارين</a></li>
                     <li><a href="nutrition.html">النصائح الغذائية</a></li>
                     <li><a href="goals.html">أهداف اللياقة</a></li>
-                    <li><a href="general-tips.html">نصائح عامة</a></li> <li><a href="contact.html" class="active">اتصل بنا</a></li> </ul>
+                    <li><a href="general-tips.html">نصائح عامة</a></li>
+                    <li><a href="contact.html" class="active">اتصل بنا</a></li> </ul>
                 <button class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -556,8 +541,7 @@
             </div>
 
             <div class="contact-flex-container">
-                 <div class="contact-form-col">
-                     <div class="contact-form-box">
+                 <div class="contact-form-col" style="flex-grow: 1; width: 100%;"> <div class="contact-form-box">
                          <h3>راسلنا مباشرة</h3>
                          <form action="submit-form.php" method="POST">
                             <div class="form-group">
@@ -590,12 +574,7 @@
                         </form>
                      </div>
                  </div>
-                 <div class="map-col">
-                     <div class="map-container">
-                         <iframe src="ضع_رابط_تضمين_Maps_الفعلي_هنا" allowfullscreen="" loading="lazy"></iframe>
-                         </div>
                  </div>
-             </div>
 
              <div class="section-title" style="margin-top: 60px;">
                  <h2>الأسئلة الشائعة</h2>
@@ -654,7 +633,8 @@
                         <li><a href="exercises.html">برامج التمارين</a></li>
                         <li><a href="nutrition.html">النصائح الغذائية</a></li>
                         <li><a href="goals.html">أهداف اللياقة</a></li>
-                        <li><a href="general-tips.html">نصائح عامة</a></li> <li><a href="contact.html">اتصل بنا</a></li>
+                        <li><a href="general-tips.html">نصائح عامة</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
