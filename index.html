@@ -249,6 +249,16 @@
              min-width: 300px; /* Minimum width before wrapping */
         }
 
+         /* Added/Updated style for the video title */
+         .about-video h3 {
+             color: var(--dark-color); /* Color for the title */
+             margin-bottom: 15px; /* Space below the title */
+             text-align: center; /* Center the title above the video */
+             font-size: 1.6rem; /* Increased font size for prominence */
+             font-weight: bold; /* Ensure bold if needed */
+         }
+
+
         .about-video video {
              display: block; /* Remove extra space below video */
             width: 100%; /* Make video fill its container */
@@ -709,8 +719,8 @@
         <div class="container">
             <div class="about-content">
                  <div class="about-video">
-                    <video controls>
-                        <source src="video.mp4" type="video/mp4">
+                     <h3>غذائنا السليم سر صحتنا</h3>
+                    <video controls> <source src="video.mp4" type="video/mp4">
                         متصفحك لا يدعم عرض الفيديو.
                     </video>
                 </div>
