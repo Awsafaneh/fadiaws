@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -20,7 +18,7 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="assets/images/logo.png" alt="فادي للتمارين" height="50">
+                <span class="brand-text">فادي</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <i class="fas fa-bars"></i>
@@ -40,11 +38,13 @@
                         <a class="nav-link" href="goals.html">أهداف اللياقة</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="tips.html">نصائح عامة</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="contact.html">اتصل بنا</a>
                     </li>
                 </ul>
                 <div class="nav-buttons">
-                    <a href="#" class="btn btn-outline-primary me-2">تسجيل الدخول</a>
                     <a href="#" class="btn btn-primary">اشترك الآن</a>
                 </div>
             </div>
@@ -52,260 +52,183 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="page-header">
+    <section class="page-header">
         <div class="container">
-            <div class="row align-items-center min-vh-50">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <h1 class="display-4 fw-bold">النصائح الغذائية</h1>
-                    <p class="lead">خطط غذائية متوازنة لتحقيق أفضل النتائج مع برامج التمارين</p>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <img src="assets/images/nutrition-header.jpg" alt="النصائح الغذائية" class="img-fluid rounded-3">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1>النصائح الغذائية</h1>
+                    <p class="lead">اكتشف أفضل النصائح الغذائية وخطط الوجبات الصحية</p>
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- Nutrition Tips -->
-    <section class="nutrition-tips py-5">
+    <!-- Diet Plans Section -->
+    <section class="diet-plans py-5">
         <div class="container">
-            <div class="section-header text-center mb-5" data-aos="fade-up">
-                <h2>نصائح غذائية أساسية</h2>
-                <p>إرشادات مهمة لتحسين نظامك الغذائي</p>
+            <div class="section-header text-center mb-5">
+                <h2>خطط التغذية</h2>
+                <p class="lead">خطط تغذية متنوعة تناسب أهدافك واحتياجاتك</p>
             </div>
-            <div class="row">
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="tip-card">
-                        <div class="icon">
-                            <i class="fas fa-balance-scale"></i>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="diet-card">
+                        <div class="diet-image">
+                            <img src="assets/img/diet-1.jpg" alt="نظام غذائي لزيادة العضلات" class="img-fluid">
                         </div>
-                        <h3>توازن العناصر الغذائية</h3>
-                        <p>تأكد من تناول وجبات متوازنة تحتوي على البروتين والكربوهيدرات والدهون الصحية</p>
+                        <div class="diet-content p-4">
+                            <h3>نظام غذائي لزيادة العضلات</h3>
+                            <p>خطة تغذية متكاملة لبناء العضلات وزيادة القوة</p>
+                            <ul class="diet-features">
+                                <li><i class="fas fa-check"></i> وجبات غنية بالبروتين</li>
+                                <li><i class="fas fa-check"></i> خطة وجبات أسبوعية</li>
+                                <li><i class="fas fa-check"></i> نصائح للوجبات الخفيفة</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary">عرض الخطة</a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-6 col-lg-4">
+                    <div class="diet-card">
+                        <div class="diet-image">
+                            <img src="assets/img/diet-2.jpg" alt="نظام غذائي لخسارة الوزن" class="img-fluid">
+                        </div>
+                        <div class="diet-content p-4">
+                            <h3>نظام غذائي لخسارة الوزن</h3>
+                            <p>خطة تغذية صحية لخسارة الوزن بشكل صحي ومستدام</p>
+                            <ul class="diet-features">
+                                <li><i class="fas fa-check"></i> وجبات منخفضة السعرات</li>
+                                <li><i class="fas fa-check"></i> خطة وجبات أسبوعية</li>
+                                <li><i class="fas fa-check"></i> نصائح للتحكم في الشهية</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary">عرض الخطة</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="diet-card">
+                        <div class="diet-image">
+                            <img src="assets/img/diet-3.jpg" alt="نظام غذائي للحفاظ على الوزن" class="img-fluid">
+                        </div>
+                        <div class="diet-content p-4">
+                            <h3>نظام غذائي للحفاظ على الوزن</h3>
+                            <p>خطة تغذية متوازنة للحفاظ على وزن صحي</p>
+                            <ul class="diet-features">
+                                <li><i class="fas fa-check"></i> وجبات متوازنة</li>
+                                <li><i class="fas fa-check"></i> خطة وجبات أسبوعية</li>
+                                <li><i class="fas fa-check"></i> نصائح للحفاظ على الوزن</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary">عرض الخطة</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Healthy Recipes Section -->
+    <section class="recipes-section py-5 bg-light">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2>وصفات صحية</h2>
+                <p class="lead">وصفات صحية ولذيذة لمساعدتك في تحقيق أهدافك</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="recipe-card">
+                        <div class="recipe-image">
+                            <img src="assets/img/recipe-1.jpg" alt="سلطة البروتين" class="img-fluid">
+                        </div>
+                        <div class="recipe-content p-4">
+                            <h3>سلطة البروتين</h3>
+                            <p>سلطة غنية بالبروتين والخضروات الطازجة</p>
+                            <div class="recipe-details">
+                                <span><i class="fas fa-clock"></i> 15 دقيقة</span>
+                                <span><i class="fas fa-fire"></i> 350 سعرة</span>
+                            </div>
+                            <a href="#" class="btn btn-outline-primary">عرض الوصفة</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="recipe-card">
+                        <div class="recipe-image">
+                            <img src="assets/img/recipe-2.jpg" alt="شوربة الخضار" class="img-fluid">
+                        </div>
+                        <div class="recipe-content p-4">
+                            <h3>شوربة الخضار</h3>
+                            <p>شوربة صحية غنية بالخضروات والألياف</p>
+                            <div class="recipe-details">
+                                <span><i class="fas fa-clock"></i> 30 دقيقة</span>
+                                <span><i class="fas fa-fire"></i> 200 سعرة</span>
+                            </div>
+                            <a href="#" class="btn btn-outline-primary">عرض الوصفة</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="recipe-card">
+                        <div class="recipe-image">
+                            <img src="assets/img/recipe-3.jpg" alt="وجبة البروتين" class="img-fluid">
+                        </div>
+                        <div class="recipe-content p-4">
+                            <h3>وجبة البروتين</h3>
+                            <p>وجبة غنية بالبروتين والكربوهيدرات الصحية</p>
+                            <div class="recipe-details">
+                                <span><i class="fas fa-clock"></i> 25 دقيقة</span>
+                                <span><i class="fas fa-fire"></i> 450 سعرة</span>
+                            </div>
+                            <a href="#" class="btn btn-outline-primary">عرض الوصفة</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nutrition Tips Section -->
+    <section class="tips-section py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2>نصائح غذائية</h2>
+                <p class="lead">نصائح مهمة لتحسين عاداتك الغذائية</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
                     <div class="tip-card">
-                        <div class="icon">
-                            <i class="fas fa-tint"></i>
+                        <div class="tip-icon">
+                            <i class="fas fa-water"></i>
                         </div>
                         <h3>شرب الماء</h3>
-                        <p>اشرب كمية كافية من الماء يومياً للحفاظ على رطوبة الجسم</p>
+                        <p>اشرب 8 أكواب من الماء يومياً للحفاظ على رطوبة الجسم</p>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-6 col-lg-3">
                     <div class="tip-card">
-                        <div class="icon">
+                        <div class="tip-icon">
+                            <i class="fas fa-apple-whole"></i>
+                        </div>
+                        <h3>الفواكه والخضروات</h3>
+                        <p>تناول 5 حصص من الفواكه والخضروات يومياً</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-drumstick-bite"></i>
+                        </div>
+                        <h3>البروتين</h3>
+                        <p>تناول البروتين في كل وجبة لبناء العضلات</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="tip-card">
+                        <div class="tip-icon">
                             <i class="fas fa-clock"></i>
                         </div>
-                        <h3>توقيت الوجبات</h3>
-                        <p>تناول وجباتك في أوقات منتظمة وخاصة قبل وبعد التمارين</p>
+                        <h3>مواعيد الوجبات</h3>
+                        <p>تناول وجباتك في مواعيد منتظمة</p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Meal Plans -->
-    <section class="meal-plans py-5 bg-light">
-        <div class="container">
-            <div class="section-header text-center mb-5" data-aos="fade-up">
-                <h2>خطط الوجبات</h2>
-                <p>اختر الخطة المناسبة لأهدافك</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="meal-plan-card">
-                        <div class="plan-header">
-                            <h3>خطة بناء العضلات</h3>
-                            <span class="plan-type">عالية البروتين</span>
-                        </div>
-                        <div class="plan-content">
-                            <ul class="plan-features">
-                                <li><i class="fas fa-check"></i> 5 وجبات يومياً</li>
-                                <li><i class="fas fa-check"></i> 2.2 جرام بروتين/كجم</li>
-                                <li><i class="fas fa-check"></i> وجبات ما قبل وبعد التمرين</li>
-                                <li><i class="fas fa-check"></i> مكملات غذائية موصى بها</li>
-                            </ul>
-                            <div class="plan-footer">
-                                <span class="plan-price">199 ريال/شهرياً</span>
-                                <a href="#" class="btn btn-primary">اشترك الآن</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="meal-plan-card">
-                        <div class="plan-header">
-                            <h3>خطة إنقاص الوزن</h3>
-                            <span class="plan-type">منخفضة السعرات</span>
-                        </div>
-                        <div class="plan-content">
-                            <ul class="plan-features">
-                                <li><i class="fas fa-check"></i> 4 وجبات يومياً</li>
-                                <li><i class="fas fa-check"></i> عجز 500 سعرة حرارية</li>
-                                <li><i class="fas fa-check"></i> وجبات مشبعة</li>
-                                <li><i class="fas fa-check"></i> نصائح للتحكم بالجوع</li>
-                            </ul>
-                            <div class="plan-footer">
-                                <span class="plan-price">179 ريال/شهرياً</span>
-                                <a href="#" class="btn btn-primary">اشترك الآن</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="meal-plan-card">
-                        <div class="plan-header">
-                            <h3>خطة الحفاظ على الوزن</h3>
-                            <span class="plan-type">متوازنة</span>
-                        </div>
-                        <div class="plan-content">
-                            <ul class="plan-features">
-                                <li><i class="fas fa-check"></i> 3 وجبات رئيسية</li>
-                                <li><i class="fas fa-check"></i> وجبتين خفيفتين</li>
-                                <li><i class="fas fa-check"></i> تنوع في الأطعمة</li>
-                                <li><i class="fas fa-check"></i> وصفات صحية</li>
-                            </ul>
-                            <div class="plan-footer">
-                                <span class="plan-price">159 ريال/شهرياً</span>
-                                <a href="#" class="btn btn-primary">اشترك الآن</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sample Meals -->
-    <section class="sample-meals py-5">
-        <div class="container">
-            <div class="section-header text-center mb-5" data-aos="fade-up">
-                <h2>وجبات نموذجية</h2>
-                <p>أمثلة على وجبات صحية ومتوازنة</p>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="meal-card">
-                        <div class="meal-image">
-                            <img src="assets/images/breakfast.jpg" alt="وجبة الإفطار" class="img-fluid">
-                            <span class="meal-type">الإفطار</span>
-                        </div>
-                        <div class="meal-content">
-                            <h3>وجبة الإفطار المتكاملة</h3>
-                            <ul class="meal-ingredients">
-                                <li>شوفان مع الحليب</li>
-                                <li>موز</li>
-                                <li>بيض مسلوق</li>
-                                <li>خبز توست</li>
-                            </ul>
-                            <div class="meal-nutrition">
-                                <span><i class="fas fa-fire"></i> 450 سعرة</span>
-                                <span><i class="fas fa-drumstick-bite"></i> 25g بروتين</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="meal-card">
-                        <div class="meal-image">
-                            <img src="assets/images/lunch.jpg" alt="وجبة الغداء" class="img-fluid">
-                            <span class="meal-type">الغداء</span>
-                        </div>
-                        <div class="meal-content">
-                            <h3>وجبة الغداء الصحية</h3>
-                            <ul class="meal-ingredients">
-                                <li>صدر دجاج مشوي</li>
-                                <li>أرز بني</li>
-                                <li>سلطة خضراء</li>
-                                <li>خضار مشوية</li>
-                            </ul>
-                            <div class="meal-nutrition">
-                                <span><i class="fas fa-fire"></i> 600 سعرة</span>
-                                <span><i class="fas fa-drumstick-bite"></i> 35g بروتين</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="meal-card">
-                        <div class="meal-image">
-                            <img src="assets/images/snack.jpg" alt="وجبة خفيفة" class="img-fluid">
-                            <span class="meal-type">وجبة خفيفة</span>
-                        </div>
-                        <div class="meal-content">
-                            <h3>وجبة خفيفة صحية</h3>
-                            <ul class="meal-ingredients">
-                                <li>زبادي يوناني</li>
-                                <li>توت</li>
-                                <li>مكسرات</li>
-                                <li>عسل</li>
-                            </ul>
-                            <div class="meal-nutrition">
-                                <span><i class="fas fa-fire"></i> 300 سعرة</span>
-                                <span><i class="fas fa-drumstick-bite"></i> 15g بروتين</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="meal-card">
-                        <div class="meal-image">
-                            <img src="assets/images/dinner.jpg" alt="وجبة العشاء" class="img-fluid">
-                            <span class="meal-type">العشاء</span>
-                        </div>
-                        <div class="meal-content">
-                            <h3>وجبة العشاء الخفيفة</h3>
-                            <ul class="meal-ingredients">
-                                <li>سمك مشوي</li>
-                                <li>بطاطا حلوة</li>
-                                <li>سلطة</li>
-                                <li>خضار</li>
-                            </ul>
-                            <div class="meal-nutrition">
-                                <span><i class="fas fa-fire"></i> 500 سعرة</span>
-                                <span><i class="fas fa-drumstick-bite"></i> 30g بروتين</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Nutrition Calculator -->
-    <section class="nutrition-calculator py-5 bg-light">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
-                    <h2>احسب احتياجاتك اليومية</h2>
-                    <p>استخدم حاسبة السعرات الحرارية لمعرفة احتياجاتك اليومية من السعرات والبروتين</p>
-                    <form class="calculator-form">
-                        <div class="mb-3">
-                            <label class="form-label">الوزن (كجم)</label>
-                            <input type="number" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">الطول (سم)</label>
-                            <input type="number" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">العمر</label>
-                            <input type="number" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">مستوى النشاط</label>
-                            <select class="form-select">
-                                <option>قليل النشاط</option>
-                                <option>نشاط متوسط</option>
-                                <option>نشاط عالي</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary">احسب</button>
-                    </form>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <img src="assets/images/calculator.jpg" alt="حاسبة السعرات" class="img-fluid rounded-3">
                 </div>
             </div>
         </div>
@@ -314,21 +237,21 @@
     <!-- CTA Section -->
     <section class="cta-section py-5">
         <div class="container">
-            <div class="cta-content text-center" data-aos="fade-up">
-                <h2>جاهز لبدء رحلة التغذية الصحية؟</h2>
-                <p>احصل على خطة غذائية مخصصة تناسب أهدافك</p>
+            <div class="cta-content text-center">
+                <h2>جاهز لبدء رحلة اللياقة؟</h2>
+                <p class="lead">انضم إلينا اليوم وابدأ رحلة التحول نحو حياة صحية أفضل</p>
                 <a href="#" class="btn btn-primary btn-lg">اشترك الآن</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer py-5">
+    <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
+            <div class="row g-4">
+                <div class="col-lg-4">
                     <div class="footer-about">
-                        <img src="assets/images/logo.png" alt="فادي للتمارين" height="50" class="mb-3">
+                        <h3 class="brand-text mb-3">فادي</h3>
                         <p>نقدم أفضل برامج التمارين والنصائح الغذائية لمساعدتك في تحقيق أهدافك في اللياقة البدنية</p>
                         <div class="social-links">
                             <a href="#"><i class="fab fa-facebook"></i></a>
@@ -338,24 +261,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-4 mb-4">
+                <div class="col-lg-2 col-md-4">
                     <h5>روابط سريعة</h5>
                     <ul class="footer-links">
                         <li><a href="workouts.html">برامج التمارين</a></li>
                         <li><a href="nutrition.html">النصائح الغذائية</a></li>
                         <li><a href="goals.html">أهداف اللياقة</a></li>
+                        <li><a href="tips.html">نصائح عامة</a></li>
                         <li><a href="contact.html">اتصل بنا</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-4 mb-4">
+                <div class="col-lg-3 col-md-4">
                     <h5>تواصل معنا</h5>
-                    <ul class="footer-contact">
+                    <ul class="footer-links">
                         <li><i class="fas fa-phone"></i> +123 456 7890</li>
                         <li><i class="fas fa-envelope"></i> info@fadi-fitness.com</li>
                         <li><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-4 mb-4">
+                <div class="col-lg-3 col-md-4">
                     <h5>النشرة البريدية</h5>
                     <p>اشترك في نشرتنا البريدية للحصول على آخر الأخبار والنصائح</p>
                     <form class="newsletter-form">
@@ -366,40 +290,15 @@
                     </form>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>&copy; 2024 فادي للتمارين. جميع الحقوق محفوظة</p>
-                    </div>
-                    <div class="col-md-6 text-end">
-                        <ul class="footer-bottom-links">
-                            <li><a href="#">سياسة الخصوصية</a></li>
-                            <li><a href="#">الشروط والأحكام</a></li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="footer-bottom text-center mt-5">
+                <p>&copy; 2024 فادي للتمارين. جميع الحقوق محفوظة</p>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap Bundle with Popper -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS Animation -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Custom JavaScript -->
+    <!-- Custom JS -->
     <script src="js/main.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-
-        // Nutrition Calculator
-        document.querySelector('.calculator-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Add calculator logic here
-            alert('سيتم إضافة منطق الحاسبة قريباً');
-        });
-    </script>
 </body>
-</html>
+</html> 
