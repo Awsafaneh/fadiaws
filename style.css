@@ -29,11 +29,11 @@ body {
 /* Logo Styles */
 .navbar-brand {
     padding: 0;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
 }
 
 .logo-img {
-    height: 25px;
+    height: 20px;
     width: auto;
     object-fit: contain;
 }
