@@ -331,6 +331,659 @@
         }
 
         /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        [dir="rtl"] .footer-section h3::after {
+             right: 0;
+         }
+
+
+        .footer-section p {
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+             direction: ltr;
+             justify-content: flex-end;
+        }
+         [dir="rtl"] .social-icons {
+             justify-content: flex-start;
+         }
+
+
+        .social-icons a {
+            width: 35px; /* Base size */
+            height: 35px; /* Base size */
+            border-radius: 50%;
+            background-color: #444;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+             font-size: 1.2rem; /* Adjust icon size relative to container */
+        }
+         [dir="rtl"] .social-icons a {
+             margin-right: 10px;
+             margin-left: 0;
+         }
+
+
+        .social-icons a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Removed footer logo image style */
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+        }
+
+        /* Specific styles for General Tips page (Reused) */
+         .tip-item { /* Reusing goal-item style */
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .tip-item h3 {
+             color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .tip-item ul {
+            list-style: disc;
+            padding-right: 20px; /* For RTL list markers */
+        }
+
+        .tip-item ul li {
+            margin-bottom: 8px;
+        }
+
+        /* Specific styles for Contact Form (Reused & Adjusted) */
+        .contact-flex-container { /* Flexbox container */
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+             justify-content: center; /* Added to center the single form column */
+        }
+
+        .contact-form-col {
+            flex: 1;
+             min-width: 300px;
+             max-width: 600px; /* Added max-width for centering */
+        }
+
+        .contact-form-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .contact-form-box h3 {
+             color: var(--dark-color);
+             margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        /* Removed map styles */
+        /* Removed .map-container */
+
+
+        /* Specific styles for FAQ (Reused) */
+        .faq-item {
+             background-color: white;
+             border: 1px solid #ddd;
+             border-radius: 8px;
+             margin-bottom: 15px;
+             overflow: hidden;
+             box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+             padding: 15px 20px;
+             background-color: var(--light-color);
+             cursor: pointer;
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             font-weight: bold;
+             color: var(--dark-color);
+             transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #e0e0e0;
+        }
+
+        .faq-question i {
+             transition: transform 0.3s ease;
+        }
+         .faq-question i.rotated {
+            transform: rotate(180deg);
+         }
+
+
+        .faq-answer {
+             padding: 15px 20px;
+             border-top: 1px solid #eee;
+             display: none;
+        }
+
+        /* New styles for Social Media icons in contact section */
+        .contact-social-section {
+            margin-top: 0; /* Adjust top margin as it's now at the top */
+            margin-bottom: 40px; /* Space below the section */
+            text-align: center; /* Center content within this section */
+        }
+
+        .contact-social-section h3 {
+            color: var(--dark-color);
+            margin-bottom: 20px; /* Space below the heading */
+             font-size: 1.8rem; /* Increased font size */
+        }
+
+         /* Adjust social icons alignment and size when inside contact section */
+        .contact-social-section .social-icons {
+            justify-content: center; /* Center the icons */
+            margin-top: 0; /* Remove default margin-top from .social-icons if needed */
+        }
+
+         .contact-social-section .social-icons a {
+             width: 40px; /* Increased size */
+             height: 40px; /* Increased size */
+             font-size: 1.4rem; /* Adjust icon size relative to container */
+         }
+
+
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .about-content {
+                flex-direction: column;
+            }
+             .contact-flex-container {
+                 flex-direction: column;
+             }
+             .contact-form-col {
+                  min-width: 100%;
+             }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark-color);
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .footer-container {
+                 grid-template-columns: 1fr;
+                 text-align: center;
+            }
+
+            .footer-section h3::after {
+                right: 50%;
+                transform: translateX(50%);
+            }
+            [dir="rtl"] .footer-section h3::after {
+                 left: 50%;
+                 right: auto;
+                 transform: translateX(-50%);
+             }
+
+             .social-icons {
+                 justify-content: center;
+                 direction: ltr;
+             }
+             [dir="rtl"] .social-icons {
+                 justify-contentIt seems there was an issue with the CSS in the previous code I provided, possibly causing a white screen. I apologize for that. I've reviewed and corrected the CSS structure to ensure all styles are properly enclosed within the `<style>` tags.
+
+I have also made the requested modifications:
+1.  Increased the size of the heading "تابعني على منصات التواصل الاجتماعي".
+2.  Increased the size of the social media icons within that section.
+3.  Moved this social media section to the top of the main content section, above the "اتصل بنا" heading.
+
+Here is the complete, corrected code for `contact.html`:
+
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا - فادي للياقة البدنية</title>
+    <style>
+        /* Updated Style Block - Removed image-specific CSS and map styles */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --accent-color: #e74c3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .logo i {
+            color: var(--secondary-color);
+            margin-left: 8px;
+            font-size: 1.5rem;
+        }
+
+        /* Logo Image Style - Kept */
+        .logo img {
+            height: 50px; /* Adjust as needed for your logo */
+            margin-left: 10px; /* Space between logo and text */
+        }
+        [dir="rtl"] .logo img {
+            margin-right: 10px;
+            margin-left: 0;
+        }
+
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+             border: none;
+             cursor: pointer;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Active class for current page */
+        .active {
+            background-color: var(--secondary-color);
+        }
+
+        /* Mobile Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Removed Hero background image style */
+        .hero {
+            /* background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/800?text=Hero+Image&bgColor=2ecc71') center/cover no-repeat; */
+             background-color: var(--primary-color); /* Added a fallback background color */
+            height: 50vh; /* Reduced height as no large image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+         .hero h1 {
+            font-size: 2.8rem; /* Adjusted font size */
+            margin-bottom: 15px;
+         }
+          .hero p {
+            font-size: 1.1rem; /* Adjusted font size */
+            margin-bottom: 20px;
+         }
+
+
+        /* Shared Section Styles */
+        .section {
+             padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark-color);
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 25%;
+            width: 50%;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+         [dir="rtl"] .section-title h2::after {
+             left: 25%;
+             right: auto;
+         }
+
+
+        /* Removed styles for card images */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            /* overflow: hidden; Removed as no images */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            padding: 20px; /* Added padding to card content area */
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Removed .card-img and .card-img img styles */
+
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .card p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+             border: none;
+             cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+        }
+
+        /* Removed About image styles */
+         .about {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+             flex-direction: row-reverse; /* Adjusted for RTL layout if text/image were side-by-side */
+        }
+         [dir="rtl"] .about-content {
+             flex-direction: row; /* Default for RTL */
+         }
+
+
+        /* Removed .about-img and .about-img img styles */
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        /* Removed News image styles */
+         .news {
+            padding: 5rem 0;
+        }
+         .news-container { /* Reusing card-container for layout */
+             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+         }
+         .news-card { /* Reusing card style for news items */
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 20px; /* Added padding */
+         }
+
+        /* Removed .news-img and .news-img img styles */
+
+        .news-content { /* Adjusted news content padding */
+            padding: 0; /* Padding moved to .news-card */
+        }
+
+        .news-date {
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .news-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .news-card p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+
+        /* Removed CTA background image style */
+        .cta {
+            /* background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/api/placeholder/1200/800?text=CTA+Background&bgColor=3498db') center/cover no-repeat; */
+             background-color: var(--primary-color); /* Added a fallback background color */
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
         <footer>
             <div class="container">
                 <div class="footer-container">
@@ -338,10 +991,10 @@
                         <h3>فادي للياقة</h3>
                         <p>منصتك الشاملة لكل ما يتعلق باللياقة البدنية والتغذية الصحية والحفاظ على نمط حياة صحي.</p>
                          <div class="social-icons">
-                            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="[https://www.facebook.com/](https://www.facebook.com/)" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="[https://www.instagram.com/](https://www.instagram.com/)" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="[https://twitter.com/](https://twitter.com/)" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="[https://www.youtube.com/](https://www.youtube.com/)" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                     <div class="footer-section">
