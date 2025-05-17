@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>النصائح الغذائية - فادي للياقة البدنية</title>
     <style>
-        /* Updated Style Block - Removed image-specific CSS */
+        /* Updated Style Block - Removed image-specific CSS except for logo */
         :root {
             --primary-color: #3498db;
             --secondary-color: #2ecc71;
@@ -70,10 +70,13 @@
             font-size: 1.5rem;
         }
 
-        /* Logo Image Style - Kept */
+        /* Logo Image Style - Kept and styled */
         .logo img {
-            height: 50px; /* Adjust as needed for your logo */
+            height: 50px; /* Adjust as needed for your logo size */
             margin-left: 10px; /* Space between logo and text */
+             /* Optional: ensure it fits nicely */
+             display: block;
+             object-fit: contain; /* Ensures the image scales without distortion */
         }
         [dir="rtl"] .logo img {
             margin-right: 10px;
@@ -127,7 +130,7 @@
         .hero {
             /* background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/800?text=Hero+Image&bgColor=2ecc71') center/cover no-repeat; */
             background-color: var(--primary-color); /* Added a fallback background color */
-            height: 50vh; /* Reduced height as no large image */
+            height: 50vh; /* Adjusted height */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -135,6 +138,10 @@
             color: white;
             padding: 0 20px;
         }
+         .hero-content { /* Adjusted padding/margins if needed after image removal */
+             max-width: 800px; /* Keep max width */
+             margin: 0 auto; /* Center content */
+         }
          .hero h1 {
             font-size: 2.8rem; /* Adjusted font size */
             margin-bottom: 15px;
@@ -192,6 +199,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
             padding: 20px; /* Added padding to card content area */
+            text-align: center; /* Centered card content */
         }
 
         .card:hover {
@@ -212,23 +220,9 @@
             color: #666;
         }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 10px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-             border: none;
-             cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: #27ae60;
-            transform: translateY(-2px);
+        .card .btn {
+            padding: 8px 20px;
+            font-size: 0.9rem;
         }
 
         /* Removed About image styles */
@@ -241,12 +235,8 @@
             display: flex;
             align-items: center;
             gap: 50px;
-             flex-direction: row-reverse; /* Adjusted for RTL layout if text/image were side-by-side */
+             flex-direction: row; /* Reverted to default row for RTL since image column is gone */
         }
-         [dir="rtl"] .about-content {
-             flex-direction: row; /* Default for RTL */
-         }
-
 
         /* Removed .about-img and .about-img img styles */
 
@@ -428,6 +418,30 @@
             border-top: 1px solid #444;
         }
 
+        /* Specific styles for Nutrition page */
+        .nutrition-item {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .nutrition-item h3 {
+             color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .nutrition-item ul {
+            list-style: disc;
+            padding-right: 20px; /* For RTL list markers */
+        }
+
+        .nutrition-item ul li {
+            margin-bottom: 8px;
+        }
+
+
         /* Specific styles for General Tips page (Reused) */
          .tip-item { /* Reusing goal-item style */
             background-color: white;
@@ -504,6 +518,8 @@
         }
 
         /* Removed map styles */
+        /* Removed .map-container */
+
 
         /* Specific styles for FAQ (Reused) */
         .faq-item {
@@ -638,10 +654,10 @@
                 <ul id="navbar">
                     <li><a href="index.html">الرئيسية</a></li>
                     <li><a href="exercises.html">برامج التمارين</a></li>
-                    <li><a href="nutrition.html">النصائح الغذائية</a></li>
-                    <li><a href="goals.html">أهداف اللياقة</a></li>
+                    <li><a href="nutrition.html" class="active">النصائح الغذائية</a></li> <li><a href="goals.html">أهداف اللياقة</a></li>
                     <li><a href="general-tips.html">نصائح عامة</a></li>
-                    <li><a href="contact.html" class="active">اتصل بنا</a></li> </ul>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
                 <button class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -652,99 +668,54 @@
     <section class="section">
         <div class="container">
             <div class="section-title">
-                <h2>اتصل بنا</h2>
+                <h2>النصائح الغذائية</h2>
             </div>
-            <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">نحن هنا للإجابة على استفساراتكم ومساعدتكم في رحلتكم نحو اللياقة والصحة.</p>
-
-            <div class="card-container" style="margin-bottom: 40px;">
-                 <div class="card">
-                     <i class="fas fa-map-marker-alt"></i>
-                     <h3>العنوان</h3>
-                     <p>الرياض، المملكة العربية السعودية</p>
-                     <p>شارع الأمير محمد بن عبدالعزيز، حي العليا</p>
-                      </div>
-                  <div class="card">
-                     <i class="fas fa-phone"></i>
-                     <h3>الهاتف</h3>
-                      <p>+966 50 123 4567</p>
-                     <p>+966 50 765 4321</p>
-                      </div>
-                  <div class="card">
-                     <i class="fas fa-envelope"></i>
-                     <h3>البريد الإلكتروني</h3>
-                      <p>info@fadi-fitness.com</p>
-                     <p>support@fadi-fitness.com</p>
-                      </div>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">التغذية السليمة هي حجر الزاوية لأي هدف للياقة البدنية. اكتشف خططاً ووصفات صحية لدعم رحلتك. **تذكر أن تتبع السعرات الحرارية الإجمالية والمغذيات الكبرى لتحقيق أفضل النتائج.**</p> <div class="nutrition-item">
+                <h3>نظام غذائي لزيادة العضلات</h3>
+                <p>لبناء العضلات، تحتاج إلى سعرات حرارية وبروتين كافيين. نقدم خططاً غنية بالمغذيات لدعم نمو العضلات واستشفائها.</p>
+                <h4>مكونات أساسية:</h4>
+                <ul>
+                    <li>مصادر بروتين عالية الجودة (صدور دجاج، لحم بقري قليل الدهن، سمك، بيض، بقوليات)</li>
+                    <li>كربوهيدرات معقدة لتوفير الطاقة (شوفان، أرز بني، بطاطا حلوة، خبز القمح الكامل)</li>
+                    <li>دهون صحية لدعم الهرمونات (أفوكادو، مكسرات، بذور، زيت زيتون)</li>
+                </ul>
+                 <p><strong>ملاحظة حول السعرات الحرارية:</strong> لزيادة الوزن وبناء العضلات، يجب استهلاك سعرات حرارية **أكثر** من التي يحرقها جسمك (فائض سعرات حرارية). ابدأ بزيادة 250-500 سعرة حرارية فوق سعرات الحفاظ على وزنك.</p> <a href="#" class="btn" style="margin-top: 15px;">عرض الخطة الكاملة</a>
             </div>
 
-            <div class="contact-flex-container" style="justify-content: center;"> <div class="contact-form-col" style="flex-grow: 0; width: 100%; max-width: 600px;"> <div class="contact-form-box">
-                         <h3>راسلنا مباشرة</h3>
-                         <form action="submit-form.php" method="POST">
-                            <div class="form-group">
-                                <label for="fullName">الاسم الكامل</label>
-                                <input type="text" id="fullName" name="fullName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">البريد الإلكتروني</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">رقم الهاتف</label>
-                                <input type="tel" id="phone" name="phone"> </div>
-                            <div class="form-group">
-                                <label for="subject">الموضوع</label>
-                                <select id="subject" name="subject" required>
-                                    <option value="">اختر الموضوع</option>
-                                    <option value="general">استفسار عام</option>
-                                    <option value="programs">برامج التمارين</option>
-                                    <option value="nutrition">النصائح الغذائية</option>
-                                    <option value="subscription">الاشتراكات</option>
-                                    <option value="other">أخرى</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">الرسالة</label>
-                                <textarea id="message" name="message" rows="6" required></textarea>
-                            </div>
-                            <button type="submit" class="btn">إرسال الرسالة</button>
-                        </form>
-                     </div>
-                 </div>
-                 </div>
+             <div class="nutrition-item">
+                <h3>نظام غذائي لخسارة الوزن</h3>
+                <p>تتطلب خسارة الوزن عجزاً في السعرات الحرارية مع الحفاظ على استهلاك كافٍ من البروتين والمغذيات الأساسية.</p>
+                <h4>مكونات أساسية:</h4>
+                <ul>
+                    <li>أطعمة منخفضة السعرات الحرارية وغنية بالألياف (خضروات ورقية، فواكه)</li>
+                    <li>مصادر بروتين قليلة الدهون (صدور دجاج بدون جلد، سمك أبيض، تونة في الماء)</li>
+                    <li>كربوهيدرات معقدة بكميات معتدلة</li>
+                    <li>دهون صحية بكميات محدودة</li>
+                </ul>
+                <p><strong>ملاحظة حول السعرات الحرارية:</strong> لخسارة الوزن، يجب استهلاك سعرات حرارية **أقل** من التي يحرقها جسمك (عجز سعرات حرارية). عجز بمقدار 500-750 سعرة حرارية يومياً يؤدي عادةً إلى خسارة آمنة ومستدامة للوزن.</p> <a href="#" class="btn" style="margin-top: 15px;">عرض الخطة الكاملة</a>
+            </div>
 
-             <div class="section-title" style="margin-top: 60px;">
-                 <h2>الأسئلة الشائعة</h2>
-             </div>
-             <div class="faq-container">
-                 <div class="faq-item">
-                    <div class="faq-question">
-                        كيف يمكنني الاشتراك في برامج التمارين؟
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                       يمكنك الاشتراك من خلال نموذج التواصل أعلاه أو عن طريق الاتصال بنا مباشرة. سنقوم بمساعدتك في اختيار البرنامج الأنسب لك.
-                    </div>
-                 </div>
-                  <div class="faq-item">
-                    <div class="faq-question">
-                        هل تقدمون استشارات شخصية؟
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                       نعم، نقدم استشارات شخصية لتقييم مستوى لياقتك الحالي، تحديد أهدافك، وبناء خطة تمرين وتغذية مخصصة لك. تواصل معنا لحجز موعد.
-                    </div>
-                 </div>
-                  </div>
+            <div class="nutrition-item">
+                <h3>وصفات صحية</h3>
+                <p>نقدم مجموعة من الوصفات اللذيذة والسهلة التحضير التي تتناسب مع أهدافك الغذائية المختلفة.</p>
+                <h4>أمثلة على الوصفات:</h4>
+                <ul>
+                    <li>سموثي البروتين بعد التمرين</li>
+                    <li>وجبات غداء سريعة وصحية للعمل</li>
+                    <li>وجبات عشاء قليلة السعرات الحرارية</li>
+                    <li>سناكات صحية ومغذية</li>
+                </ul>
+                <p><strong>ملاحظة حول السعرات الحرارية:</strong> معظم وصفاتنا تتضمن معلومات عن السعرات الحرارية والمغذيات الكبرى لكل وجبة لمساعدتك على تتبع استهلاكك اليومي وتحقيق هدفك.</p> <a href="#" class="btn" style="margin-top: 15px;">تصفح الوصفات</a>
+            </div>
 
-
-        </div>
+            </div>
     </section>
 
-    <section class="cta">
+     <section class="cta">
         <div class="container">
-            <h2>هل أنت مستعد لبدء التغيير؟</h2>
-            <p>لا تتردد في التواصل معنا اليوم للانطلاق نحو حياة أكثر صحة ولياقة.</p>
-            <a href="contact.html" class="btn">تواصل معنا</a>
+            <h2>هل تحتاج لخطة غذائية مخصصة؟</h2>
+            <p>تواصل معنا لمناقشة أهدافك والحصول على خطة غذائية مصممة خصيصاً لك.</p>
+            <a href="contact.html" class="btn">اطلب خطة غذائية</a>
         </div>
     </section>
 
@@ -785,7 +756,7 @@
                     <h3>النشرة الإخبارية</h3>
                     <p>اشترك في نشرتنا الإخبارية للحصول على آخر الأخبار والتحديثات</p>
                      <form action="subscribe.php" method="POST">
-                        <input type="email" placeholder="البريد الإلكتروني" name="email" required style="padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 5px; border: none;">
+                        <input type="email" placeholder="بريدك الإلكتروني" name="email" required style="padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 5px; border: none;">
                         <button type="submit" class="btn" style="width: 100%;">اشترك</button>
                     </form>
                 </div>
@@ -806,47 +777,12 @@
                 document.getElementById('navbar').classList.remove('show');
             });
         });
-
-        // JavaScript for FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('i');
-
-                // Close all other open answers
-                document.querySelectorAll('.faq-answer').forEach(item => {
-                    if (item !== answer && item.style.display === 'block') {
-                         item.style.display = 'none';
-                         item.previousElementSibling.querySelector('i').classList.remove('rotated');
-                    }
-                });
-
-                // Toggle the clicked answer
-                if (answer.style.display === 'block') {
-                    answer.style.display = 'none';
-                    icon.classList.remove('rotated');
-                } else {
-                    answer.style.display = 'block';
-                    icon.classList.add('rotated');
-                }
-            });
-        });
-
-        // JavaScript for Contact Form Submission (Placeholder)
-         document.querySelector('form[action="submit-form.php"]').addEventListener('submit', function(e) {
-            // e.preventDefault(); // uncomment this line to prevent actual submission for testing
-            alert('تم إرسال النموذج بنجاح (هذه رسالة تجريبية، يجب إضافة معالجة فعلية في الخلفية)');
-            // Add actual form submission logic here (e.g., Fetch API)
-         });
-
-          // JavaScript for Newsletter Submission (Placeholder)
+         // JavaScript for Newsletter Submission (Placeholder)
          document.querySelector('form[action="subscribe.php"]').addEventListener('submit', function(e) {
             // e.preventDefault(); // uncomment this line to prevent actual submission for testing
             alert('تم الاشتراك في النشرة البريدية بنجاح (هذه رسالة تجريبية)');
             // Add actual subscription logic here
          });
-
-
     </script>
 </body>
 </html>
