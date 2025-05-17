@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -20,7 +18,7 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="assets/images/logo.png" alt="فادي للتمارين" height="50">
+                <span class="brand-text">فادي</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <i class="fas fa-bars"></i>
@@ -40,6 +38,9 @@
                         <a class="nav-link" href="goals.html">أهداف اللياقة</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link active" href="tips.html">نصائح عامة</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="contact.html">اتصل بنا</a>
                     </li>
                 </ul>
@@ -51,67 +52,64 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="page-header">
+    <section class="page-header">
         <div class="container">
-            <div class="row align-items-center min-vh-50">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <h1 class="display-4 fw-bold">نصائح عامة</h1>
-                    <p class="lead">نصائح وإرشادات مهمة لتحقيق أفضل النتائج في رحلة اللياقة</p>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <img src="assets/images/tips-header.jpg" alt="نصائح عامة" class="img-fluid rounded-3">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1>نصائح عامة</h1>
+                    <p class="lead">نصائح مهمة لتحسين صحتك ولياقتك البدنية</p>
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- Tips Categories -->
-    <section class="tips-categories py-5">
+    <!-- Exercise Tips -->
+    <section class="exercise-tips py-5">
         <div class="container">
-            <div class="section-header text-center mb-5" data-aos="fade-up">
+            <div class="section-header text-center mb-5">
                 <h2>نصائح التمارين</h2>
-                <p>إرشادات مهمة قبل وأثناء وبعد التمارين</p>
+                <p class="lead">نصائح مهمة لممارسة التمارين بشكل صحيح وآمن</p>
             </div>
-            <div class="row">
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
                     <div class="tip-card">
                         <div class="tip-icon">
-                            <i class="fas fa-running"></i>
+                            <i class="fas fa-walking"></i>
                         </div>
-                        <h3>قبل التمرين</h3>
+                        <h3>الإحماء</h3>
+                        <p>قم بالإحماء لمدة 5-10 دقائق قبل بدء التمارين لتجنب الإصابات</p>
                         <ul class="tip-list">
-                            <li><i class="fas fa-check"></i> الإحماء لمدة 10-15 دقيقة</li>
-                            <li><i class="fas fa-check"></i> شرب الماء بكميات كافية</li>
-                            <li><i class="fas fa-check"></i> تناول وجبة خفيفة قبل ساعتين</li>
-                            <li><i class="fas fa-check"></i> ارتداء ملابس رياضية مريحة</li>
+                            <li><i class="fas fa-check"></i> تمارين إطالة خفيفة</li>
+                            <li><i class="fas fa-check"></i> مشي سريع</li>
+                            <li><i class="fas fa-check"></i> تمارين هوائية خفيفة</li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-6 col-lg-4">
                     <div class="tip-card">
                         <div class="tip-icon">
                             <i class="fas fa-dumbbell"></i>
                         </div>
-                        <h3>أثناء التمرين</h3>
+                        <h3>تقنية التمارين</h3>
+                        <p>ركز على التقنية الصحيحة للتمارين بدلاً من زيادة الأوزان</p>
                         <ul class="tip-list">
-                            <li><i class="fas fa-check"></i> التركيز على التنفس الصحيح</li>
-                            <li><i class="fas fa-check"></i> الحفاظ على الوضعية الصحيحة</li>
-                            <li><i class="fas fa-check"></i> شرب الماء بانتظام</li>
-                            <li><i class="fas fa-check"></i> عدم إجهاد العضلات</li>
+                            <li><i class="fas fa-check"></i> تحكم في الحركة</li>
+                            <li><i class="fas fa-check"></i> تنفس بشكل صحيح</li>
+                            <li><i class="fas fa-check"></i> حافظ على الوضعية</li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-6 col-lg-4">
                     <div class="tip-card">
                         <div class="tip-icon">
-                            <i class="fas fa-bed"></i>
+                            <i class="fas fa-clock"></i>
                         </div>
-                        <h3>بعد التمرين</h3>
+                        <h3>الراحة والتعافي</h3>
+                        <p>امنح جسمك وقتاً كافياً للراحة والتعافي بين التمارين</p>
                         <ul class="tip-list">
-                            <li><i class="fas fa-check"></i> تمارين التهدئة والتمدد</li>
-                            <li><i class="fas fa-check"></i> تناول وجبة غنية بالبروتين</li>
-                            <li><i class="fas fa-check"></i> شرب الماء لتعويض السوائل</li>
-                            <li><i class="fas fa-check"></i> الحصول على قسط كافٍ من الراحة</li>
+                            <li><i class="fas fa-check"></i> نوم كافٍ</li>
+                            <li><i class="fas fa-check"></i> أيام راحة</li>
+                            <li><i class="fas fa-check"></i> تمارين إطالة</li>
                         </ul>
                     </div>
                 </div>
@@ -119,45 +117,55 @@
         </div>
     </section>
 
-    <!-- Health Tips -->
-    <section class="health-tips py-5 bg-light">
+    <!-- Nutrition Tips -->
+    <section class="nutrition-tips py-5 bg-light">
         <div class="container">
-            <div class="section-header text-center mb-5" data-aos="fade-up">
-                <h2>نصائح صحية عامة</h2>
-                <p>إرشادات مهمة للحفاظ على الصحة العامة</p>
+            <div class="section-header text-center mb-5">
+                <h2>نصائح غذائية</h2>
+                <p class="lead">نصائح مهمة للتغذية الصحية</p>
             </div>
-            <div class="row">
-                <div class="col-lg-6 mb-4" data-aos="fade-right">
-                    <div class="health-tip-item">
-                        <div class="icon">
-                            <i class="fas fa-glass-water"></i>
-                        </div>
-                        <div class="content">
-                            <h3>شرب الماء</h3>
-                            <p>احرص على شرب 8-10 أكواب من الماء يومياً للحفاظ على رطوبة الجسم</p>
-                        </div>
-                    </div>
-                    <div class="health-tip-item">
-                        <div class="icon">
-                            <i class="fas fa-moon"></i>
-                        </div>
-                        <div class="content">
-                            <h3>النوم الكافي</h3>
-                            <p>احصل على 7-8 ساعات من النوم يومياً لمساعدة الجسم على التعافي</p>
-                        </div>
-                    </div>
-                    <div class="health-tip-item">
-                        <div class="icon">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="tip-card">
+                        <div class="tip-icon">
                             <i class="fas fa-apple-whole"></i>
                         </div>
-                        <div class="content">
-                            <h3>التغذية المتوازنة</h3>
-                            <p>تناول وجبات متوازنة تحتوي على البروتين والكربوهيدرات والدهون الصحية</p>
-                        </div>
+                        <h3>الوجبات المتوازنة</h3>
+                        <p>تناول وجبات متوازنة تحتوي على جميع العناصر الغذائية</p>
+                        <ul class="tip-list">
+                            <li><i class="fas fa-check"></i> بروتين</li>
+                            <li><i class="fas fa-check"></i> كربوهيدرات</li>
+                            <li><i class="fas fa-check"></i> دهون صحية</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <img src="assets/images/health-tips.jpg" alt="نصائح صحية" class="img-fluid rounded-3">
+                <div class="col-md-6 col-lg-4">
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <h3>شرب الماء</h3>
+                        <p>اشرب كمية كافية من الماء يومياً للحفاظ على رطوبة الجسم</p>
+                        <ul class="tip-list">
+                            <li><i class="fas fa-check"></i> 8 أكواب يومياً</li>
+                            <li><i class="fas fa-check"></i> قبل وأثناء التمارين</li>
+                            <li><i class="fas fa-check"></i> تجنب المشروبات الغازية</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>مواعيد الوجبات</h3>
+                        <p>تناول وجباتك في مواعيد منتظمة للحفاظ على مستوى الطاقة</p>
+                        <ul class="tip-list">
+                            <li><i class="fas fa-check"></i> وجبة الإفطار</li>
+                            <li><i class="fas fa-check"></i> وجبات خفيفة</li>
+                            <li><i class="fas fa-check"></i> وجبة بعد التمارين</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -166,39 +174,52 @@
     <!-- Common Mistakes -->
     <section class="common-mistakes py-5">
         <div class="container">
-            <div class="section-header text-center mb-5" data-aos="fade-up">
-                <h2>الأخطاء الشائعة</h2>
-                <p>تجنب هذه الأخطاء للحصول على أفضل النتائج</p>
+            <div class="section-header text-center mb-5">
+                <h2>أخطاء شائعة</h2>
+                <p class="lead">تجنب هذه الأخطاء الشائعة في التمارين والتغذية</p>
             </div>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="mistakes-list">
-                        <div class="mistake-item" data-aos="fade-up" data-aos-delay="100">
-                            <div class="mistake-icon">
-                                <i class="fas fa-times-circle"></i>
-                            </div>
-                            <div class="mistake-content">
-                                <h3>تخطي الإحماء</h3>
-                                <p>تخطي تمارين الإحماء قد يؤدي إلى إصابات خطيرة. احرص على الإحماء قبل كل تمرين.</p>
-                            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="mistake-item">
+                        <div class="mistake-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
                         </div>
-                        <div class="mistake-item" data-aos="fade-up" data-aos-delay="200">
-                            <div class="mistake-icon">
-                                <i class="fas fa-times-circle"></i>
-                            </div>
-                            <div class="mistake-content">
-                                <h3>عدم شرب الماء الكافي</h3>
-                                <p>الجفاف يؤثر سلباً على الأداء والتعافي. احرص على شرب الماء بانتظام.</p>
-                            </div>
+                        <div class="mistake-content">
+                            <h3>تجاهل الإحماء</h3>
+                            <p>تجاهل الإحماء قبل التمارين يمكن أن يؤدي إلى إصابات خطيرة</p>
                         </div>
-                        <div class="mistake-item" data-aos="fade-up" data-aos-delay="300">
-                            <div class="mistake-icon">
-                                <i class="fas fa-times-circle"></i>
-                            </div>
-                            <div class="mistake-content">
-                                <h3>تجاهل الراحة</h3>
-                                <p>العضلات تحتاج للراحة للتعافي والنمو. لا تتمرن نفس العضلات يومياً.</p>
-                            </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mistake-item">
+                        <div class="mistake-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="mistake-content">
+                            <h3>تخطي الوجبات</h3>
+                            <p>تخطي الوجبات يمكن أن يؤثر سلباً على مستوى الطاقة والأداء</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mistake-item">
+                        <div class="mistake-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="mistake-content">
+                            <h3>زيادة الأوزان بسرعة</h3>
+                            <p>زيادة الأوزان بسرعة كبيرة يمكن أن يؤدي إلى إصابات وإرهاق</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mistake-item">
+                        <div class="mistake-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="mistake-content">
+                            <h3>عدم شرب الماء</h3>
+                            <p>عدم شرب كمية كافية من الماء يمكن أن يؤثر على الأداء والتعافي</p>
                         </div>
                     </div>
                 </div>
@@ -209,21 +230,21 @@
     <!-- CTA Section -->
     <section class="cta-section py-5">
         <div class="container">
-            <div class="cta-content text-center" data-aos="fade-up">
+            <div class="cta-content text-center">
                 <h2>جاهز لبدء رحلة اللياقة؟</h2>
-                <p>انضم إلينا اليوم وابدأ رحلة التحول نحو حياة صحية أفضل</p>
+                <p class="lead">انضم إلينا اليوم وابدأ رحلة التحول نحو حياة صحية أفضل</p>
                 <a href="#" class="btn btn-primary btn-lg">اشترك الآن</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer py-5">
+    <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
+            <div class="row g-4">
+                <div class="col-lg-4">
                     <div class="footer-about">
-                        <img src="assets/images/logo.png" alt="فادي للتمارين" height="50" class="mb-3">
+                        <h3 class="brand-text mb-3">فادي</h3>
                         <p>نقدم أفضل برامج التمارين والنصائح الغذائية لمساعدتك في تحقيق أهدافك في اللياقة البدنية</p>
                         <div class="social-links">
                             <a href="#"><i class="fab fa-facebook"></i></a>
@@ -233,24 +254,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-4 mb-4">
+                <div class="col-lg-2 col-md-4">
                     <h5>روابط سريعة</h5>
                     <ul class="footer-links">
                         <li><a href="workouts.html">برامج التمارين</a></li>
                         <li><a href="nutrition.html">النصائح الغذائية</a></li>
                         <li><a href="goals.html">أهداف اللياقة</a></li>
+                        <li><a href="tips.html">نصائح عامة</a></li>
                         <li><a href="contact.html">اتصل بنا</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-4 mb-4">
+                <div class="col-lg-3 col-md-4">
                     <h5>تواصل معنا</h5>
-                    <ul class="footer-contact">
+                    <ul class="footer-links">
                         <li><i class="fas fa-phone"></i> +123 456 7890</li>
                         <li><i class="fas fa-envelope"></i> info@fadi-fitness.com</li>
                         <li><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-4 mb-4">
+                <div class="col-lg-3 col-md-4">
                     <h5>النشرة البريدية</h5>
                     <p>اشترك في نشرتنا البريدية للحصول على آخر الأخبار والنصائح</p>
                     <form class="newsletter-form">
@@ -261,33 +283,15 @@
                     </form>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>&copy; 2024 فادي للتمارين. جميع الحقوق محفوظة</p>
-                    </div>
-                    <div class="col-md-6 text-end">
-                        <ul class="footer-bottom-links">
-                            <li><a href="#">سياسة الخصوصية</a></li>
-                            <li><a href="#">الشروط والأحكام</a></li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="footer-bottom text-center mt-5">
+                <p>&copy; 2024 فادي للتمارين. جميع الحقوق محفوظة</p>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap Bundle with Popper -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS Animation -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Custom JavaScript -->
+    <!-- Custom JS -->
     <script src="js/main.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-    </script>
 </body>
-</html> 
+</html>
