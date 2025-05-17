@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -13,27 +12,27 @@
             --light-color: #ecf0f1;
             --accent-color: #e74c3c;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Cairo', sans-serif;
         }
-        
+
         body {
             background-color: #f9f9f9;
             color: #333;
             line-height: 1.6;
         }
-        
+
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         /* Header Styles */
         header {
             background-color: var(--dark-color);
@@ -44,13 +43,13 @@
             z-index: 100;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
+
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
@@ -59,30 +58,30 @@
             display: flex;
             align-items: center;
         }
-        
+
         .logo span {
             color: var(--secondary-color);
         }
-        
+
         .logo i {
             color: var(--secondary-color);
             margin-left: 8px;
             font-size: 1.5rem;
         }
-        
+
         nav ul {
             display: flex;
             list-style: none;
         }
-        
+
         nav ul li {
             margin-right: 20px;
         }
-        
+
         nav ul li:last-child {
             margin-right: 0;
         }
-        
+
         nav ul li a {
             color: white;
             text-decoration: none;
@@ -92,15 +91,16 @@
             border-radius: 5px;
             transition: all 0.3s ease;
         }
-        
+
         nav ul li a:hover {
             background-color: var(--secondary-color);
         }
-        
+
+        /* Active class for current page */
         .active {
             background-color: var(--secondary-color);
         }
-        
+
         /* Mobile Menu */
         .hamburger {
             display: none;
@@ -110,10 +110,11 @@
             color: white;
             font-size: 1.5rem;
         }
-        
+
         /* Hero Section */
+        /* تم تغيير مسار الصورة النائبة ليطابق المسارات في الصفحات الأخرى */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/800') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/800?text=Hero+Image&bgColor=2ecc71') center/cover no-repeat;
             height: 80vh;
             display: flex;
             align-items: center;
@@ -122,21 +123,21 @@
             color: white;
             padding: 0 20px;
         }
-        
+
         .hero-content {
             max-width: 800px;
         }
-        
+
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 20px;
         }
-        
+
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 30px;
         }
-        
+
         .btn {
             display: inline-block;
             background-color: var(--secondary-color);
@@ -147,31 +148,33 @@
             font-weight: bold;
             font-size: 1rem;
             transition: all 0.3s ease;
+             border: none; /* Ensure button has no default border */
+             cursor: pointer; /* Indicate clickable */
         }
-        
+
         .btn:hover {
             background-color: #27ae60;
             transform: translateY(-2px);
         }
-        
+
         /* Featured Section */
         .featured {
             padding: 5rem 0;
         }
-        
+
         .section-title {
             text-align: center;
             margin-bottom: 3rem;
             color: var(--dark-color);
         }
-        
+
         .section-title h2 {
             font-size: 2.5rem;
             position: relative;
             display: inline-block;
             padding-bottom: 10px;
         }
-        
+
         .section-title h2::after {
             content: '';
             position: absolute;
@@ -181,13 +184,18 @@
             height: 4px;
             background-color: var(--secondary-color);
         }
-        
+         [dir="rtl"] .section-title h2::after {
+             left: 25%; /* Correct for RTL */
+             right: auto;
+         }
+
+
         .card-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
+
         .card {
             background-color: white;
             border-radius: 10px;
@@ -195,148 +203,149 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
         }
-        
+
         .card:hover {
             transform: translateY(-10px);
         }
-        
+
         .card-img {
             height: 200px;
             overflow: hidden;
         }
-        
+
         .card-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        
+
         .card:hover .card-img img {
             transform: scale(1.1);
         }
-        
+
         .card-content {
             padding: 20px;
         }
-        
+
         .card h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
             color: var(--dark-color);
         }
-        
+
         .card p {
             margin-bottom: 20px;
             color: #666;
         }
-        
+
         .card .btn {
             padding: 8px 20px;
             font-size: 0.9rem;
         }
-        
+
         /* About Section */
         .about {
             padding: 5rem 0;
             background-color: var(--light-color);
         }
-        
+
         .about-content {
             display: flex;
             align-items: center;
             gap: 50px;
         }
-        
+
         .about-img {
             flex: 1;
         }
-        
+
         .about-img img {
             width: 100%;
             border-radius: 10px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-        
+
         .about-text {
             flex: 1;
         }
-        
+
         .about-text h2 {
             font-size: 2rem;
             margin-bottom: 20px;
             color: var(--dark-color);
         }
-        
+
         .about-text p {
             margin-bottom: 20px;
             line-height: 1.8;
         }
-        
-        /* News Section */
+
+        /* News Section (Can be reused for Latest Updates or Blog Previews) */
         .news {
             padding: 5rem 0;
         }
-        
+
         .news-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
+
         .news-card {
             background-color: white;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        
+
         .news-img {
             height: 200px;
             overflow: hidden;
         }
-        
+
         .news-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .news-content {
             padding: 20px;
         }
-        
+
         .news-date {
             color: var(--secondary-color);
             font-weight: bold;
             margin-bottom: 10px;
             display: block;
         }
-        
+
         .news-card h3 {
             font-size: 1.3rem;
             margin-bottom: 10px;
             color: var(--dark-color);
         }
-        
+
         .news-card p {
             margin-bottom: 20px;
             color: #666;
         }
-        
+
         /* Call to Action */
+         /* تم تغيير مسار الصورة النائبة ليطابق المسارات في الصفحات الأخرى */
         .cta {
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/api/placeholder/1200/800') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/api/placeholder/1200/800?text=CTA+Background&bgColor=3498db') center/cover no-repeat;
             color: white;
             padding: 5rem 0;
             text-align: center;
         }
-        
+
         .cta h2 {
             font-size: 2.5rem;
             margin-bottom: 20px;
         }
-        
+
         .cta p {
             font-size: 1.2rem;
             margin-bottom: 30px;
@@ -344,27 +353,27 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         /* Footer */
         footer {
             background-color: var(--dark-color);
             color: white;
             padding: 4rem 0 2rem;
         }
-        
+
         .footer-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
         }
-        
+
         .footer-section h3 {
             font-size: 1.3rem;
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 10px;
         }
-        
+
         .footer-section h3::after {
             content: '';
             position: absolute;
@@ -374,34 +383,43 @@
             height: 2px;
             background-color: var(--secondary-color);
         }
-        
+        [dir="rtl"] .footer-section h3::after {
+             right: 0; /* Keep right for RTL underline on heading */
+         }
+
         .footer-section p {
             margin-bottom: 15px;
         }
-        
+
         .footer-section ul {
             list-style: none;
         }
-        
+
         .footer-section ul li {
             margin-bottom: 10px;
         }
-        
+
         .footer-section ul li a {
             color: #ddd;
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
+
         .footer-section ul li a:hover {
             color: var(--secondary-color);
         }
-        
+
         .social-icons {
             display: flex;
             margin-top: 20px;
+             direction: ltr; /* Force LTR for social icons flow */
+             justify-content: flex-end; /* Align icons to the right in RTL context */
         }
-        
+         [dir="rtl"] .social-icons {
+             justify-content: flex-start; /* Align icons to the left in RTL context */
+         }
+
+
         .social-icons a {
             width: 35px;
             height: 35px;
@@ -415,31 +433,36 @@
             margin-left: 10px;
             transition: all 0.3s ease;
         }
-        
+         [dir="rtl"] .social-icons a {
+             margin-right: 10px;
+             margin-left: 0;
+         }
+
+
         .social-icons a:hover {
             background-color: var(--secondary-color);
             transform: translateY(-3px);
         }
-        
+
         .footer-bottom {
             text-align: center;
             margin-top: 3rem;
             padding-top: 2rem;
             border-top: 1px solid #444;
         }
-        
+
         /* Responsive Styles */
         @media (max-width: 900px) {
             .about-content {
                 flex-direction: column;
             }
         }
-        
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
+
             nav ul {
                 display: none;
                 position: absolute;
@@ -451,26 +474,50 @@
                 padding: 20px;
                 text-align: center;
             }
-            
+
             nav ul.show {
                 display: flex;
             }
-            
+
             nav ul li {
                 margin-right: 0;
                 margin-bottom: 15px;
             }
-            
+
             .hamburger {
                 display: block;
             }
+
+            .footer-container {
+                 grid-template-columns: 1fr; /* Stack footer sections */
+                 text-align: center;
+            }
+
+            .footer-section h3::after {
+                right: 50%; /* Center underline on mobile */
+                transform: translateX(50%);
+            }
+             [dir="rtl"] .footer-section h3::after {
+                 left: 50%; /* Center underline on mobile */
+                 right: auto;
+                 transform: translateX(-50%);
+             }
+
+
+             .social-icons {
+                 justify-content: center; /* Center social icons on mobile */
+                 direction: ltr; /* Keep LTR for icon order */
+             }
+             [dir="rtl"] .social-icons {
+                 justify-content: center; /* Center social icons on mobile */
+             }
         }
-        
+
         @media (max-width: 500px) {
             .hero h1 {
                 font-size: 2rem;
             }
-            
+
             .section-title h2 {
                 font-size: 2rem;
             }
@@ -480,7 +527,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo">
@@ -493,9 +539,8 @@
                     <li><a href="exercises.html">برامج التمارين</a></li>
                     <li><a href="nutrition.html">النصائح الغذائية</a></li>
                     <li><a href="goals.html">أهداف اللياقة</a></li>
-                    <li><a href="blog.html"> نصائح عامة</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                </ul>
+                    <li><a href="general-tips.html">نصائح عامة</a></li> <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
                 <button class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -503,7 +548,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>ابدأ رحلة اللياقة البدنية الآن مع فادي</h1>
@@ -512,7 +556,6 @@
         </div>
     </section>
 
-    <!-- Featured Section -->
     <section class="featured">
         <div class="container">
             <div class="section-title">
@@ -521,8 +564,8 @@
             <div class="card-container">
                 <div class="card">
                     <div class="card-img">
-                        <img src="/api/placeholder/400/300" alt="برامج تمارين">
-                    </div>
+                        <img src="/api/placeholder/400/300?text=تمارين&bgColor=2ecc71" alt="برامج تمارين">
+                         </div>
                     <div class="card-content">
                         <h3>برامج تمارين متخصصة</h3>
                         <p>برامج تمارين مصممة لمختلف المستويات تشمل تمارين القوة والكارديو والمرونة</p>
@@ -531,8 +574,8 @@
                 </div>
                 <div class="card">
                     <div class="card-img">
-                        <img src="/api/placeholder/400/300" alt="نصائح غذائية">
-                    </div>
+                         <img src="/api/placeholder/400/300?text=تغذية&bgColor=3498db" alt="نصائح غذائية">
+                         </div>
                     <div class="card-content">
                         <h3>نصائح غذائية صحية</h3>
                         <p>خطط غذائية متنوعة لزيادة العضلات، خسارة الوزن ووصفات صحية لذيذة</p>
@@ -541,8 +584,8 @@
                 </div>
                 <div class="card">
                     <div class="card-img">
-                        <img src="/api/placeholder/400/300" alt="أهداف اللياقة">
-                    </div>
+                        <img src="/api/placeholder/400/300?text=أهداف&bgColor=e74c3c" alt="أهداف اللياقة">
+                         </div>
                     <div class="card-content">
                         <h3>تحقيق أهداف اللياقة</h3>
                         <p>نصائح وإرشادات لتحديد أهدافك بشكل صحيح والالتزام بها لتحقيق النتائج المرجوة</p>
@@ -553,78 +596,73 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="about">
         <div class="container">
             <div class="about-content">
                 <div class="about-img">
-                    <img src="/api/placeholder/600/500" alt="فادي للياقة البدنية">
-                </div>
+                     <img src="/api/placeholder/600/500?text=صورة+فادي&bgColor=ecf0f1&textColor=2c3e50" alt="فادي للياقة البدنية">
+                     </div>
                 <div class="about-text">
                     <h2>من هو فادي؟</h2>
                     <p>مدرب لياقة بدنية محترف ومؤثر على وسائل التواصل الاجتماعي، أكرس حياتي لمساعدة الآخرين على تحقيق أهدافهم في اللياقة البدنية والصحة العامة.</p>
                     <p>بدأت رحلتي مع اللياقة البدنية منذ أكثر من 10 سنوات، وقررت مشاركة تجربتي ونصائحي مع العالم من خلال منصات التواصل الاجتماعي والآن من خلال هذا الموقع.</p>
                     <p>هدفي هو إلهام وتشجيع الناس على اتباع نمط حياة صحي ونشط، وتقديم المعرفة والأدوات اللازمة لتحقيق التحول الصحي المطلوب بطريقة آمنة ومستدامة.</p>
-                    <a href="blog.html" class="btn">تعرف على المزيد</a>
+                     <a href="general-tips.html" class="btn">تعرف على المزيد</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- News Section -->
     <section class="news">
         <div class="container">
             <div class="section-title">
-                <h2>آخر الأخبار</h2>
-            </div>
-            <div class="news-container">
-                <div class="news-card">
-                    <div class="news-img">
-                        <img src="/api/placeholder/400/300" alt="إطلاق موقع جديد">
+                <h2>آخر التحديثات والنصائح</h2> </div>
+             <div class="card-container">
+                <div class="card">
+                    <div class="card-img">
+                         <img src="/api/placeholder/400/300?text=تحديث+1&bgColor=ecf0f1" alt="صورة التحديث 1">
                     </div>
-                    <div class="news-content">
+                    <div class="card-content">
                         <span class="news-date">15 مايو 2025</span>
-                        <h3>إطلاق موقع فادي للياقة البدنية رسمياً</h3>
-                        <p>نحن متحمسون للإعلان عن إطلاق موقعنا الجديد الذي سيكون منصة شاملة لمحبي اللياقة البدنية والصحة</p>
-                        <a href="blog.html" class="btn">اقرأ المزيد</a>
+                        <h3>أهمية الإحماء قبل أي تمرين</h3> <p>تعرف على لماذا يعتبر الإحماء خطوة أساسية لا يجب تخطيها قبل البدء بأي نشاط بدني وكيف تقوم به بشكل صحيح...</p>
+                         <a href="general-tips.html" class="btn">اقرأ المزيد</a>
                     </div>
                 </div>
-                <div class="news-card">
-                    <div class="news-img">
-                        <img src="/api/placeholder/400/300" alt="ورشة عمل">
+
+                 <div class="card">
+                    <div class="card-img">
+                         <img src="/api/placeholder/400/300?text=تحديث+2&bgColor=ecf0f1" alt="صورة التحديث 2">
                     </div>
-                    <div class="news-content">
+                    <div class="card-content">
                         <span class="news-date">10 مايو 2025</span>
-                        <h3>ورشة عمل مجانية عن التغذية الصحية</h3>
-                        <p>ادعوكم لحضور ورشة عمل مجانية عبر الإنترنت حول أساسيات التغذية الصحية وكيفية تطبيقها في حياتك اليومية</p>
-                        <a href="blog.html" class="btn">اقرأ المزيد</a>
+                        <h3>وصفة وجبة سريعة غنية بالبروتين بعد التمرين</h3> <p>وجبة سريعة ولذيذة لمساعدتك على الاستشفاء بعد التمرين المكثف. اكتشف المكونات وطريقة التحضير السهلة...</p>
+                         <a href="nutrition.html" class="btn">اقرأ المزيد</a>
                     </div>
                 </div>
-                <div class="news-card">
-                    <div class="news-img">
-                        <img src="/api/placeholder/400/300" alt="تحدي جديد">
+
+                 <div class="card">
+                    <div class="card-img">
+                         <img src="/api/placeholder/400/300?text=تحديث+3&bgColor=ecf0f1" alt="صورة التحديث 3">
                     </div>
-                    <div class="news-content">
+                    <div class="card-content">
                         <span class="news-date">5 مايو 2025</span>
-                        <h3>تحدي 30 يوم للياقة البدنية</h3>
-                        <p>انضم إلى تحدي 30 يوم للياقة البدنية وتحسين صحتك مع مجتمعنا المتفاعل عبر وسائل التواصل الاجتماعي</p>
-                        <a href="blog.html" class="btn">اقرأ المزيد</a>
+                        <h3>تحديد أهداف SMART: دليل للمبتدئين</h3> <p>هل أنت جديد في عالم اللياقة؟ تعلم كيفية تحديد أهداف واقعية ومحددة زمنياً باستخدام طريقة SMART لتحقيق نتائج فعالة...</p>
+                         <a href="goals.html" class="btn">اقرأ المزيد</a>
                     </div>
                 </div>
-            </div>
+
+                </div>
         </div>
     </section>
 
-    <!-- Call to Action -->
     <section class="cta">
         <div class="container">
             <h2>هل أنت مستعد لتغيير حياتك؟</h2>
             <p>انضم إلى الآلاف الذين حققوا أهدافهم في اللياقة البدنية باتباع برامجنا وخططنا الغذائية المتخصصة</p>
-            <a href="contact.html" class="btn">ابدأ الآن</a>
         </div>
+         <a href="contact.html" class="btn" style="margin-top: 20px;">ابدأ الآن</a>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-container">
@@ -645,8 +683,7 @@
                         <li><a href="exercises.html">برامج التمارين</a></li>
                         <li><a href="nutrition.html">النصائح الغذائية</a></li>
                         <li><a href="goals.html">أهداف اللياقة</a></li>
-                        <li><a href="blog.html">المدونة</a></li>
-                        <li><a href="contact.html">اتصل بنا</a></li>
+                        <li><a href="general-tips.html">نصائح عامة</a></li> <li><a href="contact.html">اتصل بنا</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -660,8 +697,8 @@
                 <div class="footer-section">
                     <h3>النشرة الإخبارية</h3>
                     <p>اشترك في نشرتنا الإخبارية للحصول على آخر الأخبار والتحديثات</p>
-                    <form>
-                        <input type="email" placeholder="بريدك الإلكتروني" style="padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 5px; border: none;">
+                    <form action="subscribe.php" method="POST">
+                        <input type="email" placeholder="بريدك الإلكتروني" name="email" required style="padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 5px; border: none;">
                         <button type="submit" class="btn" style="width: 100%;">اشترك</button>
                     </form>
                 </div>
@@ -676,6 +713,19 @@
         document.getElementById('hamburger').addEventListener('click', function() {
             document.getElementById('navbar').classList.toggle('show');
         });
+         // Optional: Close menu when a link is clicked
+        document.querySelectorAll('#navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navbar').classList.remove('show');
+            });
+        });
+
+         // JavaScript for Newsletter Submission (Placeholder)
+         document.querySelector('form[action="subscribe.php"]').addEventListener('submit', function(e) {
+            // e.preventDefault(); // uncomment this line to prevent actual submission for testing
+            alert('تم الاشتراك في النشرة البريدية بنجاح (هذه رسالة تجريبية)');
+            // Add actual subscription logic here
+         });
     </script>
 </body>
 </html>
