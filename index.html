@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فادي للياقة البدنية والتغذية الصحية</title>
     <style>
-        /* Updated Style Block - Removed image-specific CSS except for logo */
+        /* Updated Style Block - Removed image-specific CSS except for logo, Added video styles */
         :root {
             --primary-color: #3498db;
             --secondary-color: #2ecc71;
@@ -225,7 +225,7 @@
             font-size: 0.9rem;
         }
 
-        /* About Section - Removed image styles and image HTML */
+        /* About Section - Added video styles */
         .about {
             padding: 5rem 0;
             background-color: var(--light-color);
@@ -235,13 +235,32 @@
             display: flex;
             align-items: center;
             gap: 50px;
-             flex-direction: row; /* Reverted to default row for RTL since image column is gone */
+             flex-direction: row; /* Default row direction */
+        }
+        /* Adjusted flex direction for RTL for better text/video flow */
+         [dir="rtl"] .about-content {
+             flex-direction: row-reverse;
+         }
+
+
+        /* Added styles for the video container and video */
+        .about-video {
+            flex: 1; /* Allow video container to take equal space */
+             min-width: 300px; /* Minimum width before wrapping */
         }
 
-        /* Removed .about-img and .about-img img styles */
+        .about-video video {
+             display: block; /* Remove extra space below video */
+            width: 100%; /* Make video fill its container */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Match styling of old image */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Match styling of old image */
+        }
+
 
         .about-text {
-            flex: 1;
+            flex: 1; /* Allow text to take equal space */
+             min-width: 300px; /* Minimum width before wrapping */
         }
 
         .about-text h2 {
@@ -543,13 +562,16 @@
         /* Responsive Styles */
         @media (max-width: 900px) {
             .about-content {
-                flex-direction: column;
+                flex-direction: column; /* Stack text and video on smaller screens */
             }
              .contact-flex-container {
                  flex-direction: column;
              }
              .contact-form-col {
                   min-width: 100%;
+             }
+             .about-video, .about-text { /* Ensure both stack and take full width */
+                 min-width: 100%;
              }
         }
 
@@ -686,6 +708,12 @@
     <section class="about">
         <div class="container">
             <div class="about-content">
+                 <div class="about-video">
+                    <video controls>
+                        <source src="video.mp4" type="video/mp4">
+                        متصفحك لا يدعم عرض الفيديو.
+                    </video>
+                </div>
                 <div class="about-text">
                     <h2>من هو فادي؟</h2>
                     <p>مدرب لياقة بدنية محترف ومؤثر على وسائل التواصل الاجتماعي، أكرس حياتي لمساعدة الآخرين على تحقيق أهدافهم في اللياقة البدنية والصحة العامة.</p>
