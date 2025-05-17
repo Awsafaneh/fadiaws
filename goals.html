@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أهداف اللياقة - فادي للياقة البدنية</title>
     <style>
-        /* Keep the entire style block from index.html identical */
+        /* Updated Style Block - Removed image-specific CSS */
         :root {
             --primary-color: #3498db;
             --secondary-color: #2ecc71;
@@ -34,7 +34,7 @@
             padding: 0 20px;
         }
 
-        /* Header Styles - Keep consistent across all pages */
+        /* Header Styles */
         header {
             background-color: var(--dark-color);
             color: white;
@@ -70,6 +70,17 @@
             font-size: 1.5rem;
         }
 
+        /* Logo Image Style - Kept */
+        .logo img {
+            height: 50px; /* Adjust as needed for your logo */
+            margin-left: 10px; /* Space between logo and text */
+        }
+        [dir="rtl"] .logo img {
+            margin-right: 10px;
+            margin-left: 0;
+        }
+
+
         nav ul {
             display: flex;
             list-style: none;
@@ -97,7 +108,7 @@
             background-color: var(--secondary-color);
         }
 
-        /* Active class for current page - Update for each HTML file */
+        /* Active class for current page */
         .active {
             background-color: var(--secondary-color);
         }
@@ -112,7 +123,29 @@
             font-size: 1.5rem;
         }
 
-        /* Shared Section Styles - Reuse these classes */
+        /* Removed Hero background image style */
+        .hero {
+            /* background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/800?text=Hero+Image&bgColor=2ecc71') center/cover no-repeat; */
+            background-color: var(--primary-color); /* Added a fallback background color */
+            height: 50vh; /* Reduced height as no large image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+         .hero h1 {
+            font-size: 2.8rem; /* Adjusted font size */
+            margin-bottom: 15px;
+         }
+          .hero p {
+            font-size: 1.1rem; /* Adjusted font size */
+            margin-bottom: 20px;
+         }
+
+
+        /* Shared Section Styles */
         .section {
              padding: 5rem 0;
         }
@@ -134,16 +167,18 @@
             content: '';
             position: absolute;
             bottom: 0;
-            right: 25%; /* Adjust for RTL if needed */
+            right: 25%;
             width: 50%;
             height: 4px;
             background-color: var(--secondary-color);
         }
          [dir="rtl"] .section-title h2::after {
-             left: 25%; /* Correct for RTL */
+             left: 25%;
              right: auto;
          }
 
+
+        /* Removed styles for card images */
         .card-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -153,34 +188,18 @@
         .card {
             background-color: white;
             border-radius: 10px;
-            overflow: hidden;
+            /* overflow: hidden; Removed as no images */
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
+            padding: 20px; /* Added padding to card content area */
         }
 
         .card:hover {
             transform: translateY(-10px);
         }
 
-        .card-img {
-            height: 200px;
-            overflow: hidden;
-        }
+        /* Removed .card-img and .card-img img styles */
 
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .card:hover .card-img img {
-            transform: scale(1.1);
-        }
-
-        .card-content {
-            padding: 20px;
-        }
 
         .card h3 {
             font-size: 1.5rem;
@@ -203,6 +222,8 @@
             font-weight: bold;
             font-size: 1rem;
             transition: all 0.3s ease;
+             border: none;
+             cursor: pointer;
         }
 
         .btn:hover {
@@ -210,31 +231,104 @@
             transform: translateY(-2px);
         }
 
-        /* Specific styles for this page if needed */
-        .goal-item {
-            background-color: white;
-            padding: 30px;
+        /* Removed About image styles */
+        .about {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+             flex-direction: row-reverse; /* Adjusted for RTL layout if text/image were side-by-side */
+        }
+         [dir="rtl"] .about-content {
+             flex-direction: row; /* Default for RTL */
+         }
+
+
+        /* Removed .about-img and .about-img img styles */
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
             margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            color: var(--dark-color);
         }
 
-        .goal-item h3 {
-             color: var(--primary-color);
-            margin-bottom: 15px;
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
         }
 
-        .goal-item ul {
-            list-style: disc;
-            padding-right: 20px; /* For RTL list markers */
+        /* Removed News image styles */
+         .news {
+            padding: 5rem 0;
+        }
+         .news-container { /* Reusing card-container for layout */
+             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+         }
+         .news-card { /* Reusing card style for news items */
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 20px; /* Added padding */
+         }
+
+        /* Removed .news-img and .news-img img styles */
+
+        .news-content { /* Adjusted news content padding */
+            padding: 0; /* Padding moved to .news-card */
         }
 
-        .goal-item ul li {
-            margin-bottom: 8px;
+        .news-date {
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .news-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .news-card p {
+            margin-bottom: 20px;
+            color: #666;
         }
 
 
-        /* Footer Styles - Keep consistent across all pages */
+        /* Removed CTA background image style */
+        .cta {
+            /* background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/api/placeholder/1200/800?text=CTA+Background&bgColor=3498db') center/cover no-repeat; */
+             background-color: var(--primary-color); /* Added a fallback background color */
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
         footer {
             background-color: var(--dark-color);
             color: white;
@@ -258,13 +352,13 @@
             content: '';
             position: absolute;
             bottom: 0;
-            right: 0; /* Adjust for RTL if needed */
+            right: 0;
             width: 50px;
             height: 2px;
             background-color: var(--secondary-color);
         }
-         [dir="rtl"] .footer-section h3::after {
-             right: 0; /* Keep right for RTL underline on heading */
+        [dir="rtl"] .footer-section h3::after {
+             right: 0;
          }
 
 
@@ -293,11 +387,11 @@
         .social-icons {
             display: flex;
             margin-top: 20px;
-             direction: ltr; /* Force LTR for social icons flow */
-             justify-content: flex-end; /* Align icons to the right in RTL context */
+             direction: ltr;
+             justify-content: flex-end;
         }
          [dir="rtl"] .social-icons {
-             justify-content: flex-start; /* Align icons to the left in RTL context */
+             justify-content: flex-start;
          }
 
 
@@ -311,18 +405,21 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            margin-left: 10px; /* Adjust margin for RTL */
+            margin-left: 10px;
             transition: all 0.3s ease;
         }
          [dir="rtl"] .social-icons a {
-             margin-right: 10px; /* Adjust margin for RTL */
+             margin-right: 10px;
              margin-left: 0;
          }
+
 
         .social-icons a:hover {
             background-color: var(--secondary-color);
             transform: translateY(-3px);
         }
+
+        /* Removed footer logo image style */
 
         .footer-bottom {
             text-align: center;
@@ -331,11 +428,135 @@
             border-top: 1px solid #444;
         }
 
-        /* Responsive Styles - Keep consistent */
+        /* Specific styles for General Tips page (Reused) */
+         .tip-item { /* Reusing goal-item style */
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .tip-item h3 {
+             color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .tip-item ul {
+            list-style: disc;
+            padding-right: 20px; /* For RTL list markers */
+        }
+
+        .tip-item ul li {
+            margin-bottom: 8px;
+        }
+
+        /* Specific styles for Contact Form (Reused & Adjusted) */
+        .contact-flex-container { /* Flexbox container */
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-form-col {
+            flex: 1;
+             min-width: 300px;
+        }
+
+        .contact-form-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .contact-form-box h3 {
+             color: var(--dark-color);
+             margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        /* Removed map styles */
+
+        /* Specific styles for FAQ (Reused) */
+        .faq-item {
+             background-color: white;
+             border: 1px solid #ddd;
+             border-radius: 8px;
+             margin-bottom: 15px;
+             overflow: hidden;
+             box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+             padding: 15px 20px;
+             background-color: var(--light-color);
+             cursor: pointer;
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             font-weight: bold;
+             color: var(--dark-color);
+             transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #e0e0e0;
+        }
+
+        .faq-question i {
+             transition: transform 0.3s ease;
+        }
+         .faq-question i.rotated {
+            transform: rotate(180deg);
+         }
+
+
+        .faq-answer {
+             padding: 15px 20px;
+             border-top: 1px solid #eee;
+             display: none;
+        }
+
+
+        /* Responsive Styles */
         @media (max-width: 900px) {
             .about-content {
                 flex-direction: column;
             }
+             .contact-flex-container {
+                 flex-direction: column;
+             }
+             .contact-form-col {
+                  min-width: 100%;
+             }
         }
 
         @media (max-width: 768px) {
@@ -369,28 +590,27 @@
             }
 
             .footer-container {
-                 grid-template-columns: 1fr; /* Stack footer sections */
+                 grid-template-columns: 1fr;
                  text-align: center;
             }
 
             .footer-section h3::after {
-                right: 50%; /* Center underline on mobile */
+                right: 50%;
                 transform: translateX(50%);
             }
             [dir="rtl"] .footer-section h3::after {
-                 left: 50%; /* Center underline on mobile */
+                 left: 50%;
                  right: auto;
                  transform: translateX(-50%);
              }
 
              .social-icons {
-                 justify-content: center; /* Center social icons on mobile */
-                 direction: ltr; /* Keep LTR for icon order */
+                 justify-content: center;
+                 direction: ltr;
              }
              [dir="rtl"] .social-icons {
-                 justify-content: center; /* Center social icons on mobile */
+                 justify-content: center;
              }
-
 
         }
 
@@ -411,7 +631,7 @@
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo">
-                <i class="fas fa-dumbbell"></i>
+                 <img src="logo.jpg" alt="فادي للياقة">
                 فادي <span>للياقة</span>
             </a>
             <nav>
@@ -419,8 +639,9 @@
                     <li><a href="index.html">الرئيسية</a></li>
                     <li><a href="exercises.html">برامج التمارين</a></li>
                     <li><a href="nutrition.html">النصائح الغذائية</a></li>
-                    <li><a href="goals.html" class="active">أهداف اللياقة</a></li> <li><a href="general-tips.html">نصائح عامة</a></li> <li><a href="contact.html">اتصل بنا</a></li>
-                </ul>
+                    <li><a href="goals.html">أهداف اللياقة</a></li>
+                    <li><a href="general-tips.html">نصائح عامة</a></li>
+                    <li><a href="contact.html" class="active">اتصل بنا</a></li> </ul>
                 <button class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -504,22 +725,23 @@
                         <li><a href="exercises.html">برامج التمارين</a></li>
                         <li><a href="nutrition.html">النصائح الغذائية</a></li>
                         <li><a href="goals.html">أهداف اللياقة</a></li>
-                        <li><a href="general-tips.html">نصائح عامة</a></li> <li><a href="contact.html">اتصل بنا</a></li>
+                        <li><a href="general-tips.html">نصائح عامة</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>اتصل بنا</h3>
                     <ul>
                          <li><i class="fas fa-envelope"></i> info@fadi-fitness.com</li>
-                        <li><i class="fas fa-phone"></i> +970 599 123456</li>
-                        <li><i class="fas fa-map-marker-alt"></i> رام الله، فلسطين</li>
+                        <li><i class="fas fa-phone"></i> +966 50 123 4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>النشرة الإخبارية</h3>
                     <p>اشترك في نشرتنا الإخبارية للحصول على آخر الأخبار والتحديثات</p>
                      <form action="subscribe.php" method="POST">
-                        <input type="email" placeholder="بريدك الإلكتروني" name="email" required style="padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 5px; border: none;">
+                        <input type="email" placeholder="البريد الإلكتروني" name="email" required style="padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 5px; border: none;">
                         <button type="submit" class="btn" style="width: 100%;">اشترك</button>
                     </form>
                 </div>
@@ -540,6 +762,12 @@
                 document.getElementById('navbar').classList.remove('show');
             });
         });
+         // JavaScript for Newsletter Submission (Placeholder)
+         document.querySelector('form[action="subscribe.php"]').addEventListener('submit', function(e) {
+            // e.preventDefault(); // uncomment this line to prevent actual submission for testing
+            alert('تم الاشتراك في النشرة البريدية بنجاح (هذه رسالة تجريبية)');
+            // Add actual subscription logic here
+         });
     </script>
 </body>
 </html>
