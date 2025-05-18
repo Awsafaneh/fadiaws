@@ -12,6 +12,13 @@
             --dark-color: #2c3e50;
             --light-color: #ecf0f1;
             --accent-color: #e74c3c;
+
+            /* Dark mode colors */
+            --dark-mode-bg: #1a1a1a;
+            --dark-mode-text: #e0e0e0;
+            --dark-mode-card-bg: #2c2c2c;
+            --dark-mode-header-footer-bg: #121212;
+            --dark-mode-border: #444;
         }
 
         * {
@@ -25,7 +32,107 @@
             background-color: #f9f9f9;
             color: #333;
             line-height: 1.6;
+             transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for mode change */
         }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: var(--dark-mode-bg);
+            color: var(--dark-mode-text);
+        }
+
+        body.dark-mode header,
+        body.dark-mode footer {
+            background-color: var(--dark-mode-header-footer-bg);
+        }
+
+         body.dark-mode .section-title h2 {
+            color: var(--dark-mode-text);
+        }
+         body.dark-mode .section-description {
+            color: var(--dark-mode-text);
+         }
+
+
+        body.dark-mode .card,
+        body.dark-mode .program-item,
+        body.dark-mode .nutrition-item,
+        body.dark-mode .goal-item,
+        body.dark-mode .tip-item,
+        body.dark-mode .contact-form-box,
+        body.dark-mode .faq-item {
+            background-color: var(--dark-mode-card-bg);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+            color: var(--dark-mode-text);
+        }
+
+        body.dark-mode .card h3,
+        body.dark-mode .program-item h3,
+        body.dark-mode .nutrition-item h3,
+        body.dark-mode .goal-item h3,
+        body.dark-mode .tip-item h3,
+        body.dark-mode .contact-form-box h3,
+        body.dark-mode .faq-question {
+            color: var(--primary-color); /* Keep primary color for headings */
+        }
+
+        body.dark-mode .card p,
+        body.dark-mode .program-item p,
+        body.dark-mode .nutrition-item p,
+        body.dark-mode .goal-item p,
+        body.dark-mode .tip-item p,
+        body.dark-mode .contact-form-box label {
+            color: var(--dark-mode-text);
+        }
+         body.dark-mode .faq-answer {
+             border-top-color: var(--dark-mode-border);
+         }
+
+
+        body.dark-mode .contact-form-box input[type="text"],
+        body.dark-mode .contact-form-box input[type="email"],
+        body.dark-mode .contact-form-box input[type="tel"],
+        body.dark-mode .contact-form-box select,
+        body.dark-mode .contact-form-box textarea {
+            background-color: #333;
+            color: var(--dark-mode-text);
+            border-color: var(--dark-mode-border);
+        }
+
+        body.dark-mode .contact-form-box input::placeholder,
+        body.dark-mode .contact-form-box textarea::placeholder {
+            color: #aaa;
+        }
+
+
+        body.dark-mode footer .footer-section h3::after {
+             background-color: var(--secondary-color);
+        }
+
+         body.dark-mode .social-icons a {
+            background-color: #555;
+             color: var(--dark-mode-text);
+        }
+         body.dark-mode .social-icons a:hover {
+            background-color: var(--secondary-color);
+             color: white;
+         }
+
+        body.dark-mode .footer-section ul li a {
+            color: #ccc;
+        }
+         body.dark-mode .footer-section ul li a:hover {
+             color: var(--secondary-color);
+         }
+
+         body.dark-mode .footer-bottom {
+            border-top-color: var(--dark-mode-border);
+             color: var(--dark-mode-text);
+         }
+         body.dark-mode .footer-bottom p {
+            color: var(--dark-mode-text);
+         }
+
 
         .container {
             width: 100%;
@@ -43,12 +150,14 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+             transition: background-color 0.3s ease; /* Smooth transition for mode change */
         }
 
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+             flex-wrap: wrap; /* Allow items to wrap on smaller screens */
         }
 
         .logo {
@@ -84,9 +193,17 @@
         }
 
 
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
         nav ul {
             display: flex;
             list-style: none;
+             margin: 0;
+             padding: 0;
+             transition: transform 0.3s ease;
         }
 
         nav ul li {
@@ -116,6 +233,40 @@
             background-color: var(--secondary-color);
         }
 
+        /* Accessibility Controls */
+         .accessibility-controls {
+             display: flex;
+             align-items: center;
+             margin-right: 20px; /* Space between nav links and controls */
+         }
+         [dir="rtl"] .accessibility-controls {
+             margin-left: 20px;
+             margin-right: 0;
+         }
+
+
+         .accessibility-controls button {
+             background-color: rgba(255, 255, 255, 0.2);
+             border: none;
+             color: white;
+             padding: 5px 10px;
+             margin-left: 5px; /* Space between buttons */
+             border-radius: 5px;
+             cursor: pointer;
+             font-size: 0.9rem;
+             transition: background-color 0.3s ease;
+         }
+          [dir="rtl"] .accessibility-controls button {
+              margin-right: 5px;
+              margin-left: 0;
+          }
+
+
+         .accessibility-controls button:hover {
+             background-color: var(--secondary-color);
+         }
+
+
         /* Mobile Menu */
         .hamburger {
             display: none;
@@ -124,7 +275,13 @@
             border: none;
             color: white;
             font-size: 1.5rem;
+             margin-left: 10px; /* Space between hamburger and controls */
         }
+         [dir="rtl"] .hamburger {
+             margin-right: 10px;
+             margin-left: 0;
+         }
+
 
         /* Removed Hero background image style */
         .hero {
@@ -161,6 +318,7 @@
             text-align: center;
             margin-bottom: 3rem;
             color: var(--dark-color);
+             transition: color 0.3s ease; /* Smooth transition for mode change */
         }
 
         .section-title h2 {
@@ -184,6 +342,17 @@
              right: auto;
          }
 
+         .section-description {
+             text-align: center;
+             margin-bottom: 40px;
+             font-size: 1.1rem;
+             color: #666; /* Default description color */
+             transition: color 0.3s ease; /* Smooth transition for mode change */
+         }
+         body.dark-mode .section-description {
+             color: var(--dark-mode-text);
+         }
+
 
         /* Removed styles for card images */
         .card-container {
@@ -197,13 +366,14 @@
             border-radius: 10px;
             /* overflow: hidden; Removed as no images */
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
             padding: 20px; /* Added padding to card content area */
             text-align: center; /* Centered card content */
         }
 
         .card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Slightly stronger shadow on hover */
         }
 
         /* Removed .card-img and .card-img img styles */
@@ -213,12 +383,20 @@
             font-size: 1.5rem;
             margin-bottom: 10px;
             color: var(--dark-color);
+             transition: color 0.3s ease; /* Smooth transition */
         }
+         body.dark-mode .card h3 {
+             color: var(--primary-color); /* Or another color suitable for dark mode */
+         }
 
         .card p {
             margin-bottom: 20px;
             color: #666;
+             transition: color 0.3s ease; /* Smooth transition */
         }
+         body.dark-mode .card p {
+             color: var(--dark-mode-text);
+         }
 
         .card .btn {
             padding: 8px 20px;
@@ -229,13 +407,19 @@
         .about {
             padding: 5rem 0;
             background-color: var(--light-color);
+             transition: background-color 0.3s ease; /* Smooth transition for mode change */
         }
+         body.dark-mode .about {
+             background-color: var(--dark-mode-bg);
+         }
+
 
         .about-content {
             display: flex;
             align-items: center;
             gap: 50px;
              flex-direction: row; /* Default row direction */
+             flex-wrap: wrap; /* Allow wrapping */
         }
         /* Adjusted flex direction for RTL for better text/video flow */
          [dir="rtl"] .about-content {
@@ -256,6 +440,10 @@
              text-align: center; /* Center the title above the video */
              font-size: 1.6rem; /* Increased font size for prominence */
              font-weight: bold; /* Ensure bold if needed */
+              transition: color 0.3s ease; /* Smooth transition */
+         }
+         body.dark-mode .about-video h3 {
+             color: var(--dark-mode-text);
          }
 
 
@@ -277,17 +465,30 @@
             font-size: 2rem;
             margin-bottom: 20px;
             color: var(--dark-color);
+             transition: color 0.3s ease; /* Smooth transition */
         }
+         body.dark-mode .about-text h2 {
+             color: var(--dark-mode-text);
+         }
 
         .about-text p {
             margin-bottom: 20px;
             line-height: 1.8;
+             transition: color 0.3s ease; /* Smooth transition */
         }
+         body.dark-mode .about-text p {
+             color: var(--dark-mode-text);
+         }
+
 
         /* News Section - Removed image styles and image HTML */
         .news {
             padding: 5rem 0;
+             transition: background-color 0.3s ease; /* Smooth transition for mode change */
         }
+         body.dark-mode .news {
+             background-color: var(--dark-mode-bg);
+         }
 
         .news-container {
             display: grid;
@@ -300,7 +501,13 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             padding: 20px; /* Added padding */
+             transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
          }
+         body.dark-mode .news-card {
+              background-color: var(--dark-mode-card-bg);
+              box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+         }
+
 
         /* Removed .news-img and .news-img img styles */
 
@@ -319,12 +526,21 @@
             font-size: 1.3rem;
             margin-bottom: 10px;
             color: var(--dark-color);
+             transition: color 0.3s ease; /* Smooth transition */
         }
+         body.dark-mode .news-card h3 {
+             color: var(--primary-color);
+         }
+
 
         .news-card p {
             margin-bottom: 20px;
             color: #666;
+             transition: color 0.3s ease; /* Smooth transition */
         }
+         body.dark-mode .news-card p {
+             color: var(--dark-mode-text);
+         }
 
 
         /* Removed CTA background image style */
@@ -334,7 +550,13 @@
             color: white;
             padding: 5rem 0;
             text-align: center;
+             transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
         }
+         body.dark-mode .cta {
+              background-color: var(--secondary-color); /* Or another color for dark mode CTA */
+              color: var(--dark-mode-text);
+         }
+
 
         .cta h2 {
             font-size: 2.5rem;
@@ -354,7 +576,13 @@
             background-color: var(--dark-color);
             color: white;
             padding: 4rem 0 2rem;
+             transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
         }
+         body.dark-mode footer {
+             background-color: var(--dark-mode-header-footer-bg);
+             color: var(--dark-mode-text);
+         }
+
 
         .footer-container {
             display: grid;
@@ -367,7 +595,13 @@
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 10px;
+             color: white; /* Default footer heading color */
+              transition: color 0.3s ease; /* Smooth transition */
         }
+         body.dark-mode footer .footer-section h3 {
+             color: var(--dark-mode-text);
+         }
+
 
         .footer-section h3::after {
             content: '';
@@ -385,7 +619,13 @@
 
         .footer-section p {
             margin-bottom: 15px;
+             color: #ddd; /* Default footer text color */
+              transition: color 0.3s ease; /* Smooth transition */
         }
+         body.dark-mode footer .footer-section p {
+             color: var(--dark-mode-text);
+         }
+
 
         .footer-section ul {
             list-style: none;
@@ -447,16 +687,29 @@
             margin-top: 3rem;
             padding-top: 2rem;
             border-top: 1px solid #444;
+             transition: border-color 0.3s ease, color 0.3s ease; /* Smooth transition */
         }
+         body.dark-mode .footer-bottom {
+             border-top-color: var(--dark-mode-border);
+             color: var(--dark-mode-text);
+         }
 
-         /* Specific styles for General Tips page (Reused) */
+
+        /* Specific styles for General Tips page (Reused) */
          .tip-item { /* Reusing goal-item style */
             background-color: white;
             padding: 30px;
             margin-bottom: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+             transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease; /* Smooth transition */
         }
+         body.dark-mode .tip-item {
+             background-color: var(--dark-mode-card-bg);
+             box-shadow: 0 2px 8px rgba(255, 255, 255, 0.08);
+             color: var(--dark-mode-text);
+         }
+
 
         .tip-item h3 {
              color: var(--primary-color);
@@ -466,7 +719,11 @@
         .tip-item ul {
             list-style: disc;
             padding-right: 20px; /* For RTL list markers */
+             transition: color 0.3s ease; /* Smooth transition */
         }
+         body.dark-mode .tip-item ul {
+             color: var(--dark-mode-text);
+         }
 
         .tip-item ul li {
             margin-bottom: 8px;
@@ -488,13 +745,23 @@
             background-color: white;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+             transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
         }
+         body.dark-mode .contact-form-box {
+              background-color: var(--dark-mode-card-bg);
+              box-shadow: 0 2px 8px rgba(255, 255, 255, 0.08);
+         }
 
         .contact-form-box h3 {
              color: var(--dark-color);
              margin-bottom: 20px;
+              transition: color 0.3s ease; /* Smooth transition */
         }
+         body.dark-mode .contact-form-box h3 {
+              color: var(--primary-color);
+         }
+
 
         .form-group {
             margin-bottom: 20px;
@@ -505,7 +772,12 @@
             margin-bottom: 8px;
             font-weight: bold;
             color: var(--dark-color);
+             transition: color 0.3s ease; /* Smooth transition */
         }
+         body.dark-mode .form-group label {
+             color: var(--dark-mode-text);
+         }
+
 
         .form-group input[type="text"],
         .form-group input[type="email"],
@@ -518,6 +790,7 @@
             border-radius: 5px;
             font-size: 1rem;
             font-family: 'Cairo', sans-serif;
+             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
         }
 
         .form-group textarea {
@@ -525,8 +798,6 @@
         }
 
         /* Removed map styles */
-        /* Removed .map-container */
-
 
         /* Specific styles for FAQ (Reused) */
         .faq-item {
@@ -536,7 +807,14 @@
              margin-bottom: 15px;
              overflow: hidden;
              box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+             transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
         }
+         body.dark-mode .faq-item {
+             background-color: var(--dark-mode-card-bg);
+             border-color: var(--dark-mode-border);
+              box-shadow: 0 1px 5px rgba(255, 255, 255, 0.05);
+         }
+
 
         .faq-question {
              padding: 15px 20px;
@@ -547,12 +825,20 @@
              align-items: center;
              font-weight: bold;
              color: var(--dark-color);
-             transition: background-color 0.3s ease;
+             transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
         }
 
         .faq-question:hover {
             background-color: #e0e0e0;
         }
+         body.dark-mode .faq-question {
+             background-color: #3a3a3a;
+             color: var(--dark-mode-text);
+         }
+          body.dark-mode .faq-question:hover {
+              background-color: #4a4a4a;
+          }
+
 
         .faq-question i {
              transition: transform 0.3s ease;
@@ -566,13 +852,120 @@
              padding: 15px 20px;
              border-top: 1px solid #eee;
              display: none;
+             transition: border-top-color 0.3s ease, color 0.3s ease; /* Smooth transition */
         }
+         body.dark-mode .faq-answer {
+             border-top-color: var(--dark-mode-border);
+             color: var(--dark-mode-text);
+         }
+
+        /* Added style for the new image */
+        .styled-image {
+            display: block;
+            margin: 20px auto;
+            border: 5px solid var(--primary-color); /* Using primary color for border */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 100%; /* Ensure responsiveness */
+            width: 700px; /* Set a preferred width */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /* Added style for the new images in general-tips */
+         .styled-tip-image {
+             display: block;
+             margin: 20px auto;
+             border: 5px solid var(--secondary-color); /* Using secondary color for border */
+             border-radius: 10px;
+             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+             max-width: 100%; /* Ensure responsiveness */
+             width: 700px; /* Set a preferred width */
+             height: auto; /* Maintain aspect ratio */
+         }
+
+
+        .footer-image {
+            display: block;
+            width: 80px; /* Smaller size for footer */
+            height: auto;
+            margin: 0 auto 15px auto; /* Center and add bottom margin */
+            border-radius: 5px; /* Slightly rounded corners */
+            border: 2px solid var(--secondary-color); /* Small border */
+        }
+
+
+        /* Specific styles for Nutrition page */
+         .nutrition-item {
+             background-color: white;
+             padding: 30px;
+             margin-bottom: 20px;
+             border-radius: 8px;
+             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+             transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease; /* Smooth transition */
+         }
+          body.dark-mode .nutrition-item {
+               background-color: var(--dark-mode-card-bg);
+               box-shadow: 0 2px 8px rgba(255, 255, 255, 0.08);
+               color: var(--dark-mode-text);
+          }
+
+
+         .nutrition-item h3 {
+              color: var(--primary-color);
+             margin-bottom: 15px;
+         }
+
+         .nutrition-item ul {
+             list-style: disc;
+             padding-right: 20px; /* For RTL list markers */
+              transition: color 0.3s ease; /* Smooth transition */
+         }
+          body.dark-mode .nutrition-item ul {
+              color: var(--dark-mode-text);
+          }
+
+         .nutrition-item ul li {
+             margin-bottom: 8px;
+         }
+
+         /* Specific styles for Goals page */
+         .goal-item {
+             background-color: white;
+             padding: 30px;
+             margin-bottom: 20px;
+             border-radius: 8px;
+             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+              transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease; /* Smooth transition */
+         }
+          body.dark-mode .goal-item {
+               background-color: var(--dark-mode-card-bg);
+               box-shadow: 0 2px 8px rgba(255, 255, 255, 0.08);
+               color: var(--dark-mode-text);
+          }
+
+         .goal-item h3 {
+              color: var(--primary-color);
+             margin-bottom: 15px;
+         }
+
+         .goal-item ul {
+             list-style: disc;
+             padding-right: 20px; /* For RTL list markers */
+              transition: color 0.3s ease; /* Smooth transition */
+         }
+          body.dark-mode .goal-item ul {
+              color: var(--dark-mode-text);
+          }
+
+         .goal-item ul li {
+             margin-bottom: 8px;
+         }
 
 
         /* Responsive Styles */
         @media (max-width: 900px) {
             .about-content {
-                flex-direction: column; /* Stack text and video on smaller screens */
+                flex-direction: column;
             }
              .contact-flex-container {
                  flex-direction: column;
@@ -580,9 +973,9 @@
              .contact-form-col {
                   min-width: 100%;
              }
-             .about-video, .about-text { /* Ensure both stack and take full width */
-                 min-width: 100%;
-             }
+              .about-video, .about-text { /* Ensure both stack and take full width */
+                  min-width: 100%;
+              }
         }
 
         @media (max-width: 768px) {
@@ -600,7 +993,12 @@
                 flex-direction: column;
                 padding: 20px;
                 text-align: center;
+                 box-shadow: 0 10px 10px rgba(0,0,0,0.1);
             }
+             body.dark-mode nav ul {
+                 background-color: var(--dark-mode-header-footer-bg);
+             }
+
 
             nav ul.show {
                 display: flex;
@@ -638,6 +1036,15 @@
                  justify-content: center;
              }
 
+             .accessibility-controls {
+                 width: 100%; /* Controls take full width below hamburger */
+                 justify-content: center; /* Center buttons */
+                 margin-top: 10px; /* Space below hamburger */
+             }
+              [dir="rtl"] .accessibility-controls {
+                  margin-left: 0;
+              }
+
         }
 
         @media (max-width: 500px) {
@@ -669,6 +1076,11 @@
                     <li><a href="general-tips.html">نصائح عامة</a></li>
                     <li><a href="contact.html">اتصل بنا</a></li>
                 </ul>
+                <div class="accessibility-controls">
+                    <button id="increase-font" aria-label="Increase font size">A+</button>
+                    <button id="decrease-font" aria-label="Decrease font size">A-</button>
+                    <button id="mode-toggle" aria-label="Toggle dark/light mode">الوضع الليلي</button>
+                </div>
                 <button class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -743,103 +1155,4 @@
                 <div class="card">
                     <div class="news-content">
                         <span class="news-date">15 مايو 2025</span>
-                        <h3>أهمية الإحماء قبل أي تمرين</h3> <p>تعرف على لماذا يعتبر الإحماء خطوة أساسية لا يجب تخطيها قبل البدء بأي نشاط بدني وكيف تقوم به بشكل صحيح...</p>
-                         <a href="general-tips.html" class="btn">اقرأ المزيد</a>
-                    </div>
-                </div>
-
-                 <div class="card">
-                     <div class="news-content">
-                        <span class="news-date">10 مايو 2025</span>
-                        <h3>وصفة وجبة سريعة غنية بالبروتين بعد التمرين</h3> <p>وجبة سريعة ولذيذة لمساعدتك على الاستشفاء بعد التمرين المكثف. اكتشف المكونات وطريقة التحضير السهلة...</p>
-                         <a href="nutrition.html" class="btn">اقرأ المزيد</a>
-                    </div>
-                </div>
-
-                 <div class="card">
-                     <div class="news-content">
-                        <span class="news-date">5 مايو 2025</span>
-                        <h3>تحديد أهداف SMART: دليل للمبتدئين</h3> <p>هل أنت جديد في عالم اللياقة؟ تعلم كيفية تحديد أهداف واقعية ومحددة زمنياً باستخدام طريقة SMART لتحقيق نتائج فعالة...</p>
-                         <a href="goals.html" class="btn">اقرأ المزيد</a>
-                    </div>
-                </div>
-
-                </div>
-        </div>
-    </section>
-
-    <section class="cta">
-        <div class="container">
-            <h2>هل أنت مستعد لتغيير حياتك؟</h2>
-            <p>انضم إلى الآلاف الذين حققوا أهدافهم في اللياقة البدنية باتباع برامجنا وخططنا الغذائية المتخصصة</p>
-        </div>
-         <a href="contact.html" class="btn" style="margin-top: 20px;">ابدأ الآن</a>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-section">
-                    <h3>فادي للياقة</h3>
-                    <p>منصتك الشاملة لكل ما يتعلق باللياقة البدنية والتغذية الصحية والحفاظ على نمط حياة صحي.</p>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-                        <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>روابط سريعة</h3>
-                    <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="exercises.html">برامج التمارين</a></li>
-                        <li><a href="nutrition.html">النصائح الغذائية</a></li>
-                        <li><a href="goals.html">أهداف اللياقة</a></li>
-                        <li><a href="general-tips.html">نصائح عامة</a></li>
-                        <li><a href="contact.html">اتصل بنا</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>اتصل بنا</h3>
-                    <ul>
-                        <li><i class="fas fa-envelope"></i> info@fadi-fitness.com</li>
-                        <li><i class="fas fa-phone"></i> +962 791227346</li>
-                        <li><i class="fas fa-map-marker-alt"></i> عمان الأردن</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>النشرة الإخبارية</h3>
-                    <p>اشترك في نشرتنا الإخبارية للحصول على آخر الأخبار والتحديثات</p>
-                    <form action="subscribe.php" method="POST">
-                        <input type="email" placeholder="بريدك الإلكتروني" name="email" required style="padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 5px; border: none;">
-                        <button type="submit" class="btn" style="width: 100%;">اشترك</button>
-                    </form>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 فادي للياقة البدنية. جميع الحقوق محفوظة.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        document.getElementById('hamburger').addEventListener('click', function() {
-            document.getElementById('navbar').classList.toggle('show');
-        });
-         // Optional: Close menu when a link is clicked
-        document.querySelectorAll('#navbar a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navbar').classList.remove('show');
-            });
-        });
-
-         // JavaScript for Newsletter Submission (Placeholder)
-         document.querySelector('form[action="subscribe.php"]').addEventListener('submit', function(e) {
-            // e.preventDefault(); // uncomment this line to prevent actual submission for testing
-            alert('تم الاشتراك في النشرة البريدية بنجاح (هذه رسالة تجريبية)');
-            // Add actual subscription logic here
-         });
-    </script>
-</body>
-</html>
+                        <h3>أهم
