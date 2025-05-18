@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>النصائح الغذائية - فادي للياقة البدنية</title>
-    <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="style.css"> <style>
         /* Updated Style Block - Removed image-specific CSS except for logo */
         :root {
             --primary-color: #3498db;
@@ -25,6 +27,8 @@
             background-color: #f9f9f9;
             color: #333;
             line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Transition for theme change */
+            font-size: 16px; /* Base font size for resizing */
         }
 
         .container {
@@ -49,6 +53,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+             flex-wrap: wrap; /* للسماح للعناصر بالانتقال إلى سطر جديد في الشاشات الصغيرة */
         }
 
         .logo {
@@ -63,20 +68,16 @@
         .logo span {
             color: var(--secondary-color);
         }
-
-        .logo i {
+         .logo i {
             color: var(--secondary-color);
             margin-left: 8px;
             font-size: 1.5rem;
         }
 
-        /* Logo Image Style - Kept and styled */
+
         .logo img {
-            height: 50px; /* Adjust as needed for your logo size */
+            height: 50px; /* Adjust as needed for your logo */
             margin-left: 10px; /* Space between logo and text */
-             /* Optional: ensure it fits nicely */
-             display: block;
-             object-fit: contain; /* Ensures the image scales without distortion */
         }
         [dir="rtl"] .logo img {
             margin-right: 10px;
@@ -105,13 +106,14 @@
             padding: 10px;
             border-radius: 5px;
             transition: all 0.3s ease;
+             border: none;
+             cursor: pointer;
         }
 
         nav ul li a:hover {
             background-color: var(--secondary-color);
         }
 
-        /* Active class for current page */
         .active {
             background-color: var(--secondary-color);
         }
@@ -126,11 +128,10 @@
             font-size: 1.5rem;
         }
 
-        /* Removed Hero background image style */
+        /* Hero Styles */
         .hero {
-            /* background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/800?text=Hero+Image&bgColor=2ecc71') center/cover no-repeat; */
-            background-color: var(--primary-color); /* Added a fallback background color */
-            height: 50vh; /* Adjusted height */
+            background-color: var(--primary-color);
+            height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -138,19 +139,14 @@
             color: white;
             padding: 0 20px;
         }
-         .hero-content { /* Adjusted padding/margins if needed after image removal */
-             max-width: 800px; /* Keep max width */
-             margin: 0 auto; /* Center content */
-         }
          .hero h1 {
-            font-size: 2.8rem; /* Adjusted font size */
+            font-size: 2.8rem;
             margin-bottom: 15px;
          }
           .hero p {
-            font-size: 1.1rem; /* Adjusted font size */
+            font-size: 1.1rem;
             margin-bottom: 20px;
          }
-
 
         /* Shared Section Styles */
         .section {
@@ -184,122 +180,79 @@
              right: auto;
          }
 
-
-        /* Removed styles for card images */
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        /* Nutrition Item Styles */
+        .nutrition-item {
+             background-color: var(--card-background); /* Added card-background variable */
+             padding: 30px;
+             margin-bottom: 20px;
+             border-radius: 8px;
+             box-shadow: 0 2px 8px var(--shadow-color); /* Added shadow-color variable */
+        }
+        .nutrition-item h3 {
+             color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .nutrition-item ul {
+            list-style: disc;
+            padding-right: 20px; /* For RTL list markers */
+        }
+        .nutrition-item ul li {
+            margin-bottom: 8px;
         }
 
-        .card {
-            background-color: white;
-            border-radius: 10px;
-            /* overflow: hidden; Removed as no images */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            padding: 20px; /* Added padding to card content area */
-            text-align: center; /* Centered card content */
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        /* Removed .card-img and .card-img img styles */
-
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--dark-color);
-        }
-
-        .card p {
-            margin-bottom: 20px;
-            color: #666;
-        }
-
-        .card .btn {
-            padding: 8px 20px;
-            font-size: 0.9rem;
-        }
-
-        /* Removed About image styles */
-        .about {
-            padding: 5rem 0;
-            background-color: var(--light-color);
-        }
-
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-             flex-direction: row; /* Reverted to default row for RTL since image column is gone */
-        }
-
-        /* Removed .about-img and .about-img img styles */
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-text h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--dark-color);
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        /* Removed News image styles */
-         .news {
-            padding: 5rem 0;
-        }
-         .news-container { /* Reusing card-container for layout */
+        /* Card & Button Styles (from Index, reused) */
+         .card-container { /* Reused from index */
              display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-         }
-         .news-card { /* Reusing card style for news items */
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            padding: 20px; /* Added padding */
+             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+             gap: 30px;
          }
 
-        /* Removed .news-img and .news-img img styles */
+         .card { /* Reused from index */
+             background-color: var(--card-background);
+             border-radius: 10px;
+             box-shadow: 0 5px 15px var(--shadow-color);
+             transition: transform 0.3s ease;
+             padding: 20px;
+         }
 
-        .news-content { /* Adjusted news content padding */
-            padding: 0; /* Padding moved to .news-card */
-        }
+         .card:hover { /* Reused from index */
+             transform: translateY(-10px);
+         }
 
-        .news-date {
-            color: var(--secondary-color);
-            font-weight: bold;
-            margin-bottom: 10px;
-            display: block;
-        }
+         .card h3 { /* Reused from index */
+             font-size: 1.5rem;
+             margin-bottom: 10px;
+             color: var(--dark-color);
+         }
 
-        .news-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--dark-color);
-        }
+         .card p { /* Reused from index */
+             margin-bottom: 20px;
+             color: #666;
+         }
 
-        .news-card p {
-            margin-bottom: 20px;
-            color: #666;
-        }
+         .btn { /* Reused from index */
+             display: inline-block;
+             background-color: var(--secondary-color);
+             color: white;
+             padding: 10px 30px;
+             border-radius: 50px;
+             text-decoration: none;
+             font-weight: bold;
+             font-size: 1rem;
+             transition: all 0.3s ease;
+              border: none;
+              cursor: pointer;
+         }
+
+         .btn:hover { /* Reused from index */
+             background-color: #27ae60;
+             transform: translateY(-2px);
+         }
 
 
-        /* Removed CTA background image style */
+        /* CTA Section Styles (from Index, reused) */
         .cta {
-            /* background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/api/placeholder/1200/800?text=CTA+Background&bgColor=3498db') center/cover no-repeat; */
-             background-color: var(--primary-color); /* Added a fallback background color */
+            background-color: var(--primary-color);
             color: white;
             padding: 5rem 0;
             text-align: center;
@@ -318,7 +271,8 @@
             margin-right: auto;
         }
 
-        /* Footer */
+
+        /* Footer Styles (from Index, reused) */
         footer {
             background-color: var(--dark-color);
             color: white;
@@ -350,7 +304,6 @@
         [dir="rtl"] .footer-section h3::after {
              right: 0;
          }
-
 
         .footer-section p {
             margin-bottom: 15px;
@@ -384,7 +337,6 @@
              justify-content: flex-start;
          }
 
-
         .social-icons a {
             width: 35px;
             height: 35px;
@@ -397,19 +349,17 @@
             text-decoration: none;
             margin-left: 10px;
             transition: all 0.3s ease;
+            font-size: 1.2rem;
         }
          [dir="rtl"] .social-icons a {
              margin-right: 10px;
              margin-left: 0;
          }
 
-
         .social-icons a:hover {
             background-color: var(--secondary-color);
             transform: translateY(-3px);
         }
-
-        /* Removed footer logo image style */
 
         .footer-bottom {
             text-align: center;
@@ -418,163 +368,326 @@
             border-top: 1px solid #444;
         }
 
-        /* Specific styles for Nutrition page */
-        .nutrition-item {
-            background-color: white;
-            padding: 30px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        .nutrition-item h3 {
-             color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .nutrition-item ul {
-            list-style: disc;
-            padding-right: 20px; /* For RTL list markers */
-        }
-
-        .nutrition-item ul li {
-            margin-bottom: 8px;
-        }
-
-
-        /* Specific styles for General Tips page (Reused) */
-         .tip-item { /* Reusing goal-item style */
-            background-color: white;
-            padding: 30px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .tip-item h3 {
-             color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .tip-item ul {
-            list-style: disc;
-            padding-right: 20px; /* For RTL list markers */
-        }
-
-        .tip-item ul li {
-            margin-bottom: 8px;
-        }
-
-        /* Specific styles for Contact Form (Reused & Adjusted) */
-        .contact-flex-container { /* Flexbox container */
+        /* Added Style: Accessibility Controls */
+        .accessibility-controls {
             display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
+            align-items: center;
+            /* Position can be adjusted based on desired layout */
+            /* Example: float left for RTL next to logo, or flex within container */
+            order: 1; /* Place before nav for RTL if needed */
+            margin-left: 20px; /* Space after logo */
+        }
+        [dir="rtl"] .accessibility-controls {
+            order: 3; /* Place after nav for RTL */
+            margin-left: 0;
+            margin-right: 20px;
         }
 
-        .contact-form-col {
-            flex: 1;
-             min-width: 300px;
+        .accessibility-controls button {
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 5px 10px;
+            margin-right: 5px; /* Space between buttons (adjust for RTL) */
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+         [dir="rtl"] .accessibility-controls button {
+             margin-right: 0;
+             margin-left: 5px;
+         }
+
+        .accessibility-controls button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
-        .contact-form-box {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        .accessibility-controls .theme-switch {
+            margin-right: 15px; /* Space from text size buttons (adjust for RTL) */
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+         [dir="rtl"] .accessibility-controls .theme-switch {
+             margin-right: 0;
+             margin-left: 15px;
+         }
+
+        .accessibility-controls .theme-switch input[type="checkbox"] {
+            display: none;
         }
 
-        .contact-form-box h3 {
-             color: var(--dark-color);
-             margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
+        .accessibility-controls .theme-switch label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: var(--dark-color);
+            width: 40px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group input[type="tel"],
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-family: 'Cairo', sans-serif;
+        .accessibility-controls .theme-switch label::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px; /* Position for light mode */
+            width: 16px;
+            height: 16px;
+            background-color: white;
+            border-radius: 50%;
+            transition: left 0.3s ease, background-color 0.3s ease;
         }
 
-        .form-group textarea {
-            resize: vertical;
+        .accessibility-controls .theme-switch input[type="checkbox"]:checked + label {
+            background-color: var(--secondary-color);
         }
 
-        /* Removed map styles */
-        /* Removed .map-container */
-
-
-        /* Specific styles for FAQ (Reused) */
-        .faq-item {
-             background-color: white;
-             border: 1px solid #ddd;
-             border-radius: 8px;
-             margin-bottom: 15px;
-             overflow: hidden;
-             box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+        .accessibility-controls .theme-switch input[type="checkbox"]:checked + label::after {
+            left: calc(100% - 18px); /* Move the circle to the right */
         }
 
-        .faq-question {
-             padding: 15px 20px;
-             background-color: var(--light-color);
-             cursor: pointer;
-             display: flex;
-             justify-content: space-between;
-             align-items: center;
-             font-weight: bold;
-             color: var(--dark-color);
-             transition: background-color 0.3s ease;
+
+        /* Added Style: Dark Mode */
+        body.dark-mode {
+            background-color: #1a1a1a; /* Dark background */
+            color: #f9f9f9; /* Light text */
         }
 
-        .faq-question:hover {
-            background-color: #e0e0e0;
+        body.dark-mode header {
+            background-color: #0a0a0a; /* Darker header */
+            box-shadow: 0 2px 10px rgba(255,255,255,0.1);
         }
 
-        .faq-question i {
-             transition: transform 0.3s ease;
+        body.dark-mode .logo,
+        body.dark-mode nav ul li a {
+            color: #f9f9f9;
         }
-         .faq-question i.rotated {
-            transform: rotate(180deg);
+
+         body.dark-mode nav ul li a:hover,
+         body.dark-mode .active {
+             background-color: var(--secondary-color); /* Keep secondary color for active/hover */
+             color: #1a1a1a; /* Dark text on secondary */
          }
 
 
-        .faq-answer {
-             padding: 15px 20px;
-             border-top: 1px solid #eee;
-             display: none;
+        body.dark-mode .hero {
+            background-color: #2c3e50; /* A dark primary color variant */
+            color: #f9f9f9;
+        }
+         body.dark-mode .hero h1,
+         body.dark-mode .hero p {
+             color: #f9f9f9;
+         }
+
+
+        body.dark-mode .section-title h2 {
+            color: #f9f9f9;
+        }
+        body.dark-mode .section-title h2::after {
+             background-color: var(--secondary-color); /* Keep accent color */
         }
 
+         body.dark-mode .nutrition-item, /* Added for nutrition */
+         body.dark-mode .program-item, /* Added for exercises */
+         body.dark-mode .card,
+         body.dark-mode .news-card,
+         body.dark-mode .tip-item, /* Added for general-tips */
+         body.dark-mode .goal-item, /* Added for goals */
+         body.dark-mode .contact-form-box, /* Added for contact */
+         body.dark-mode .faq-item /* Added for contact */
+         {
+            background-color: #2a2a2a; /* Dark card background */
+            box-shadow: 0 5px 15px rgba(255,255,255,0.1);
+            color: #f9f9f9; /* Light text in cards */
+             border: 1px solid #555; /* Added border for definition */
+        }
+
+         body.dark-mode .nutrition-item h3, /* Added for nutrition */
+         body.dark-mode .program-item h3, /* Added for exercises */
+         body.dark-mode .card h3,
+         body.dark-mode .news-card h3,
+         body.dark-mode .tip-item h3,
+         body.dark-mode .goal-item h3,
+         body.dark-mode .contact-form-box h3
+         {
+             color: var(--primary-color); /* Primary color for headings */
+         }
+
+         body.dark-mode .nutrition-item p, /* Added for nutrition */
+         body.dark-mode .nutrition-item ul li,
+         body.dark-mode .program-item p, /* Added for exercises */
+         body.dark-mode .program-item ul li,
+         body.dark-mode .card p,
+         body.dark-mode .news-card p,
+         body.dark-mode .tip-item p,
+         body.dark-mode .goal-item p,
+         body.dark-mode .contact-form-box p
+          {
+              color: rgba(249, 249, 249, 0.8); /* Slightly dimmer text */
+          }
+         body.dark-mode .nutrition-item ul li i { /* Added for nutrition */
+               color: var(--primary-color); /* Color for list icons */
+          }
+          body.dark-mode .program-item ul li i { /* Added for exercises */
+               color: var(--primary-color); /* Color for list icons */
+          }
+
+
+        body.dark-mode .about {
+            background-color: #333; /* A dark light color variant */
+            color: #f9f9f9;
+        }
+        body.dark-mode .about-text h2 {
+            color: #f9f9f9;
+        }
+        body.dark-mode .about-text p {
+             color: rgba(249, 249, 249, 0.8);
+        }
+         body.dark-mode .about-video h3 {
+             color: #f9f9f9;
+         }
+
+
+         /* Adjust specific elements in dark mode for other pages */
+         body.dark-mode .contact-social-section h3 { /* Added for contact */
+             color: #f9f9f9;
+         }
+         body.dark-mode .social-icons a { /* Added for contact */
+             background-color: #555;
+             color: #f9f9f9;
+         }
+          body.dark-mode .social-icons a:hover {
+              background-color: var(--secondary-color);
+          }
+
+         body.dark-mode .form-group label { /* Added for contact */
+             color: #f9f9f9;
+         }
+         body.dark-mode .form-group input[type="text"],
+         body.dark-mode .form-group input[type="email"],
+         body.dark-mode .form-group input[type="tel"],
+         body.dark-mode .form-group select,
+         body.dark-mode .form-group textarea { /* Added for contact */
+             background-color: #3a3a3a;
+             border-color: #555;
+             color: #f9f9f9;
+         }
+          body.dark-mode .form-group input::placeholder,
+          body.dark-mode .form-group textarea::placeholder {
+              color: rgba(249, 249, 249, 0.6);
+          }
+
+
+         body.dark-mode .faq-question { /* Added for contact */
+             background-color: #3a3a3a;
+             color: #f9f9f9;
+             border-color: #555;
+         }
+         body.dark-mode .faq-question:hover {
+             background-color: #4a4a4a;
+         }
+         body.dark-mode .faq-answer { /* Added for contact */
+             border-top-color: #555;
+             color: rgba(249, 249, 249, 0.8);
+         }
+
+
+        body.dark-mode .cta {
+            background-color: #2ecc71; /* A dark secondary color variant */
+            color: #1a1a1a; /* Dark text on light background */
+        }
+         body.dark-mode .cta h2,
+         body.dark-mode .cta p {
+              color: #1a1a1a;
+         }
+         body.dark-mode .cta .btn {
+              background-color: #2c3e50;
+              color: #f9f9f9;
+         }
+          body.dark-mode .cta .btn:hover {
+              background-color: #3498db;
+          }
+
+
+        body.dark-mode footer {
+            background-color: #0a0a0a;
+            color: #f9f9f9;
+        }
+         body.dark-mode footer h3 {
+             color: var(--primary-color);
+         }
+         body.dark-mode footer h3::after {
+             background-color: var(--secondary-color);
+         }
+         body.dark-mode footer p {
+              color: rgba(249, 249, 249, 0.8);
+         }
+         body.dark-mode footer a {
+             color: rgba(249, 249, 249, 0.7);
+         }
+          body.dark-mode footer a:hover {
+              color: var(--secondary-color);
+          }
+          body.dark-mode .footer-bottom {
+              border-top-color: #555;
+              color: rgba(249, 249, 249, 0.7);
+          }
+
+
+        /* Responsive adjustments for accessibility controls */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+             .accessibility-controls {
+                 margin-top: 15px;
+                 margin-right: 0;
+                 width: 100%;
+                 justify-content: center; /* Center controls in mobile */
+             }
+             .accessibility-controls button {
+                 margin-right: 10px;
+                 margin-left: 10px;
+             }
+             [dir="rtl"] .accessibility-controls button {
+                 margin-right: 10px;
+                 margin-left: 10px;
+             }
+
+             .accessibility-controls .theme-switch {
+                 margin-right: 10px;
+                 margin-left: 10px;
+             }
+              [dir="rtl"] .accessibility-controls .theme-switch {
+                  margin-right: 10px;
+                  margin-left: 10px;
+              }
+        }
+
+        @media (max-width: 500px) {
+             .accessibility-controls button {
+                 padding: 3px 8px;
+                 font-size: 0.8rem;
+             }
+             .accessibility-controls .theme-switch {
+                 margin-right: 8px;
+                 margin-left: 8px;
+             }
+             [dir="rtl"] .accessibility-controls .theme-switch {
+                  margin-right: 8px;
+                  margin-left: 8px;
+             }
+        }
 
         /* Responsive Styles */
-        @media (max-width: 900px) {
-            .about-content {
-                flex-direction: column;
-            }
-             .contact-flex-container {
-                 flex-direction: column;
-             }
-             .contact-form-col {
-                  min-width: 100%;
-             }
-        }
-
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -583,13 +696,14 @@
             nav ul {
                 display: none;
                 position: absolute;
-                top: 70px;
+                top: 120px; /* Adjusted top for accessibility controls height */
                 left: 0;
                 width: 100%;
                 background-color: var(--dark-color);
                 flex-direction: column;
                 padding: 20px;
                 text-align: center;
+                 box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             }
 
             nav ul.show {
@@ -639,22 +753,34 @@
                 font-size: 2rem;
             }
         }
+
+         .footer-image { /* Assuming this style exists or is needed */
+             display: block;
+             width: 80px;
+             height: auto;
+             margin: 0 auto 15px auto;
+             border-radius: 5px;
+             border: 2px solid var(--secondary-color);
+         }
+         body.dark-mode .footer-image {
+             border-color: var(--primary-color);
+         }
+
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo">
-                 <img src="logo.jpg" alt="فادي للياقة">
+                <img src="logo.jpg" alt="فادي للياقة">
                 فادي <span>للياقة</span>
             </a>
             <nav>
                 <ul id="navbar">
                     <li><a href="index.html">الرئيسية</a></li>
                     <li><a href="exercises.html">برامج التمارين</a></li>
-                    <li><a href="nutrition.html" class="active">النصائح الغذائية</a></li> <li><a href="goals.html">أهداف اللياقة</a></li>
+                    <li><a href="nutrition.html" class="active">النصائح الغذائية</a></li>
+                    <li><a href="goals.html">أهداف اللياقة</a></li>
                     <li><a href="general-tips.html">نصائح عامة</a></li>
                     <li><a href="contact.html">اتصل بنا</a></li>
                 </ul>
@@ -662,15 +788,31 @@
                     <i class="fas fa-bars"></i>
                 </button>
             </nav>
-        </div>
+            <div class="accessibility-controls">
+                <button id="decrease-text" aria-label="تصغير حجم النص">A-</button>
+                <button id="increase-text" aria-label="تكبير حجم النص">A+</button>
+                <div class="theme-switch">
+                    <input type="checkbox" id="theme-toggle" aria-label="تبديل الوضع الليلي/النهاري">
+                    <label for="theme-toggle"></label>
+                </div>
+            </div>
+            </div>
     </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>النصائح الغذائية</h1>
+            <p>التغذية السليمة هي حجر الزاوية لأي هدف للياقة البدنية. اكتشف خططاً ووصفات صحية لدعم رحلتك.</p>
+        </div>
+    </section>
 
     <section class="section">
         <div class="container">
             <div class="section-title">
                 <h2>النصائح الغذائية</h2>
             </div>
-            <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">التغذية السليمة هي حجر الزاوية لأي هدف للياقة البدنية. اكتشف خططاً ووصفات صحية لدعم رحلتك. **تذكر أن تتبع السعرات الحرارية الإجمالية والمغذيات الكبرى لتحقيق أفضل النتائج.**</p> <div class="nutrition-item">
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">التغذية السليمة هي حجر الزاوية لأي هدف للياقة البدنية. اكتشف خططاً ووصفات صحية لدعم رحلتك. **تذكر أن تتبع السعرات الحرارية الإجمالية والمغذيات الكبرى لتحقيق أفضل النتائج.**</p>
+            <div class="nutrition-item">
                 <h3>نظام غذائي لزيادة العضلات</h3>
                 <p>لبناء العضلات، تحتاج إلى سعرات حرارية وبروتين كافيين. نقدم خططاً غنية بالمغذيات لدعم نمو العضلات واستشفائها.</p>
                 <h4>مكونات أساسية:</h4>
@@ -679,7 +821,8 @@
                     <li>كربوهيدرات معقدة لتوفير الطاقة (شوفان، أرز بني، بطاطا حلوة، خبز القمح الكامل)</li>
                     <li>دهون صحية لدعم الهرمونات (أفوكادو، مكسرات، بذور، زيت زيتون)</li>
                 </ul>
-                 <p><strong>ملاحظة حول السعرات الحرارية:</strong> لزيادة الوزن وبناء العضلات، يجب استهلاك سعرات حرارية **أكثر** من التي يحرقها جسمك (فائض سعرات حرارية). ابدأ بزيادة 250-500 سعرة حرارية فوق سعرات الحفاظ على وزنك.</p> <a href="#" class="btn" style="margin-top: 15px;">عرض الخطة الكاملة</a>
+                 <p><strong>ملاحظة حول السعرات الحرارية:</strong> لزيادة الوزن وبناء العضلات، يجب استهلاك سعرات حرارية **أكثر** من التي يحرقها جسمك (فائض سعرات حرارية). ابدأ بزيادة 250-500 سعرة حرارية فوق سعرات الحفاظ على وزنك.</p>
+                 <a href="#" class="btn" style="margin-top: 15px;">عرض الخطة الكاملة</a>
             </div>
 
              <div class="nutrition-item">
@@ -692,7 +835,8 @@
                     <li>كربوهيدرات معقدة بكميات معتدلة</li>
                     <li>دهون صحية بكميات محدودة</li>
                 </ul>
-                <p><strong>ملاحظة حول السعرات الحرارية:</strong> لخسارة الوزن، يجب استهلاك سعرات حرارية **أقل** من التي يحرقها جسمك (عجز سعرات حرارية). عجز بمقدار 500-750 سعرة حرارية يومياً يؤدي عادةً إلى خسارة آمنة ومستدامة للوزن.</p> <a href="#" class="btn" style="margin-top: 15px;">عرض الخطة الكاملة</a>
+                <p><strong>ملاحظة حول السعرات الحرارية:</strong> لخسارة الوزن، يجب استهلاك سعرات حرارية **أقل** من التي يحرقها جسمك (عجز سعرات حرارية). عجز بمقدار 500-750 سعرة حرارية يومياً يؤدي عادةً إلى خسارة آمنة ومستدامة للوزن.</p>
+                <a href="#" class="btn" style="margin-top: 15px;">عرض الخطة الكاملة</a>
             </div>
 
             <div class="nutrition-item">
@@ -705,13 +849,14 @@
                     <li>وجبات عشاء قليلة السعرات الحرارية</li>
                     <li>سناكات صحية ومغذية</li>
                 </ul>
-                <p><strong>ملاحظة حول السعرات الحرارية:</strong> معظم وصفاتنا تتضمن معلومات عن السعرات الحرارية والمغذيات الكبرى لكل وجبة لمساعدتك على تتبع استهلاكك اليومي وتحقيق هدفك.</p> <a href="#" class="btn" style="margin-top: 15px;">تصفح الوصفات</a>
+                <p><strong>ملاحظة حول السعرات الحرارية:</strong> معظم وصفاتنا تتضمن معلومات عن السعرات الحرارية والمغذيات الكبرى لكل وجبة لمساعدتك على تتبع استهلاكك اليومي وتحقيق هدفك.</p>
+                <a href="#" class="btn" style="margin-top: 15px;">تصفح الوصفات</a>
             </div>
 
             </div>
     </section>
 
-     <section class="cta">
+    <section class="cta section">
         <div class="container">
             <h2>هل تحتاج لخطة غذائية مخصصة؟</h2>
             <p>تواصل معنا لمناقشة أهدافك والحصول على خطة غذائية مصممة خصيصاً لك.</p>
@@ -719,18 +864,18 @@
         </div>
     </section>
 
-
     <footer>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-section">
                     <h3>فادي للياقة</h3>
+                    <img src="logo.jpg" alt="شعار فادي للياقة" class="footer-image" style="width: 80px; height: auto; margin: 0 auto 15px auto; border-radius: 5px; border: 2px solid var(--secondary-color);">
                     <p>منصتك الشاملة لكل ما يتعلق باللياقة البدنية والتغذية الصحية والحفاظ على نمط حياة صحي.</p>
                     <div class="social-icons">
-                       <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-                        <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                       <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
@@ -767,7 +912,8 @@
         </div>
     </footer>
 
-    <script>
+    <script src="main.js"></script> <script>
+        // Existing JavaScript
         document.getElementById('hamburger').addEventListener('click', function() {
             document.getElementById('navbar').classList.toggle('show');
         });
@@ -783,6 +929,87 @@
             alert('تم الاشتراك في النشرة البريدية بنجاح (هذه رسالة تجريبية)');
             // Add actual subscription logic here
          });
+
+        // Added JavaScript: Accessibility Features
+        const body = document.body;
+        const themeToggle = document.getElementById('theme-toggle');
+        const increaseTextBtn = document.getElementById('increase-text');
+        const decreaseTextBtn = document.getElementById('decrease-text');
+
+        // Load saved preferences on page load
+        loadPreferences();
+
+        // Theme Toggle
+        if (themeToggle) {
+            themeToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    enableDarkMode();
+                } else {
+                    disableDarkMode();
+                }
+            });
+        }
+
+        // Text Resizing
+        if (increaseTextBtn && decreaseTextBtn) {
+            increaseTextBtn.addEventListener('click', increaseTextSize);
+            decreaseTextBtn.addEventListener('click', decreaseTextSize);
+        }
+
+        function enableDarkMode() {
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+             if (themeToggle) {
+                 themeToggle.checked = true;
+             }
+        }
+
+        function disableDarkMode() {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+             if (themeToggle) {
+                themeToggle.checked = false;
+             }
+        }
+
+        function increaseTextSize() {
+            let currentSize = parseFloat(body.style.fontSize) || 16; // Get current size or default to 16px
+            currentSize += 1; // Increase by 1px
+             if (currentSize <= 24) { // Set a maximum limit (e.g., 24px)
+                 body.style.fontSize = currentSize + 'px';
+                 localStorage.setItem('textSize', currentSize);
+             }
+        }
+
+        function decreaseTextSize() {
+            let currentSize = parseFloat(body.style.fontSize) || 16; // Get current size or default to 16px
+            currentSize -= 1; // Decrease by 1px
+            if (currentSize >= 14) { // Set a minimum limit (e.g., 14px)
+                body.style.fontSize = currentSize + 'px';
+                localStorage.setItem('textSize', currentSize);
+            }
+        }
+
+        function loadPreferences() {
+            const savedTheme = localStorage.getItem('theme');
+            const savedTextSize = localStorage.getItem('textSize');
+
+            if (savedTheme === 'dark') {
+                enableDarkMode();
+            } else {
+                 // Default to light mode if no preference or 'light' is saved
+                 // No action needed here as light mode is the default CSS
+                 if (themeToggle) {
+                     themeToggle.checked = false;
+                 }
+            }
+
+            if (savedTextSize) {
+                body.style.fontSize = savedTextSize + 'px';
+            } else {
+                 body.style.fontSize = '16px'; // Set default size if no preference saved
+            }
+        }
     </script>
 </body>
 </html>
