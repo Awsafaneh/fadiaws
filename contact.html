@@ -6,7 +6,7 @@
     <title>اتصل بنا - فادي للياقة البدنية</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+     <link rel="stylesheet" href="style.css"> <style>
         /* Global Styles */
         :root {
             --primary-color: #3498db;
@@ -27,6 +27,8 @@
             background-color: #f9f9f9;
             color: #333;
             line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Transition for theme change */
+            font-size: 16px; /* Base font size for resizing */
         }
 
         .container {
@@ -51,6 +53,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+             flex-wrap: wrap; /* للسماح للعناصر بالانتقال إلى سطر جديد في الشاشات الصغيرة */
         }
 
         .logo {
@@ -65,12 +68,12 @@
         .logo span {
             color: var(--secondary-color);
         }
-
-        .logo i {
+         .logo i {
             color: var(--secondary-color);
             margin-left: 8px;
             font-size: 1.5rem;
         }
+
 
         .logo img {
             height: 50px; /* Adjust as needed for your logo */
@@ -80,6 +83,7 @@
             margin-right: 10px;
             margin-left: 0;
         }
+
 
         nav ul {
             display: flex;
@@ -102,8 +106,8 @@
             padding: 10px;
             border-radius: 5px;
             transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
+             border: none;
+             cursor: pointer;
         }
 
         nav ul li a:hover {
@@ -126,8 +130,8 @@
 
         /* Hero Styles */
         .hero {
-            background-color: var(--primary-color); /* Added a fallback background color */
-            height: 50vh; /* Reduced height as no large image */
+            background-color: var(--primary-color);
+            height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -136,11 +140,11 @@
             padding: 0 20px;
         }
          .hero h1 {
-            font-size: 2.8rem; /* Adjusted font size */
+            font-size: 2.8rem;
             margin-bottom: 15px;
          }
           .hero p {
-            font-size: 1.1rem; /* Adjusted font size */
+            font-size: 1.1rem;
             margin-bottom: 20px;
          }
 
@@ -176,7 +180,30 @@
              right: auto;
          }
 
-        /* Card Styles */
+
+        /* Contact Page Styles */
+        .contact-social-section {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .contact-social-section h3 {
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .contact-social-section .social-icons {
+            justify-content: center;
+            margin-top: 0;
+        }
+
+         .contact-social-section .social-icons a {
+             width: 40px;
+             height: 40px;
+             font-size: 1.4rem;
+         }
+
         .card-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -184,11 +211,11 @@
         }
 
         .card {
-            background-color: white;
+            background-color: var(--card-background);
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px var(--shadow-color);
             transition: transform 0.3s ease;
-            padding: 20px; /* Added padding to card content area */
+            padding: 20px;
         }
 
         .card:hover {
@@ -204,6 +231,61 @@
         .card p {
             margin-bottom: 20px;
             color: #666;
+        }
+
+        .contact-flex-container {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+             justify-content: center;
+        }
+
+        .contact-form-col {
+            flex: 1;
+             min-width: 300px;
+             max-width: 600px;
+        }
+
+        .contact-form-box {
+            background-color: var(--card-background);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+
+        .contact-form-box h3 {
+             color: var(--dark-color);
+             margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+             background-color: white; /* Ensure light mode has white input background */
+             color: #333; /* Ensure light mode has dark input text */
+        }
+
+        .form-group textarea {
+            resize: vertical;
         }
 
         .btn {
@@ -225,78 +307,48 @@
             transform: translateY(-2px);
         }
 
-        /* About Section Styles */
-         .about {
-            padding: 5rem 0;
-            background-color: var(--light-color);
+        .faq-item {
+             background-color: var(--card-background);
+             border: 1px solid var(--border-color);
+             border-radius: 8px;
+             margin-bottom: 15px;
+             overflow: hidden;
+             box-shadow: 0 1px 5px rgba(0,0,0,0.05);
         }
 
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-             flex-direction: row-reverse; /* Adjusted for RTL layout if text/image were side-by-side */
+        .faq-question {
+             padding: 15px 20px;
+             background-color: var(--light-color);
+             cursor: pointer;
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             font-weight: bold;
+             color: var(--dark-color);
+             transition: background-color 0.3s ease;
         }
-         [dir="rtl"] .about-content {
-             flex-direction: row; /* Default for RTL */
+
+        .faq-question:hover {
+            background-color: #e0e0e0;
+        }
+
+        .faq-question i {
+             transition: transform 0.3s ease;
+        }
+         .faq-question i.rotated {
+            transform: rotate(180deg);
          }
 
-        .about-text {
-            flex: 1;
+        .faq-answer {
+             padding: 15px 20px;
+             border-top: 1px solid var(--border-color);
+             display: none;
         }
 
-        .about-text h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--dark-color);
-        }
 
-        .about-text p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        /* News Section Styles */
-         .news {
-            padding: 5rem 0;
-        }
-         .news-container { /* Reusing card-container for layout */
-             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-         }
-         .news-card { /* Reusing card style for news items */
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            padding: 20px; /* Added padding */
-         }
-
-        .news-content { /* Adjusted news content padding */
-            padding: 0; /* Padding moved to .news-card */
-        }
-
-        .news-date {
-            color: var(--secondary-color);
-            font-weight: bold;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .news-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--dark-color);
-        }
-
-        .news-card p {
-            margin-bottom: 20px;
-            color: #666;
-        }
-
-        /* CTA Section Styles */
+        /* CTA Section Styles (from Index, reused) */
         .cta {
-            background-color: var(--primary-color); /* Added a fallback background color */
+            background-color: var(--primary-color);
             color: white;
             padding: 5rem 0;
             text-align: center;
@@ -315,7 +367,8 @@
             margin-right: auto;
         }
 
-        /* Footer Styles */
+
+        /* Footer Styles (from Index, reused) */
         footer {
             background-color: var(--dark-color);
             color: white;
@@ -373,12 +426,11 @@
         .social-icons {
             display: flex;
             margin-top: 20px;
-             direction: ltr; /* Keep icons LTR within RTL layout */
-             justify-content: flex-end; /* Align icons to the right in LTR context */
+             direction: ltr;
+             justify-content: flex-end;
         }
-         /* Adjust alignment for RTL pages where footer might be text-aligned right */
          [dir="rtl"] .social-icons {
-             justify-content: flex-start; /* Align icons to the left in RTL context */
+             justify-content: flex-start;
          }
 
         .social-icons a {
@@ -391,11 +443,10 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            margin-left: 10px; /* Space between icons */
+            margin-left: 10px;
             transition: all 0.3s ease;
-            font-size: 1.2rem; /* Adjust icon size relative to container */
+            font-size: 1.2rem;
         }
-         /* Adjust margin for RTL */
          [dir="rtl"] .social-icons a {
              margin-right: 10px;
              margin-left: 0;
@@ -413,166 +464,333 @@
             border-top: 1px solid #444;
         }
 
-        /* Specific styles for General Tips page (Reused) */
-         .tip-item { /* Reusing goal-item style */
-            background-color: white;
-            padding: 30px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        .tip-item h3 {
-             color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .tip-item ul {
-            list-style: disc;
-            padding-right: 20px; /* For RTL list markers */
-        }
-
-        .tip-item ul li {
-            margin-bottom: 8px;
-        }
-
-        /* Specific styles for Contact Form (Reused & Adjusted) */
-        .contact-flex-container { /* Flexbox container */
+         /* Added Style: Accessibility Controls */
+        .accessibility-controls {
             display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-             justify-content: center; /* Added to center the single form column */
+            align-items: center;
+            /* Position can be adjusted based on desired layout */
+            /* Example: float left for RTL next to logo, or flex within container */
+            order: 1; /* Place before nav for RTL if needed */
+            margin-left: 20px; /* Space after logo */
+        }
+        [dir="rtl"] .accessibility-controls {
+            order: 3; /* Place after nav for RTL */
+            margin-left: 0;
+            margin-right: 20px;
         }
 
-        .contact-form-col {
-            flex: 1;
-             min-width: 300px;
-             max-width: 600px; /* Added max-width for centering */
+        .accessibility-controls button {
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 5px 10px;
+            margin-right: 5px; /* Space between buttons (adjust for RTL) */
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+         [dir="rtl"] .accessibility-controls button {
+             margin-right: 0;
+             margin-left: 5px;
+         }
+
+        .accessibility-controls button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
-        .contact-form-box {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        .accessibility-controls .theme-switch {
+            margin-right: 15px; /* Space from text size buttons (adjust for RTL) */
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+         [dir="rtl"] .accessibility-controls .theme-switch {
+             margin-right: 0;
+             margin-left: 15px;
+         }
+
+        .accessibility-controls .theme-switch input[type="checkbox"] {
+            display: none;
         }
 
-        .contact-form-box h3 {
-             color: var(--dark-color);
-             margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
+        .accessibility-controls .theme-switch label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: var(--dark-color);
+            width: 40px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group input[type="tel"],
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-family: 'Cairo', sans-serif;
+        .accessibility-controls .theme-switch label::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px; /* Position for light mode */
+            width: 16px;
+            height: 16px;
+            background-color: white;
+            border-radius: 50%;
+            transition: left 0.3s ease, background-color 0.3s ease;
         }
 
-        .form-group textarea {
-            resize: vertical;
+        .accessibility-controls .theme-switch input[type="checkbox"]:checked + label {
+            background-color: var(--secondary-color);
         }
 
-        /* Removed map styles */
-        /* Removed .map-container */
-
-
-        /* Specific styles for FAQ (Reused) */
-        .faq-item {
-             background-color: white;
-             border: 1px solid #ddd;
-             border-radius: 8px;
-             margin-bottom: 15px;
-             overflow: hidden;
-             box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+        .accessibility-controls .theme-switch input[type="checkbox"]:checked + label::after {
+            left: calc(100% - 18px); /* Move the circle to the right */
         }
 
-        .faq-question {
-             padding: 15px 20px;
-             background-color: var(--light-color);
-             cursor: pointer;
-             display: flex;
-             justify-content: space-between;
-             align-items: center;
-             font-weight: bold;
-             color: var(--dark-color);
-             transition: background-color 0.3s ease;
+
+        /* Added Style: Dark Mode */
+        body.dark-mode {
+            background-color: #1a1a1a; /* Dark background */
+            color: #f9f9f9; /* Light text */
         }
 
-        .faq-question:hover {
-            background-color: #e0e0e0;
+        body.dark-mode header {
+            background-color: #0a0a0a; /* Darker header */
+            box-shadow: 0 2px 10px rgba(255,255,255,0.1);
         }
 
-        .faq-question i {
-             transition: transform 0.3s ease;
+        body.dark-mode .logo,
+        body.dark-mode nav ul li a {
+            color: #f9f9f9;
         }
-         .faq-question i.rotated {
-            transform: rotate(180deg);
+
+         body.dark-mode nav ul li a:hover,
+         body.dark-mode .active {
+             background-color: var(--secondary-color); /* Keep secondary color for active/hover */
+             color: #1a1a1a; /* Dark text on secondary */
          }
 
 
-        .faq-answer {
-             padding: 15px 20px;
-             border-top: 1px solid #eee;
-             display: none;
+        body.dark-mode .hero {
+            background-color: #2c3e50; /* A dark primary color variant */
+            color: #f9f9f9;
         }
-
-        /* New styles for Social Media icons in contact section */
-        .contact-social-section {
-            margin-top: 0; /* Adjust top margin as it's now at the top */
-            margin-bottom: 40px; /* Space below the section */
-            text-align: center; /* Center content within this section */
-        }
-
-        .contact-social-section h3 {
-            color: var(--dark-color);
-            margin-bottom: 20px; /* Space below the heading */
-             font-size: 1.8rem; /* Increased font size */
-        }
-
-         /* Adjust social icons alignment and size when inside contact section */
-        .contact-social-section .social-icons {
-            justify-content: center; /* Center the icons */
-            margin-top: 0; /* Remove default margin-top from .social-icons if needed */
-        }
-
-         .contact-social-section .social-icons a {
-             width: 40px; /* Increased size */
-             height: 40px; /* Increased size */
-             font-size: 1.4rem; /* Adjust icon size relative to container */
+         body.dark-mode .hero h1,
+         body.dark-mode .hero p {
+              color: #f9f9f9;
          }
 
+        body.dark-mode .section-title h2 {
+            color: #f9f9f9;
+        }
+        body.dark-mode .section-title h2::after {
+             background-color: var(--secondary-color); /* Keep accent color */
+        }
+
+         body.dark-mode .contact-form-box, /* Added for contact */
+         body.dark-mode .faq-item, /* Added for contact */
+         body.dark-mode .program-item, /* Added for exercises */
+         body.dark-mode .card,
+         body.dark-mode .news-card,
+         body.dark-mode .tip-item, /* Added for general-tips */
+         body.dark-mode .nutrition-item, /* Added for nutrition */
+         body.dark-mode .goal-item /* Added for goals */
+         {
+            background-color: #2a2a2a; /* Dark card background */
+            box-shadow: 0 5px 15px rgba(255,255,255,0.1);
+            color: #f9f9f9; /* Light text in cards */
+             border: 1px solid #555; /* Added border for definition */
+        }
+
+         body.dark-mode .contact-form-box h3, /* Added for contact */
+         body.dark-mode .program-item h3, /* Added for exercises */
+         body.dark-mode .card h3,
+         body.dark-mode .news-card h3,
+         body.dark-mode .tip-item h3,
+         body.dark-mode .nutrition-item h3,
+         body.dark-mode .goal-item h3
+         {
+             color: var(--primary-color); /* Primary color for headings */
+         }
+
+         body.dark-mode .contact-form-box p, /* Added for contact */
+         body.dark-mode .program-item p, /* Added for exercises */
+         body.dark-mode .program-item ul li,
+         body.dark-mode .card p,
+         body.dark-mode .news-card p,
+         body.dark-mode .tip-item p,
+         body.dark-mode .tip-item ul li,
+         body.dark-mode .nutrition-item p,
+         body.dark-mode .nutrition-item ul li,
+         body.dark-mode .goal-item p,
+         body.dark-mode .goal-item ul li
+          {
+              color: rgba(249, 249, 249, 0.8); /* Slightly dimmer text */
+          }
+          body.dark-mode .program-item ul li i { /* Added for exercises */
+               color: var(--primary-color); /* Color for list icons */
+          }
+         body.dark-mode .tip-item ul li i { /* Added for general-tips */
+               color: var(--primary-color); /* Color for list icons */
+          }
+          body.dark-mode .nutrition-item ul li i { /* Added for nutrition */
+               color: var(--primary-color); /* Color for list icons */
+          }
+           body.dark-mode .goal-item ul li i { /* Added for goals */
+               color: var(--primary-color); /* Color for list icons */
+          }
+
+
+        body.dark-mode .about {
+            background-color: #333; /* A dark light color variant */
+            color: #f9f9f9;
+        }
+        body.dark-mode .about-text h2 {
+            color: #f9f9f9;
+        }
+        body.dark-mode .about-text p {
+             color: rgba(249, 249, 249, 0.8);
+        }
+         body.dark-mode .about-video h3 {
+             color: #f9f9f9;
+         }
+
+
+         /* Adjust specific elements in dark mode for other pages */
+         body.dark-mode .contact-social-section h3 { /* Added for contact */
+             color: #f9f9f9;
+         }
+         body.dark-mode .social-icons a { /* Added for contact */
+             background-color: #555;
+             color: #f9f9f9;
+         }
+          body.dark-mode .social-icons a:hover {
+              background-color: var(--secondary-color);
+          }
+
+         body.dark-mode .form-group label { /* Added for contact */
+             color: #f9f9f9;
+         }
+         body.dark-mode .form-group input[type="text"],
+         body.dark-mode .form-group input[type="email"],
+         body.dark-mode .form-group input[type="tel"],
+         body.dark-mode .form-group select,
+         body.dark-mode .form-group textarea { /* Added for contact */
+             background-color: #3a3a3a;
+             border-color: #555;
+             color: #f9f9f9;
+         }
+          body.dark-mode .form-group input::placeholder,
+          body.dark-mode .form-group textarea::placeholder {
+              color: rgba(249, 249, 249, 0.6);
+          }
+
+
+         body.dark-mode .faq-question { /* Added for contact */
+             background-color: #3a3a3a;
+             color: #f9f9f9;
+             border-color: #555;
+         }
+         body.dark-mode .faq-question:hover {
+             background-color: #4a4a4a;
+         }
+         body.dark-mode .faq-answer { /* Added for contact */
+             border-top-color: #555;
+             color: rgba(249, 249, 249, 0.8);
+         }
+
+
+        body.dark-mode .cta {
+            background-color: #2ecc71; /* A dark secondary color variant */
+            color: #1a1a1a; /* Dark text on light background */
+        }
+         body.dark-mode .cta h2,
+         body.dark-mode .cta p {
+              color: #1a1a1a;
+         }
+         body.dark-mode .cta .btn {
+              background-color: #2c3e50;
+              color: #f9f9f9;
+         }
+          body.dark-mode .cta .btn:hover {
+              background-color: #3498db;
+          }
+
+
+        body.dark-mode footer {
+            background-color: #0a0a0a;
+            color: #f9f9f9;
+        }
+         body.dark-mode footer h3 {
+             color: var(--primary-color);
+         }
+         body.dark-mode footer h3::after {
+             background-color: var(--secondary-color);
+         }
+         body.dark-mode footer p {
+              color: rgba(249, 249, 249, 0.8);
+         }
+         body.dark-mode footer a {
+             color: rgba(249, 249, 249, 0.7);
+         }
+          body.dark-mode footer a:hover {
+              color: var(--secondary-color);
+          }
+          body.dark-mode .footer-bottom {
+              border-top-color: #555;
+              color: rgba(249, 249, 249, 0.7);
+          }
+
+
+        /* Responsive adjustments for accessibility controls */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+             .accessibility-controls {
+                 margin-top: 15px;
+                 margin-right: 0;
+                 width: 100%;
+                 justify-content: center; /* Center controls in mobile */
+             }
+             .accessibility-controls button {
+                 margin-right: 10px;
+                 margin-left: 10px;
+             }
+             [dir="rtl"] .accessibility-controls button {
+                 margin-right: 10px;
+                 margin-left: 10px;
+             }
+
+             .accessibility-controls .theme-switch {
+                 margin-right: 10px;
+                 margin-left: 10px;
+             }
+              [dir="rtl"] .accessibility-controls .theme-switch {
+                  margin-right: 10px;
+                  margin-left: 10px;
+              }
+        }
+
+        @media (max-width: 500px) {
+             .accessibility-controls button {
+                 padding: 3px 8px;
+                 font-size: 0.8rem;
+             }
+             .accessibility-controls .theme-switch {
+                 margin-right: 8px;
+                 margin-left: 8px;
+             }
+             [dir="rtl"] .accessibility-controls .theme-switch {
+                  margin-right: 8px;
+                  margin-left: 8px;
+             }
+        }
 
         /* Responsive Styles */
-        @media (max-width: 900px) {
-            .about-content {
-                flex-direction: column;
-            }
-             .contact-flex-container {
-                 flex-direction: column;
-             }
-             .contact-form-col {
-                  min-width: 100%;
-             }
-        }
-
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -581,13 +799,14 @@
             nav ul {
                 display: none;
                 position: absolute;
-                top: 70px;
+                top: 120px; /* Adjusted top for accessibility controls height */
                 left: 0;
                 width: 100%;
                 background-color: var(--dark-color);
                 flex-direction: column;
                 padding: 20px;
                 text-align: center;
+                 box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             }
 
             nav ul.show {
@@ -637,13 +856,24 @@
                 font-size: 2rem;
             }
         }
+         .footer-image { /* Assuming this style exists or is needed */
+             display: block;
+             width: 80px;
+             height: auto;
+             margin: 0 auto 15px auto;
+             border-radius: 5px;
+             border: 2px solid var(--secondary-color);
+         }
+         body.dark-mode .footer-image {
+             border-color: var(--primary-color);
+         }
     </style>
 </head>
 <body>
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo">
-                 <img src="logo.jpg" alt="فادي للياقة">
+                <img src="logo.jpg" alt="فادي للياقة">
                 فادي <span>للياقة</span>
             </a>
             <nav>
@@ -653,13 +883,29 @@
                     <li><a href="nutrition.html">النصائح الغذائية</a></li>
                     <li><a href="goals.html">أهداف اللياقة</a></li>
                     <li><a href="general-tips.html">نصائح عامة</a></li>
-                    <li><a href="contact.html" class="active">اتصل بنا</a></li> </ul>
+                    <li><a href="contact.html" class="active">اتصل بنا</a></li>
+                </ul>
                 <button class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
                 </button>
             </nav>
-        </div>
+            <div class="accessibility-controls">
+                <button id="decrease-text" aria-label="تصغير حجم النص">A-</button>
+                <button id="increase-text" aria-label="تكبير حجم النص">A+</button>
+                <div class="theme-switch">
+                    <input type="checkbox" id="theme-toggle" aria-label="تبديل الوضع الليلي/النهاري">
+                    <label for="theme-toggle"></label>
+                </div>
+            </div>
+            </div>
     </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>اتصل بنا</h1>
+            <p>نحن هنا للإجابة على استفساراتكم ومساعدتكم في رحلتكم نحو اللياقة والصحة.</p>
+        </div>
+    </section>
 
     <section class="section">
         <div class="container">
@@ -764,7 +1010,7 @@
         </div>
     </section>
 
-    <section class="cta">
+    <section class="cta section">
         <div class="container">
             <h2>هل أنت مستعد لبدء التغيير؟</h2>
             <p>لا تتردد في التواصل معنا اليوم للانطلاق نحو حياة أكثر صحة ولياقة.</p>
@@ -772,12 +1018,12 @@
         </div>
     </section>
 
-
     <footer>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-section">
                     <h3>فادي للياقة</h3>
+                    <img src="logo.jpg" alt="شعار فادي للياقة" class="footer-image" style="width: 80px; height: auto; margin: 0 auto 15px auto; border-radius: 5px; border: 2px solid var(--secondary-color);">
                     <p>منصتك الشاملة لكل ما يتعلق باللياقة البدنية والتغذية الصحية والحفاظ على نمط حياة صحي.</p>
                     <div class="social-icons">
                         <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -802,14 +1048,14 @@
                     <ul>
                          <li><i class="fas fa-envelope"></i> info@fadi-fitness.com</li>
                         <li><i class="fas fa-phone"></i> +962 791227346</li>
-                        <li><i class="fas fa-map-marker-alt"></i>عمان ، الأردن</li>
+                        <li><i class="fas fa-map-marker-alt"></i> عمان ، الأردن</li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>النشرة الإخبارية</h3>
                     <p>اشترك في نشرتنا الإخبارية للحصول على آخر الأخبار والتحديثات</p>
                      <form action="subscribe.php" method="POST">
-                        <input type="email" placeholder="البريد الإلكتروني" name="email" required style="padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 5px; border: none;">
+                        <input type="email" placeholder="بريدك الإلكتروني" name="email" required style="padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 5px; border: none;">
                         <button type="submit" class="btn" style="width: 100%;">اشترك</button>
                     </form>
                 </div>
@@ -820,7 +1066,8 @@
         </div>
     </footer>
 
-    <script>
+    <script src="main.js"></script> <script>
+        // Existing JavaScript
         document.getElementById('hamburger').addEventListener('click', function() {
             document.getElementById('navbar').classList.toggle('show');
         });
@@ -828,31 +1075,6 @@
         document.querySelectorAll('#navbar a').forEach(link => {
             link.addEventListener('click', () => {
                 document.getElementById('navbar').classList.remove('show');
-            });
-        });
-
-        // JavaScript for FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('i');
-
-                // Close all other open answers
-                document.querySelectorAll('.faq-answer').forEach(item => {
-                    if (item !== answer && item.style.display === 'block') {
-                         item.style.display = 'none';
-                         item.previousElementSibling.querySelector('i').classList.remove('rotated');
-                    }
-                });
-
-                // Toggle the clicked answer
-                if (answer.style.display === 'block') {
-                    answer.style.display = 'none';
-                    icon.classList.remove('rotated');
-                } else {
-                    answer.style.display = 'block';
-                    icon.classList.add('rotated');
-                }
             });
         });
 
@@ -871,6 +1093,86 @@
          });
 
 
+        // Added JavaScript: Accessibility Features
+        const body = document.body;
+        const themeToggle = document.getElementById('theme-toggle');
+        const increaseTextBtn = document.getElementById('increase-text');
+        const decreaseTextBtn = document.getElementById('decrease-text');
+
+        // Load saved preferences on page load
+        loadPreferences();
+
+        // Theme Toggle
+        if (themeToggle) {
+            themeToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    enableDarkMode();
+                } else {
+                    disableDarkMode();
+                }
+            });
+        }
+
+        // Text Resizing
+        if (increaseTextBtn && decreaseTextBtn) {
+            increaseTextBtn.addEventListener('click', increaseTextSize);
+            decreaseTextBtn.addEventListener('click', decreaseTextSize);
+        }
+
+        function enableDarkMode() {
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+             if (themeToggle) {
+                 themeToggle.checked = true;
+             }
+        }
+
+        function disableDarkMode() {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+             if (themeToggle) {
+                themeToggle.checked = false;
+             }
+        }
+
+        function increaseTextSize() {
+            let currentSize = parseFloat(body.style.fontSize) || 16; // Get current size or default to 16px
+            currentSize += 1; // Increase by 1px
+             if (currentSize <= 24) { // Set a maximum limit (e.g., 24px)
+                 body.style.fontSize = currentSize + 'px';
+                 localStorage.setItem('textSize', currentSize);
+             }
+        }
+
+        function decreaseTextSize() {
+            let currentSize = parseFloat(body.style.fontSize) || 16; // Get current size or default to 16px
+            currentSize -= 1; // Decrease by 1px
+            if (currentSize >= 14) { // Set a minimum limit (e.g., 14px)
+                body.style.fontSize = currentSize + 'px';
+                localStorage.setItem('textSize', currentSize);
+            }
+        }
+
+        function loadPreferences() {
+            const savedTheme = localStorage.getItem('theme');
+            const savedTextSize = localStorage.getItem('textSize');
+
+            if (savedTheme === 'dark') {
+                enableDarkMode();
+            } else {
+                 // Default to light mode if no preference or 'light' is saved
+                 // No action needed here as light mode is the default CSS
+                 if (themeToggle) {
+                     themeToggle.checked = false;
+                 }
+            }
+
+            if (savedTextSize) {
+                body.style.fontSize = savedTextSize + 'px';
+            } else {
+                 body.style.fontSize = '16px'; // Set default size if no preference saved
+            }
+        }
     </script>
 </body>
 </html>
