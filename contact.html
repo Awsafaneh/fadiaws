@@ -460,4 +460,763 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            margin-left:
+            margin-left: 10px;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+         [dir="rtl"] .social-icons a {
+             margin-right: 10px;
+             margin-left: 0;
+         }
+
+        .social-icons a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Added Style: Accessibility Controls */
+        .accessibility-controls {
+            display: flex;
+            align-items: center;
+            order: 1; /* Place before nav for RTL if needed */
+            margin-left: 20px; /* Space after logo */
+        }
+        [dir="rtl"] .accessibility-controls {
+            order: 3; /* Place after nav for RTL */
+            margin-left: 0;
+            margin-right: 20px;
+        }
+
+        .accessibility-controls button {
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 5px 10px;
+            margin-right: 5px; /* Space between buttons (adjust for RTL) */
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+         [dir="rtl"] .accessibility-controls button {
+             margin-right: 0;
+             margin-left: 5px;
+         }
+
+        .accessibility-controls button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .accessibility-controls .theme-switch {
+            margin-right: 15px; /* Space from text size buttons (adjust for RTL) */
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+         [dir="rtl"] .accessibility-controls .theme-switch {
+             margin-right: 0;
+             margin-left: 15px;
+         }
+
+        .accessibility-controls .theme-switch input[type="checkbox"] {
+            display: none;
+        }
+
+        .accessibility-controls .theme-switch label {
+            display: block;
+            width: 40px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .accessibility-controls .theme-switch label::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px; /* Position for light mode */
+            width: 16px;
+            height: 16px;
+            background-color: white;
+            border-radius: 50%;
+            transition: left 0.3s ease, background-color 0.3s ease;
+        }
+
+        .accessibility-controls .theme-switch input[type="checkbox"]:checked + label {
+            background-color: var(--secondary-color);
+        }
+
+        .accessibility-controls .theme-switch input[type="checkbox"]:checked + label::after {
+            left: calc(100% - 18px); /* Move the circle to the right */
+        }
+
+
+        /* Added Style: Dark Mode */
+        body.dark-mode {
+            background-color: var(--dark-background-color);
+            color: var(--dark-text-color);
+        }
+
+        body.dark-mode header {
+            background-color: var(--dark-dark-color);
+            box-shadow: 0 2px 10px var(--dark-shadow-color);
+        }
+
+        body.dark-mode .logo,
+        body.dark-mode nav ul li a {
+            color: var(--dark-text-color);
+        }
+
+         body.dark-mode nav ul li a:hover,
+         body.dark-mode .active {
+             background-color: var(--dark-secondary-color); /* Keep secondary color for active/hover */
+             color: var(--dark-background-color); /* Dark text on secondary */
+         }
+
+
+        body.dark-mode .hero {
+            background-color: var(--dark-primary-color);
+            color: var(--dark-text-color);
+        }
+         body.dark-mode .hero h1,
+         body.dark-mode .hero p {
+              color: var(--dark-text-color);
+         }
+
+        body.dark-mode .section-title h2 {
+            color: var(--dark-text-color);
+        }
+        body.dark-mode .section-title h2::after {
+             background-color: var(--dark-secondary-color); /* Keep accent color */
+        }
+
+        body.dark-mode .contact-info .card, /* Added for contact */
+        body.dark-mode .contact-form-box, /* Added for contact */
+        body.dark-mode .faq-item, /* Added for contact */
+        body.dark-mode .program-item, /* Added for exercises */
+         body.dark-mode .card,
+         body.dark-mode .news-card,
+         body.dark-mode .tip-item, /* Added for general-tips */
+         body.dark-mode .nutrition-item, /* Added for nutrition */
+         body.dark-mode .goal-item /* Added for goals */
+         {
+            background-color: var(--dark-card-background);
+            box-shadow: 0 5px 15px var(--dark-shadow-color);
+            color: var(--dark-text-color);
+             border: 1px solid var(--dark-border-color); /* Added border for definition */
+        }
+
+         body.dark-mode .contact-info .card h3, /* Added for contact */
+         body.dark-mode .contact-form-box h3, /* Added for contact */
+         body.dark-mode .contact-social-section h3, /* Added for contact */
+         body.dark-mode .program-item h3, /* Added for exercises */
+         body.dark-mode .card h3,
+         body.dark-mode .news-card h3,
+         body.dark-mode .tip-item h3,
+         body.dark-mode .nutrition-item h3,
+         body.dark-mode .goal-item h3
+         {
+             color: var(--dark-primary-color); /* Primary color for headings */
+         }
+
+         body.dark-mode .contact-info .card p, /* Added for contact */
+         body.dark-mode .contact-form-box p, /* Added for contact */
+         body.dark-mode .form-group label, /* Added for contact */
+         body.dark-mode .faq-answer, /* Added for contact */
+         body.dark-mode .program-item p, /* Added for exercises */
+         body.dark-mode .program-item ul li,
+         body.dark-mode .card p,
+         body.dark-mode .news-card p,
+         body.dark-mode .tip-item p,
+         body.dark-mode .tip-item ul li,
+         body.dark-mode .nutrition-item p,
+         body.dark-mode .nutrition-item ul li,
+         body.dark-mode .goal-item p,
+         body.dark-mode .goal-item ul li
+          {
+              color: rgba(249, 249, 249, 0.8); /* Slightly dimmer text */
+          }
+         body.dark-mode .contact-info .card i { /* Added for contact */
+             color: var(--dark-secondary-color);
+         }
+         body.dark-mode .contact-social-section .social-icons a { /* Added for contact */
+             background-color: #555;
+             color: var(--dark-text-color);
+         }
+          body.dark-mode .contact-social-section .social-icons a:hover {
+              background-color: var(--dark-secondary-color);
+          }
+
+         body.dark-mode .form-group input[type="text"], /* Added for contact */
+         body.dark-mode .form-group input[type="email"], /* Added for contact */
+         body.dark-mode .form-group input[type="tel"], /* Added for contact */
+         body.dark-mode .form-group select, /* Added for contact */
+         body.dark-mode .form-group textarea { /* Added for contact */
+             background-color: #3a3a3a;
+             border-color: #555;
+             color: var(--dark-text-color);
+         }
+          body.dark-mode .form-group input::placeholder, /* Added for contact */
+          body.dark-mode .form-group textarea::placeholder { /* Added for contact */
+              color: rgba(249, 249, 249, 0.6);
+          }
+         body.dark-mode .faq-question { /* Added for contact */
+             background-color: var(--dark-light-color);
+             color: var(--dark-text-color);
+             border-color: var(--dark-border-color);
+         }
+         body.dark-mode .faq-question:hover {
+             background-color: #4a4a4a;
+         }
+         body.dark-mode .faq-answer { /* Added for contact */
+             border-top-color: var(--dark-border-color);
+             color: rgba(249, 249, 249, 0.8);
+         }
+
+
+        body.dark-mode .about {
+            background-color: #222;
+            color: var(--dark-text-color);
+        }
+        body.dark-mode .about-text h2 {
+            color: var(--dark-text-color);
+        }
+        body.dark-mode .about-text p {
+             color: rgba(249, 249, 249, 0.8);
+        }
+         body.dark-mode .about-video h3 {
+             color: var(--dark-text-color);
+         }
+
+
+         body.dark-mode .cta {
+            background-color: var(--dark-secondary-color);
+            color: var(--dark-background-color);
+        }
+         body.dark-mode .cta h2,
+         body.dark-mode .cta p {
+              color: var(--dark-background-color);
+         }
+         body.dark-mode .cta .btn {
+              background-color: var(--dark-primary-color);
+              color: var(--dark-background-color);
+         }
+          body.dark-mode .cta .btn:hover {
+              background-color: #FF6B4A; /* Lighter primary */
+          }
+
+
+        body.dark-mode footer {
+            background-color: var(--dark-dark-color);
+            color: var(--dark-text-color);
+        }
+         body.dark-mode footer h3 {
+             color: var(--dark-primary-color);
+         }
+         body.dark-mode footer h3::after {
+             background-color: var(--dark-secondary-color);
+         }
+         body.dark-mode footer p {
+              color: rgba(249, 249, 249, 0.8);
+         }
+         body.dark-mode footer a {
+             color: rgba(249, 249, 249, 0.7);
+         }
+          body.dark-mode footer a:hover {
+              color: var(--dark-primary-color);
+          }
+          body.dark-mode .footer-bottom {
+              border-top-color: #555;
+              color: rgba(249, 249, 249, 0.7);
+          }
+
+        /* Responsive adjustments for accessibility controls */
+        @media (max-width: 991.98px) { /* Use this breakpoint to fit with the collapsible navbar */
+             .header-container {
+                 flex-direction: column; /* Stack elements vertically */
+                 align-items: flex-start; /* Align to the start */
+             }
+              .logo {
+                 margin-bottom: 10px; /* Space below logo */
+                 order: 1; /* Order logo first */
+             }
+             .accessibility-controls {
+                 margin-top: 10px; /* Space above accessibility controls */
+                 margin-right: 0;
+                 margin-left: 0;
+                 width: 100%; /* Take full width to center buttons */
+                 justify-content: center; /* Center buttons within the container */
+                 order: 2; /* Order accessibility controls second */
+             }
+             [dir="rtl"] .accessibility-controls {
+                 order: 2;
+             }
+
+             .accessibility-controls button {
+                 margin-right: 10px; /* Increase spacing between buttons on small screens */
+                 margin-left: 10px;
+             }
+             [dir="rtl"] .accessibility-controls button {
+                  margin-right: 10px;
+                  margin-left: 10px;
+             }
+
+             .accessibility-controls .theme-switch {
+                 margin-right: 10px; /* Increase spacing between toggle and buttons */
+                 margin-left: 10px;
+             }
+              [dir="rtl"] .accessibility-controls .theme-switch {
+                   margin-right: 10px;
+                   margin-left: 10px;
+               }
+
+             nav ul { /* Style for the collapsible menu */
+                  margin-top: 10px; /* Space below accessibility controls */
+                  order: 3; /* Order nav third */
+                  width: 100%; /* Ensure nav takes full width */
+                  text-align: center; /* Center nav items */
+                  background-color: var(--dark-color); /* Add background for visibility */
+                  padding: 1rem; /* Add padding */
+                  border-radius: 5px; /* Add border radius */
+                  display: none; /* Hidden by default */
+                  flex-direction: column; /* Stack nav items vertically */
+             }
+              nav ul.show {
+                  display: flex; /* Show when .show class is added */
+              }
+               nav ul li {
+                   margin: 5px 0; /* Space between nav items */
+                   margin-right: 0; /* Reset margin-right for stacking */
+               }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            /* Adjust top position of mobile menu to account for controls */
+             nav ul {
+                top: 160px; /* Needs adjustment based on actual header height */
+             }
+
+
+            .footer-container {
+                 grid-template-columns: 1fr;
+                 text-align: center;
+            }
+
+            .footer-section h3::after {
+                right: 50%;
+                transform: translateX(50%);
+            }
+            [dir="rtl"] .footer-section h3::after {
+                 left: 50%;
+                 right: auto;
+                 transform: translateX(-50%);
+             }
+
+             .social-icons {
+                 justify-content: center;
+                 direction: ltr;
+             }
+             [dir="rtl"] .social-icons {
+                 justify-content: center;
+             }
+
+        }
+
+        @media (max-width: 500px) {
+             .accessibility-controls button {
+                 padding: 3px 8px;
+                 font-size: 0.8rem;
+             }
+             .accessibility-controls .theme-switch {
+                 margin-right: 8px;
+                 margin-left: 8px;
+             }
+             [dir="rtl"] .accessibility-controls .theme-switch {
+                  margin-right: 8px;
+                  margin-left: 8px;
+             }
+             .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+         .footer-image { /* Assuming this style exists or is needed */
+             display: block;
+             width: 80px;
+             height: auto;
+             margin: 0 auto 15px auto;
+             border-radius: 5px;
+             border: 2px solid var(--secondary-color);
+         }
+         body.dark-mode .footer-image {
+             border-color: var(--dark-primary-color);
+         }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="logo.jpg" alt="فادي للياقة">
+                فادي <span>للياقة</span>
+            </a>
+            <div class="accessibility-controls">
+                <button id="decrease-text" aria-label="تصغير حجم النص">A-</button>
+                <button id="increase-text" aria-label="تكبير حجم النص">A+</button>
+                <div class="theme-switch">
+                    <input type="checkbox" id="theme-toggle" aria-label="تبديل الوضع الليلي/النهاري">
+                    <label for="theme-toggle"></label>
+                </div>
+            </div>
+            <nav>
+                <ul id="navbar">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="exercises.html">برامج التمارين</a></li>
+                    <li><a href="nutrition.html">النصائح الغذائية</a></li>
+                    <li><a href="goals.html">أهداف اللياقة</a></li>
+                    <li><a href="general-tips.html">نصائح عامة</a></li>
+                    <li><a href="contact.html" class="active">اتصل بنا</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>اتصل بنا</h1>
+            <p>نحن هنا للإجابة على جميع استفساراتك ومساعدتك في رحلتك نحو اللياقة البدنية. لا تتردد في التواصل!</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+             <div class="contact-social-section">
+                 <h3>تواصل معنا عبر وسائل التواصل الاجتماعي</h3>
+                 <div class="social-icons">
+                       <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+             </div>
+
+            <div class="contact-flex-container">
+                <div class="contact-info-col">
+                     <div class="section-title" style="text-align: left; margin-bottom: 30px;">
+                         <h2>معلومات الاتصال</h2>
+                     </div>
+                    <div class="card-container" style="gap: 20px;">
+                        <div class="card contact-info">
+                             <i class="fas fa-envelope"></i>
+                            <h3>البريد الإلكتروني</h3>
+                            <p>info@fadi-fitness.com</p>
+                        </div>
+                        <div class="card contact-info">
+                             <i class="fas fa-phone"></i>
+                            <h3>الهاتف</h3>
+                            <p>+962 791227346</p>
+                        </div>
+                        <div class="card contact-info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>الموقع</h3>
+                            <p>عمان ، الأردن</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-col">
+                     <div class="section-title" style="text-align: right; margin-bottom: 30px;">
+                         <h2>أرسل لنا رسالة</h2>
+                     </div>
+                    <div class="contact-form-box">
+                        <form action="submit-form.php" method="POST">
+                            <div class="form-group">
+                                <label for="name">الاسم الكامل:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">البريد الإلكتروني:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                             <div class="form-group">
+                                <label for="phone">رقم الهاتف:</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">الموضوع:</label>
+                                <input type="text" id="subject" name="subject">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">الرسالة:</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">إرسال الرسالة</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section class="section">
+         <div class="container">
+              <div class="section-title">
+                  <h2>الأسئلة الشائعة</h2>
+              </div>
+             <div class="faq-container">
+                 <div class="faq-item">
+                     <div class="faq-question">
+                         ما هي أنواع برامج التمارين التي تقدمونها؟
+                         <i class="fas fa-chevron-down"></i>
+                     </div>
+                     <div class="faq-answer">
+                         نقدم برامج تمارين متنوعة تشمل تمارين القوة، الكارديو، المرونة، وتمارين مخصصة لأهداف محددة مثل خسارة الوزن أو بناء العضلات. يمكنك زيارة صفحة "برامج التمارين" للاطلاع على التفاصيل.
+                     </div>
+                 </div>
+
+                 <div class="faq-item">
+                      <div class="faq-question">
+                         هل النصائح الغذائية مناسبة للنباتيين؟
+                         <i class="fas fa-chevron-down"></i>
+                     </div>
+                     <div class="faq-answer">
+                         نعم، نقدم نصائح غذائية وخططاً تتضمن خيارات متنوعة لتناسب مختلف التفضيلات الغذائية، بما في ذلك خيارات للنباتيين.
+                     </div>
+                 </div>
+
+                 <div class="faq-item">
+                      <div class="faq-question">
+                         كيف يمكنني تحديد أهداف لياقة بدنية واقعية؟
+                         <i class="fas fa-chevron-down"></i>
+                     </div>
+                     <div class="faq-answer">
+                         في صفحة "أهداف اللياقة"، نقدم دليلاً تفصيلياً حول كيفية تحديد أهداف SMART (محددة، قابلة للقياس، قابلة للتحقيق، ذات صلة، ومحددة زمنياً) لوضع خطة واقعية لرحلتك.
+                     </div>
+                 </div>
+
+                 <div class="faq-item">
+                      <div class="faq-question">
+                         هل تقدمون استشارات شخصية؟
+                         <i class="fas fa-chevron-down"></i>
+                     </div>
+                     <div class="faq-answer">
+                         نعم، يمكنك التواصل معنا عبر صفحة الاتصال لطلب استشارة شخصية أو خطة مخصصة تناسب احتياجاتك وأهدافك الفردية.
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>فادي للياقة</h3>
+                     <img src="logo.jpg" alt="شعار فادي للياقة" class="footer-image">
+                    <p>منصتك الشاملة لكل ما يتعلق باللياقة البدنية والتغذية الصحية والحفاظ على نمط حياة صحي.</p>
+                    <div class="social-icons">
+                       <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="exercises.html">برامج التمارين</a></li>
+                        <li><a href="nutrition.html">النصائح الغذائية</a></li>
+                        <li><a href="goals.html">أهداف اللياقة</a></li>
+                        <li><a href="general-tips.html">نصائح عامة</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>اتصل بنا</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@fadi-fitness.com</li>
+                        <li><i class="fas fa-phone"></i> +962 791227346</li>
+                        <li><i class="fas fa-map-marker-alt"></i>عمان ، الأردن </li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>النشرة الإخبارية</h3>
+                    <p>اشترك في نشرتنا الإخبارية للحصول على آخر الأخبار والتحديثات</p>
+                     <form action="subscribe.php" method="POST">
+                        <input type="email" placeholder="بريدك الإلكتروني" name="email" required style="padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 5px; border: none;">
+                        <button type="submit" class="btn" style="width: 100%;">اشترك</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 فادي للياقة البدنية. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script> <script>
+        // Existing JavaScript
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('navbar').classList.toggle('show');
+        });
+         // Optional: Close menu when a link is clicked
+        document.querySelectorAll('#navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navbar').classList.remove('show');
+            });
+        });
+
+         // JavaScript for Contact Form Submission (Placeholder)
+         document.querySelector('form[action="submit-form.php"]').addEventListener('submit', function(e) {
+            // e.preventDefault(); // uncomment this line to prevent actual submission for testing
+            alert('تم إرسال النموذج بنجاح (هذه رسالة تجريبية، يجب إضافة معالجة فعلية في الخلفية)');
+            // Add actual form submission logic here (e.g., Fetch API)
+         });
+
+          // JavaScript for Newsletter Submission (Placeholder)
+         document.querySelector('form[action="subscribe.php"]').addEventListener('submit', function(e) {
+            // e.preventDefault(); // uncomment this line to prevent actual submission for testing
+            alert('تم الاشتراك في النشرة البريدية بنجاح (هذه رسالة تجريبية)');
+            // Add actual subscription logic here
+         });
+
+         // Added JavaScript: Accessibility Features
+        const body = document.body;
+        const themeToggle = document.getElementById('theme-toggle');
+        const increaseTextBtn = document.getElementById('increase-text');
+        const decreaseTextBtn = document.getElementById('decrease-text');
+
+        // Load saved preferences on page load
+        loadPreferences();
+
+        // Theme Toggle
+        if (themeToggle) {
+            themeToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    enableDarkMode();
+                } else {
+                    disableDarkMode();
+                }
+            });
+        }
+
+        // Text Resizing
+        if (increaseTextBtn && decreaseTextBtn) {
+            increaseTextBtn.addEventListener('click', increaseTextSize);
+            decreaseTextBtn.addEventListener('click', decreaseTextSize);
+        }
+
+        function enableDarkMode() {
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+             if (themeToggle) {
+                 themeToggle.checked = true;
+             }
+        }
+
+        function disableDarkMode() {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+             if (themeToggle) {
+                themeToggle.checked = false;
+             }
+        }
+
+        function increaseTextSize() {
+            let currentSize = parseFloat(window.getComputedStyle(body).fontSize); // Use getComputedStyle
+            currentSize += 1; // Increase by 1px
+             if (currentSize <= 24) { // Set a maximum limit (e.g., 24px)
+                 body.style.fontSize = currentSize + 'px';
+                 localStorage.setItem('textSize', currentSize);
+             }
+        }
+
+        function decreaseTextSize() {
+            let currentSize = parseFloat(window.getComputedStyle(body).fontSize); // Use getComputedStyle
+            currentSize -= 1; // Decrease by 1px
+            if (currentSize >= 14) { // Set a minimum limit (e.g., 14px)
+                body.style.fontSize = currentSize + 'px';
+                localStorage.setItem('textSize', currentSize);
+            }
+        }
+
+        function loadPreferences() {
+            const savedTheme = localStorage.getItem('theme');
+            const savedTextSize = localStorage.getItem('textSize');
+
+            if (savedTheme === 'dark') {
+                enableDarkMode();
+            } else {
+                 disableDarkMode(); // Ensure light mode is explicitly set if not dark
+            }
+
+            if (savedTextSize) {
+                body.style.fontSize = savedTextSize + 'px';
+            } else {
+                 body.style.fontSize = '16px'; // Set a default size if no preference saved
+            }
+        }
+
+        // FAQ Accordion - Keep existing if used on contact page
+     document.querySelectorAll('.faq-question').forEach(question => {
+         question.addEventListener('click', () => {
+             const answer = question.nextElementSibling;
+             const icon = question.querySelector('i');
+
+             // Close all other open answers
+             document.querySelectorAll('.faq-answer').forEach(item => {
+                 if (item !== answer && item.style.display === 'block') {
+                      item.style.display = 'none';
+                      // Find the icon in the previously open question
+                      const prevIcon = item.previousElementSibling.querySelector('i');
+                      if (prevIcon) {
+                         prevIcon.classList.remove('rotated');
+                      }
+                 }
+             });
+
+             // Toggle the clicked answer
+             if (answer.style.display === 'block') {
+                 answer.style.display = 'none';
+                 icon.classList.remove('rotated');
+             } else {
+                 answer.style.display = 'block';
+                 icon.classList.add('rotated');
+             }
+         });
+     });
+    </script>
+</body>
+</html>
