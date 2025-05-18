@@ -4,34 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>نصائح عامة - فادي للياقة البدنية</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="style.css"> <style>
-        /* Updated Style Block - Combined original and accessibility styles */
+    <style>
+        /* Updated Style Block */
         :root {
             --primary-color: #3498db;
             --secondary-color: #2ecc71;
             --dark-color: #2c3e50;
             --light-color: #ecf0f1;
             --accent-color: #e74c3c;
-
-             /* Added Dark Mode Variables for inline styles */
-            --dark-primary-color: #2980b9;
-            --dark-secondary-color: #27ae60;
-            --dark-dark-color: #1a252f;
-            --dark-light-color: #bdc3c7;
-            --dark-accent-color: #c0392b;
-            --dark-text-color: #f9f9f9;
-            --dark-background-color: #1a1a1a;
-            --dark-card-background: #34495e;
-            --dark-border-color: #555;
-            --dark-shadow-color: rgba(255, 255, 255, 0.1);
-
-
-            /* Default Light Mode Variables */
-            --card-background: white;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-            --border-color: #ddd;
         }
 
         * {
@@ -45,8 +25,6 @@
             background-color: #f9f9f9;
             color: #333;
             line-height: 1.6;
-             transition: background-color 0.3s ease, color 0.3s ease; /* Transition for theme change */
-             font-size: 16px; /* Base font size for resizing */
         }
 
         .container {
@@ -71,7 +49,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-             flex-wrap: wrap; /* للسماح للعناصر بالانتقال إلى سطر جديد في الشاشات الصغيرة */
         }
 
         .logo {
@@ -86,13 +63,14 @@
         .logo span {
             color: var(--secondary-color);
         }
-         .logo i {
+
+        .logo i {
             color: var(--secondary-color);
             margin-left: 8px;
             font-size: 1.5rem;
         }
 
-
+        /* Logo Image Style - Kept */
         .logo img {
             height: 50px; /* Adjust as needed for your logo */
             margin-left: 10px; /* Space between logo and text */
@@ -124,14 +102,13 @@
             padding: 10px;
             border-radius: 5px;
             transition: all 0.3s ease;
-             border: none;
-             cursor: pointer;
         }
 
         nav ul li a:hover {
             background-color: var(--secondary-color);
         }
 
+        /* Active class for current page */
         .active {
             background-color: var(--secondary-color);
         }
@@ -146,10 +123,11 @@
             font-size: 1.5rem;
         }
 
-        /* Hero Styles */
+        /* Removed Hero background image style */
         .hero {
-            background-color: var(--primary-color);
-            height: 50vh;
+            /* background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/800?text=Hero+Image&bgColor=2ecc71') center/cover no-repeat; */
+            background-color: var(--primary-color); /* Added a fallback background color */
+            height: 50vh; /* Reduced height as no large image */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -158,11 +136,11 @@
             padding: 0 20px;
         }
          .hero h1 {
-            font-size: 2.8rem;
+            font-size: 2.8rem; /* Adjusted font size */
             margin-bottom: 15px;
          }
           .hero p {
-            font-size: 1.1rem;
+            font-size: 1.1rem; /* Adjusted font size */
             margin-bottom: 20px;
          }
 
@@ -200,33 +178,599 @@
          }
 
 
-        /* Tips Item Styles */
-        .tip-item {
-             background-color: var(--card-background); /* Added variable */
-             padding: 30px;
-             margin-bottom: 20px;
-             border-radius: 8px;
-             box-shadow: 0 2px 8px var(--shadow-color); /* Added variable */
+        /* Removed styles for card images */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
-        .tip-item h3 {
-            color: var(--primary-color);
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            /* overflow: hidden; Removed as no images */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            padding: 20px; /* Added padding to card content area */
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Removed .card-img and .card-img img styles */
+
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .card p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+             border: none;
+             cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+        }
+
+        /* Removed About image styles */
+        .about {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+             flex-direction: row-reverse; /* Adjusted for RTL layout if text/image were side-by-side */
+        }
+         [dir="rtl"] .about-content {
+             flex-direction: row; /* Default for RTL */
+         }
+
+
+        /* Removed .about-img and .about-img img styles */
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        /* Removed News image styles */
+         .news {
+            padding: 5rem 0;
+        }
+         .news-container { /* Reusing card-container for layout */
+             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+         }
+         .news-card { /* Reusing card style for news items */
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 20px; /* Added padding */
+         }
+
+        /* Removed .news-img and .news-img img styles */
+
+        .news-content { /* Adjusted news content padding */
+            padding: 0; /* Padding moved to .news-card */
+        }
+
+        .news-date {
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .news-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .news-card p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+
+        /* Removed CTA background image style */
+        .cta {
+            /* background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/api/placeholder/1200/800?text=CTA+Background&bgColor=3498db') center/cover no-repeat; */
+             background-color: var(--primary-color); /* Added a fallback background color */
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        [dir="rtl"] .footer-section h3::after {
+             right: 0;
+         }
+
+
+        .footer-section p {
             margin-bottom: 15px;
         }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+             direction: ltr;
+             justify-content: flex-end;
+        }
+         [dir="rtl"] .social-icons {
+             justify-content: flex-start;
+         }
+
+
+        .social-icons a {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: #444;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+         [dir="rtl"] .social-icons a {
+             margin-right: 10px;
+             margin-left: 0;
+         }
+
+
+        .social-icons a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Removed footer logo image style */
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+        }
+
+        /* Specific styles for General Tips page (Reused) */
+         .tip-item { /* Reusing goal-item style */
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .tip-item h3 {
+             color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
         .tip-item ul {
             list-style: disc;
             padding-right: 20px; /* For RTL list markers */
         }
+
         .tip-item ul li {
             margin-bottom: 8px;
         }
 
+        /* Specific styles for Contact Form (Reused & Adjusted) */
+        .contact-flex-container { /* Flexbox container */
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
 
-        /* Common Mistakes Section Styles */
-         .common-mistakes {
-             margin-top: 50px;
-             padding-top: 50px;
-             border-top: 1px solid #eee;
-         }
-         .common-mistakes h3 {
+        .contact-form-col {
+            flex: 1;
+             min-width: 300px;
+        }
+
+        .contact-form-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-form-box h3 {
              color: var(--dark-color);
-             margin-bottom: 20px
+             margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        /* Removed map styles */
+
+        /* Specific styles for FAQ (Reused) */
+        .faq-item {
+             background-color: white;
+             border: 1px solid #ddd;
+             border-radius: 8px;
+             margin-bottom: 15px;
+             overflow: hidden;
+             box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+             padding: 15px 20px;
+             background-color: var(--light-color);
+             cursor: pointer;
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             font-weight: bold;
+             color: var(--dark-color);
+             transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #e0e0e0;
+        }
+
+        .faq-question i {
+             transition: transform 0.3s ease;
+        }
+         .faq-question i.rotated {
+            transform: rotate(180deg);
+         }
+
+
+        .faq-answer {
+             padding: 15px 20px;
+             border-top: 1px solid #eee;
+             display: none;
+        }
+
+        /* Added style for the new images */
+        .styled-tip-image {
+            display: block;
+            margin: 20px auto;
+            border: 5px solid var(--secondary-color); /* Using secondary color for border */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 100%; /* Ensure responsiveness */
+            width: 700px; /* Set a preferred width */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .footer-image {
+            display: block;
+            width: 80px; /* Smaller size for footer */
+            height: auto;
+            margin: 0 auto 15px auto; /* Center and add bottom margin */
+            border-radius: 5px; /* Slightly rounded corners */
+            border: 2px solid var(--secondary-color); /* Small border */
+        }
+
+
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .about-content {
+                flex-direction: column;
+            }
+             .contact-flex-container {
+                 flex-direction: column;
+             }
+             .contact-form-col {
+                  min-width: 100%;
+             }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark-color);
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .footer-container {
+                 grid-template-columns: 1fr;
+                 text-align: center;
+            }
+
+            .footer-section h3::after {
+                right: 50%;
+                transform: translateX(50%);
+            }
+            [dir="rtl"] .footer-section h3::after {
+                 left: 50%;
+                 right: auto;
+                 transform: translateX(-50%);
+             }
+
+             .social-icons {
+                 justify-content: center;
+                 direction: ltr;
+             }
+             [dir="rtl"] .social-icons {
+                 justify-content: center;
+             }
+
+        }
+
+        @media (max-width: 500px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                 <img src="logo.jpg" alt="فادي للياقة">
+                فادي <span>للياقة</span>
+            </a>
+            <nav>
+                <ul id="navbar">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="exercises.html">برامج التمارين</a></li>
+                    <li><a href="nutrition.html">النصائح الغذائية</a></li>
+                    <li><a href="goals.html">أهداف اللياقة</a></li>
+                    <li><a href="general-tips.html">نصائح عامة</a></li>
+                    <li><a href="contact.html" class="active">اتصل بنا</a></li> </ul>
+                <button class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>نصائح عامة للياقة والصحة</h2>
+            </div>
+             <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">إليك بعض النصائح الأساسية والمجربة لمساعدتك في بناء عادات صحية وتحقيق تقدم مستمر في رحلة لياقتك.</p>
+
+            <img src="tips.jpg" alt="نصائح مفيدة للياقة" class="styled-tip-image">
+
+
+            <div class="tip-item">
+                <h3>كيفية الالتزام بروتين التمارين</h3>
+                <p> خطط لتمارينك مسبقاً: حدد الأيام والأوقات التي ستتمرن فيها وادونها في جدولك كما تفعل مع المواعيد الهامة الأخرى.</p>
+                <p><strong>نصيحة:</strong>نوع في تمارينك: تجنب الملل بتجربة أنواع مختلفة من التمارين (قوة، كارديو، مرونة) أو أنشطة جديدة.</p>
+                 </div>
+
+             <div class="tip-item">
+                <h3>كيفية تجنب الإصابات أثناء التمارين</h3>
+                <p>الاحماء الجيد قبل التمرين: قم بـ 5-10 دقائق من النشاط الخفيف لزيادة تدفق الدم وتهيئة عضلاتك ومفاصلك.</p>
+                <p><strong>نصيحة:</strong>التغذية السليمة والترطيب: دعم جسمك بالوقود المناسب والماء ضروري للحفاظ على وظائف العضلات والمفاصل بشكل صحيح.</p>
+                 </div>
+
+
+            </div>
+    </section>
+
+     <section class="cta">
+        <div class="container">
+            <h2>هل لديك أسئلة حول هذه النصائح؟</h2>
+            <p>تواصل معنا للحصول على مزيد من التوجيه والدعم.</p>
+            <a href="contact.html" class="btn">اسأل فادي</a>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>فادي للياقة</h3>
+                    <img src="tips.jpg" alt="شعار فادي للياقة" class="footer-image">
+                    <p>منصتك الشاملة لكل ما يتعلق باللياقة البدنية والتغذية الصحية والحفاظ على نمط حياة صحي.</p>
+                    <div class="social-icons">
+                       <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="exercises.html">برامج التمارين</a></li>
+                        <li><a href="nutrition.html">النصائح الغذائية</a></li>
+                        <li><a href="goals.html">أهداف اللياقة</a></li>
+                        <li><a href="general-tips.html">نصائح عامة</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>اتصل بنا</h3>
+                    <ul>
+                         <li><i class="fas fa-envelope"></i> info@fadi-fitness.com</li>
+                        <li><i class="fas fa-phone"></i> +962 791227346</li>
+                        <li><i class="fas fa-map-marker-alt"></i>عمان ، الأردن </li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>النشرة الإخبارية</h3>
+                    <p>اشترك في نشرتنا الإخبارية للحصول على آخر الأخبار والتحديثات</p>
+                     <form action="subscribe.php" method="POST">
+                        <input type="email" placeholder="بريدك الإلكتروني" name="email" required style="padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 5px; border: none;">
+                        <button type="submit" class="btn" style="width: 100%;">اشترك</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 فادي للياقة البدنية. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('navbar').classList.toggle('show');
+        });
+         // Optional: Close menu when a link is clicked
+        document.querySelectorAll('#navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navbar').classList.remove('show');
+            });
+        });
+         // JavaScript for Newsletter Submission (Placeholder)
+         document.querySelector('form[action="subscribe.php"]').addEventListener('submit', function(e) {
+            // e.preventDefault(); // uncomment this line to prevent actual submission for testing
+            alert('تم الاشتراك في النشرة البريدية بنجاح (هذه رسالة تجريبية)');
+            // Add actual subscription logic here
+         });
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</body>
+</html>
