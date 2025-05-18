@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فادي للياقة البدنية والتغذية الصحية</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> <style>
+    <style>
         /* Updated Style Block - Removed image-specific CSS except for logo, Added video styles */
         :root {
             --primary-color: #3498db;
@@ -14,30 +12,19 @@
             --dark-color: #2c3e50;
             --light-color: #ecf0f1;
             --accent-color: #e74c3c;
-             /* Added Dark Mode Variables for inline styles */
-            --dark-primary-color: #2980b9;
-            --dark-secondary-color: #27ae60;
-            --dark-dark-color: #1a252f;
-            --dark-light-color: #bdc3c7;
-            --dark-accent-color: #c0392b;
-            --dark-text-color: #f9f9f9;
-            --dark-background-color: #1a1a1a;
-            --dark-card-background: #34495e;
-            --dark-border-color: #555;
-            --dark-shadow-color: rgba(255, 255, 255, 0.1);
-             --card-background: white; /* Default light mode */
-             --shadow-color: rgba(0, 0, 0, 0.1); /* Default light mode */
-             --border-color: #ddd; /* Default light mode */
-
         }
 
-        /* Default Light Mode Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
         body {
             background-color: #f9f9f9;
             color: #333;
             line-height: 1.6;
-            transition: background-color 0.3s ease, color 0.3s ease; /* Transition for theme change */
-            font-size: 16px; /* Base font size for resizing */
         }
 
         .container {
@@ -62,7 +49,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap; /* للسماح للعناصر بالانتقال إلى سطر جديد في الشاشات الصغيرة */
         }
 
         .logo {
@@ -84,14 +70,19 @@
             font-size: 1.5rem;
         }
 
+        /* Logo Image Style - Kept and styled */
         .logo img {
-            height: 50px; /* Adjust as needed for your logo */
+            height: 50px; /* Adjust as needed for your logo size */
             margin-left: 10px; /* Space between logo and text */
+             /* Optional: ensure it fits nicely */
+             display: block;
+             object-fit: contain; /* Ensures the image scales without distortion */
         }
         [dir="rtl"] .logo img {
             margin-right: 10px;
             margin-left: 0;
         }
+
 
         nav ul {
             display: flex;
@@ -114,14 +105,13 @@
             padding: 10px;
             border-radius: 5px;
             transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
         }
 
         nav ul li a:hover {
             background-color: var(--secondary-color);
         }
 
+        /* Active class for current page */
         .active {
             background-color: var(--secondary-color);
         }
@@ -136,10 +126,11 @@
             font-size: 1.5rem;
         }
 
-        /* Hero Styles */
+        /* Removed Hero background image style */
         .hero {
+            /* background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/800?text=Hero+Image&bgColor=2ecc71') center/cover no-repeat; */
             background-color: var(--primary-color); /* Added a fallback background color */
-            height: 50vh;
+            height: 50vh; /* Adjusted height */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -147,18 +138,23 @@
             color: white;
             padding: 0 20px;
         }
+         .hero-content { /* Adjusted padding/margins if needed after image removal */
+             max-width: 800px; /* Keep max width */
+             margin: 0 auto; /* Center content */
+         }
          .hero h1 {
-            font-size: 2.8rem;
+            font-size: 2.8rem; /* Adjusted font size */
             margin-bottom: 15px;
          }
           .hero p {
-            font-size: 1.1rem;
+            font-size: 1.1rem; /* Adjusted font size */
             margin-bottom: 20px;
          }
 
-        /* Shared Section Styles */
-        .section {
-             padding: 5rem 0;
+
+        /* Featured Section - Removed image styles and image HTML */
+        .featured {
+            padding: 5rem 0;
         }
 
         .section-title {
@@ -188,7 +184,8 @@
              right: auto;
          }
 
-        /* Card Styles */
+
+        /* Removed styles for card images */
         .card-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -196,16 +193,21 @@
         }
 
         .card {
-            background-color: var(--card-background);
+            background-color: white;
             border-radius: 10px;
-            box-shadow: 0 5px 15px var(--shadow-color);
+            /* overflow: hidden; Removed as no images */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
-            padding: 20px;
+            padding: 20px; /* Added padding to card content area */
+            text-align: center; /* Centered card content */
         }
 
         .card:hover {
             transform: translateY(-10px);
         }
+
+        /* Removed .card-img and .card-img img styles */
+
 
         .card h3 {
             font-size: 1.5rem;
@@ -218,27 +220,13 @@
             color: #666;
         }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 10px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-             border: none;
-             cursor: pointer;
+        .card .btn {
+            padding: 8px 20px;
+            font-size: 0.9rem;
         }
 
-        .btn:hover {
-            background-color: #27ae60;
-            transform: translateY(-2px);
-        }
-
-        /* About Section Styles */
-         .about {
+        /* About Section - Added video styles */
+        .about {
             padding: 5rem 0;
             background-color: var(--light-color);
         }
@@ -247,14 +235,42 @@
             display: flex;
             align-items: center;
             gap: 50px;
-             flex-direction: row-reverse;
+             flex-direction: row; /* Default row direction */
         }
+        /* Adjusted flex direction for RTL for better text/video flow */
          [dir="rtl"] .about-content {
-             flex-direction: row;
+             flex-direction: row-reverse;
          }
 
+
+        /* Added styles for the video container and video */
+        .about-video {
+            flex: 1; /* Allow video container to take equal space */
+             min-width: 300px; /* Minimum width before wrapping */
+        }
+
+         /* Added/Updated style for the video title */
+         .about-video h3 {
+             color: var(--dark-color); /* Color for the title */
+             margin-bottom: 15px; /* Space below the title */
+             text-align: center; /* Center the title above the video */
+             font-size: 1.6rem; /* Increased font size for prominence */
+             font-weight: bold; /* Ensure bold if needed */
+         }
+
+
+        .about-video video {
+             display: block; /* Remove extra space below video */
+            width: 100%; /* Make video fill its container */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Match styling of old image */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Match styling of old image */
+        }
+
+
         .about-text {
-            flex: 1;
+            flex: 1; /* Allow text to take equal space */
+             min-width: 300px; /* Minimum width before wrapping */
         }
 
         .about-text h2 {
@@ -268,24 +284,28 @@
             line-height: 1.8;
         }
 
-        /* News Section Styles */
-         .news {
+        /* News Section - Removed image styles and image HTML */
+        .news {
             padding: 5rem 0;
         }
-         .news-container {
-             display: grid;
+
+        .news-container {
+            display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-         }
-         .news-card {
-            background-color: var(--card-background);
+        }
+
+         .news-card { /* Reusing card style for news items */
+            background-color: white;
             border-radius: 10px;
-            box-shadow: 0 5px 15px var(--shadow-color);
-            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 20px; /* Added padding */
          }
 
-        .news-content {
-            padding: 0;
+        /* Removed .news-img and .news-img img styles */
+
+        .news-content { /* Adjusted news content padding */
+            padding: 0; /* Padding moved to .news-card */
         }
 
         .news-date {
@@ -306,9 +326,11 @@
             color: #666;
         }
 
-        /* CTA Section Styles */
+
+        /* Removed CTA background image style */
         .cta {
-            background-color: var(--primary-color);
+            /* background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/api/placeholder/1200/800?text=CTA+Background&bgColor=3498db') center/cover no-repeat; */
+             background-color: var(--primary-color); /* Added a fallback background color */
             color: white;
             padding: 5rem 0;
             text-align: center;
@@ -327,7 +349,7 @@
             margin-right: auto;
         }
 
-        /* Footer Styles */
+        /* Footer */
         footer {
             background-color: var(--dark-color);
             color: white;
@@ -359,6 +381,7 @@
         [dir="rtl"] .footer-section h3::after {
              right: 0;
          }
+
 
         .footer-section p {
             margin-bottom: 15px;
@@ -392,6 +415,7 @@
              justify-content: flex-start;
          }
 
+
         .social-icons a {
             width: 35px;
             height: 35px;
@@ -404,17 +428,19 @@
             text-decoration: none;
             margin-left: 10px;
             transition: all 0.3s ease;
-            font-size: 1.2rem;
         }
          [dir="rtl"] .social-icons a {
              margin-right: 10px;
              margin-left: 0;
          }
 
+
         .social-icons a:hover {
             background-color: var(--secondary-color);
             transform: translateY(-3px);
         }
+
+        /* Removed footer logo image style */
 
         .footer-bottom {
             text-align: center;
@@ -423,1405 +449,215 @@
             border-top: 1px solid #444;
         }
 
-        .footer-bottom p {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-
-        /* Added Style: Accessibility Controls */
-        .accessibility-controls {
-            display: flex;
-            align-items: center;
-            /* Position can be adjusted based on desired layout */
-            order: 1; /* Place before nav for RTL if needed */
-            margin-left: 20px; /* Space after logo */
-        }
-        [dir="rtl"] .accessibility-controls {
-            order: 3; /* Place after nav for RTL */
-            margin-left: 0;
-            margin-right: 20px;
-        }
-
-        .accessibility-controls button {
-            background-color: transparent;
-            border: 1px solid white;
-            color: white;
-            padding: 5px 10px;
-            margin-right: 5px; /* Space between buttons (adjust for RTL) */
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-         [dir="rtl"] .accessibility-controls button {
-             margin-right: 0;
-             margin-left: 5px;
-         }
-
-        .accessibility-controls button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .accessibility-controls .theme-switch {
-            margin-right: 15px; /* Space from text size buttons (adjust for RTL) */
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-         [dir="rtl"] .accessibility-controls .theme-switch {
-             margin-right: 0;
-             margin-left: 15px;
-         }
-
-        .accessibility-controls .theme-switch input[type="checkbox"] {
-            display: none;
-        }
-
-        .accessibility-controls .theme-switch label {
-            display: block;
-            width: 40px;
-            height: 20px;
-            background-color: #ccc;
-            border-radius: 10px;
-            position: relative;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .accessibility-controls .theme-switch label::after {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 2px; /* Position for light mode */
-            width: 16px;
-            height: 16px;
+         /* Specific styles for General Tips page (Reused) */
+         .tip-item { /* Reusing goal-item style */
             background-color: white;
-            border-radius: 50%;
-            transition: left 0.3s ease, background-color 0.3s ease;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
-        .accessibility-controls .theme-switch input[type="checkbox"]:checked + label {
-            background-color: var(--secondary-color);
+        .tip-item h3 {
+             color: var(--primary-color);
+            margin-bottom: 15px;
         }
 
-        .accessibility-controls .theme-switch input[type="checkbox"]:checked + label::after {
-            left: calc(100% - 18px); /* Move the circle to the right */
+        .tip-item ul {
+            list-style: disc;
+            padding-right: 20px; /* For RTL list markers */
         }
 
-
-        /* Added Style: Dark Mode */
-        body.dark-mode {
-            background-color: var(--dark-background-color);
-            color: var(--dark-text-color);
+        .tip-item ul li {
+            margin-bottom: 8px;
         }
 
-        body.dark-mode header {
-            background-color: var(--dark-dark-color);
-            box-shadow: 0 2px 10px var(--dark-shadow-color);
-        }
-
-        body.dark-mode .logo,
-        body.dark-mode nav ul li a {
-            color: var(--dark-text-color);
-        }
-
-         body.dark-mode nav ul li a:hover,
-         body.dark-mode .active {
-             background-color: var(--dark-secondary-color); /* Keep secondary color for active/hover */
-             color: var(--dark-background-color); /* Dark text on secondary */
-         }
-
-
-        body.dark-mode .hero {
-            background-color: var(--dark-primary-color);
-            color: var(--dark-text-color);
-        }
-         body.dark-mode .hero h1,
-         body.dark-mode .hero p {
-             color: var(--dark-text-color);
-         }
-
-        body.dark-mode .section-title h2 {
-            color: var(--dark-text-color);
-        }
-        body.dark-mode .section-title h2::after {
-             background-color: var(--dark-secondary-color); /* Keep accent color */
-        }
-
-        body.dark-mode .card,
-         body.dark-mode .news-card,
-         body.dark-mode .tip-item,
-         body.dark-mode .nutrition-item,
-         body.dark-mode .goal-item,
-         body.dark-mode .contact-info .card,
-         body.dark-mode .contact-form-box,
-         body.dark-mode .faq-item,
-         body.dark-mode .program-item /* Added for exercises */
-         {
-            background-color: var(--dark-card-background);
-            box-shadow: 0 5px 15px var(--dark-shadow-color);
-            color: var(--dark-text-color);
-            border: 1px solid var(--dark-border-color); /* Added border for definition */
-        }
-
-        body.dark-mode .card h3,
-         body.dark-mode .news-card h3,
-         body.dark-mode .tip-item h3,
-         body.dark-mode .nutrition-item h3,
-         body.dark-mode .goal-item h3,
-         body.dark-mode .contact-form-box h3,
-         body.dark-mode .contact-social-section h3,
-         body.dark-mode .contact-info .card h3,
-         body.dark-mode .about-video h3,
-         body.dark-mode .program-item h3 /* Added for exercises */
-         {
-             color: var(--dark-primary-color); /* Primary color for headings */
-         }
-
-         body.dark-mode .card p,
-         body.dark-mode .news-card p,
-         body.dark-mode .tip-item p,
-         body.dark-mode .tip-item ul li,
-         body.dark-mode .nutrition-item p,
-         body.dark-mode .nutrition-item ul li,
-         body.dark-mode .goal-item p,
-         body.dark-mode .goal-item ul li,
-         body.dark-mode .contact-info .card p,
-         body.dark-mode .contact-form-box p,
-         body.dark-mode .form-group label,
-         body.dark-mode .faq-answer,
-         body.dark-mode .program-item p, /* Added for exercises */
-         body.dark-mode .program-item ul li
-          {
-              color: rgba(249, 249, 249, 0.8); /* Slightly dimmer text */
-          }
-         body.dark-mode .tip-item ul li i { /* Added for general-tips */
-               color: var(--dark-primary-color); /* Color for list icons */
-          }
-          body.dark-mode .nutrition-item ul li i { /* Added for nutrition */
-               color: var(--dark-primary-color); /* Color for list icons */
-          }
-           body.dark-mode .goal-item ul li i { /* Added for goals */
-               color: var(--dark-primary-color); /* Color for list icons */
-          }
-           body.dark-mode .program-item ul li i { /* Added for exercises */
-               color: var(--dark-primary-color); /* Color for list icons */
-          }
-
-
-        body.dark-mode .about {
-            background-color: #222;
-            color: var(--dark-text-color);
-        }
-        body.dark-mode .about-text h2 {
-            color: var(--dark-text-color);
-        }
-        body.dark-mode .about-text p {
-             color: rgba(249, 249, 249, 0.8);
-        }
-         body.dark-mode .about-video h3 {
-             color: var(--dark-text-color);
-         }
-
-
-         /* Adjust specific elements in dark mode for other pages */
-         body.dark-mode .contact-social-section h3 { /* Added for contact */
-             color: var(--dark-text-color);
-         }
-         body.dark-mode .social-icons a { /* Added for contact */
-             background-color: #555;
-             color: var(--dark-text-color);
-         }
-          body.dark-mode .social-icons a:hover {
-              background-color: var(--dark-secondary-color);
-          }
-
-         body.dark-mode .form-group label { /* Added for contact */
-             color: var(--dark-text-color);
-         }
-         body.dark-mode .form-group input[type="text"],
-         body.dark-mode .form-group input[type="email"],
-         body.dark-mode .form-group input[type="tel"],
-         body.dark-mode .form-group select,
-         body.dark-mode .form-group textarea { /* Added for contact */
-             background-color: #3a3a3a;
-             border-color: #555;
-             color: var(--dark-text-color);
-         }
-          body.dark-mode .form-group input::placeholder,
-          body.dark-mode .form-group textarea::placeholder {
-              color: rgba(249, 249, 249, 0.6);
-          }
-
-
-         body.dark-mode .faq-question { /* Added for contact */
-             background-color: var(--dark-light-color);
-             color: var(--dark-text-color);
-             border-color: var(--dark-border-color);
-         }
-         body.dark-mode .faq-question:hover {
-             background-color: #4a4a4a;
-         }
-         body.dark-mode .faq-answer { /* Added for contact */
-             border-top-color: var(--dark-border-color);
-             color: rgba(249, 249, 249, 0.8);
-         }
-
-
-        body.dark-mode .cta-section {
-             background: linear-gradient(45deg, var(--dark-secondary-color), var(--dark-primary-color));
-             color: var(--dark-text-color);
-        }
-        body.dark-mode .cta-section h2,
-        body.dark-mode .cta-section p {
-            color: var(--dark-text-color);
-        }
-        body.dark-mode .cta-section .btn-primary {
-             background-color: var(--dark-dark-color);
-             color: var(--dark-primary-color);
-             border-color: var(--dark-primary-color);
-        }
-        body.dark-mode .cta-section .btn-primary:hover {
-             background-color: #333;
-             color: var(--dark-primary-color);
-             border-color: var(--dark-primary-color);
-        }
-        /* Added for pages with inline styles */
-        body.dark-mode .cta {
-             background-color: var(--dark-secondary-color);
-             color: var(--dark-background-color);
-        }
-        body.dark-mode .cta h2,
-        body.dark-mode .cta p {
-              color: var(--dark-background-color);
-        }
-        body.dark-mode .cta .btn {
-              background-color: var(--dark-primary-color);
-              color: var(--dark-background-color);
-        }
-        body.dark-mode .cta .btn:hover {
-             background-color: #FF6B4A; /* Lighter primary */
-        }
-
-
-        body.dark-mode .footer {
-            background-color: var(--dark-dark-color);
-            color: var(--dark-text-color);
-        }
-
-        body.dark-mode .footer h5 {
-            color: white;
-        }
-        body.dark-mode .footer h5::after {
-             background-color: var(--dark-primary-color);
-        }
-        body.dark-mode .footer .social-links a {
-            background-color: #555;
-            color: white;
-        }
-        body.dark-mode .footer .social-links a:hover {
-            background-color: var(--dark-primary-color);
-        }
-
-        body.dark-mode .footer .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        body.dark-mode .footer .footer-links a:hover {
-            color: var(--dark-primary-color);
-        }
-        body.dark-mode .footer .footer-contact li {
-            color: var(--dark-text-color);
-        }
-        body.dark-mode .footer .footer-contact li i {
-            color: var(--dark-primary-color);
-        }
-
-        body.dark-mode .newsletter-form .form-control {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-color: var(--dark-border-color);
-            color: var(--dark-text-color);
-        }
-        body.dark-mode .newsletter-form .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-        body.dark-mode .newsletter-form .btn {
-            background-color: var(--dark-primary-color);
-            border-color: var(--dark-primary-color);
-        }
-        body.dark-mode .newsletter-form .btn:hover {
-            background-color: #FF6B4A;
-            border-color: #FF6B4A;
-        }
-
-
-        body.dark-mode .footer-bottom {
-            border-top-color: #555;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        body.dark-mode .footer-bottom-links a {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        body.dark-mode .footer-bottom-links a:hover {
-            color: var(--dark-primary-color);
-        }
-        /* Added for pages with inline styles */
-        body.dark-mode footer {
-             background-color: var(--dark-dark-color);
-             color: var(--dark-text-color);
-        }
-        body.dark-mode footer h3 {
-            color: var(--dark-primary-color);
-        }
-        body.dark-mode footer h3::after {
-            background-color: var(--dark-secondary-color);
-        }
-        body.dark-mode footer p {
-             color: rgba(249, 249, 249, 0.8);
-        }
-        body.dark-mode footer a {
-            color: rgba(249, 249, 249, 0.7);
-        }
-        body.dark-mode footer a:hover {
-             color: var(--dark-primary-color);
-        }
-        body.dark-mode .footer-bottom {
-            border-top-color: #555;
-            color: rgba(249, 249, 249, 0.7);
-        }
-
-
-        /* Accessibility Controls Styles - Added */
-        /* Position the accessibility controls within the navbar container */
-        .navbar .container,
-        header .container.header-container /* Added for inline styles */
-        {
+        /* Specific styles for Contact Form (Reused & Adjusted) */
+        .contact-flex-container { /* Flexbox container */
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap; /* للسماح للعناصر بالانتقال إلى سطر جديد في الشاشات الصغيرة */
+            gap: 40px;
+            flex-wrap: wrap;
         }
 
-        .accessibility-controls {
-            display: flex;
-            align-items: center;
-            /* تحدد الترتيب في Flexbox. يمكن تعديله حسب التصميم */
-            order: 1; /* Place before nav for RTL if needed */
-            margin-left: 20px; /* Space after logo */
+        .contact-form-col {
+            flex: 1;
+             min-width: 300px;
         }
-        [dir="rtl"] .accessibility-controls {
-            order: 3; /* Place after nav for RTL */
-            margin-left: 0;
-            margin-right: 20px;
-        }
-
-
-        .accessibility-controls button {
-            background-color: transparent;
-            border: 1px solid white; /* حدود بيضاء للوضع الفاتح */
-            color: white; /* نص أبيض للوضع الفاتح */
-            padding: 5px 10px;
-            margin-right: 5px; /* مسافة بين الأزرار في LTR */
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease; /* Use a consistent transition property */
-        }
-         [dir="rtl"] .accessibility-controls button {
-             margin-right: 0;
-             margin-left: 5px;
-         }
-
-        .accessibility-controls button:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Dark mode button styles */
-        body.dark-mode .accessibility-controls button {
-             border-color: var(--dark-text-color);
-             color: var(--dark-text-color);
-             background-color: rgba(0, 0, 0, 0.2);
-        }
-        body.dark-mode .accessibility-controls button:hover {
-             background-color: rgba(255, 255, 255, 0.1);
-        }
-
-
-        .accessibility-controls .theme-switch {
-            margin-right: 15px; /* مسافة بعد أزرار حجم النص في LTR */
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-         [dir="rtl"] .accessibility-controls .theme-switch {
-             margin-right: 0;
-             margin-left: 15px;
-         }
-
-        .accessibility-controls .theme-switch input[type="checkbox"] {
-            display: none;
-        }
-
-        .accessibility-controls .theme-switch label {
-            display: block;
-            width: 40px;
-            height: 20px;
-            background-color: #ccc; /* خلفية افتراضية للمفتاح */
-            border-radius: 10px;
-            position: relative;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .accessibility-controls .theme-switch label::after {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 2px; /* موضع الدائرة في الوضع الفاتح */
-            width: 16px;
-            height: 16px;
-            background-color: white; /* لون الدائرة */
-            border-radius: 50%;
-            transition: left 0.3s ease, background-color 0.3s ease;
-        }
-
-        .accessibility-controls .theme-switch input[type="checkbox"]:checked + label {
-            background-color: var(--primary-color); /* لون المفتاح عند تفعيل الوضع الداكن */
-        }
-
-        .accessibility-controls .theme-switch input[type="checkbox"]:checked + label::after {
-            left: calc(100% - 18px); /* تحريك الدائرة لليمين في الوضع الداكن */
-            background-color: var(--dark-card-background); /* لون الدائرة في الوضع الداكن */
-        }
-
-        /* Responsive adjustments for accessibility controls */
-        @media (max-width: 991.98px) { /* استخدم نقطة التوقف هذه لتناسب قائمة Navbar المنسدلة */
-             .navbar .container,
-             header .container.header-container /* Added for inline styles */
-             {
-                 flex-direction: column; /* ترتيب العناصر عمودياً */
-                 align-items: flex-start; /* توسيط العناصر */
-             }
-             .navbar-brand,
-             header .logo /* Added for inline styles */
-              {
-                 margin-bottom: 10px; /* مسافة أسفل الشعار */
-                 order: 1; /* ترتيب الشعار أولاً */
-             }
-             .accessibility-controls {
-                 margin-top: 10px; /* مسافة أعلى أدوات إمكانية الوصول */
-                 margin-right: 0;
-                 margin-left: 0;
-                 width: 100%; /* لتوسيط الأزرار بداخلها */
-                 justify-content: center; /* توسيط الأزرار داخل أدوات إمكانية الوصول */
-                 order: 2; /* ترتيب أدوات إمكانية الوصول ثانياً */
-             }
-             [dir="rtl"] .accessibility-controls {
-                 order: 2;
-             }
-
-             .accessibility-controls button {
-                 margin-right: 10px; /* زيادة المسافة بين الأزرار في الشاشات الصغيرة */
-                 margin-left: 10px;
-             }
-             [dir="rtl"] .accessibility-controls button {
-                  margin-right: 10px;
-                  margin-left: 10px;
-             }
-
-             .accessibility-controls .theme-switch {
-                 margin-right: 10px; /* زيادة المسافة بين التبديل والأزرار */
-                 margin-left: 10px;
-             }
-              [dir="rtl"] .accessibility-controls .theme-switch {
-                  margin-right: 10px;
-                  margin-left: 10px;
-              }
-
-             .navbar-collapse,
-             nav ul /* Added for inline styles */
-              { /* Style for the collapsible menu */
-                  margin-top: 10px; /* مسافة أسفل أدوات إمكانية الوصول */
-                  order: 3; /* ترتيب القائمة ثالثاً */
-                  width: 100%; /* تأكد من أن القائمة تأخذ عرضاً كاملاً */
-                  text-align: center; /* توسيط محتوى القائمة */
-                  background-color: var(--dark-color); /* Add background for visibility */
-                  padding: 1rem; /* Add padding */
-                  border-radius: var(--border-radius); /* Add border radius */
-             }
-              .navbar .navbar-nav {
-                  flex-direction: column; /* ترتيب عناصر القائمة عمودياً */
-              }
-               nav ul li { /* Added for inline styles */
-                   margin: 5px 0; /* مسافة بين عناصر القائمة */
-                   margin-right: 0; /* Reset margin-right for stacking */
-               }
-
-
-        }
-
-
-        @media (max-width: 767.98px) {
-            /* الأنماط الموجودة في style.css تحت هذا الشرط */
-             header nav ul { /* Added for inline styles */
-                 top: 160px; /* Adjust top based on added controls */
-             }
-        }
-
-        @media (max-width: 500px) {
-             .accessibility-controls button {
-                 padding: 3px 8px;
-                 font-size: 0.8rem;
-             }
-             .accessibility-controls .theme-switch {
-                 margin-right: 8px;
-                 margin-left: 8px;
-             }
-             [dir="rtl"] .accessibility-controls .theme-switch {
-                  margin-right: 8px;
-                  margin-left: 8px;
-             }
-        }
-
-
-        /* Navigation */
-        .navbar {
-            background-color: var(--dark-color);
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        .navbar-brand img {
-            transition: all 0.3s ease;
-        }
-
-        .navbar .nav-link {
-            color: var(--light-color);
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .navbar .nav-link:hover,
-        .navbar .nav-link.active {
-            color: var(--primary-color);
-        }
-
-
-        /* Hero Section */
-        .hero-section {
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 8rem 0;
-            text-align: center;
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero-content p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .hero-buttons .btn {
-            margin: 0 0.5rem;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            color: white;
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .btn-primary:hover {
-            background-color: #e64425;
-            border-color: #e64425;
-            box-shadow: var(--box-shadow);
-        }
-
-        .btn-outline-light {
-            color: var(--light-color);
-            border-color: var(--light-color);
-            background-color: transparent;
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .btn-outline-light:hover {
-            background-color: var(--light-color);
-            color: var(--primary-color);
-            box-shadow: var(--box-shadow);
-        }
-
-
-        /* Sections */
-        .section {
-             padding: 5rem 0;
-        }
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
-        }
-
-
-        /* Features Section */
-        .features-section {
-            padding: 5rem 0;
-            background-color: var(--light-color);
-            transition: all 0.3s ease;
-        }
-
-        .feature-card {
-            background-color: white;
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            text-align: center;
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background-color: var(--primary-color);
-            color: white;
-            font-size: 2.5rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem auto;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark-color);
-        }
-
-        .feature-card p {
-            color: var(--text-color);
-        }
-
-
-        /* Programs Section */
-        .programs-section {
-            padding: 5rem 0;
-            background-color: var(--dark-color);
-            color: var(--light-color);
-            transition: all 0.3s ease;
-        }
-
-        .program-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .program-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--box-shadow);
-        }
-
-        .program-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .program-content {
-            padding: 1.5rem;
-        }
-
-        .program-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .program-features {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 1.5rem;
-        }
-
-        .program-features li {
-            margin-bottom: 0.75rem;
-            color: var(--light-color);
-        }
-
-        .program-features li i {
-            color: var(--primary-color);
-            margin-left: 0.5rem;
-        }
-
-
-        /* Testimonial Section */
-        .testimonial-section {
-            padding: 5rem 0;
-            background-color: var(--light-color);
-            text-align: center;
-        }
-
-        .testimonial-item {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .testimonial-item img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 1.5rem;
-            border: 4px solid var(--primary-color);
-        }
-
-        .testimonial-item p {
-            font-size: 1.1rem;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
-        }
-
-        .testimonial-item h4 {
-            font-size: 1.25rem;
-            color: var(--dark-color);
-        }
-
-
-        /* Tips Section */
-        .tips-section {
-            padding: 5rem 0;
-        }
-
-        .tip-card {
-            background-color: white;
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            text-align: center;
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-
-        .tip-card:hover {
-             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .tip-icon {
-             width: 70px;
-            height: 70px;
-            background-color: var(--secondary-color);
-            color: white;
-            font-size: 2.5rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem auto;
-        }
-
-        .tip-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark-color);
-        }
-
-        .tip-card p {
-            color: var(--text-color);
-        }
-
-        .tip-list {
-             list-style: none;
-             padding: 0;
-             text-align: right;
-        }
-        .tip-list li {
-             margin-bottom: 0.75rem;
-             color: var(--text-color);
-        }
-        .tip-list li i {
-            color: var(--secondary-color);
-            margin-left: 0.5rem;
-        }
-
-        .health-tip-item {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-        }
-        .health-tip-item .icon {
-            flex-shrink: 0;
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-        }
-        .health-tip-item .content h4 {
-            font-size: 1.3rem;
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-            color: var(--dark-color);
-        }
-        .health-tip-item .content p {
-            margin-bottom: 0;
-            color: var(--text-color);
-        }
-
-        .common-mistakes h3 {
-            font-size: 1.8rem;
-            margin-top: 3rem;
-            margin-bottom: 2rem;
-            color: var(--dark-color);
-            text-align: center;
-        }
-        .common-mistakes .mistake-item {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-        }
-        .common-mistakes .mistake-icon {
-            flex-shrink: 0;
-            width: 50px;
-            height: 50px;
-            background-color: var(--accent-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-        }
-        .common-mistakes .mistake-item .content h4 {
-            font-size: 1.3rem;
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-            color: var(--dark-color);
-        }
-        .common-mistakes .mistake-item .content p {
-             margin-bottom: 0;
-             color: var(--text-color);
-        }
-
-
-        /* Contact Section */
-        .contact-section {
-            padding: 5rem 0;
-            background-color: var(--light-color);
-        }
-        .contact-info {
-            margin-bottom: 3rem;
-        }
-        .contact-info .card {
-            text-align: center;
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            background-color: white;
-            height: 100%;
-        }
-        .contact-info .card i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-        .contact-info .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: var(--dark-color);
-        }
-        .contact-info .card p {
-             color: var(--text-color);
-             margin-bottom: 0.5rem;
-        }
-
 
         .contact-form-box {
             background-color: white;
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            max-width: 600px;
-            margin: 0 auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
+
         .contact-form-box h3 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: var(--dark-color);
-            text-align: center;
+             color: var(--dark-color);
+             margin-bottom: 20px;
         }
+
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
+
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 8px;
             font-weight: bold;
             color: var(--dark-color);
         }
+
         .form-group input[type="text"],
         .form-group input[type="email"],
         .form-group input[type="tel"],
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 0.75rem;
+            padding: 12px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1rem;
-            font-family: 'Tajawal', sans-serif;
-            background-color: white;
-            color: var(--text-color);
-            transition: all 0.3s ease;
+            font-family: 'Cairo', sans-serif;
         }
+
         .form-group textarea {
             resize: vertical;
         }
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-             outline: none;
-             border-color: var(--primary-color);
-             box-shadow: 0 0 5px rgba(var(--primary-color), 0.5);
-        }
-        .form-group input.is-invalid,
-        .form-group textarea.is-invalid {
-            border-color: var(--danger-color);
-        }
+
+        /* Removed map styles */
+        /* Removed .map-container */
 
 
-        /* FAQ Section */
-        .faq-section {
-            padding: 5rem 0;
-            background-color: var(--light-color);
-        }
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        /* Specific styles for FAQ (Reused) */
         .faq-item {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-            margin-bottom: 1rem;
-            overflow: hidden;
-            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+             background-color: white;
+             border: 1px solid #ddd;
+             border-radius: 8px;
+             margin-bottom: 15px;
+             overflow: hidden;
+             box-shadow: 0 1px 5px rgba(0,0,0,0.05);
         }
+
         .faq-question {
-            padding: 1rem 1.5rem;
-            background-color: #f1f1f1;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: bold;
-            color: var(--dark-color);
-            transition: background-color 0.3s ease;
+             padding: 15px 20px;
+             background-color: var(--light-color);
+             cursor: pointer;
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             font-weight: bold;
+             color: var(--dark-color);
+             transition: background-color 0.3s ease;
         }
+
         .faq-question:hover {
-            background-color: #e9e9e9;
+            background-color: #e0e0e0;
         }
+
         .faq-question i {
              transition: transform 0.3s ease;
         }
          .faq-question i.rotated {
             transform: rotate(180deg);
          }
+
+
         .faq-answer {
-            padding: 1rem 1.5rem;
-            border-top: 1px solid #ddd;
-            display: none;
-            color: var(--text-color);
+             padding: 15px 20px;
+             border-top: 1px solid #eee;
+             display: none;
         }
 
 
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
-            color: white;
-            padding: 5rem 0;
-            text-align: center;
-        }
-
-        .cta-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-
-        /* Footer */
-        footer.footer {
-            background-color: var(--dark-color);
-            color: var(--light-color);
-            padding: 5rem 0 2rem;
-        }
-
-        footer.footer h5 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: white;
-            position: relative;
-        }
-
-        footer.footer h5::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            right: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
-        }
-        [dir="rtl"] footer.footer h5::after {
-            right: 0;
-            left: auto;
-        }
-
-        footer.footer .footer-about p {
-            margin-bottom: 1.5rem;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        footer.footer .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1.2rem;
-            line-height: 40px;
-            text-align: center;
-            border-radius: 50%;
-            margin-left: 0.5rem;
-            transition: all 0.3s ease;
-        }
-        [dir="rtl"] footer.footer .social-links a {
-            margin-left: 0;
-            margin-right: 0.5rem;
-        }
-
-
-        footer.footer .social-links a:hover {
-            background-color: var(--primary-color);
-        }
-
-        footer.footer .footer-links {
-            list-style: none;
-            padding: 0;
-        }
-
-        footer.footer .footer-links li {
-            margin-bottom: 0.75rem;
-        }
-
-        footer.footer .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        footer.footer .footer-links a:hover {
-            color: var(--primary-color);
-        }
-
-        footer.footer .footer-contact li {
-            margin-bottom: 1rem;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        footer.footer .footer-contact li i {
-            color: var(--primary-color);
-            margin-left: 0.75rem;
-            font-size: 1.1rem;
-        }
-
-        footer.footer .newsletter-form .form-control {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        footer.footer .newsletter-form .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        footer.footer .newsletter-form .btn {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            color: white;
-        }
-
-        footer.footer .newsletter-form .btn:hover {
-            background-color: #e64425;
-            border-color: #e64425;
-        }
-
-        footer.footer .footer-bottom {
-            text-align: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        footer.footer .footer-bottom-links {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-
-        footer.footer .footer-bottom-links li {
-            margin-right: 1.5rem;
-        }
-
-        footer.footer .footer-bottom-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        footer.footer .footer-bottom-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 991.98px) {
-            .navbar-collapse {
-                background-color: var(--dark-color);
-                padding: 1rem;
-                border-radius: var(--border-radius);
-                margin-top: 1rem;
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .about-content {
+                flex-direction: column; /* Stack text and video on smaller screens */
             }
+             .contact-flex-container {
+                 flex-direction: column;
+             }
+             .contact-form-col {
+                  min-width: 100%;
+             }
+             .about-video, .about-text { /* Ensure both stack and take full width */
+                 min-width: 100%;
+             }
+        }
 
-            .nav-buttons {
-                margin-top: 1rem;
-            }
-
-            .hero-content h1 {
+        @media (max-width: 768px) {
+            .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .hero-buttons .btn {
-                display: block;
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
                 width: 100%;
-                margin: 1rem 0;
+                background-color: var(--dark-color);
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
             }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .footer-container {
+                 grid-template-columns: 1fr;
+                 text-align: center;
+            }
+
+            .footer-section h3::after {
+                right: 50%;
+                transform: translateX(50%);
+            }
+            [dir="rtl"] .footer-section h3::after {
+                 left: 50%;
+                 right: auto;
+                 transform: translateX(-50%);
+             }
+
+             .social-icons {
+                 justify-content: center;
+                 direction: ltr;
+             }
+             [dir="rtl"] .social-icons {
+                 justify-content: center;
+             }
+
         }
 
-        @media (max-width: 767.98px) {
-            .section-header h2 {
+        @media (max-width: 500px) {
+            .hero h1 {
                 font-size: 2rem;
             }
 
-            .feature-card,
-            .program-card,
-            .tip-card {
-                margin-bottom: 2rem;
-            }
-
-            .footer-bottom-links {
-                justify-content: center;
-                margin-top: 1rem;
+            .section-title h2 {
+                font-size: 2rem;
             }
         }
-
-        /* Animations */
-        @keyframes float {
-            0% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
-
-        .float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        /* Loading Spinner */
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--light-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loading::after {
-            content: '';
-            width: 50px;
-            height: 50px;
-            border: 5px solid var(--primary-color);
-            border-top-color: transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Fade-in Animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Back to top button */
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            font-size: 1.2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-            z-index: 99;
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Notification Styles */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 1rem;
-            border-radius: 5px;
-            color: white;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            z-index: 1000;
-        }
-
-        .notification.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .notification.success {
-            background-color: var(--success-color);
-        }
-
-        .notification.error {
-            background-color: var(--danger-color);
-        }
-
-        .notification.info {
-            background-color: var(--primary-color);
-        }
-
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo">
-                <img src="logo.jpg" alt="فادي للياقة">
+                 <img src="logo.jpg" alt="فادي للياقة">
                 فادي  <span> للياقة </span>
             </a>
             <nav>
@@ -1837,26 +673,18 @@
                     <i class="fas fa-bars"></i>
                 </button>
             </nav>
-            <div class="accessibility-controls">
-                <button id="decrease-text" aria-label="تصغير حجم النص">A-</button>
-                <button id="increase-text" aria-label="تكبير حجم النص">A+</button>
-                <div class="theme-switch">
-                    <input type="checkbox" id="theme-toggle" aria-label="تبديل الوضع الليلي/النهاري">
-                    <label for="theme-toggle"></label>
-                </div>
-            </div>
-            </div>
+        </div>
     </header>
 
     <section class="hero">
-        <div class="container">
+        <div class="hero-content">
             <h1>ابدأ رحلة اللياقة البدنية الآن مع فادي</h1>
             <p>استمتع بحياة صحية مع برامج التمارين المخصصة والنصائح الغذائية المناسبة لتحقيق أهدافك</p>
             <a href="contact.html" class="btn">ابدأ الآن</a>
         </div>
     </section>
 
-    <section class="section featured">
+    <section class="featured">
         <div class="container">
             <div class="section-title">
                 <h2>خدماتنا المميزة</h2>
@@ -1870,14 +698,14 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-content">
+                     <div class="card-content">
                         <h3>نصائح غذائية صحية</h3>
                         <p>خطط غذائية متنوعة لزيادة العضلات، خسارة الوزن ووصفات صحية لذيذة</p>
                         <a href="nutrition.html" class="btn">اكتشف المزيد</a>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-content">
+                     <div class="card-content">
                         <h3>تحقيق أهداف اللياقة</h3>
                         <p>نصائح وإرشادات لتحديد أهدافك بشكل صحيح والالتزام بها لتحقيق النتائج المرجوة</p>
                         <a href="goals.html" class="btn">اكتشف المزيد</a>
@@ -1887,13 +715,12 @@
         </div>
     </section>
 
-    <section class="about section">
+    <section class="about">
         <div class="container">
             <div class="about-content">
                  <div class="about-video">
                      <h3>غذائنا السليم سر صحتنا</h3>
-                    <video controls>
-                        <source src="video.mp4" type="video/mp4">
+                    <video controls> <source src="video.mp4" type="video/mp4">
                         متصفحك لا يدعم عرض الفيديو.
                     </video>
                 </div>
@@ -1902,32 +729,29 @@
                     <p>مدرب لياقة بدنية محترف ومؤثر على وسائل التواصل الاجتماعي، أكرس حياتي لمساعدة الآخرين على تحقيق أهدافهم في اللياقة البدنية والصحة العامة.</p>
                     <p>بدأت رحلتي مع اللياقة البدنية منذ أكثر من 10 سنوات، وقررت مشاركة تجربتي ونصائحي مع العالم من خلال منصات التواصل الاجتماعي والآن من خلال هذا الموقع.</p>
                     <p>هدفي هو إلهام وتشجيع الناس على اتباع نمط حياة صحي ونشط، وتقديم المعرفة والأدوات اللازمة لتحقيق التحول الصحي المطلوب بطريقة آمنة ومستدامة.</p>
-                    <a href="general-tips.html" class="btn">تعرف على المزيد</a>
+                     <a href="general-tips.html" class="btn">تعرف على المزيد</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="news section">
+    <section class="news">
         <div class="container">
             <div class="section-title">
-                <h2>آخر التحديثات والنصائح</h2>
-            </div>
-            <div class="card-container">
+                <h2>آخر التحديثات والنصائح</h2> </div>
+             <div class="card-container">
                 <div class="card">
                     <div class="news-content">
                         <span class="news-date">15 مايو 2025</span>
-                        <h3>أهمية الإحماء قبل أي تمرين</h3>
-                        <p>تعرف على لماذا يعتبر الإحماء خطوة أساسية لا يجب تخطيها قبل البدء بأي نشاط بدني وكيف تقوم به بشكل صحيح...</p>
-                        <a href="general-tips.html" class="btn">اقرأ المزيد</a>
+                        <h3>أهمية الإحماء قبل أي تمرين</h3> <p>تعرف على لماذا يعتبر الإحماء خطوة أساسية لا يجب تخطيها قبل البدء بأي نشاط بدني وكيف تقوم به بشكل صحيح...</p>
+                         <a href="general-tips.html" class="btn">اقرأ المزيد</a>
                     </div>
                 </div>
 
                  <div class="card">
                      <div class="news-content">
                         <span class="news-date">10 مايو 2025</span>
-                        <h3>وصفة وجبة سريعة غنية بالبروتين بعد التمرين</h3>
-                        <p>وجبة سريعة ولذيذة لمساعدتك على الاستشفاء بعد التمرين المكثف. اكتشف المكونات وطريقة التحضير السهلة...</p>
+                        <h3>وصفة وجبة سريعة غنية بالبروتين بعد التمرين</h3> <p>وجبة سريعة ولذيذة لمساعدتك على الاستشفاء بعد التمرين المكثف. اكتشف المكونات وطريقة التحضير السهلة...</p>
                          <a href="nutrition.html" class="btn">اقرأ المزيد</a>
                     </div>
                 </div>
@@ -1935,8 +759,7 @@
                  <div class="card">
                      <div class="news-content">
                         <span class="news-date">5 مايو 2025</span>
-                        <h3>تحديد أهداف SMART: دليل للمبتدئين</h3>
-                        <p>هل أنت جديد في عالم اللياقة؟ تعلم كيفية تحديد أهداف واقعية ومحددة زمنياً باستخدام طريقة SMART لتحقيق نتائج فعالة...</p>
+                        <h3>تحديد أهداف SMART: دليل للمبتدئين</h3> <p>هل أنت جديد في عالم اللياقة؟ تعلم كيفية تحديد أهداف واقعية ومحددة زمنياً باستخدام طريقة SMART لتحقيق نتائج فعالة...</p>
                          <a href="goals.html" class="btn">اقرأ المزيد</a>
                     </div>
                 </div>
@@ -1945,12 +768,12 @@
         </div>
     </section>
 
-    <section class="cta section">
+    <section class="cta">
         <div class="container">
             <h2>هل أنت مستعد لتغيير حياتك؟</h2>
             <p>انضم إلى الآلاف الذين حققوا أهدافهم في اللياقة البدنية باتباع برامجنا وخططنا الغذائية المتخصصة</p>
-            <a href="contact.html" class="btn">ابدأ الآن</a>
         </div>
+         <a href="contact.html" class="btn" style="margin-top: 20px;">ابدأ الآن</a>
     </section>
 
     <footer>
@@ -1960,10 +783,10 @@
                     <h3>فادي للياقة</h3>
                     <p>منصتك الشاملة لكل ما يتعلق باللياقة البدنية والتغذية الصحية والحفاظ على نمط حياة صحي.</p>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
@@ -2000,8 +823,7 @@
         </div>
     </footer>
 
-    <script src="main.js"></script> <script>
-        // Existing JavaScript
+    <script>
         document.getElementById('hamburger').addEventListener('click', function() {
             document.getElementById('navbar').classList.toggle('show');
         });
@@ -2018,99 +840,6 @@
             alert('تم الاشتراك في النشرة البريدية بنجاح (هذه رسالة تجريبية)');
             // Add actual subscription logic here
          });
-
-        // Added JavaScript: Accessibility Features
-        const body = document.body;
-        const themeToggle = document.getElementById('theme-toggle');
-        const increaseTextBtn = document.getElementById('increase-text');
-        const decreaseTextBtn = document.getElementById('decrease-text');
-
-        // Load saved preferences on page load
-        loadPreferences();
-
-        // Theme Toggle
-        if (themeToggle) {
-            themeToggle.addEventListener('change', function() {
-                if (this.checked) {
-                    enableDarkMode();
-                } else {
-                    disableDarkMode();
-                }
-            });
-        }
-
-        // Text Resizing Event Listeners
-        if (increaseTextBtn && decreaseTextBtn) {
-            increaseTextBtn.addEventListener('click', increaseTextSize);
-            decreaseTextBtn.addEventListener('click', decreaseTextSize);
-             console.log('Text resizing buttons found and event listeners attached.'); // Added for debugging
-        } else {
-             console.error('Text resizing buttons not found!'); // Added for debugging
-        }
-
-
-        function enableDarkMode() {
-            body.classList.add('dark-mode');
-            localStorage.setItem('theme', 'dark');
-             if (themeToggle) {
-                 themeToggle.checked = true;
-             }
-        }
-
-        function disableDarkMode() {
-            body.classList.remove('dark-mode');
-            localStorage.setItem('theme', 'light');
-             if (themeToggle) {
-                themeToggle.checked = false;
-             }
-        }
-
-        function increaseTextSize() {
-            let currentSize = parseFloat(window.getComputedStyle(body).fontSize); // Use getComputedStyle
-            currentSize += 1; // Increase by 1px
-             if (currentSize <= 24) { // Set a maximum limit (e.g., 24px)
-                 body.style.fontSize = currentSize + 'px';
-                 localStorage.setItem('textSize', currentSize);
-                  console.log('Increased text size to: ' + body.style.fontSize); // Added for debugging
-             } else {
-                  console.log('Reached maximum text size: ' + currentSize); // Added for debugging
-             }
-        }
-
-        function decreaseTextSize() {
-            let currentSize = parseFloat(window.getComputedStyle(body).fontSize); // Use getComputedStyle
-            currentSize -= 1; // Decrease by 1px
-            if (currentSize >= 14) { // Set a minimum limit (e.g., 14px)
-                body.style.fontSize = currentSize + 'px';
-                localStorage.setItem('textSize', currentSize);
-                 console.log('Decreased text size to: ' + body.style.fontSize); // Added for debugging
-            } else {
-                 console.log('Reached minimum text size: ' + currentSize); // Added for debugging
-            }
-        }
-
-        function loadPreferences() {
-            const savedTheme = localStorage.getItem('theme');
-            const savedTextSize = localStorage.getItem('textSize');
-
-            if (savedTheme === 'dark') {
-                enableDarkMode();
-            } else {
-                 // Default to light mode if no preference or 'light' is saved
-                 // No action needed here as light mode is the default CSS
-                 if (themeToggle) {
-                     themeToggle.checked = false;
-                 }
-            }
-
-            if (savedTextSize) {
-                body.style.fontSize = savedTextSize + 'px'; // Apply saved size
-                 console.log('Loaded text size preference: ' + savedTextSize + 'px'); // Added for debugging
-            } else {
-                 body.style.fontSize = '16px'; // Set default if no preference saved
-                 console.log('No text size preference found, defaulting to 16px.'); // Added for debugging
-            }
-        }
     </script>
 </body>
 </html>
