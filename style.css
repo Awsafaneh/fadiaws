@@ -9,6 +9,11 @@
     --white: #ffffff;
     --transition: all 0.3s ease;
     --box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    --dark-bg: #1a1a1a;
+    --dark-card-bg: #2d2d2d;
+    --dark-text: #ffffff;
+    --dark-border: #404040;
+    --transition-smooth: all 0.3s ease-in-out;
 }
 
 /* Base Styles */
@@ -16,6 +21,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: var(--transition-smooth);
 }
 
 body {
@@ -473,6 +479,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 15px;
+    transition: var(--transition-smooth);
 }
 
 .accessibility-toolbar button {
@@ -481,7 +488,7 @@ body {
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--transition-smooth);
 }
 
 .accessibility-toolbar button:hover {
@@ -490,43 +497,100 @@ body {
 
 /* Dark Mode Styles */
 body.dark-mode {
-    background-color: #1a1a1a;
-    color: #ffffff;
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
 }
 
 body.dark-mode .navbar {
-    background-color: #2d2d2d !important;
+    background-color: var(--dark-card-bg) !important;
+    border-bottom: 1px solid var(--dark-border);
 }
 
 body.dark-mode .navbar-light .navbar-nav .nav-link {
-    color: #ffffff;
+    color: var(--dark-text);
 }
 
 body.dark-mode .card,
 body.dark-mode .feature-card,
-body.dark-mode .news-card {
-    background-color: #2d2d2d;
-    color: #ffffff;
+body.dark-mode .news-card,
+body.dark-mode .workout-card,
+body.dark-mode .program-card,
+body.dark-mode .tip-card,
+body.dark-mode .diet-card,
+body.dark-mode .goal-card,
+body.dark-mode .story-card,
+body.dark-mode .mistake-card {
+    background-color: var(--dark-card-bg);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
 }
 
 body.dark-mode .footer {
-    background-color: #2d2d2d;
-    color: #ffffff;
+    background-color: var(--dark-card-bg);
+    color: var(--dark-text);
+    border-top: 1px solid var(--dark-border);
+}
+
+body.dark-mode .footer-links a,
+body.dark-mode .footer-bottom-links a {
+    color: var(--dark-text);
+}
+
+body.dark-mode .footer-links a:hover,
+body.dark-mode .footer-bottom-links a:hover {
+    color: var(--secondary-color);
+}
+
+body.dark-mode .accessibility-toolbar {
+    background-color: var(--dark-card-bg);
+    border-bottom: 1px solid var(--dark-border);
+}
+
+body.dark-mode .accessibility-toolbar button {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .accessibility-toolbar button:hover {
+    background-color: var(--dark-card-bg);
+}
+
+body.dark-mode .btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--dark-text);
+}
+
+body.dark-mode .btn-primary:hover {
+    background-color: var(--primary-color);
+}
+
+body.dark-mode .btn-secondary {
+    background-color: var(--primary-color);
+    color: var(--dark-text);
+}
+
+body.dark-mode .btn-secondary:hover {
+    background-color: var(--secondary-color);
 }
 
 /* Text Size Classes */
 .text-size-small {
     font-size: 0.9em;
+    line-height: 1.5;
 }
 
 .text-size-normal {
     font-size: 1em;
+    line-height: 1.6;
 }
 
 .text-size-large {
     font-size: 1.2em;
+    line-height: 1.7;
 }
 
 .text-size-xlarge {
     font-size: 1.4em;
+    line-height: 1.8;
 } 
