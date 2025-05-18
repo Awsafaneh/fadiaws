@@ -117,6 +117,12 @@
             display: flex;
             gap: 5px;
         }
+         /* Adjust position for RTL */
+         [dir="rtl"] #accessibility-controls {
+             left: auto;
+             right: 10px;
+         }
+
 
         #accessibility-controls button {
             background-color: var(--secondary-color);
@@ -139,6 +145,7 @@
                  top: auto;
                  bottom: 10px;
                  left: 50%;
+                 right: auto; /* Override RTL adjustment for centering */
                  transform: translateX(-50%);
                  background-color: rgba(0, 0, 0, 0.7); /* Slightly darker background for mobile */
              }
@@ -1011,7 +1018,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 فادي للياقة البدنية. جميع الحقوق محفوظة.</p>
+                <p>© 2025 فادي للياقة البدنية. جميع الحقوق محفوظة.</p>
             </div>
         </div>
     </footer>
@@ -1040,10 +1047,10 @@
             const increaseTextBtn = document.getElementById('increase-text');
             const decreaseTextBtn = document.getElementById('decrease-text');
             const modeToggleBtn = document.getElementById('mode-toggle');
-            const modeIcon = modeToggleBtn.querySelector('i');
+            const modeIcon = modeToggleBtn ? modeToggleBtn.querySelector('i') : null; // Check if button exists before querying icon
 
             const defaultFontSize = 16; // Base font size in px
-            const size Step = 1; // Size step in px
+            const sizeStep = 1; // Size step in px - Corrected typo
             const maxFontSize = 24; // Maximum font size in px
             const minFontSize = 12; // Minimum font size in px
 
@@ -1053,13 +1060,17 @@
 
             if (savedMode === 'dark') {
                 body.classList.add('dark-mode');
-                modeIcon.classList.remove('fa-moon');
-                modeIcon.classList.add('fa-sun');
+                if(modeIcon) { // Check if icon exists before manipulating
+                     modeIcon.classList.remove('fa-moon');
+                     modeIcon.classList.add('fa-sun');
+                }
                 modeToggleBtn.title = 'تبديل الوضع (ليلي)';
             } else {
                 body.classList.remove('dark-mode');
-                modeIcon.classList.remove('fa-sun');
-                modeIcon.classList.add('fa-moon');
+                if(modeIcon) { // Check if icon exists before manipulating
+                    modeIcon.classList.remove('fa-sun');
+                    modeIcon.classList.add('fa-moon');
+                }
                  modeToggleBtn.title = 'تبديل الوضع (نهاري)';
             }
 
@@ -1071,40 +1082,53 @@
 
 
             // Toggle Dark/Light Mode
-            modeToggleBtn.addEventListener('click', function() {
-                body.classList.toggle('dark-mode');
-                if (body.classList.contains('dark-mode')) {
-                    localStorage.setItem('mode', 'dark');
-                     modeIcon.classList.remove('fa-moon');
-                     modeIcon.classList.add('fa-sun');
-                     modeToggleBtn.title = 'تبديل الوضع (ليلي)';
-                } else {
-                    localStorage.setItem('mode', 'light');
-                    modeIcon.classList.remove('fa-sun');
-                    modeIcon.classList.add('fa-moon');
-                     modeToggleBtn.title = 'تبديل الوضع (نهاري)';
-                }
-            });
+            if(modeToggleBtn) { // Ensure button exists before adding listener
+                 modeToggleBtn.addEventListener('click', function() {
+                     body.classList.toggle('dark-mode');
+                     if (body.classList.contains('dark-mode')) {
+                         localStorage.setItem('mode', 'dark');
+                         if(modeIcon) { // Check if icon exists before manipulating
+                              modeIcon.classList.remove('fa-moon');
+                              modeIcon.classList.add('fa-sun');
+                         }
+                         modeToggleBtn.title = 'تبديل الوضع (ليلي)';
+                     } else {
+                         localStorage.setItem('mode', 'light');
+                         if(modeIcon) { // Check if icon exists before manipulating
+                            modeIcon.classList.remove('fa-sun');
+                            modeIcon.classList.add('fa-moon');
+                         }
+                          modeToggleBtn.title = 'تبديل الوضع (نهاري)';
+                     }
+                 });
+            }
+
 
             // Increase Text Size
-            increaseTextBtn.addEventListener('click', function() {
-                let currentSize = parseFloat(window.getComputedStyle(body).fontSize);
-                if (currentSize < maxFontSize) {
-                    let newSize = currentSize + sizeStep;
-                    body.style.fontSize = newSize + 'px';
-                    localStorage.setItem('fontSize', newSize);
-                }
-            });
+            if(increaseTextBtn) { // Ensure button exists before adding listener
+                 increaseTextBtn.addEventListener('click', function() {
+                     let currentSize = parseFloat(window.getComputedStyle(body).fontSize);
+                     if (currentSize < maxFontSize) {
+                         let newSize = currentSize + sizeStep;
+                         body.style.fontSize = newSize + 'px';
+                         localStorage.setItem('fontSize', newSize);
+                     }
+                 });
+            }
+
 
             // Decrease Text Size
-            decreaseTextBtn.addEventListener('click', function() {
-                let currentSize = parseFloat(window.getComputedStyle(body).fontSize);
-                if (currentSize > minFontSize) {
-                    let newSize = currentSize - sizeStep;
-                    body.style.fontSize = newSize + 'px';
-                    localStorage.setItem('fontSize', newSize);
-                }
-            });
+             if(decreaseTextBtn) { // Ensure button exists before adding listener
+                 decreaseTextBtn.addEventListener('click', function() {
+                     let currentSize = parseFloat(window.getComputedStyle(body).fontSize);
+                     if (currentSize > minFontSize) {
+                         let newSize = currentSize - sizeStep;
+                         body.style.fontSize = newSize + 'px';
+                         localStorage.setItem('fontSize', newSize);
+                     }
+                 });
+             }
+
         });
     </script>
 </body>
