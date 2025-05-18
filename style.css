@@ -1,76 +1,267 @@
 :root {
-    --base-font-size: 16px; /* Added for text resizing */
+    --primary-color: #3498db; /* اللون الأساسي */
+    --secondary-color: #2ecc71; /* اللون الثانوي */
+    --dark-color: #2c3e50; /* لون داكن أساسي */
+    --light-color: #ecf0f1; /* لون فاتح أساسي */
+    --accent-color: #e74c3c; /* لون مميز */
+    --text-color: #333; /* لون النص الأساسي */
+    --background-color: #f9f9f9; /* لون خلفية الصفحة الأساسي */
+    --card-background: white; /* لون خلفية البطاقات */
+    --border-color: #ddd; /* لون الحدود */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* لون الظل */
 
-    /* Default (Light) Mode Colors */
-    --primary-color: #3498db; /* Adjusted to match HTML styles */
-    --secondary-color: #2ecc71; /* Adjusted to match HTML styles */
-    --dark-color: #2c3e50; /* Adjusted to match HTML styles */
-    --light-color: #ecf0f1; /* Adjusted to match HTML styles */
-    --accent-color: #e74c3c; /* Adjusted to match HTML styles */
-    --text-color: #333; /* Adjusted to match HTML styles */
-    --background-color: #f9f9f9; /* Adjusted to match HTML styles */
-    --card-background: white;
-    --border-color: #ddd;
-    --footer-background: var(--dark-color);
-    --footer-text-color: white;
-    --footer-border-color: #444;
-
-    --transition: all 0.3s ease;
-    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    --border-radius: 8px;
-    --font-family: 'Cairo', sans-serif; /* Adjusted to match HTML styles */
+    /* Dark Mode Variables */
+    --dark-primary-color: #5dade2; /* لون أساسي في الوضع الداكن */
+    --dark-secondary-color: #58d68d; /* لون ثانوي في الوضع الداكن */
+    --dark-dark-color: #1a252f; /* لون داكن جداً للخلفية في الوضع الداكن */
+    --dark-light-color: #444; /* لون فاتح في الوضع الداكن للعناصر البارزة */
+    --dark-accent-color: #e74c3c; /* لون مميز (يمكن الاحتفاظ به أو تغييره) */
+    --dark-text-color: #ddd; /* لون النص في الوضع الداكن */
+    --dark-background-color: #2c3e50; /* لون خلفية الصفحة في الوضع الداكن */
+    --dark-card-background: #3b526b; /* لون خلفية البطاقات في الوضع الداكن */
+    --dark-border-color: #555; /* لون الحدود في الوضع الداكن */
+    --dark-shadow-color: rgba(0, 0, 0, 0.3); /* لون الظل في الوضع الداكن */
 }
-
-/* Dark Mode Colors */
-body.dark-mode {
-    --base-font-size: 16px; /* Base font size remains the same, scaling happens from this base */
-
-    --primary-color: #5dade2; /* Slightly lighter primary for dark mode */
-    --secondary-color: #52be80; /* Slightly lighter secondary for dark mode */
-    --dark-color: #ecf0f1; /* Used as text color in dark mode header/footer/titles */
-    --light-color: #34495e; /* Used as background for sections in dark mode */
-    --accent-color: #e74c3c; /* Accent can remain the same or be adjusted */
-    --text-color: #ecf0f1; /* Light text for dark background */
-    --background-color: #1a1a1a; /* Dark background */
-    --card-background: #2c3e50; /* Darker background for cards */
-    --border-color: #555; /* Lighter border in dark mode */
-    --footer-background: #1a1a1a; /* Very dark footer */
-    --footer-text-color: #ddd; /* Lighter footer text */
-    --footer-border-color: #555;
-}
-
 
 /* Global Styles */
 body {
-    font-family: var(--font-family);
+    font-family: 'Cairo', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--background-color); /* Use variable */
-    overflow-x: hidden;
-    font-size: var(--base-font-size); /* Use base font size variable */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition for theme change */
 }
 
-/* Ensure relative font sizes scale with body font-size */
-/* Using rem units relative to the root font size (which is controlled by --base-font-size) */
-h1 { font-size: 2.8rem; }
-h2 { font-size: 2.5rem; }
-h3 { font-size: 1.8rem; }
-h4 { font-size: 1.3rem; }
-p { font-size: 1rem; }
-nav ul li a { font-size: 1rem; }
-.btn { font-size: 1rem; }
-.logo { font-size: 1.8rem; }
-/* Adjust smaller text elements if necessary */
-.footer-section p { font-size: 1rem; }
-.footer-section ul li a { font-size: 1rem; }
-.form-group label { font-size: 1rem; }
-.form-group input,
-.form-group select,
-.form-group textarea { font-size: 1rem; }
-.social-icons a { font-size: 1.2rem; }
-.news-date { font-size: 1rem; }
+/* Dark Mode */
+body.dark-mode {
+    color: var(--dark-text-color);
+    background-color: var(--dark-background-color);
+}
 
+body.dark-mode header {
+    background-color: var(--dark-dark-color);
+    box-shadow: 0 2px 10px var(--dark-shadow-color);
+}
+
+body.dark-mode .hero {
+    background-color: var(--dark-primary-color);
+}
+
+body.dark-mode .section-title h2 {
+    color: var(--dark-text-color);
+}
+
+body.dark-mode .section-title h2::after {
+     background-color: var(--dark-secondary-color);
+}
+
+
+body.dark-mode .card,
+body.dark-mode .nutrition-item,
+body.dark-mode .goal-item,
+body.dark-mode .tip-item,
+body.dark-mode .contact-form-box,
+body.dark-mode .faq-item {
+    background-color: var(--dark-card-background);
+    box-shadow: 0 5px 15px var(--dark-shadow-color);
+    color: var(--dark-text-color); /* Apply dark mode text color to card content */
+}
+
+body.dark-mode .card h3,
+body.dark-mode .nutrition-item h3,
+body.dark-mode .goal-item h3,
+body.dark-mode .tip-item h3,
+body.dark-mode .contact-form-box h3 {
+     color: var(--dark-primary-color); /* Or secondary, depending on preference */
+}
+
+
+body.dark-mode .card p,
+body.dark-mode .nutrition-item p,
+body.dark-mode .goal-item p,
+body.dark-mode .tip-item p,
+body.dark-mode .contact-form-box p {
+     color: rgba(255, 255, 255, 0.8); /* Slightly lighter text in dark mode cards */
+}
+
+
+body.dark-mode .about {
+    background-color: var(--dark-light-color); /* Use dark-light for alternate section background */
+}
+body.dark-mode .about-text h2 {
+    color: var(--dark-text-color);
+}
+body.dark-mode .about-text p {
+     color: rgba(255, 255, 255, 0.8);
+}
+
+
+body.dark-mode .faq-question {
+     background-color: var(--dark-light-color); /* Use dark-light for FAQ question background */
+     color: var(--dark-text-color);
+     border-color: var(--dark-border-color);
+}
+body.dark-mode .faq-answer {
+    border-top-color: var(--dark-border-color);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+body.dark-mode .cta {
+    background-color: var(--dark-primary-color);
+}
+
+body.dark-mode footer {
+    background-color: var(--dark-dark-color);
+    border-top-color: #555;
+}
+
+body.dark-mode footer h3 {
+    color: white;
+}
+body.dark-mode footer h3::after {
+    background-color: var(--dark-secondary-color);
+}
+body.dark-mode footer p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+body.dark-mode footer a {
+    color: rgba(255, 255, 255, 0.7);
+}
+body.dark-mode footer a:hover {
+    color: var(--dark-secondary-color);
+}
+
+body.dark-mode .social-icons a {
+     background-color: #555;
+     color: white;
+}
+body.dark-mode .social-icons a:hover {
+     background-color: var(--dark-secondary-color);
+}
+
+body.dark-mode .footer-bottom {
+    border-top-color: #555;
+}
+body.dark-mode .footer-bottom p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Adjust form inputs in dark mode */
+body.dark-mode .form-group label {
+    color: var(--dark-text-color);
+}
+
+body.dark-mode .form-group input[type="text"],
+body.dark-mode .form-group input[type="email"],
+body.dark-group input[type="tel"],
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea {
+    background-color: var(--dark-light-color);
+    color: var(--dark-text-color);
+    border: 1px solid var(--dark-border-color);
+}
+body.dark-mode .form-group input::placeholder,
+body.dark-mode .form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* Accessibility Controls Styles */
+.accessibility-controls {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Space from navigation links */
+}
+
+.accessibility-controls button {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 5px 10px;
+    margin-left: 5px; /* Space between buttons */
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.accessibility-controls button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.accessibility-controls .theme-switch {
+    margin-left: 15px; /* Space from text size buttons */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.accessibility-controls .theme-switch input[type="checkbox"] {
+    display: none;
+}
+
+.accessibility-controls .theme-switch label {
+    display: block;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.accessibility-controls .theme-switch label::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 50%;
+    transition: left 0.3s ease;
+}
+
+.accessibility-controls .theme-switch input[type="checkbox"]:checked + label {
+    background-color: var(--secondary-color); /* Color when dark mode is active */
+}
+
+.accessibility-controls .theme-switch input[type="checkbox"]:checked + label::after {
+    left: calc(100% - 18px); /* Move the circle to the right */
+}
+
+/* Responsive adjustments for accessibility controls */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+     .accessibility-controls {
+         margin-top: 15px;
+         margin-right: 0;
+         width: 100%;
+         justify-content: center; /* Center controls in mobile */
+     }
+     .accessibility-controls button {
+         margin-left: 10px;
+         margin-right: 10px;
+     }
+     .accessibility-controls .theme-switch {
+         margin-left: 10px;
+     }
+}
+
+/* Basic Text Resizing - Adjust body font size */
+/* We will modify this via JavaScript using a class or inline style */
+
+/* Existing styles below this line */
+/* ... (keep your existing styles) ... */
 
 .container {
     width: 100%;
@@ -81,19 +272,14 @@ nav ul li a { font-size: 1rem; }
 
 /* Header Styles */
 header {
-    background-color: var(--dark-color); /* Use variable */
-    color: var(--light-color); /* Use variable */
+    background-color: var(--dark-color);
+    color: white;
     padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Consider dark mode shadow */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
-body.dark-mode header {
-    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-}
-
 
 .header-container {
     display: flex;
@@ -102,28 +288,27 @@ body.dark-mode header {
 }
 
 .logo {
+    font-size: 1.8rem;
     font-weight: bold;
-    color: var(--light-color); /* Use variable */
+    color: white;
     text-decoration: none;
     display: flex;
     align-items: center;
 }
 
 .logo span {
-    color: var(--secondary-color); /* Use variable */
+    color: var(--secondary-color);
 }
 
 .logo i {
-    color: var(--secondary-color); /* Use variable */
+    color: var(--secondary-color);
     margin-left: 8px;
     font-size: 1.5rem;
 }
 
 .logo img {
-    height: 50px;
-    margin-left: 10px;
-    display: block;
-    object-fit: contain;
+    height: 50px; /* Adjust as needed for your logo */
+    margin-left: 10px; /* Space between logo and text */
 }
 [dir="rtl"] .logo img {
     margin-right: 10px;
@@ -144,20 +329,23 @@ nav ul li:last-child {
 }
 
 nav ul li a {
-    color: var(--light-color); /* Use variable */
+    color: white;
     text-decoration: none;
     font-weight: 500;
+    font-size: 1rem;
     padding: 10px;
     border-radius: 5px;
     transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
 
 nav ul li a:hover {
-    background-color: var(--secondary-color); /* Use variable */
+    background-color: var(--secondary-color);
 }
 
 .active {
-    background-color: var(--secondary-color); /* Use variable */
+    background-color: var(--secondary-color);
 }
 
 /* Mobile Menu */
@@ -166,32 +354,29 @@ nav ul li a:hover {
     cursor: pointer;
     background: none;
     border: none;
-    color: var(--light-color); /* Use variable */
+    color: white;
     font-size: 1.5rem;
 }
 
-/* Hero Section */
+/* Hero Styles */
 .hero {
-    background-color: var(--primary-color); /* Use variable */
+    background-color: var(--primary-color); /* Added a fallback background color */
     height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: var(--light-color); /* Use variable */
+    color: white;
     padding: 0 20px;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
-.hero-content {
-     max-width: 800px;
-     margin: 0 auto;
-}
-.hero h1 {
-   margin-bottom: 15px;
-}
- .hero p {
-   margin-bottom: 20px;
-}
+ .hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+ }
+  .hero p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+ }
 
 /* Shared Section Styles */
 .section {
@@ -201,11 +386,11 @@ nav ul li a:hover {
 .section-title {
     text-align: center;
     margin-bottom: 3rem;
-    color: var(--dark-color); /* Use variable */
-    transition: color 0.3s ease; /* Smooth transition */
+    color: var(--dark-color);
 }
 
 .section-title h2 {
+    font-size: 2.5rem;
     position: relative;
     display: inline-block;
     padding-bottom: 10px;
@@ -218,13 +403,12 @@ nav ul li a:hover {
     right: 25%;
     width: 50%;
     height: 4px;
-    background-color: var(--secondary-color); /* Use variable */
-    transition: background-color 0.3s ease; /* Smooth transition */
+    background-color: var(--secondary-color);
 }
-[dir="rtl"] .section-title h2::after {
+ [dir="rtl"] .section-title h2::after {
      left: 25%;
      right: auto;
-}
+ }
 
 /* Card Styles */
 .card-container {
@@ -234,123 +418,77 @@ nav ul li a:hover {
 }
 
 .card {
-    background-color: var(--card-background); /* Use variable */
+    background-color: var(--card-background);
     border-radius: 10px;
-    box-shadow: var(--box-shadow); /* Consider dark mode shadow */
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s ease;
     padding: 20px;
-    text-align: center;
-}
-body.dark-mode .card {
-     box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
 .card:hover {
     transform: translateY(-10px);
-    /* Adjust hover shadow for dark mode if needed */
 }
-body.dark-mode .card:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-}
-
 
 .card h3 {
+    font-size: 1.5rem;
     margin-bottom: 10px;
-    color: var(--dark-color); /* Use variable */
-    transition: color 0.3s ease; /* Smooth transition */
+    color: var(--dark-color);
 }
 
 .card p {
     margin-bottom: 20px;
-    color: var(--text-color); /* Use variable */
-    transition: color 0.3s ease; /* Smooth transition */
+    color: #666;
 }
-/* Specific card text color for better contrast in dark mode */
-body.dark-mode .card p {
-    color: #bbb;
-}
-
 
 .btn {
     display: inline-block;
-    background-color: var(--secondary-color); /* Use variable */
+    background-color: var(--secondary-color);
     color: white;
     padding: 10px 30px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
-    transition: all 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+    font-size: 1rem;
+    transition: all 0.3s ease;
      border: none;
      cursor: pointer;
 }
 
 .btn:hover {
-    background-color: #27ae60; /* Keep hover specific or use a darker secondary variable */
+    background-color: #27ae60;
     transform: translateY(-2px);
 }
 
 /* About Section Styles */
  .about {
     padding: 5rem 0;
-    background-color: var(--light-color); /* Use variable */
-    transition: background-color 0.3s ease; /* Smooth transition */
+    background-color: var(--light-color);
 }
 
 .about-content {
     display: flex;
     align-items: center;
     gap: 50px;
-     flex-direction: row;
+     flex-direction: row-reverse;
 }
  [dir="rtl"] .about-content {
-     flex-direction: row-reverse; /* Adjusted for RTL layout */
+     flex-direction: row;
  }
-
-.about-video {
-    flex: 1;
-     min-width: 300px;
-}
-
-.about-video h3 {
-     color: var(--dark-color); /* Use variable */
-     margin-bottom: 15px;
-     text-align: center;
-     font-size: 1.6rem;
-     font-weight: bold;
-     transition: color 0.3s ease; /* Smooth transition */
-}
-
-.about-video video {
-     display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Consider dark mode shadow */
-    transition: box-shadow 0.3s ease; /* Smooth transition */
-}
-body.dark-mode .about-video video {
-     box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-}
-
 
 .about-text {
     flex: 1;
-     min-width: 300px;
 }
 
 .about-text h2 {
+    font-size: 2rem;
     margin-bottom: 20px;
-    color: var(--dark-color); /* Use variable */
-    transition: color 0.3s ease; /* Smooth transition */
+    color: var(--dark-color);
 }
 
 .about-text p {
     margin-bottom: 20px;
     line-height: 1.8;
-    color: var(--text-color); /* Use variable */
-    transition: color 0.3s ease; /* Smooth transition */
 }
-
 
 /* News Section Styles */
  .news {
@@ -362,56 +500,44 @@ body.dark-mode .about-video video {
     gap: 30px;
  }
  .news-card {
-    background-color: var(--card-background); /* Use variable */
+    background-color: var(--card-background);
     border-radius: 10px;
-    box-shadow: var(--box-shadow); /* Consider dark mode shadow */
+    box-shadow: 0 5px 15px var(--shadow-color);
     padding: 20px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
  }
- body.dark-mode .news-card {
-     box-shadow: 0 5px 15px rgba(0,0,0,0.4);
- }
-
 
 .news-content {
     padding: 0;
 }
 
 .news-date {
-    color: var(--secondary-color); /* Use variable */
+    color: var(--secondary-color);
     font-weight: bold;
     margin-bottom: 10px;
     display: block;
-    transition: color 0.3s ease; /* Smooth transition */
 }
 
 .news-card h3 {
+    font-size: 1.3rem;
     margin-bottom: 10px;
-    color: var(--dark-color); /* Use variable */
-    transition: color 0.3s ease; /* Smooth transition */
+    color: var(--dark-color);
 }
 
 .news-card p {
     margin-bottom: 20px;
-    color: var(--text-color); /* Use variable */
-    transition: color 0.3s ease; /* Smooth transition */
+    color: #666;
 }
-/* Specific news card text color for better contrast in dark mode */
-body.dark-mode .news-card p {
-     color: #bbb;
-}
-
 
 /* CTA Section Styles */
 .cta {
-    background-color: var(--primary-color); /* Use variable */
-    color: var(--light-color); /* Use variable */
+    background-color: var(--primary-color);
+    color: white;
     padding: 5rem 0;
     text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
 .cta h2 {
+    font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
@@ -425,10 +551,9 @@ body.dark-mode .news-card p {
 
 /* Footer Styles */
 footer {
-    background-color: var(--footer-background); /* Use variable */
-    color: var(--footer-text-color); /* Use variable */
+    background-color: var(--dark-color);
+    color: white;
     padding: 4rem 0 2rem;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
 .footer-container {
@@ -442,7 +567,6 @@ footer {
     margin-bottom: 20px;
     position: relative;
     padding-bottom: 10px;
-    transition: color 0.3s ease; /* Smooth transition */
 }
 
 .footer-section h3::after {
@@ -452,18 +576,14 @@ footer {
     right: 0;
     width: 50px;
     height: 2px;
-    background-color: var(--secondary-color); /* Use variable */
-    transition: background-color 0.3s ease; /* Smooth transition */
+    background-color: var(--secondary-color);
 }
 [dir="rtl"] .footer-section h3::after {
      right: 0;
  }
 
-
 .footer-section p {
     margin-bottom: 15px;
-    color: var(--footer-text-color); /* Use variable */
-    transition: color 0.3s ease; /* Smooth transition */
 }
 
 .footer-section ul {
@@ -475,13 +595,13 @@ footer {
 }
 
 .footer-section ul li a {
-    color: #ddd; /* Keep as is or use a variable if needed */
+    color: #ddd;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-section ul li a:hover {
-    color: var(--secondary-color); /* Use variable */
+    color: var(--secondary-color);
 }
 
 .social-icons {
@@ -494,12 +614,11 @@ footer {
      justify-content: flex-start;
  }
 
-
 .social-icons a {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    background-color: #444; /* Keep as is or use a variable */
+    background-color: #444;
     color: white;
     display: flex;
     align-items: center;
@@ -514,67 +633,40 @@ footer {
      margin-left: 0;
  }
 
-
 .social-icons a:hover {
-    background-color: var(--secondary-color); /* Use variable */
+    background-color: var(--secondary-color);
     transform: translateY(-3px);
 }
-
 
 .footer-bottom {
     text-align: center;
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid var(--footer-border-color); /* Use variable */
-    transition: border-top-color 0.3s ease; /* Smooth transition */
-    color: var(--footer-text-color); /* Use variable */
-    transition: color 0.3s ease, border-top-color 0.3s ease; /* Smooth transition */
-}
-body.dark-mode .footer-bottom {
-     color: #bbb;
+    border-top: 1px solid #444;
 }
 
-
-/* Specific styles for other pages (Reused) */
- .tip-item, .goal-item, .nutrition-item { /* Combined selectors */
-    background-color: var(--card-background); /* Use variable */
+/* Specific styles for General Tips page (Reused) */
+ .tip-item {
+    background-color: var(--card-background);
     padding: 30px;
     margin-bottom: 20px;
     border-radius: 8px;
-    box-shadow: var(--box-shadow); /* Consider dark mode shadow */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-}
-body.dark-mode .tip-item,
-body.dark-mode .goal-item,
-body.dark-mode .nutrition-item {
-     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    box-shadow: 0 2px 8px var(--shadow-color);
 }
 
-
-.tip-item h3, .goal-item h3, .nutrition-item h3 { /* Combined selectors */
-     color: var(--primary-color); /* Use variable */
+.tip-item h3 {
+     color: var(--primary-color);
     margin-bottom: 15px;
-    transition: color 0.3s ease; /* Smooth transition */
 }
 
-.tip-item ul, .goal-item ul, .nutrition-item ul { /* Combined selectors */
+.tip-item ul {
     list-style: disc;
-    padding-right: 20px;
-    color: var(--text-color); /* Use variable */
-    transition: color 0.3s ease; /* Smooth transition */
-}
-/* Specific list item text color for better contrast in dark mode */
-body.dark-mode .tip-item ul,
-body.dark-mode .goal-item ul,
-body.dark-mode .nutrition-item ul {
-    color: #bbb;
+    padding-right: 20px; /* For RTL list markers */
 }
 
-
-.tip-item ul li, .goal-item ul li, .nutrition-item ul li { /* Combined selectors */
+.tip-item ul li {
     margin-bottom: 8px;
 }
-
 
 /* Specific styles for Contact Form (Reused & Adjusted) */
 .contact-flex-container {
@@ -591,21 +683,15 @@ body.dark-mode .nutrition-item ul {
 }
 
 .contact-form-box {
-    background-color: var(--card-background); /* Use variable */
+    background-color: var(--card-background);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: var(--box-shadow); /* Consider dark mode shadow */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    box-shadow: 0 2px 8px var(--shadow-color);
 }
-body.dark-mode .contact-form-box {
-     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-}
-
 
 .contact-form-box h3 {
-     color: var(--dark-color); /* Use variable */
+     color: var(--dark-color);
      margin-bottom: 20px;
-     transition: color 0.3s ease; /* Smooth transition */
 }
 
 .form-group {
@@ -616,8 +702,7 @@ body.dark-mode .contact-form-box {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    color: var(--text-color); /* Use variable */
-    transition: color 0.3s ease; /* Smooth transition */
+    color: var(--dark-color);
 }
 
 .form-group input[type="text"],
@@ -627,90 +712,17 @@ body.dark-mode .contact-form-box {
 .form-group textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid var(--border-color); /* Use variable */
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     font-size: 1rem;
     font-family: 'Cairo', sans-serif;
-    background-color: var(--background-color); /* Use variable */
-    color: var(--text-color); /* Use variable */
-    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+     background-color: white; /* Ensure light mode has white input background */
+     color: #333; /* Ensure light mode has dark input text */
 }
-/* Adjust form element appearance in dark mode */
-body.dark-mode .form-group input[type="text"],
-body.dark-mode .form-group input[type="email"],
-body.dark-mode .form-group input[type="tel"],
-body.dark-mode .form-group select,
-body.dark-mode .form-group textarea {
-    background-color: #333;
-    border-color: #666;
-    color: #eee;
-}
-
 
 .form-group textarea {
     resize: vertical;
 }
-
-/* Specific styles for FAQ (Reused) */
-.faq-item {
-     background-color: var(--card-background); /* Use variable */
-     border: 1px solid var(--border-color); /* Use variable */
-     border-radius: 8px;
-     margin-bottom: 15px;
-     overflow: hidden;
-     box-shadow: 0 1px 5px rgba(0,0,0,0.05); /* Keep as is or use a variable for shadow color */
-     transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-}
-body.dark-mode .faq-item {
-     box-shadow: 0 1px 5px rgba(0,0,0,0.4);
-}
-
-
-.faq-question {
-     padding: 15px 20px;
-     background-color: var(--light-color); /* Use variable */
-     cursor: pointer;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     font-weight: bold;
-     color: var(--dark-color); /* Use variable */
-     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
-}
-
-.faq-question:hover {
-    background-color: #e0e0e0; /* Keep as is or use a slightly darker light color variable */
-}
-body.dark-mode .faq-question:hover {
-     background-color: #444;
-}
-
-
-.faq-question i {
-     transition: transform 0.3s ease;
-     color: var(--dark-color); /* Use variable */
-     transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition */
-}
-body.dark-mode .faq-question i {
-     color: var(--light-color); /* Adjust icon color in dark mode */
-}
-
- .faq-question i.rotated {
-    transform: rotate(180deg);
- }
-
-
-.faq-answer {
-     padding: 15px 20px;
-     border-top: 1px solid var(--border-color); /* Use variable */
-     display: none;
-     color: var(--text-color); /* Use variable */
-     transition: border-top-color 0.3s ease, color 0.3s ease; /* Smooth transition */
-}
-body.dark-mode .faq-answer {
-    color: #ccc;
-}
-
 
 /* New styles for Social Media icons in contact section */
 .contact-social-section {
@@ -720,10 +732,9 @@ body.dark-mode .faq-answer {
 }
 
 .contact-social-section h3 {
-    color: var(--dark-color); /* Use variable */
+    color: var(--dark-color);
     margin-bottom: 20px;
      font-size: 1.8rem;
-     transition: color 0.3s ease; /* Smooth transition */
 }
 
 .contact-social-section .social-icons {
@@ -737,96 +748,142 @@ body.dark-mode .faq-answer {
      font-size: 1.4rem;
  }
 
-/* Added style for the new images on exercises and general tips pages */
+/* Specific styles for Nutrition page */
+.nutrition-item {
+    background-color: var(--card-background);
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.nutrition-item h3 {
+     color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.nutrition-item ul {
+    list-style: disc;
+    padding-right: 20px; /* For RTL list markers */
+}
+
+.nutrition-item ul li {
+    margin-bottom: 8px;
+}
+
+/* Specific styles for Goals page */
+.goal-item {
+    background-color: var(--card-background);
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.goal-item h3 {
+     color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.goal-item ul {
+    list-style: disc;
+    padding-right: 20px; /* For RTL list markers */
+}
+
+.goal-item ul li {
+    margin-bottom: 8px;
+}
+
+/* Specific styles for FAQ (Reused) */
+.faq-item {
+     background-color: var(--card-background);
+     border: 1px solid var(--border-color);
+     border-radius: 8px;
+     margin-bottom: 15px;
+     overflow: hidden;
+     box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+}
+
+.faq-question {
+     padding: 15px 20px;
+     background-color: var(--light-color);
+     cursor: pointer;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     font-weight: bold;
+     color: var(--dark-color);
+     transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #e0e0e0;
+}
+
+.faq-question i {
+     transition: transform 0.3s ease;
+}
+ .faq-question i.rotated {
+    transform: rotate(180deg);
+ }
+
+.faq-answer {
+     padding: 15px 20px;
+     border-top: 1px solid var(--border-color);
+     display: none;
+}
+
+/* Added style for images on specific pages */
 .styled-image {
     display: block;
     margin: 20px auto;
-    border: 5px solid var(--primary-color); /* Use variable */
+    border: 5px solid var(--primary-color);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Consider dark mode shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 100%;
     width: 700px;
     height: auto;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-}
-body.dark-mode .styled-image {
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
-
-.styled-tip-image { /* Specific style for the tips page image if needed */
+.styled-tip-image {
     display: block;
     margin: 20px auto;
-    border: 5px solid var(--secondary-color); /* Use variable */
+    border: 5px solid var(--secondary-color);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Consider dark mode shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 100%;
     width: 700px;
     height: auto;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-}
-body.dark-mode .styled-tip-image {
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
-.footer-image { /* Specific style for footer image if needed */
+.footer-image {
     display: block;
     width: 80px;
     height: auto;
     margin: 0 auto 15px auto;
     border-radius: 5px;
-    border: 2px solid var(--secondary-color); /* Use variable */
-    transition: border-color 0.3s ease; /* Smooth transition */
+    border: 2px solid var(--secondary-color);
 }
 
+.about-video {
+    flex: 1;
+     min-width: 300px;
+}
 
-/* Accessibility Controls Styling (Basic Example) */
-.accessibility-controls {
-    background-color: var(--light-color);
+.about-video h3 {
     color: var(--dark-color);
-    padding: 10px 0;
+    margin-bottom: 15px;
     text-align: center;
-    margin-bottom: 20px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    border-bottom: 1px solid var(--border-color);
-    transition: border-bottom-color 0.3s ease;
-}
-body.dark-mode .accessibility-controls {
-    background-color: #333;
-    color: #eee;
-    border-bottom-color: #555;
-}
-
-.accessibility-controls label {
-    margin-right: 10px;
+    font-size: 1.6rem;
     font-weight: bold;
 }
 
-.accessibility-controls button {
-    padding: 5px 10px;
-    margin: 0 5px;
-    cursor: pointer;
-    border: 1px solid var(--dark-color);
-    background-color: white;
-    color: var(--dark-color);
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-body.dark-mode .accessibility-controls button {
-    border-color: #888;
-    background-color: #555;
-    color: #eee;
-}
-
-.accessibility-controls button:hover {
-    background-color: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
-}
-body.dark-mode .accessibility-controls button:hover {
-    background-color: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
+.about-video video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 
@@ -841,9 +898,9 @@ body.dark-mode .accessibility-controls button:hover {
      .contact-form-col {
           min-width: 100%;
      }
-     .about-video, .about-text {
-         min-width: 100%;
-     }
+      .about-video, .about-text {
+          min-width: 100%;
+      }
 }
 
 @media (max-width: 768px) {
@@ -854,14 +911,14 @@ body.dark-mode .accessibility-controls button:hover {
     nav ul {
         display: none;
         position: absolute;
-        top: 70px;
+        top: 120px; /* Adjusted top for accessibility controls height */
         left: 0;
         width: 100%;
-        background-color: var(--dark-color); /* Use variable */
+        background-color: var(--dark-color);
         flex-direction: column;
         padding: 20px;
         text-align: center;
-        transition: background-color 0.3s ease; /* Smooth transition */
+         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     }
 
     nav ul.show {
@@ -900,19 +957,6 @@ body.dark-mode .accessibility-controls button:hover {
          justify-content: center;
      }
 
-    .accessibility-controls {
-        flex-direction: column;
-        align-items: center;
-    }
-    .accessibility-controls label,
-    .accessibility-controls span {
-        margin-bottom: 10px;
-        margin-right: 0;
-    }
-     .accessibility-controls button {
-        margin: 5px;
-     }
-
 }
 
 @media (max-width: 500px) {
@@ -923,28 +967,11 @@ body.dark-mode .accessibility-controls button:hover {
     .section-title h2 {
         font-size: 2rem;
     }
-}
-
-/* Custom Scrollbar - Adjusted colors for dark mode */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--light-color); /* Use variable */
-     transition: background 0.3s ease; /* Smooth transition */
-}
-body.dark-mode ::-webkit-scrollbar-track {
-    background: #333;
-}
-
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary-color); /* Use variable */
-    border-radius: 5px;
-     transition: background 0.3s ease; /* Smooth transition */
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #2980b9; /* Keep as is or use a darker primary variable */
+     .accessibility-controls button {
+         padding: 3px 8px;
+         font-size: 0.8rem;
+     }
+     .accessibility-controls .theme-switch {
+         margin-left: 8px;
+     }
 }
