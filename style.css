@@ -1,562 +1,950 @@
 :root {
-    --primary-color: #FF4B2B;
-    --secondary-color: #2B2B2B;
-    --accent-color: #FFB800;
-    --text-color: #333333;
-    --light-color: #F8F9FA;
-    --dark-color: #1A1A1A;
-    --success-color: #28A745;
-    --warning-color: #FFC107;
-    --danger-color: #DC3545;
+    --base-font-size: 16px; /* Added for text resizing */
+
+    /* Default (Light) Mode Colors */
+    --primary-color: #3498db; /* Adjusted to match HTML styles */
+    --secondary-color: #2ecc71; /* Adjusted to match HTML styles */
+    --dark-color: #2c3e50; /* Adjusted to match HTML styles */
+    --light-color: #ecf0f1; /* Adjusted to match HTML styles */
+    --accent-color: #e74c3c; /* Adjusted to match HTML styles */
+    --text-color: #333; /* Adjusted to match HTML styles */
+    --background-color: #f9f9f9; /* Adjusted to match HTML styles */
+    --card-background: white;
+    --border-color: #ddd;
+    --footer-background: var(--dark-color);
+    --footer-text-color: white;
+    --footer-border-color: #444;
+
     --transition: all 0.3s ease;
     --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     --border-radius: 8px;
-    --font-family: 'Tajawal', sans-serif;
+    --font-family: 'Cairo', sans-serif; /* Adjusted to match HTML styles */
 }
+
+/* Dark Mode Colors */
+body.dark-mode {
+    --base-font-size: 16px; /* Base font size remains the same, scaling happens from this base */
+
+    --primary-color: #5dade2; /* Slightly lighter primary for dark mode */
+    --secondary-color: #52be80; /* Slightly lighter secondary for dark mode */
+    --dark-color: #ecf0f1; /* Used as text color in dark mode header/footer/titles */
+    --light-color: #34495e; /* Used as background for sections in dark mode */
+    --accent-color: #e74c3c; /* Accent can remain the same or be adjusted */
+    --text-color: #ecf0f1; /* Light text for dark background */
+    --background-color: #1a1a1a; /* Dark background */
+    --card-background: #2c3e50; /* Darker background for cards */
+    --border-color: #555; /* Lighter border in dark mode */
+    --footer-background: #1a1a1a; /* Very dark footer */
+    --footer-text-color: #ddd; /* Lighter footer text */
+    --footer-border-color: #555;
+}
+
 
 /* Global Styles */
 body {
     font-family: var(--font-family);
     line-height: 1.6;
     color: var(--text-color);
+    background-color: var(--background-color); /* Use variable */
     overflow-x: hidden;
+    font-size: var(--base-font-size); /* Use base font size variable */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
-/* Navigation */
-.navbar {
-    background-color: var(--dark-color);
+/* Ensure relative font sizes scale with body font-size */
+/* Using rem units relative to the root font size (which is controlled by --base-font-size) */
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.3rem; }
+p { font-size: 1rem; }
+nav ul li a { font-size: 1rem; }
+.btn { font-size: 1rem; }
+.logo { font-size: 1.8rem; }
+/* Adjust smaller text elements if necessary */
+.footer-section p { font-size: 1rem; }
+.footer-section ul li a { font-size: 1rem; }
+.form-group label { font-size: 1rem; }
+.form-group input,
+.form-group select,
+.form-group textarea { font-size: 1rem; }
+.social-icons a { font-size: 1.2rem; }
+.news-date { font-size: 1rem; }
+
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--dark-color); /* Use variable */
+    color: var(--light-color); /* Use variable */
     padding: 1rem 0;
-    transition: var(--transition);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Consider dark mode shadow */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+body.dark-mode header {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
 
-.navbar-brand img {
-    transition: var(--transition);
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.navbar .nav-link {
-    color: var(--light-color);
+.logo {
+    font-weight: bold;
+    color: var(--light-color); /* Use variable */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo span {
+    color: var(--secondary-color); /* Use variable */
+}
+
+.logo i {
+    color: var(--secondary-color); /* Use variable */
+    margin-left: 8px;
+    font-size: 1.5rem;
+}
+
+.logo img {
+    height: 50px;
+    margin-left: 10px;
+    display: block;
+    object-fit: contain;
+}
+[dir="rtl"] .logo img {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    color: var(--light-color); /* Use variable */
+    text-decoration: none;
     font-weight: 500;
-    padding: 0.5rem 1rem;
-    transition: var(--transition);
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
-.navbar .nav-link:hover,
-.navbar .nav-link.active {
-    color: var(--primary-color);
+nav ul li a:hover {
+    background-color: var(--secondary-color); /* Use variable */
 }
 
-.nav-buttons .btn {
-    padding: 0.5rem 1.5rem;
-    font-weight: 500;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
+.active {
+    background-color: var(--secondary-color); /* Use variable */
 }
 
-.nav-buttons .btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.nav-buttons .btn-primary:hover {
-    background-color: #FF3A1A;
-    border-color: #FF3A1A;
-    transform: translateY(-2px);
+/* Mobile Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--light-color); /* Use variable */
+    font-size: 1.5rem;
 }
 
 /* Hero Section */
-.hero-section {
-    background: linear-gradient(135deg, var(--dark-color) 0%, #333 100%);
-    color: var(--light-color);
-    padding: 8rem 0 4rem;
+.hero {
+    background-color: var(--primary-color); /* Use variable */
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--light-color); /* Use variable */
+    padding: 0 20px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+.hero-content {
+     max-width: 800px;
+     margin: 0 auto;
+}
+.hero h1 {
+   margin-bottom: 15px;
+}
+ .hero p {
+   margin-bottom: 20px;
+}
+
+/* Shared Section Styles */
+.section {
+     padding: 5rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--dark-color); /* Use variable */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+.section-title h2 {
     position: relative;
-    overflow: hidden;
+    display: inline-block;
+    padding-bottom: 10px;
 }
 
-.hero-content h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: var(--light-color);
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 25%;
+    width: 50%;
+    height: 4px;
+    background-color: var(--secondary-color); /* Use variable */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+[dir="rtl"] .section-title h2::after {
+     left: 25%;
+     right: auto;
 }
 
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.9);
+/* Card Styles */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
-.hero-buttons .btn {
-    padding: 0.8rem 2rem;
-    font-weight: 500;
-    border-radius: var(--border-radius);
-    margin-right: 1rem;
-    transition: var(--transition);
-}
-
-.hero-buttons .btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.hero-buttons .btn-primary:hover {
-    background-color: #FF3A1A;
-    border-color: #FF3A1A;
-    transform: translateY(-2px);
-}
-
-.hero-buttons .btn-outline-light:hover {
-    background-color: var(--light-color);
-    color: var(--dark-color);
-    transform: translateY(-2px);
-}
-
-/* Features Section */
-.features-section {
-    padding: 5rem 0;
-    background-color: var(--light-color);
-}
-
-.feature-card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
-    height: 100%;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.feature-icon {
-    width: 70px;
-    height: 70px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-}
-
-.feature-icon i {
-    font-size: 1.8rem;
-    color: white;
-}
-
-/* Programs Section */
-.programs-section {
-    padding: 5rem 0;
-    background-color: var(--dark-color);
-    color: var(--light-color);
-}
-
-.program-card {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    transition: var(--transition);
-}
-
-.program-card:hover {
-    transform: translateY(-10px);
-}
-
-.program-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.program-image img {
-    transition: var(--transition);
-}
-
-.program-card:hover .program-image img {
-    transform: scale(1.1);
-}
-
-.program-content {
-    padding: 2rem;
-}
-
-.program-features {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0;
-}
-
-.program-features li {
-    margin-bottom: 0.8rem;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.program-features li i {
-    color: var(--primary-color);
-    margin-right: 0.5rem;
-}
-
-/* Tips Section */
-.tips-categories {
-    padding: 5rem 0;
-    background-color: var(--light-color);
-}
-
-.tip-card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
-    height: 100%;
-}
-
-.tip-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.tip-icon {
-    width: 70px;
-    height: 70px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-}
-
-.tip-icon i {
-    font-size: 1.8rem;
-    color: white;
-}
-
-.tip-list {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0;
-}
-
-.tip-list li {
-    margin-bottom: 0.8rem;
-}
-
-.tip-list li i {
-    color: var(--primary-color);
-    margin-right: 0.5rem;
-}
-
-/* Health Tips Section */
-.health-tips {
-    padding: 5rem 0;
-    background-color: var(--dark-color);
-    color: var(--light-color);
-}
-
-.health-tip-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 2rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-}
-
-.health-tip-item:hover {
-    transform: translateX(-10px);
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-.health-tip-item .icon {
-    width: 50px;
-    height: 50px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 1rem;
-}
-
-.health-tip-item .icon i {
-    font-size: 1.5rem;
-    color: white;
-}
-
-/* Common Mistakes Section */
-.common-mistakes {
-    padding: 5rem 0;
-    background-color: var(--light-color);
-}
-
-.mistake-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 2rem;
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
-}
-
-.mistake-item:hover {
-    transform: translateX(10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.mistake-icon {
-    width: 50px;
-    height: 50px;
-    background-color: var(--danger-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 1rem;
-}
-
-.mistake-icon i {
-    font-size: 1.5rem;
-    color: white;
-}
-
-/* CTA Section */
-.cta-section {
-    padding: 5rem 0;
-    background: linear-gradient(135deg, var(--primary-color) 0%, #FF3A1A 100%);
-    color: white;
+.card {
+    background-color: var(--card-background); /* Use variable */
+    border-radius: 10px;
+    box-shadow: var(--box-shadow); /* Consider dark mode shadow */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    padding: 20px;
     text-align: center;
 }
-
-.cta-content h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
+body.dark-mode .card {
+     box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
-.cta-content p {
+.card:hover {
+    transform: translateY(-10px);
+    /* Adjust hover shadow for dark mode if needed */
+}
+body.dark-mode .card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+
+.card h3 {
+    margin-bottom: 10px;
+    color: var(--dark-color); /* Use variable */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+.card p {
+    margin-bottom: 20px;
+    color: var(--text-color); /* Use variable */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+/* Specific card text color for better contrast in dark mode */
+body.dark-mode .card p {
+    color: #bbb;
+}
+
+
+.btn {
+    display: inline-block;
+    background-color: var(--secondary-color); /* Use variable */
+    color: white;
+    padding: 10px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+     border: none;
+     cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #27ae60; /* Keep hover specific or use a darker secondary variable */
+    transform: translateY(-2px);
+}
+
+/* About Section Styles */
+ .about {
+    padding: 5rem 0;
+    background-color: var(--light-color); /* Use variable */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+     flex-direction: row;
+}
+ [dir="rtl"] .about-content {
+     flex-direction: row-reverse; /* Adjusted for RTL layout */
+ }
+
+.about-video {
+    flex: 1;
+     min-width: 300px;
+}
+
+.about-video h3 {
+     color: var(--dark-color); /* Use variable */
+     margin-bottom: 15px;
+     text-align: center;
+     font-size: 1.6rem;
+     font-weight: bold;
+     transition: color 0.3s ease; /* Smooth transition */
+}
+
+.about-video video {
+     display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Consider dark mode shadow */
+    transition: box-shadow 0.3s ease; /* Smooth transition */
+}
+body.dark-mode .about-video video {
+     box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+
+.about-text {
+    flex: 1;
+     min-width: 300px;
+}
+
+.about-text h2 {
+    margin-bottom: 20px;
+    color: var(--dark-color); /* Use variable */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: var(--text-color); /* Use variable */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+
+/* News Section Styles */
+ .news {
+    padding: 5rem 0;
+}
+ .news-container {
+     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+ }
+ .news-card {
+    background-color: var(--card-background); /* Use variable */
+    border-radius: 10px;
+    box-shadow: var(--box-shadow); /* Consider dark mode shadow */
+    padding: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+ }
+ body.dark-mode .news-card {
+     box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+ }
+
+
+.news-content {
+    padding: 0;
+}
+
+.news-date {
+    color: var(--secondary-color); /* Use variable */
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+.news-card h3 {
+    margin-bottom: 10px;
+    color: var(--dark-color); /* Use variable */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+.news-card p {
+    margin-bottom: 20px;
+    color: var(--text-color); /* Use variable */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+/* Specific news card text color for better contrast in dark mode */
+body.dark-mode .news-card p {
+     color: #bbb;
+}
+
+
+/* CTA Section Styles */
+.cta {
+    background-color: var(--primary-color); /* Use variable */
+    color: var(--light-color); /* Use variable */
+    padding: 5rem 0;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.cta h2 {
+    margin-bottom: 20px;
+}
+
+.cta p {
     font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.cta-content .btn {
-    padding: 1rem 3rem;
-    font-size: 1.2rem;
-    font-weight: 500;
-    background-color: white;
-    color: var(--primary-color);
-    border: none;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
+/* Footer Styles */
+footer {
+    background-color: var(--footer-background); /* Use variable */
+    color: var(--footer-text-color); /* Use variable */
+    padding: 4rem 0 2rem;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
-.cta-content .btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
 }
 
-/* Footer */
-.footer {
-    background-color: var(--dark-color);
-    color: var(--light-color);
-    padding: 5rem 0 2rem;
+.footer-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+    transition: color 0.3s ease; /* Smooth transition */
 }
 
-.footer-about p {
-    opacity: 0.8;
-    margin: 1.5rem 0;
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--secondary-color); /* Use variable */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+[dir="rtl"] .footer-section h3::after {
+     right: 0;
+ }
+
+
+.footer-section p {
+    margin-bottom: 15px;
+    color: var(--footer-text-color); /* Use variable */
+    transition: color 0.3s ease; /* Smooth transition */
 }
 
-.social-links a {
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.1);
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #ddd; /* Keep as is or use a variable if needed */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--secondary-color); /* Use variable */
+}
+
+.social-icons {
+    display: flex;
+    margin-top: 20px;
+     direction: ltr;
+     justify-content: flex-end;
+}
+ [dir="rtl"] .social-icons {
+     justify-content: flex-start;
+ }
+
+
+.social-icons a {
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
-    display: inline-flex;
+    background-color: #444; /* Keep as is or use a variable */
+    color: white;
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 0.5rem;
-    color: var(--light-color);
-    transition: var(--transition);
+    text-decoration: none;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
 }
+ [dir="rtl"] .social-icons a {
+     margin-right: 10px;
+     margin-left: 0;
+ }
 
-.social-links a:hover {
-    background-color: var(--primary-color);
-    color: white;
+
+.social-icons a:hover {
+    background-color: var(--secondary-color); /* Use variable */
     transform: translateY(-3px);
 }
 
-.footer h5 {
-    color: white;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-links li {
-    margin-bottom: 0.8rem;
-}
-
-.footer-links a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.footer-links a:hover {
-    color: var(--primary-color);
-    padding-right: 0.5rem;
-}
-
-.footer-contact {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-contact li {
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-}
-
-.footer-contact li i {
-    width: 30px;
-    color: var(--primary-color);
-}
-
-.newsletter-form .form-control {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
-    color: white;
-    padding: 0.8rem 1rem;
-}
-
-.newsletter-form .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.newsletter-form .btn {
-    padding: 0.8rem 1.5rem;
-    background-color: var(--primary-color);
-    border: none;
-}
 
 .footer-bottom {
+    text-align: center;
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--footer-border-color); /* Use variable */
+    transition: border-top-color 0.3s ease; /* Smooth transition */
+    color: var(--footer-text-color); /* Use variable */
+    transition: color 0.3s ease, border-top-color 0.3s ease; /* Smooth transition */
+}
+body.dark-mode .footer-bottom {
+     color: #bbb;
 }
 
-.footer-bottom p {
-    margin: 0;
-    opacity: 0.8;
+
+/* Specific styles for other pages (Reused) */
+ .tip-item, .goal-item, .nutrition-item { /* Combined selectors */
+    background-color: var(--card-background); /* Use variable */
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow); /* Consider dark mode shadow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+body.dark-mode .tip-item,
+body.dark-mode .goal-item,
+body.dark-mode .nutrition-item {
+     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
-.footer-bottom-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+
+.tip-item h3, .goal-item h3, .nutrition-item h3 { /* Combined selectors */
+     color: var(--primary-color); /* Use variable */
+    margin-bottom: 15px;
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+.tip-item ul, .goal-item ul, .nutrition-item ul { /* Combined selectors */
+    list-style: disc;
+    padding-right: 20px;
+    color: var(--text-color); /* Use variable */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+/* Specific list item text color for better contrast in dark mode */
+body.dark-mode .tip-item ul,
+body.dark-mode .goal-item ul,
+body.dark-mode .nutrition-item ul {
+    color: #bbb;
+}
+
+
+.tip-item ul li, .goal-item ul li, .nutrition-item ul li { /* Combined selectors */
+    margin-bottom: 8px;
+}
+
+
+/* Specific styles for Contact Form (Reused & Adjusted) */
+.contact-flex-container {
     display: flex;
-    justify-content: flex-end;
+    gap: 40px;
+    flex-wrap: wrap;
+     justify-content: center;
 }
 
-.footer-bottom-links li {
-    margin-right: 1.5rem;
+.contact-form-col {
+    flex: 1;
+     min-width: 300px;
+     max-width: 600px;
 }
 
-.footer-bottom-links a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: var(--transition);
+.contact-form-box {
+    background-color: var(--card-background); /* Use variable */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow); /* Consider dark mode shadow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+body.dark-mode .contact-form-box {
+     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
-.footer-bottom-links a:hover {
-    color: var(--primary-color);
+
+.contact-form-box h3 {
+     color: var(--dark-color); /* Use variable */
+     margin-bottom: 20px;
+     transition: color 0.3s ease; /* Smooth transition */
 }
 
-/* Responsive Design */
-@media (max-width: 991.98px) {
-    .navbar-collapse {
-        background-color: var(--dark-color);
-        padding: 1rem;
-        border-radius: var(--border-radius);
-        margin-top: 1rem;
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color); /* Use variable */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color); /* Use variable */
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--background-color); /* Use variable */
+    color: var(--text-color); /* Use variable */
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+/* Adjust form element appearance in dark mode */
+body.dark-mode .form-group input[type="text"],
+body.dark-mode .form-group input[type="email"],
+body.dark-mode .form-group input[type="tel"],
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea {
+    background-color: #333;
+    border-color: #666;
+    color: #eee;
+}
+
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Specific styles for FAQ (Reused) */
+.faq-item {
+     background-color: var(--card-background); /* Use variable */
+     border: 1px solid var(--border-color); /* Use variable */
+     border-radius: 8px;
+     margin-bottom: 15px;
+     overflow: hidden;
+     box-shadow: 0 1px 5px rgba(0,0,0,0.05); /* Keep as is or use a variable for shadow color */
+     transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+body.dark-mode .faq-item {
+     box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+}
+
+
+.faq-question {
+     padding: 15px 20px;
+     background-color: var(--light-color); /* Use variable */
+     cursor: pointer;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     font-weight: bold;
+     color: var(--dark-color); /* Use variable */
+     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.faq-question:hover {
+    background-color: #e0e0e0; /* Keep as is or use a slightly darker light color variable */
+}
+body.dark-mode .faq-question:hover {
+     background-color: #444;
+}
+
+
+.faq-question i {
+     transition: transform 0.3s ease;
+     color: var(--dark-color); /* Use variable */
+     transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+body.dark-mode .faq-question i {
+     color: var(--light-color); /* Adjust icon color in dark mode */
+}
+
+ .faq-question i.rotated {
+    transform: rotate(180deg);
+ }
+
+
+.faq-answer {
+     padding: 15px 20px;
+     border-top: 1px solid var(--border-color); /* Use variable */
+     display: none;
+     color: var(--text-color); /* Use variable */
+     transition: border-top-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+body.dark-mode .faq-answer {
+    color: #ccc;
+}
+
+
+/* New styles for Social Media icons in contact section */
+.contact-social-section {
+    margin-top: 0;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.contact-social-section h3 {
+    color: var(--dark-color); /* Use variable */
+    margin-bottom: 20px;
+     font-size: 1.8rem;
+     transition: color 0.3s ease; /* Smooth transition */
+}
+
+.contact-social-section .social-icons {
+    justify-content: center;
+    margin-top: 0;
+}
+
+ .contact-social-section .social-icons a {
+     width: 40px;
+     height: 40px;
+     font-size: 1.4rem;
+ }
+
+/* Added style for the new images on exercises and general tips pages */
+.styled-image {
+    display: block;
+    margin: 20px auto;
+    border: 5px solid var(--primary-color); /* Use variable */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Consider dark mode shadow */
+    max-width: 100%;
+    width: 700px;
+    height: auto;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+body.dark-mode .styled-image {
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+
+.styled-tip-image { /* Specific style for the tips page image if needed */
+    display: block;
+    margin: 20px auto;
+    border: 5px solid var(--secondary-color); /* Use variable */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Consider dark mode shadow */
+    max-width: 100%;
+    width: 700px;
+    height: auto;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+body.dark-mode .styled-tip-image {
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.footer-image { /* Specific style for footer image if needed */
+    display: block;
+    width: 80px;
+    height: auto;
+    margin: 0 auto 15px auto;
+    border-radius: 5px;
+    border: 2px solid var(--secondary-color); /* Use variable */
+    transition: border-color 0.3s ease; /* Smooth transition */
+}
+
+
+/* Accessibility Controls Styling (Basic Example) */
+.accessibility-controls {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-bottom: 1px solid var(--border-color);
+    transition: border-bottom-color 0.3s ease;
+}
+body.dark-mode .accessibility-controls {
+    background-color: #333;
+    color: #eee;
+    border-bottom-color: #555;
+}
+
+.accessibility-controls label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.accessibility-controls button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    border: 1px solid var(--dark-color);
+    background-color: white;
+    color: var(--dark-color);
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+body.dark-mode .accessibility-controls button {
+    border-color: #888;
+    background-color: #555;
+    color: #eee;
+}
+
+.accessibility-controls button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+body.dark-mode .accessibility-controls button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+    .about-content {
+        flex-direction: column;
     }
+     .contact-flex-container {
+         flex-direction: column;
+     }
+     .contact-form-col {
+          min-width: 100%;
+     }
+     .about-video, .about-text {
+         min-width: 100%;
+     }
+}
 
-    .nav-buttons {
-        margin-top: 1rem;
-    }
-
-    .hero-content h1 {
+@media (max-width: 768px) {
+    .hero h1 {
         font-size: 2.5rem;
     }
 
-    .hero-buttons .btn {
-        display: block;
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
         width: 100%;
-        margin: 1rem 0;
+        background-color: var(--dark-color); /* Use variable */
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+        transition: background-color 0.3s ease; /* Smooth transition */
     }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .footer-container {
+         grid-template-columns: 1fr;
+         text-align: center;
+    }
+
+    .footer-section h3::after {
+        right: 50%;
+        transform: translateX(50%);
+    }
+    [dir="rtl"] .footer-section h3::after {
+         left: 50%;
+         right: auto;
+         transform: translateX(-50%);
+     }
+
+     .social-icons {
+         justify-content: center;
+         direction: ltr;
+     }
+     [dir="rtl"] .social-icons {
+         justify-content: center;
+     }
+
+    .accessibility-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    .accessibility-controls label,
+    .accessibility-controls span {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+     .accessibility-controls button {
+        margin: 5px;
+     }
+
 }
 
-@media (max-width: 767.98px) {
-    .section-header h2 {
+@media (max-width: 500px) {
+    .hero h1 {
         font-size: 2rem;
     }
 
-    .feature-card,
-    .program-card,
-    .tip-card {
-        margin-bottom: 2rem;
-    }
-
-    .footer-bottom-links {
-        justify-content: center;
-        margin-top: 1rem;
+    .section-title h2 {
+        font-size: 2rem;
     }
 }
 
-/* Animations */
-@keyframes float {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-.floating {
-    animation: float 3s ease-in-out infinite;
-}
-
-/* Custom Scrollbar */
+/* Custom Scrollbar - Adjusted colors for dark mode */
 ::-webkit-scrollbar {
     width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--light-color);
+    background: var(--light-color); /* Use variable */
+     transition: background 0.3s ease; /* Smooth transition */
+}
+body.dark-mode ::-webkit-scrollbar-track {
+    background: #333;
 }
 
+
 ::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
+    background: var(--primary-color); /* Use variable */
     border-radius: 5px;
+     transition: background 0.3s ease; /* Smooth transition */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #FF3A1A;
+    background: #2980b9; /* Keep as is or use a darker primary variable */
 }
