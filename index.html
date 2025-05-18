@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فادي للياقة البدنية والتغذية الصحية</title>
-    <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="style.css"> <style>
         /* Updated Style Block - Removed image-specific CSS except for logo, Added video styles */
         :root {
             --primary-color: #3498db;
@@ -12,6 +14,24 @@
             --dark-color: #2c3e50;
             --light-color: #ecf0f1;
             --accent-color: #e74c3c;
+
+             /* Added Dark Mode Variables for inline styles */
+            --dark-primary-color: #2980b9;
+            --dark-secondary-color: #27ae60;
+            --dark-dark-color: #1a252f;
+            --dark-light-color: #bdc3c7;
+            --dark-accent-color: #c0392b;
+            --dark-text-color: #f9f9f9;
+            --dark-background-color: #1a1a1a;
+            --dark-card-background: #34495e;
+            --dark-border-color: #555;
+            --dark-shadow-color: rgba(255, 255, 255, 0.1);
+
+
+            /* Default Light Mode Variables */
+            --card-background: white;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --border-color: #ddd;
         }
 
         * {
@@ -25,6 +45,8 @@
             background-color: #f9f9f9;
             color: #333;
             line-height: 1.6;
+             transition: background-color 0.3s ease, color 0.3s ease; /* Transition for theme change */
+             font-size: 16px; /* Base font size for resizing */
         }
 
         .container {
@@ -49,6 +71,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+             flex-wrap: wrap; /* للسماح للعناصر بالانتقال إلى سطر جديد في الشاشات الصغيرة */
         }
 
         .logo {
@@ -63,20 +86,16 @@
         .logo span {
             color: var(--secondary-color);
         }
-
-        .logo i {
+         .logo i {
             color: var(--secondary-color);
             margin-left: 8px;
             font-size: 1.5rem;
         }
 
-        /* Logo Image Style - Kept and styled */
+
         .logo img {
-            height: 50px; /* Adjust as needed for your logo size */
+            height: 50px; /* Adjust as needed for your logo */
             margin-left: 10px; /* Space between logo and text */
-             /* Optional: ensure it fits nicely */
-             display: block;
-             object-fit: contain; /* Ensures the image scales without distortion */
         }
         [dir="rtl"] .logo img {
             margin-right: 10px;
@@ -105,13 +124,14 @@
             padding: 10px;
             border-radius: 5px;
             transition: all 0.3s ease;
+             border: none;
+             cursor: pointer;
         }
 
         nav ul li a:hover {
             background-color: var(--secondary-color);
         }
 
-        /* Active class for current page */
         .active {
             background-color: var(--secondary-color);
         }
@@ -126,35 +146,60 @@
             font-size: 1.5rem;
         }
 
-        /* Removed Hero background image style */
+
+        /* Hero Styles */
         .hero {
-            /* background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/800?text=Hero+Image&bgColor=2ecc71') center/cover no-repeat; */
-            background-color: var(--primary-color); /* Added a fallback background color */
-            height: 50vh; /* Adjusted height */
+            background-color: var(--primary-color);
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
             padding: 0 20px;
+            background-image: url('sport.jpg'); /* Add your background image */
+            background-size: cover;
+            background-position: center;
+            position: relative; /* Needed for overlay */
         }
-         .hero-content { /* Adjusted padding/margins if needed after image removal */
-             max-width: 800px; /* Keep max width */
-             margin: 0 auto; /* Center content */
-         }
+
+        .hero::before { /* Add overlay */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2; /* Ensure content is above overlay */
+        }
+
          .hero h1 {
-            font-size: 2.8rem; /* Adjusted font size */
+            font-size: 3.5rem;
             margin-bottom: 15px;
+             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
          }
           .hero p {
-            font-size: 1.1rem; /* Adjusted font size */
-            margin-bottom: 20px;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+         }
+         .hero-buttons .btn {
+             margin: 0 10px;
          }
 
 
-        /* Featured Section - Removed image styles and image HTML */
-        .featured {
-            padding: 5rem 0;
+        /* Shared Section Styles */
+        .section {
+             padding: 5rem 0;
         }
 
         .section-title {
@@ -185,7 +230,62 @@
          }
 
 
-        /* Removed styles for card images */
+        /* About Section Styles */
+        .about {
+             background-color: var(--light-color);
+             padding: 5rem 0;
+             transition: background-color 0.3s ease; /* Added transition for theme change */
+        }
+
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            justify-content: center; /* Center items when wrapped */
+        }
+
+        .about-text {
+            flex: 1; /* Allow text to take available space */
+             min-width: 300px; /* Ensure text has minimum width */
+        }
+
+        .about-text h2 {
+             color: var(--dark-color);
+             margin-bottom: 20px;
+             font-size: 2.2rem;
+        }
+         .about-text p {
+             color: #555;
+             margin-bottom: 15px;
+         }
+
+        .about-video {
+            flex: 1; /* Allow video to take available space */
+             min-width: 300px; /* Ensure video has minimum width */
+        }
+
+        .about-video h3 {
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+
+        .about-video video {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+
+        /* Features Section Styles */
+        .features {
+            padding: 5rem 0;
+        }
         .card-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -193,144 +293,98 @@
         }
 
         .card {
-            background-color: white;
+            background-color: var(--card-background);
             border-radius: 10px;
-            /* overflow: hidden; Removed as no images */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px var(--shadow-color);
             transition: transform 0.3s ease;
-            padding: 20px; /* Added padding to card content area */
-            text-align: center; /* Centered card content */
+            padding: 20px;
         }
 
         .card:hover {
             transform: translateY(-10px);
         }
 
-        /* Removed .card-img and .card-img img styles */
-
+        .card i {
+             font-size: 3rem;
+             color: var(--primary-color);
+             margin-bottom: 15px;
+             display: block; /* Make icon a block element for margin */
+             text-align: center;
+        }
 
         .card h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
             color: var(--dark-color);
+            text-align: center;
         }
 
         .card p {
             margin-bottom: 20px;
             color: #666;
+            text-align: center;
         }
 
-        .card .btn {
-            padding: 8px 20px;
-            font-size: 0.9rem;
-        }
 
-        /* About Section - Added video styles */
-        .about {
-            padding: 5rem 0;
+        /* News Section Styles */
+        .latest-news {
             background-color: var(--light-color);
-        }
-
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-             flex-direction: row; /* Default row direction */
-        }
-        /* Adjusted flex direction for RTL for better text/video flow */
-         [dir="rtl"] .about-content {
-             flex-direction: row-reverse;
-         }
-
-
-        /* Added styles for the video container and video */
-        .about-video {
-            flex: 1; /* Allow video container to take equal space */
-             min-width: 300px; /* Minimum width before wrapping */
-        }
-
-         /* Added/Updated style for the video title */
-         .about-video h3 {
-             color: var(--dark-color); /* Color for the title */
-             margin-bottom: 15px; /* Space below the title */
-             text-align: center; /* Center the title above the video */
-             font-size: 1.6rem; /* Increased font size for prominence */
-             font-weight: bold; /* Ensure bold if needed */
-         }
-
-
-        .about-video video {
-             display: block; /* Remove extra space below video */
-            width: 100%; /* Make video fill its container */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 10px; /* Match styling of old image */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Match styling of old image */
-        }
-
-
-        .about-text {
-            flex: 1; /* Allow text to take equal space */
-             min-width: 300px; /* Minimum width before wrapping */
-        }
-
-        .about-text h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--dark-color);
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        /* News Section - Removed image styles and image HTML */
-        .news {
             padding: 5rem 0;
+             transition: background-color 0.3s ease; /* Added transition for theme change */
         }
 
-        .news-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-         .news-card { /* Reusing card style for news items */
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            padding: 20px; /* Added padding */
+         .news-card {
+             background-color: var(--card-background);
+             border-radius: 8px;
+             overflow: hidden;
+             box-shadow: 0 2px 8px var(--shadow-color);
+             transition: transform 0.3s ease;
+             height: 100%; /* Ensure cards in the grid have equal height */
+             display: flex;
+             flex-direction: column;
          }
 
-        /* Removed .news-img and .news-img img styles */
+         .news-card:hover {
+             transform: translateY(-5px);
+         }
 
-        .news-content { /* Adjusted news content padding */
-            padding: 0; /* Padding moved to .news-card */
-        }
+         .news-card img {
+             width: 100%;
+             height: 200px; /* Fixed height for images */
+             object-fit: cover; /* Cover the area without distorting aspect ratio */
+         }
 
-        .news-date {
-            color: var(--secondary-color);
-            font-weight: bold;
-            margin-bottom: 10px;
-            display: block;
-        }
+         .news-content {
+             padding: 15px;
+             flex-grow: 1; /* Allow content to take remaining height */
+             display: flex;
+             flex-direction: column;
+         }
 
-        .news-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--dark-color);
-        }
+         .news-content h3 {
+             font-size: 1.3rem;
+             margin-bottom: 10px;
+             color: var(--dark-color);
+         }
 
-        .news-card p {
-            margin-bottom: 20px;
-            color: #666;
-        }
+         .news-content p {
+             font-size: 0.95rem;
+             color: #555;
+             line-height: 1.5;
+              margin-bottom: 15px;
+              flex-grow: 1; /* Allow paragraph to take space */
+         }
+
+         .news-card .btn {
+             align-self: flex-start; /* Align button to the start */
+             padding: 8px 20px; /* Smaller button */
+             font-size: 0.9rem;
+         }
 
 
-        /* Removed CTA background image style */
+        /* CTA Section Styles */
         .cta {
-            /* background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/api/placeholder/1200/800?text=CTA+Background&bgColor=3498db') center/cover no-repeat; */
-             background-color: var(--primary-color); /* Added a fallback background color */
+            background-color: var(--primary-color);
             color: white;
             padding: 5rem 0;
             text-align: center;
@@ -349,7 +403,7 @@
             margin-right: auto;
         }
 
-        /* Footer */
+        /* Footer Styles */
         footer {
             background-color: var(--dark-color);
             color: white;
@@ -381,7 +435,6 @@
         [dir="rtl"] .footer-section h3::after {
              right: 0;
          }
-
 
         .footer-section p {
             margin-bottom: 15px;
@@ -415,7 +468,6 @@
              justify-content: flex-start;
          }
 
-
         .social-icons a {
             width: 35px;
             height: 35px;
@@ -428,19 +480,17 @@
             text-decoration: none;
             margin-left: 10px;
             transition: all 0.3s ease;
+            font-size: 1.2rem;
         }
          [dir="rtl"] .social-icons a {
              margin-right: 10px;
              margin-left: 0;
          }
 
-
         .social-icons a:hover {
             background-color: var(--secondary-color);
             transform: translateY(-3px);
         }
-
-        /* Removed footer logo image style */
 
         .footer-bottom {
             text-align: center;
@@ -449,140 +499,362 @@
             border-top: 1px solid #444;
         }
 
-         /* Specific styles for General Tips page (Reused) */
-         .tip-item { /* Reusing goal-item style */
-            background-color: white;
-            padding: 30px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        .tip-item h3 {
-             color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .tip-item ul {
-            list-style: disc;
-            padding-right: 20px; /* For RTL list markers */
-        }
-
-        .tip-item ul li {
-            margin-bottom: 8px;
-        }
-
-        /* Specific styles for Contact Form (Reused & Adjusted) */
-        .contact-flex-container { /* Flexbox container */
+        /* Added Style: Accessibility Controls */
+        .accessibility-controls {
             display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
+            align-items: center;
+            order: 1; /* Place before nav for RTL if needed */
+            margin-left: 20px; /* Space after logo */
+        }
+        [dir="rtl"] .accessibility-controls {
+            order: 3; /* Place after nav for RTL */
+            margin-left: 0;
+            margin-right: 20px;
         }
 
-        .contact-form-col {
-            flex: 1;
-             min-width: 300px;
+
+        .accessibility-controls button {
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 5px 10px;
+            margin-right: 5px; /* Space between buttons (adjust for RTL) */
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+         [dir="rtl"] .accessibility-controls button {
+             margin-right: 0;
+             margin-left: 5px;
+         }
+
+        .accessibility-controls button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
-        .contact-form-box {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        .accessibility-controls .theme-switch {
+            margin-right: 15px; /* Space from text size buttons (adjust for RTL) */
+            display: flex;
+            align-items: center;
+            cursor: pointer;
         }
-
-        .contact-form-box h3 {
-             color: var(--dark-color);
-             margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: var(--dark-color);
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group input[type="tel"],
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-family: 'Cairo', sans-serif;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-        }
-
-        /* Removed map styles */
-        /* Removed .map-container */
-
-
-        /* Specific styles for FAQ (Reused) */
-        .faq-item {
-             background-color: white;
-             border: 1px solid #ddd;
-             border-radius: 8px;
-             margin-bottom: 15px;
-             overflow: hidden;
-             box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-        }
-
-        .faq-question {
-             padding: 15px 20px;
-             background-color: var(--light-color);
-             cursor: pointer;
-             display: flex;
-             justify-content: space-between;
-             align-items: center;
-             font-weight: bold;
-             color: var(--dark-color);
-             transition: background-color 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background-color: #e0e0e0;
-        }
-
-        .faq-question i {
-             transition: transform 0.3s ease;
-        }
-         .faq-question i.rotated {
-            transform: rotate(180deg);
+         [dir="rtl"] .accessibility-controls .theme-switch {
+             margin-right: 0;
+             margin-left: 15px;
          }
 
 
-        .faq-answer {
-             padding: 15px 20px;
-             border-top: 1px solid #eee;
-             display: none;
+        .accessibility-controls .theme-switch input[type="checkbox"] {
+            display: none;
+        }
+
+        .accessibility-controls .theme-switch label {
+            display: block;
+            width: 40px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .accessibility-controls .theme-switch label::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px; /* Position for light mode */
+            width: 16px;
+            height: 16px;
+            background-color: white;
+            border-radius: 50%;
+            transition: left 0.3s ease, background-color 0.3s ease;
+        }
+
+        .accessibility-controls .theme-switch input[type="checkbox"]:checked + label {
+            background-color: var(--secondary-color);
+        }
+
+        .accessibility-controls .theme-switch input[type="checkbox"]:checked + label::after {
+            left: calc(100% - 18px); /* Move the circle to the right */
         }
 
 
-        /* Responsive Styles */
-        @media (max-width: 900px) {
-            .about-content {
-                flex-direction: column; /* Stack text and video on smaller screens */
-            }
-             .contact-flex-container {
-                 flex-direction: column;
+        /* Added Style: Dark Mode */
+        body.dark-mode {
+            background-color: var(--dark-background-color);
+            color: var(--dark-text-color);
+        }
+
+        body.dark-mode header {
+            background-color: var(--dark-dark-color);
+            box-shadow: 0 2px 10px var(--dark-shadow-color);
+        }
+
+        body.dark-mode .logo,
+        body.dark-mode nav ul li a {
+            color: var(--dark-text-color);
+        }
+
+         body.dark-mode nav ul li a:hover,
+         body.dark-mode .active {
+             background-color: var(--dark-secondary-color); /* Keep secondary color for active/hover */
+             color: var(--dark-background-color); /* Dark text on secondary */
+         }
+
+
+        body.dark-mode .hero {
+            background-color: var(--dark-primary-color);
+            color: var(--dark-text-color);
+             background-image: linear-gradient(45deg, rgba(41, 128, 185, 0.7), rgba(39, 174, 96, 0.7)), url('sport.jpg'); /* Darker overlay on image */
+        }
+         body.dark-mode .hero h1,
+         body.dark-mode .hero p {
+              color: var(--dark-text-color);
+         }
+
+
+        body.dark-mode .section-title h2 {
+            color: var(--dark-text-color);
+        }
+        body.dark-mode .section-title h2::after {
+             background-color: var(--dark-secondary-color); /* Keep accent color */
+        }
+
+
+        body.dark-mode .about {
+            background-color: #222;
+            color: var(--dark-text-color);
+        }
+        body.dark-mode .about-text h2 {
+            color: var(--dark-text-color);
+        }
+        body.dark-mode .about-text p {
+             color: rgba(249, 249, 249, 0.8);
+        }
+         body.dark-mode .about-video h3 {
+             color: var(--dark-text-color);
+         }
+         body.dark-mode .about-video video { /* Added for index video */
+              box-shadow: 0 10px 20px var(--dark-shadow-color);
+         }
+
+        body.dark-mode .features,
+         body.dark-mode .tips-section { /* Also apply to tips section if using cards there */
+             background-color: #1a1a1a; /* Dark background for feature/tips section */
+         }
+        body.dark-mode .card,
+         body.dark-mode .news-card,
+         body.dark-mode .tip-item, /* Added for general-tips */
+         body.dark-mode .nutrition-item, /* Added for nutrition */
+         body.dark-mode .goal-item, /* Added for goals */
+         body.dark-mode .contact-info .card, /* Added for contact */
+         body.dark-mode .contact-form-box, /* Added for contact */
+         body.dark-mode .faq-item /* Added for contact */
+         {
+            background-color: var(--dark-card-background);
+            box-shadow: 0 5px 15px var(--dark-shadow-color);
+            color: var(--dark-text-color);
+             border: 1px solid var(--dark-border-color); /* Added border for definition */
+        }
+
+        body.dark-mode .card h3,
+         body.dark-mode .news-card h3,
+         body.dark-mode .tip-item h3,
+         body.dark-mode .nutrition-item h3,
+         body.dark-mode .goal-item h3,
+         body.dark-mode .contact-form-box h3,
+         body.dark-mode .contact-social-section h3,
+         body.dark-mode .contact-info .card h3
+         {
+             color: var(--dark-primary-color); /* Primary color for headings */
+         }
+
+         body.dark-mode .card p,
+         body.dark-mode .news-card p,
+         body.dark-mode .tip-item p,
+         body.dark-mode .tip-item ul li,
+         body.dark-mode .nutrition-item p,
+         body.dark-mode .nutrition-item ul li,
+         body.dark-mode .goal-item p,
+         body.dark-mode .goal-item ul li,
+         body.dark-mode .contact-info .card p,
+         body.dark-mode .contact-form-box p,
+         body.dark-mode .form-group label,
+         body.dark-mode .faq-answer
+          {
+              color: rgba(249, 249, 249, 0.8); /* Slightly dimmer text */
+          }
+
+        body.dark-mode .card i {
+            color: var(--dark-secondary-color);
+        }
+
+        body.dark-mode .latest-news {
+            background-color: #222; /* Dark background for news section */
+        }
+
+         /* Adjust specific elements in dark mode for other pages */
+         body.dark-mode .contact-social-section h3 { /* Added for contact */
+             color: var(--dark-text-color);
+         }
+         body.dark-mode .social-icons a { /* Added for contact */
+             background-color: #555;
+             color: var(--dark-text-color);
+         }
+          body.dark-mode .social-icons a:hover {
+              background-color: var(--dark-secondary-color);
+          }
+
+         body.dark-mode .form-group label { /* Added for contact */
+             color: var(--dark-text-color);
+         }
+         body.dark-mode .form-group input[type="text"],
+         body.dark-mode .form-group input[type="email"],
+         body.dark-mode .form-group input[type="tel"],
+         body.dark-mode .form-group select,
+         body.dark-mode .form-group textarea { /* Added for contact */
+             background-color: #3a3a3a;
+             border-color: #555;
+             color: var(--dark-text-color);
+         }
+          body.dark-mode .form-group input::placeholder,
+          body.dark-mode .form-group textarea::placeholder {
+              color: rgba(249, 249, 249, 0.6);
+          }
+
+         body.dark-mode .faq-question { /* Added for contact */
+             background-color: var(--dark-light-color);
+             color: var(--dark-text-color);
+             border-color: var(--dark-border-color);
+         }
+         body.dark-mode .faq-question:hover {
+             background-color: #4a4a4a;
+         }
+         body.dark-mode .faq-answer { /* Added for contact */
+             border-top-color: var(--dark-border-color);
+             color: rgba(249, 249, 249, 0.8);
+         }
+
+         body.dark-mode .program-item ul li i { /* Added for exercises */
+               color: var(--dark-primary-color); /* Color for list icons */
+          }
+         body.dark-mode .tip-item ul li i { /* Added for general-tips */
+               color: var(--dark-primary-color); /* Color for list icons */
+          }
+          body.dark-mode .nutrition-item ul li i { /* Added for nutrition */
+               color: var(--dark-primary-color); /* Color for list icons */
+          }
+           body.dark-mode .goal-item ul li i { /* Added for goals */
+               color: var(--dark-primary-color); /* Color for list icons */
+          }
+
+
+        body.dark-mode .cta {
+            background-color: var(--dark-secondary-color);
+            color: var(--dark-background-color);
+        }
+         body.dark-mode .cta h2,
+         body.dark-mode .cta p {
+              color: var(--dark-background-color);
+         }
+         body.dark-mode .cta .btn {
+              background-color: var(--dark-primary-color);
+              color: var(--dark-background-color);
+         }
+          body.dark-mode .cta .btn:hover {
+              background-color: #FF6B4A; /* Lighter primary */
+          }
+
+
+        body.dark-mode footer {
+            background-color: var(--dark-dark-color);
+            color: var(--dark-text-color);
+        }
+         body.dark-mode footer h3 {
+             color: var(--dark-primary-color);
+         }
+         body.dark-mode footer h3::after {
+             background-color: var(--dark-secondary-color);
+         }
+         body.dark-mode footer p {
+              color: rgba(249, 249, 249, 0.8);
+         }
+         body.dark-mode footer a {
+             color: rgba(249, 249, 249, 0.7);
+         }
+          body.dark-mode footer a:hover {
+              color: var(--dark-primary-color);
+          }
+          body.dark-mode .footer-bottom {
+              border-top-color: #555;
+              color: rgba(249, 249, 249, 0.7);
+          }
+
+
+        /* Responsive adjustments for accessibility controls */
+        @media (max-width: 991.98px) { /* Use this breakpoint to fit with the collapsible navbar */
+             .header-container {
+                 flex-direction: column; /* Stack elements vertically */
+                 align-items: flex-start; /* Align to the start */
              }
-             .contact-form-col {
-                  min-width: 100%;
+              .logo {
+                 margin-bottom: 10px; /* Space below logo */
+                 order: 1; /* Order logo first */
              }
-             .about-video, .about-text { /* Ensure both stack and take full width */
-                 min-width: 100%;
+             .accessibility-controls {
+                 margin-top: 10px; /* Space above accessibility controls */
+                 margin-right: 0;
+                 margin-left: 0;
+                 width: 100%; /* Take full width to center buttons */
+                 justify-content: center; /* Center buttons within the container */
+                 order: 2; /* Order accessibility controls second */
              }
+             [dir="rtl"] .accessibility-controls {
+                 order: 2;
+             }
+
+             .accessibility-controls button {
+                 margin-right: 10px; /* Increase spacing between buttons on small screens */
+                 margin-left: 10px;
+             }
+             [dir="rtl"] .accessibility-controls button {
+                  margin-right: 10px;
+                  margin-left: 10px;
+             }
+
+             .accessibility-controls .theme-switch {
+                 margin-right: 10px; /* Increase spacing between toggle and buttons */
+                 margin-left: 10px;
+             }
+              [dir="rtl"] .accessibility-controls .theme-switch {
+                   margin-right: 10px;
+                   margin-left: 10px;
+               }
+
+             nav ul { /* Style for the collapsible menu */
+                  margin-top: 10px; /* Space below accessibility controls */
+                  order: 3; /* Order nav third */
+                  width: 100%; /* Ensure nav takes full width */
+                  text-align: center; /* Center nav items */
+                  background-color: var(--dark-color); /* Add background for visibility */
+                  padding: 1rem; /* Add padding */
+                  border-radius: 5px; /* Add border radius */
+                  display: none; /* Hidden by default */
+                  flex-direction: column; /* Stack nav items vertically */
+             }
+              nav ul.show {
+                  display: flex; /* Show when .show class is added */
+              }
+               nav ul li {
+                   margin: 5px 0; /* Space between nav items */
+                   margin-right: 0; /* Reset margin-right for stacking */
+               }
         }
 
         @media (max-width: 768px) {
@@ -590,30 +862,23 @@
                 font-size: 2.5rem;
             }
 
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background-color: var(--dark-color);
-                flex-direction: column;
-                padding: 20px;
-                text-align: center;
+            .section-title h2 {
+                font-size: 2rem;
             }
 
-            nav ul.show {
-                display: flex;
-            }
+            /* Adjust top position of mobile menu to account for controls */
+             nav ul {
+                top: 160px; /* Needs adjustment based on actual header height */
+             }
 
-            nav ul li {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
 
-            .hamburger {
-                display: block;
-            }
+            .about-content {
+                 flex-direction: column;
+                 gap: 30px;
+             }
+             [dir="rtl"] .about-content {
+                 flex-direction: column;
+             }
 
             .footer-container {
                  grid-template-columns: 1fr;
@@ -638,28 +903,78 @@
                  justify-content: center;
              }
 
+             .contact-flex-container { /* Added for contact page */
+                 flex-direction: column;
+                 gap: 30px;
+             }
+
+
         }
 
         @media (max-width: 500px) {
-            .hero h1 {
+             .accessibility-controls button {
+                 padding: 3px 8px;
+                 font-size: 0.8rem;
+             }
+             .accessibility-controls .theme-switch {
+                 margin-right: 8px;
+                 margin-left: 8px;
+             }
+             [dir="rtl"] .accessibility-controls .theme-switch {
+                  margin-right: 8px;
+                  margin-left: 8px;
+             }
+             .hero h1 {
                 font-size: 2rem;
             }
 
             .section-title h2 {
                 font-size: 2rem;
             }
+             .footer-section h3 {
+                 font-size: 1.2rem;
+             }
+              .footer-image {
+                  width: 60px;
+              }
+               .contact-social-section .social-icons a {
+                    width: 35px;
+                    height: 35px;
+                    font-size: 1.2rem;
+               }
+
         }
+
+         .footer-image { /* Assuming this style exists or is needed */
+             display: block;
+             width: 80px;
+             height: auto;
+             margin: 0 auto 15px auto;
+             border-radius: 5px;
+             border: 2px solid var(--secondary-color);
+         }
+         body.dark-mode .footer-image {
+             border-color: var(--dark-primary-color);
+         }
+
+
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo">
-                 <img src="logo.jpg" alt="فادي للياقة">
-                فادي  <span> للياقة </span>
+                <img src="logo.jpg" alt="فادي للياقة">
+                فادي <span>للياقة</span>
             </a>
+            <div class="accessibility-controls">
+                <button id="decrease-text" aria-label="تصغير حجم النص">A-</button>
+                <button id="increase-text" aria-label="تكبير حجم النص">A+</button>
+                <div class="theme-switch">
+                    <input type="checkbox" id="theme-toggle" aria-label="تبديل الوضع الليلي/النهاري">
+                    <label for="theme-toggle"></label>
+                </div>
+            </div>
             <nav>
                 <ul id="navbar">
                     <li><a href="index.html" class="active">الرئيسية</a></li>
@@ -677,103 +992,103 @@
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>ابدأ رحلة اللياقة البدنية الآن مع فادي</h1>
-            <p>استمتع بحياة صحية مع برامج التمارين المخصصة والنصائح الغذائية المناسبة لتحقيق أهدافك</p>
-            <a href="contact.html" class="btn">ابدأ الآن</a>
+        <div class="container">
+             <div class="hero-content">
+                <h1>رحلتك نحو صحة أفضل تبدأ هنا</h1>
+                <p>نقدم لك أفضل برامج التمارين، النصائح الغذائية، والأدوات لتحقيق أهداف لياقتك البدنية.</p>
+                <div class="hero-buttons">
+                    <a href="exercises.html" class="btn">اكتشف برامجنا</a>
+                    <a href="nutrition.html" class="btn btn-outline-light">نصائح غذائية</a>
+                </div>
+             </div>
         </div>
     </section>
 
-    <section class="featured">
+    <section class="section about">
         <div class="container">
             <div class="section-title">
-                <h2>خدماتنا المميزة</h2>
+                <h2>عن فادي للياقة البدنية</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>قصتنا ورؤيتنا</h2>
+                    <p>في فادي للياقة البدنية، نؤمن بأن الصحة واللياقة البدنية هي أساس الحياة السعيدة والمنتجة. بدأنا كشغف بسيط بالتمارين الرياضية والتغذية الصحية، وتطورنا لنصبح منصة متكاملة تهدف إلى تمكين الأفراد من جميع المستويات لتحقيق أهدافهم الصحية.</p>
+                    <p>رؤيتنا هي بناء مجتمع أكثر صحة ونشاطاً في الأردن والمنطقة، من خلال توفير محتوى عالي الجودة وموثوق، وتقديم برامج تدريبية وتغذوية فعالة وسهلة التطبيق.</p>
+                     <a href="contact.html" class="btn">تواصل معنا</a>
+                </div>
+                <div class="about-video">
+                    <h3>شاهد مقدمة عن خدماتنا</h3>
+                    <video controls>
+                        <source src="your-video.mp4" type="video/mp4"> متصفحك لا يدعم تشغيل الفيديو.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section features">
+        <div class="container">
+            <div class="section-title">
+                <h2>لماذا تختار فادي للياقة البدنية؟</h2>
             </div>
             <div class="card-container">
                 <div class="card">
-                    <div class="card-content">
-                        <h3>برامج تمارين متخصصة</h3>
-                        <p>برامج تمارين مصممة لمختلف المستويات تشمل تمارين القوة والكارديو والمرونة</p>
-                        <a href="exercises.html" class="btn">اكتشف المزيد</a>
-                    </div>
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>برامج تمارين متنوعة</h3>
+                    <p>سواء كنت مبتدئاً أو محترفاً، لدينا برامج تمارين مصممة لتناسب جميع المستويات والأهداف.</p>
                 </div>
                 <div class="card">
-                     <div class="card-content">
-                        <h3>نصائح غذائية صحية</h3>
-                        <p>خطط غذائية متنوعة لزيادة العضلات، خسارة الوزن ووصفات صحية لذيذة</p>
-                        <a href="nutrition.html" class="btn">اكتشف المزيد</a>
-                    </div>
+                    <i class="fas fa-apple-alt"></i>
+                    <h3>نصائح غذائية متكاملة</h3>
+                    <p>احصل على إرشادات غذائية مفصلة وخطط وجبات صحية لتحقيق أقصى استفادة من تمارينك.</p>
                 </div>
                 <div class="card">
-                     <div class="card-content">
-                        <h3>تحقيق أهداف اللياقة</h3>
-                        <p>نصائح وإرشادات لتحديد أهدافك بشكل صحيح والالتزام بها لتحقيق النتائج المرجوة</p>
-                        <a href="goals.html" class="btn">اكتشف المزيد</a>
-                    </div>
+                    <i class="fas fa-bullseye"></i>
+                    <h3>مساعدتك على تحقيق أهدافك</h3>
+                    <p>نوفر لك الأدوات والمعرفة اللازمة لوضع أهداف واقعية وتتبع تقدمك بفعالية.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="about">
-        <div class="container">
-            <div class="about-content">
-                 <div class="about-video">
-                     <h3>غذائنا السليم سر صحتنا</h3>
-                    <video controls> <source src="video.mp4" type="video/mp4">
-                        متصفحك لا يدعم عرض الفيديو.
-                    </video>
-                </div>
-                <div class="about-text">
-                    <h2>من هو فادي؟</h2>
-                    <p>مدرب لياقة بدنية محترف ومؤثر على وسائل التواصل الاجتماعي، أكرس حياتي لمساعدة الآخرين على تحقيق أهدافهم في اللياقة البدنية والصحة العامة.</p>
-                    <p>بدأت رحلتي مع اللياقة البدنية منذ أكثر من 10 سنوات، وقررت مشاركة تجربتي ونصائحي مع العالم من خلال منصات التواصل الاجتماعي والآن من خلال هذا الموقع.</p>
-                    <p>هدفي هو إلهام وتشجيع الناس على اتباع نمط حياة صحي ونشط، وتقديم المعرفة والأدوات اللازمة لتحقيق التحول الصحي المطلوب بطريقة آمنة ومستدامة.</p>
-                     <a href="general-tips.html" class="btn">تعرف على المزيد</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="news">
-        <div class="container">
-            <div class="section-title">
-                <h2>آخر التحديثات والنصائح</h2> </div>
+     <section class="section latest-news">
+         <div class="container">
+              <div class="section-title">
+                  <h2>آخر الأخبار والمقالات</h2>
+              </div>
              <div class="card-container">
-                <div class="card">
-                    <div class="news-content">
-                        <span class="news-date">15 مايو 2025</span>
-                        <h3>أهمية الإحماء قبل أي تمرين</h3> <p>تعرف على لماذا يعتبر الإحماء خطوة أساسية لا يجب تخطيها قبل البدء بأي نشاط بدني وكيف تقوم به بشكل صحيح...</p>
-                         <a href="general-tips.html" class="btn">اقرأ المزيد</a>
-                    </div>
-                </div>
+                 <div class="news-card">
+                     <img src="news1.jpg" alt="صورة خبر 1"> <div class="news-content">
+                         <h3>أهمية الإحماء قبل التمرين</h3>
+                         <p>اكتشف لماذا يعتبر الإحماء جزءاً حيوياً من روتين تمرينك وكيف يمكن أن يحسن أداءك ويقلل خطر الإصابة.</p>
+                         <a href="#" class="btn">اقرأ المزيد</a>
+                     </div>
+                 </div>
+                 <div class="news-card">
+                     <img src="news2.jpg" alt="صورة خبر 2"> <div class="news-content">
+                         <h3>5 وجبات فطور صحية وسريعة</h3>
+                         <p>ابدأ يومك بطاقة وحيوية مع هذه الأفكار لوجبات فطور صحية ومغذية يمكنك تحضيرها بسرعة.</p>
+                         <a href="#" class="btn">اقرأ المزيد</a>
+                     </div>
+                 </div>
+                 <div class="news-card">
+                     <img src="news3.jpg" alt="صورة خبر 3"> <div class="news-content">
+                         <h3>كيف تحافظ على حماسك للياقة البدنية؟</h3>
+                         <p>تعرف على استراتيجيات فعالة للبقاء متحفزاً في رحلة لياقتك وتجاوز العقبات.</p>
+                         <a href="#" class="btn">اقرأ المزيد</a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
 
-                 <div class="card">
-                     <div class="news-content">
-                        <span class="news-date">10 مايو 2025</span>
-                        <h3>وصفة وجبة سريعة غنية بالبروتين بعد التمرين</h3> <p>وجبة سريعة ولذيذة لمساعدتك على الاستشفاء بعد التمرين المكثف. اكتشف المكونات وطريقة التحضير السهلة...</p>
-                         <a href="nutrition.html" class="btn">اقرأ المزيد</a>
-                    </div>
-                </div>
-
-                 <div class="card">
-                     <div class="news-content">
-                        <span class="news-date">5 مايو 2025</span>
-                        <h3>تحديد أهداف SMART: دليل للمبتدئين</h3> <p>هل أنت جديد في عالم اللياقة؟ تعلم كيفية تحديد أهداف واقعية ومحددة زمنياً باستخدام طريقة SMART لتحقيق نتائج فعالة...</p>
-                         <a href="goals.html" class="btn">اقرأ المزيد</a>
-                    </div>
-                </div>
-
-                </div>
-        </div>
-    </section>
 
     <section class="cta">
         <div class="container">
-            <h2>هل أنت مستعد لتغيير حياتك؟</h2>
-            <p>انضم إلى الآلاف الذين حققوا أهدافهم في اللياقة البدنية باتباع برامجنا وخططنا الغذائية المتخصصة</p>
+            <h2>هل أنت مستعد لبدء رحلتك؟</h2>
+            <p>انضم إلى مجتمعنا وابدأ اليوم لتحقيق أهدافك الصحية واللياقية.</p>
+            <a href="contact.html" class="btn">انضم إلينا الآن</a>
         </div>
-         <a href="contact.html" class="btn" style="margin-top: 20px;">ابدأ الآن</a>
     </section>
 
     <footer>
@@ -781,12 +1096,13 @@
             <div class="footer-container">
                 <div class="footer-section">
                     <h3>فادي للياقة</h3>
+                     <img src="logo.jpg" alt="شعار فادي للياقة" class="footer-image">
                     <p>منصتك الشاملة لكل ما يتعلق باللياقة البدنية والتغذية الصحية والحفاظ على نمط حياة صحي.</p>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-                        <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                       <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
@@ -805,25 +1121,26 @@
                     <ul>
                         <li><i class="fas fa-envelope"></i> info@fadi-fitness.com</li>
                         <li><i class="fas fa-phone"></i> +962 791227346</li>
-                        <li><i class="fas fa-map-marker-alt"></i> عمان الأردن</li>
+                        <li><i class="fas fa-map-marker-alt"></i>عمان ، الأردن </li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3>النشرة الإخبارية</h3>
                     <p>اشترك في نشرتنا الإخبارية للحصول على آخر الأخبار والتحديثات</p>
-                    <form action="subscribe.php" method="POST">
+                     <form action="subscribe.php" method="POST">
                         <input type="email" placeholder="بريدك الإلكتروني" name="email" required style="padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 5px; border: none;">
                         <button type="submit" class="btn" style="width: 100%;">اشترك</button>
                     </form>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 فادي للياقة البدنية. جميع الحقوق محفوظة.</p>
+                <p>© 2025 فادي للياقة البدنية. جميع الحقوق محفوظة.</p>
             </div>
         </div>
     </footer>
 
-    <script>
+    <script src="main.js"></script> <script>
+        // Existing JavaScript
         document.getElementById('hamburger').addEventListener('click', function() {
             document.getElementById('navbar').classList.toggle('show');
         });
@@ -840,6 +1157,83 @@
             alert('تم الاشتراك في النشرة البريدية بنجاح (هذه رسالة تجريبية)');
             // Add actual subscription logic here
          });
+
+         // Added JavaScript: Accessibility Features
+        const body = document.body;
+        const themeToggle = document.getElementById('theme-toggle');
+        const increaseTextBtn = document.getElementById('increase-text');
+        const decreaseTextBtn = document.getElementById('decrease-text');
+
+        // Load saved preferences on page load
+        loadPreferences();
+
+        // Theme Toggle
+        if (themeToggle) {
+            themeToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    enableDarkMode();
+                } else {
+                    disableDarkMode();
+                }
+            });
+        }
+
+        // Text Resizing
+        if (increaseTextBtn && decreaseTextBtn) {
+            increaseTextBtn.addEventListener('click', increaseTextSize);
+            decreaseTextBtn.addEventListener('click', decreaseTextSize);
+        }
+
+        function enableDarkMode() {
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+             if (themeToggle) {
+                 themeToggle.checked = true;
+             }
+        }
+
+        function disableDarkMode() {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+             if (themeToggle) {
+                themeToggle.checked = false;
+             }
+        }
+
+        function increaseTextSize() {
+            let currentSize = parseFloat(window.getComputedStyle(body).fontSize); // Use getComputedStyle
+            currentSize += 1; // Increase by 1px
+             if (currentSize <= 24) { // Set a maximum limit (e.g., 24px)
+                 body.style.fontSize = currentSize + 'px';
+                 localStorage.setItem('textSize', currentSize);
+             }
+        }
+
+        function decreaseTextSize() {
+            let currentSize = parseFloat(window.getComputedStyle(body).fontSize); // Use getComputedStyle
+            currentSize -= 1; // Decrease by 1px
+            if (currentSize >= 14) { // Set a minimum limit (e.g., 14px)
+                body.style.fontSize = currentSize + 'px';
+                localStorage.setItem('textSize', currentSize);
+            }
+        }
+
+        function loadPreferences() {
+            const savedTheme = localStorage.getItem('theme');
+            const savedTextSize = localStorage.getItem('textSize');
+
+            if (savedTheme === 'dark') {
+                enableDarkMode();
+            } else {
+                 disableDarkMode(); // Ensure light mode is explicitly set if not dark
+            }
+
+            if (savedTextSize) {
+                body.style.fontSize = savedTextSize + 'px';
+            } else {
+                 body.style.fontSize = '16px'; // Set a default size if no preference saved
+            }
+        }
     </script>
 </body>
 </html>
