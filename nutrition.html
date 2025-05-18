@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>النصائح الغذائية - فادي للياقة البدنية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Updated Style Block - Removed image-specific CSS except for logo */
         :root {
@@ -12,19 +14,162 @@
             --dark-color: #2c3e50;
             --light-color: #ecf0f1;
             --accent-color: #e74c3c;
+
+            /* Dark Mode Colors */
+            --body-bg-light: #f9f9f9;
+            --text-color-light: #333;
+            --card-bg-light: white;
+            --section-light-bg-light: var(--light-color);
+
+            --body-bg-dark: #1a1a1a;
+            --text-color-dark: #ecf0f1;
+            --card-bg-dark: #2c3e50;
+            --section-light-bg-dark: #34495e;
         }
+
+        /* Apply dark mode styles */
+        body.dark-mode {
+            background-color: var(--body-bg-dark);
+            color: var(--text-color-dark);
+        }
+
+        body.dark-mode .section {
+             color: var(--text-color-dark); /* Ensure section text color updates */
+        }
+
+
+        body.dark-mode .section-title h2 {
+            color: var(--text-color-dark);
+        }
+
+        body.dark-mode .nutrition-tip, /* Apply dark mode to nutrition tips */
+        body.dark-mode .recipe-item { /* Apply dark mode to recipe items */
+            background-color: var(--card-bg-dark);
+            color: var(--text-color-dark);
+            box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+        }
+
+         body.dark-mode .nutrition-tip h3,
+         body.dark-mode .recipe-item h3 {
+             color: var(--primary-color); /* Keep primary color for headings */
+         }
+
+         body.dark-mode .nutrition-tip p,
+         body.dark-mode .recipe-item p,
+         body.dark-mode .recipe-item ul li {
+             color: rgba(255, 255, 255, 0.8);
+         }
+         body.dark-mode .recipe-item h4 {
+              color: rgba(255, 255, 255, 0.9);
+         }
+
+
+        body.dark-mode .about {
+            background-color: var(--section-light-bg-dark);
+        }
+
+         body.dark-mode .about-text h2 {
+             color: var(--text-color-dark);
+         }
+
+        body.dark-mode header {
+            background-color: #1a1a1a;
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+        }
+
+         body.dark-mode nav ul li a:hover {
+             background-color: var(--primary-color);
+         }
+
+         body.dark-mode nav ul li a.active {
+             background-color: var(--primary-color);
+         }
+
+         body.dark-mode footer {
+             background-color: #1a1a1a;
+         }
+
+         body.dark-mode .footer-section h3 {
+             color: var(--text-color-dark);
+         }
+
+         body.dark-mode .footer-section ul li a {
+             color: rgba(255, 255, 255, 0.8);
+         }
+
+         body.dark-mode .footer-section ul li a:hover {
+             color: var(--primary-color);
+         }
+
+         body.dark-mode .social-icons a {
+             background-color: #333;
+         }
+
+         body.dark-mode .footer-bottom {
+             border-top-color: #333;
+         }
+
+
+        /* Accessibility Controls */
+        #accessibility-controls {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            padding: 5px;
+            display: flex;
+            gap: 5px;
+        }
+         /* Adjust position for RTL */
+         [dir="rtl"] #accessibility-controls {
+             left: auto;
+             right: 10px;
+         }
+
+
+        #accessibility-controls button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+
+        #accessibility-controls button:hover {
+            background-color: #27ae60;
+        }
+
+         /* Responsive adjustments for controls */
+         @media (max-width: 768px) {
+             #accessibility-controls {
+                 top: auto;
+                 bottom: 10px;
+                 left: 50%;
+                 right: auto; /* Override RTL adjustment for centering */
+                 transform: translateX(-50%);
+                 background-color: rgba(0, 0, 0, 0.7); /* Slightly darker background for mobile */
+             }
+         }
+
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Cairo', sans-serif;
+             transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
         }
 
         body {
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: var(--body-bg-light);
+            color: var(--text-color-light);
             line-height: 1.6;
+             transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
         }
 
         .container {
@@ -43,6 +188,7 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .header-container {
@@ -70,13 +216,10 @@
             font-size: 1.5rem;
         }
 
-        /* Logo Image Style - Kept and styled */
+        /* Logo Image Style - Kept */
         .logo img {
-            height: 50px; /* Adjust as needed for your logo size */
+            height: 50px; /* Adjust as needed for your logo */
             margin-left: 10px; /* Space between logo and text */
-             /* Optional: ensure it fits nicely */
-             display: block;
-             object-fit: contain; /* Ensures the image scales without distortion */
         }
         [dir="rtl"] .logo img {
             margin-right: 10px;
@@ -130,7 +273,7 @@
         .hero {
             /* background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/800?text=Hero+Image&bgColor=2ecc71') center/cover no-repeat; */
             background-color: var(--primary-color); /* Added a fallback background color */
-            height: 50vh; /* Adjusted height */
+            height: 50vh; /* Reduced height as no large image */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -138,10 +281,6 @@
             color: white;
             padding: 0 20px;
         }
-         .hero-content { /* Adjusted padding/margins if needed after image removal */
-             max-width: 800px; /* Keep max width */
-             margin: 0 auto; /* Center content */
-         }
          .hero h1 {
             font-size: 2.8rem; /* Adjusted font size */
             margin-bottom: 15px;
@@ -161,6 +300,7 @@
             text-align: center;
             margin-bottom: 3rem;
             color: var(--dark-color);
+            transition: color 0.3s ease;
         }
 
         .section-title h2 {
@@ -192,15 +332,19 @@
             gap: 30px;
         }
 
-        .card {
+        .card { /* Keeping original card style for consistency */
             background-color: white;
             border-radius: 10px;
-            /* overflow: hidden; Removed as no images */
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
             padding: 20px; /* Added padding to card content area */
-            text-align: center; /* Centered card content */
         }
+         body.dark-mode .card { /* Apply dark mode to cards if used */
+             background-color: var(--card-bg-dark);
+             color: var(--text-color-dark);
+             box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+         }
+
 
         .card:hover {
             transform: translateY(-10px);
@@ -209,34 +353,65 @@
         /* Removed .card-img and .card-img img styles */
 
 
-        .card h3 {
+        .card h3 { /* Keeping original card h3 style for consistency */
             font-size: 1.5rem;
             margin-bottom: 10px;
             color: var(--dark-color);
         }
+        body.dark-mode .card h3 { /* Apply dark mode to card h3 */
+            color: var(--text-color-dark);
+        }
 
-        .card p {
+
+        .card p { /* Keeping original card p style for consistency */
             margin-bottom: 20px;
             color: #666;
         }
+         body.dark-mode .card p { /* Apply dark mode to card p */
+             color: rgba(255, 255, 255, 0.8);
+         }
 
-        .card .btn {
-            padding: 8px 20px;
-            font-size: 0.9rem;
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+             border: none;
+             cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
         }
 
         /* Removed About image styles */
         .about {
             padding: 5rem 0;
             background-color: var(--light-color);
+            transition: background-color 0.3s ease;
         }
+        body.dark-mode .about {
+             background-color: var(--section-light-bg-dark);
+         }
+
 
         .about-content {
             display: flex;
             align-items: center;
             gap: 50px;
-             flex-direction: row; /* Reverted to default row for RTL since image column is gone */
+             flex-direction: row-reverse; /* Adjusted for RTL layout if text/image were side-by-side */
         }
+         [dir="rtl"] .about-content {
+             flex-direction: row; /* Default for RTL */
+         }
+
 
         /* Removed .about-img and .about-img img styles */
 
@@ -248,7 +423,12 @@
             font-size: 2rem;
             margin-bottom: 20px;
             color: var(--dark-color);
+             transition: color 0.3s ease;
         }
+         body.dark-mode .about-text h2 {
+             color: var(--text-color-dark);
+         }
+
 
         .about-text p {
             margin-bottom: 20px;
@@ -269,7 +449,14 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             padding: 20px; /* Added padding */
+             transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
          }
+         body.dark-mode .news-card {
+              background-color: var(--card-bg-dark);
+              color: var(--text-color-dark);
+              box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+         }
+
 
         /* Removed .news-img and .news-img img styles */
 
@@ -288,12 +475,21 @@
             font-size: 1.3rem;
             margin-bottom: 10px;
             color: var(--dark-color);
+             transition: color 0.3s ease;
         }
+         body.dark-mode .news-card h3 {
+             color: var(--text-color-dark);
+         }
+
 
         .news-card p {
             margin-bottom: 20px;
             color: #666;
+             transition: color 0.3s ease;
         }
+        body.dark-mode .news-card p {
+             color: rgba(255, 255, 255, 0.8);
+         }
 
 
         /* Removed CTA background image style */
@@ -323,7 +519,12 @@
             background-color: var(--dark-color);
             color: white;
             padding: 4rem 0 2rem;
+             transition: background-color 0.3s ease, color 0.3s ease;
         }
+         body.dark-mode footer {
+             background-color: #1a1a1a;
+         }
+
 
         .footer-container {
             display: grid;
@@ -336,7 +537,12 @@
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 10px;
+             transition: color 0.3s ease;
         }
+         body.dark-mode .footer-section h3 {
+             color: var(--text-color-dark);
+         }
+
 
         .footer-section h3::after {
             content: '';
@@ -396,11 +602,15 @@
             justify-content: center;
             text-decoration: none;
             margin-left: 10px;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease, background-color 0.3s ease;
         }
          [dir="rtl"] .social-icons a {
              margin-right: 10px;
              margin-left: 0;
+         }
+
+         body.dark-mode .social-icons a {
+             background-color: #333;
          }
 
 
@@ -416,33 +626,50 @@
             margin-top: 3rem;
             padding-top: 2rem;
             border-top: 1px solid #444;
+             transition: border-top-color 0.3s ease;
         }
+         body.dark-mode .footer-bottom {
+             border-top-color: #333;
+         }
 
-        /* Specific styles for Nutrition page */
-        .nutrition-item {
-            background-color: white;
+
+        /* Specific styles for Nutrition Tips & Recipes */
+        .nutrition-tip, .recipe-item {
+            background-color: var(--card-bg-light); /* Reusing card bg variable */
             padding: 30px;
             margin-bottom: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+             transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .nutrition-item h3 {
+        .nutrition-tip h3, .recipe-item h3 {
              color: var(--primary-color);
             margin-bottom: 15px;
         }
 
-        .nutrition-item ul {
+        .recipe-item h4 {
+             color: var(--dark-color);
+             margin-top: 20px;
+             margin-bottom: 10px;
+              transition: color 0.3s ease;
+        }
+         body.dark-mode .recipe-item h4 {
+             color: var(--text-color-dark);
+         }
+
+
+        .nutrition-tip ul, .recipe-item ul {
             list-style: disc;
             padding-right: 20px; /* For RTL list markers */
         }
 
-        .nutrition-item ul li {
+        .nutrition-tip ul li, .recipe-item ul li {
             margin-bottom: 8px;
         }
 
 
-        /* Specific styles for General Tips page (Reused) */
+        /* Specific styles for General Tips page (Reused - Keeping original here) */
          .tip-item { /* Reusing goal-item style */
             background-color: white;
             padding: 30px;
@@ -465,7 +692,7 @@
             margin-bottom: 8px;
         }
 
-        /* Specific styles for Contact Form (Reused & Adjusted) */
+        /* Specific styles for Contact Form (Reused & Adjusted - Keeping original here) */
         .contact-flex-container { /* Flexbox container */
             display: flex;
             gap: 40px;
@@ -481,7 +708,7 @@
             background-color: white;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .contact-form-box h3 {
@@ -518,10 +745,8 @@
         }
 
         /* Removed map styles */
-        /* Removed .map-container */
 
-
-        /* Specific styles for FAQ (Reused) */
+        /* Specific styles for FAQ (Reused - Keeping original here) */
         .faq-item {
              background-color: white;
              border: 1px solid #ddd;
@@ -590,7 +815,12 @@
                 flex-direction: column;
                 padding: 20px;
                 text-align: center;
+                 transition: background-color 0.3s ease;
             }
+            body.dark-mode nav ul {
+                 background-color: #1a1a1a;
+             }
+
 
             nav ul.show {
                 display: flex;
@@ -640,10 +870,15 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="accessibility-controls">
+        <button id="increase-text" title="تكبير النص">A+</button>
+        <button id="decrease-text" title="تصغير النص">A-</button>
+        <button id="mode-toggle" title="تبديل الوضع">
+             <i class="fas fa-moon"></i> </button>
+    </div>
+
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo">
@@ -654,7 +889,8 @@
                 <ul id="navbar">
                     <li><a href="index.html">الرئيسية</a></li>
                     <li><a href="exercises.html">برامج التمارين</a></li>
-                    <li><a href="nutrition.html" class="active">النصائح الغذائية</a></li> <li><a href="goals.html">أهداف اللياقة</a></li>
+                    <li><a href="nutrition.html" class="active">النصائح الغذائية</a></li>
+                    <li><a href="goals.html">أهداف اللياقة</a></li>
                     <li><a href="general-tips.html">نصائح عامة</a></li>
                     <li><a href="contact.html">اتصل بنا</a></li>
                 </ul>
@@ -670,55 +906,89 @@
             <div class="section-title">
                 <h2>النصائح الغذائية</h2>
             </div>
-            <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">التغذية السليمة هي حجر الزاوية لأي هدف للياقة البدنية. اكتشف خططاً ووصفات صحية لدعم رحلتك. **تذكر أن تتبع السعرات الحرارية الإجمالية والمغذيات الكبرى لتحقيق أفضل النتائج.**</p> <div class="nutrition-item">
-                <h3>نظام غذائي لزيادة العضلات</h3>
-                <p>لبناء العضلات، تحتاج إلى سعرات حرارية وبروتين كافيين. نقدم خططاً غنية بالمغذيات لدعم نمو العضلات واستشفائها.</p>
-                <h4>مكونات أساسية:</h4>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">التغذية السليمة هي جزء أساسي من أي رحلة لياقة بدنية. هنا تجد أهم النصائح وبعض الوصفات الصحية.</p>
+
+            <div class="nutrition-tip">
+                <h3>أهمية البروتين</h3>
+                <p>البروتين ضروري لبناء وإصلاح الأنسجة العضلية. تأكد من تضمين مصادر البروتين الجيدة في كل وجبة.</p>
+                <h4>مصادر البروتين:</h4>
                 <ul>
-                    <li>مصادر بروتين عالية الجودة (صدور دجاج، لحم بقري قليل الدهن، سمك، بيض، بقوليات)</li>
-                    <li>كربوهيدرات معقدة لتوفير الطاقة (شوفان، أرز بني، بطاطا حلوة، خبز القمح الكامل)</li>
-                    <li>دهون صحية لدعم الهرمونات (أفوكادو، مكسرات، بذور، زيت زيتون)</li>
+                    <li>اللحوم الخالية من الدهون (الدجاج، اللحم البقري قليل الدهن)</li>
+                    <li>الأسماك</li>
+                    <li>البيض</li>
+                    <li>منتجات الألبان (زبادي، جبن قريش)</li>
+                    <li>البقوليات (عدس، فاصوليا)</li>
+                    <li>المكسرات والبذور</li>
                 </ul>
-                 <p><strong>ملاحظة حول السعرات الحرارية:</strong> لزيادة الوزن وبناء العضلات، يجب استهلاك سعرات حرارية **أكثر** من التي يحرقها جسمك (فائض سعرات حرارية). ابدأ بزيادة 250-500 سعرة حرارية فوق سعرات الحفاظ على وزنك.</p> <a href="#" class="btn" style="margin-top: 15px;">عرض الخطة الكاملة</a>
             </div>
 
-             <div class="nutrition-item">
-                <h3>نظام غذائي لخسارة الوزن</h3>
-                <p>تتطلب خسارة الوزن عجزاً في السعرات الحرارية مع الحفاظ على استهلاك كافٍ من البروتين والمغذيات الأساسية.</p>
-                <h4>مكونات أساسية:</h4>
+            <div class="nutrition-tip">
+                <h3>الكربوهيدرات المعقدة</h3>
+                <p>تعتبر الكربوهيدرات المصدر الرئيسي للطاقة للجسم، وخاصة أثناء التمارين. اختر الكربوهيدرات المعقدة للحفاظ على مستويات طاقة مستقرة.</p>
+                 <h4>مصادر الكربوهيدرات المعقدة:</h4>
+                 <ul>
+                     <li>الشوفان</li>
+                     <li>الأرز البني والكينوا</li>
+                     <li>البطاطا الحلوة</li>
+                     <li>الخبز والحبوب الكاملة</li>
+                     <li>الخضروات والفواكه</li>
+                 </ul>
+            </div>
+
+            <div class="nutrition-tip">
+                <h3>الدهون الصحية</h3>
+                <p>الدهون ضرورية لامتصاص الفيتامينات وصحة الهرمونات. ركز على الدهون غير المشبعة وتجنب الدهون المشبعة والمتحولة.</p>
+                 <h4>مصادر الدهون الصحية:</h4>
+                 <ul>
+                     <li>الأفوكادو</li>
+                     <li>المكسرات والبذور</li>
+                     <li>زيت الزيتون</li>
+                     <li>الأسماك الدهنية (سلمون، ماكريل)</li>
+                 </ul>
+            </div>
+
+             <div class="section-title" style="margin-top: 60px;">
+                <h2>وصفات صحية مقترحة</h2>
+            </div>
+
+             <div class="recipe-item">
+                <h3>سلطة الكينوا بالخضروات المشوية</h3>
+                <p>وجبة غنية بالبروتين والألياف والكربوهيدرات الصحية.</p>
+                <h4>المكونات:</h4>
                 <ul>
-                    <li>أطعمة منخفضة السعرات الحرارية وغنية بالألياف (خضروات ورقية، فواكه)</li>
-                    <li>مصادر بروتين قليلة الدهون (صدور دجاج بدون جلد، سمك أبيض، تونة في الماء)</li>
-                    <li>كربوهيدرات معقدة بكميات معتدلة</li>
-                    <li>دهون صحية بكميات محدودة</li>
+                    <li>كوب كينوا مطبوخة</li>
+                    <li>تشكيلة خضروات (فلفل، كوسا، باذنجان) مشوية أو محمصة</li>
+                    <li>حمص مسلوق</li>
+                    <li>عصير ليمون وزيت زيتون للصلصة</li>
+                    <li>ملح وفلفل حسب الرغبة</li>
                 </ul>
-                <p><strong>ملاحظة حول السعرات الحرارية:</strong> لخسارة الوزن، يجب استهلاك سعرات حرارية **أقل** من التي يحرقها جسمك (عجز سعرات حرارية). عجز بمقدار 500-750 سعرة حرارية يومياً يؤدي عادةً إلى خسارة آمنة ومستدامة للوزن.</p> <a href="#" class="btn" style="margin-top: 15px;">عرض الخطة الكاملة</a>
+                 <p><strong>طريقة التحضير:</strong> اخلط جميع المكونات في وعاء كبير وقدم بارداً.</p>
             </div>
 
-            <div class="nutrition-item">
-                <h3>وصفات صحية</h3>
-                <p>نقدم مجموعة من الوصفات اللذيذة والسهلة التحضير التي تتناسب مع أهدافك الغذائية المختلفة.</p>
-                <h4>أمثلة على الوصفات:</h4>
+            <div class="recipe-item">
+                <h3>صدر دجاج مشوي مع الأرز البني والبروكلي</h3>
+                <p>وجبة كلاسيكية لبناء العضلات غنية بالبروتين والكربوهيدرات المعقدة.</p>
+                <h4>المكونات:</h4>
                 <ul>
-                    <li>سموثي البروتين بعد التمرين</li>
-                    <li>وجبات غداء سريعة وصحية للعمل</li>
-                    <li>وجبات عشاء قليلة السعرات الحرارية</li>
-                    <li>سناكات صحية ومغذية</li>
+                    <li>صدر دجاج متبل ومشوي</li>
+                    <li>نصف كوب أرز بني مطبوخ</li>
+                    <li>كوب بروكلي مطهو على البخار</li>
+                    <li>البهارات حسب الرغبة</li>
                 </ul>
-                <p><strong>ملاحظة حول السعرات الحرارية:</strong> معظم وصفاتنا تتضمن معلومات عن السعرات الحرارية والمغذيات الكبرى لكل وجبة لمساعدتك على تتبع استهلاكك اليومي وتحقيق هدفك.</p> <a href="#" class="btn" style="margin-top: 15px;">تصفح الوصفات</a>
+                <p><strong>طريقة التحضير:</strong> اشوي الدجاج، اطهو الأرز والبروكلي، وقدم الوجبة متكاملة.</p>
             </div>
 
-            </div>
-    </section>
 
-     <section class="cta">
-        <div class="container">
-            <h2>هل تحتاج لخطة غذائية مخصصة؟</h2>
-            <p>تواصل معنا لمناقشة أهدافك والحصول على خطة غذائية مصممة خصيصاً لك.</p>
-            <a href="contact.html" class="btn">اطلب خطة غذائية</a>
         </div>
     </section>
 
+    <section class="cta">
+        <div class="container">
+            <h2>هل تحتاج خطة غذائية مخصصة؟</h2>
+            <p>تواصل معنا للحصول على خطة غذائية تناسب احتياجاتك وأهدافك الصحية.</p>
+            <a href="contact.html" class="btn">احصل على استشارة غذائية</a>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
@@ -749,7 +1019,7 @@
                     <ul>
                          <li><i class="fas fa-envelope"></i> info@fadi-fitness.com</li>
                         <li><i class="fas fa-phone"></i> +962 791227346</li>
-                        <li><i class="fas fa-map-marker-alt"></i> عمان ، الأردن</li>
+                        <li><i class="fas fa-map-marker-alt"></i>عمان ، الأردن </li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -783,6 +1053,97 @@
             alert('تم الاشتراك في النشرة البريدية بنجاح (هذه رسالة تجريبية)');
             // Add actual subscription logic here
          });
+
+
+         // Accessibility Features
+        document.addEventListener('DOMContentLoaded', function() {
+            const body = document.body;
+            const increaseTextBtn = document.getElementById('increase-text');
+            const decreaseTextBtn = document.getElementById('decrease-text');
+            const modeToggleBtn = document.getElementById('mode-toggle');
+            const modeIcon = modeToggleBtn ? modeToggleBtn.querySelector('i') : null; // Check if button exists before querying icon
+
+            const defaultFontSize = 16; // Base font size in px
+            const sizeStep = 1; // Size step in px
+            const maxFontSize = 24; // Maximum font size in px
+            const minFontSize = 12; // Minimum font size in px
+
+            // Load saved preferences
+            const savedMode = localStorage.getItem('mode');
+            const savedFontSize = localStorage.getItem('fontSize');
+
+            if (savedMode === 'dark') {
+                body.classList.add('dark-mode');
+                if(modeIcon) { // Check if icon exists before manipulating
+                     modeIcon.classList.remove('fa-moon');
+                     modeIcon.classList.add('fa-sun');
+                }
+                 if(modeToggleBtn) modeToggleBtn.title = 'تبديل الوضع (ليلي)';
+            } else {
+                body.classList.remove('dark-mode');
+                if(modeIcon) { // Check if icon exists before manipulating
+                    modeIcon.classList.remove('fa-sun');
+                    modeIcon.classList.add('fa-moon');
+                }
+                 if(modeToggleBtn) modeToggleBtn.title = 'تبديل الوضع (نهاري)';
+            }
+
+            if (savedFontSize) {
+                body.style.fontSize = savedFontSize + 'px';
+            } else {
+                 body.style.fontSize = defaultFontSize + 'px';
+            }
+
+
+            // Toggle Dark/Light Mode
+            if(modeToggleBtn) { // Ensure button exists before adding listener
+                 modeToggleBtn.addEventListener('click', function() {
+                     body.classList.toggle('dark-mode');
+                     if (body.classList.contains('dark-mode')) {
+                         localStorage.setItem('mode', 'dark');
+                         if(modeIcon) { // Check if icon exists before manipulating
+                              modeIcon.classList.remove('fa-moon');
+                              modeIcon.classList.add('fa-sun');
+                         }
+                          modeToggleBtn.title = 'تبديل الوضع (ليلي)';
+                     } else {
+                         localStorage.setItem('mode', 'light');
+                         if(modeIcon) { // Check if icon exists before manipulating
+                            modeIcon.classList.remove('fa-sun');
+                            modeIcon.classList.add('fa-moon');
+                         }
+                          modeToggleBtn.title = 'تبديل الوضع (نهاري)';
+                     }
+                 });
+            }
+
+
+            // Increase Text Size
+            if(increaseTextBtn) { // Ensure button exists before adding listener
+                 increaseTextBtn.addEventListener('click', function() {
+                     let currentSize = parseFloat(window.getComputedStyle(body).fontSize);
+                     if (currentSize < maxFontSize) {
+                         let newSize = currentSize + sizeStep;
+                         body.style.fontSize = newSize + 'px';
+                         localStorage.setItem('fontSize', newSize);
+                     }
+                 });
+            }
+
+
+            // Decrease Text Size
+             if(decreaseTextBtn) { // Ensure button exists before adding listener
+                 decreaseTextBtn.addEventListener('click', function() {
+                     let currentSize = parseFloat(window.getComputedStyle(body).fontSize);
+                     if (currentSize > minFontSize) {
+                         let newSize = currentSize - sizeStep;
+                         body.style.fontSize = newSize + 'px';
+                         localStorage.setItem('fontSize', newSize);
+                     }
+                 });
+             }
+
+        });
     </script>
 </body>
 </html>
