@@ -12,6 +12,16 @@
     --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     --border-radius: 8px;
     --font-family: 'Tajawal', sans-serif;
+
+    /* Dark Mode Variables - Added */
+    --dark-primary-color: #FF6B4A;
+    --dark-secondary-color: #4B4B4B;
+    --dark-accent-color: #FFD147;
+    --dark-text-color: #E0E0E0;
+    --dark-background-color: #1A1A1A;
+    --dark-card-background: #2A2A2A;
+    --dark-border-color: #555;
+    --dark-shadow-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Global Styles */
@@ -20,543 +30,513 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition for theme change */
+    font-size: 16px; /* Base font size for resizing */
+    background-color: var(--light-color); /* Use Light Color from style.css as default */
 }
+
+/* Dark Mode Styles - Added */
+body.dark-mode {
+    color: var(--dark-text-color);
+    background-color: var(--dark-background-color);
+}
+
+/* Adjust specific elements in dark mode based on style.css */
+body.dark-mode .navbar {
+    background-color: var(--dark-dark-color);
+}
+
+body.dark-mode .navbar .nav-link {
+    color: var(--dark-text-color);
+}
+
+body.dark-mode .navbar .nav-link:hover,
+body.dark-mode .navbar .nav-link.active {
+     background-color: var(--dark-primary-color);
+     color: var(--dark-background-color);
+}
+
+body.dark-mode .hero-section {
+     /* قم بتعديل التدرج أو الخلفية حسب التصميم المطلوب في الوضع الداكن */
+     background: linear-gradient(45deg, var(--dark-primary-color), var(--dark-secondary-color));
+     color: var(--dark-text-color);
+}
+
+body.dark-mode .section-header h2 { /* قد يكون لديك .section-title أيضاً */
+    color: var(--dark-text-color);
+}
+/* إذا كان لديك خط تحت العنوان */
+body.dark-mode .section-header h2::after {
+    background-color: var(--dark-primary-color);
+}
+
+
+body.dark-mode .feature-card, /* مثال لبطاقة في الوضع الداكن */
+body.dark-mode .program-card,
+body.dark-mode .tip-card,
+/* Added for pages with inline styles */
+body.dark-mode .card,
+body.dark-mode .news-card,
+body.dark-mode .tip-item,
+body.dark-mode .nutrition-item,
+body.dark-mode .goal-item,
+body.dark-mode .contact-info .card,
+body.dark-mode .contact-form-box,
+body.dark-mode .faq-item
+{
+    background-color: var(--dark-card-background);
+    box-shadow: 0 5px 15px var(--dark-shadow-color);
+    color: var(--dark-text-color);
+    border: 1px solid var(--dark-border-color); /* إضافة حدود خفيفة */
+}
+
+body.dark-mode .feature-icon,
+body.dark-mode .tip-icon {
+     background-color: var(--dark-primary-color);
+     color: var(--dark-background-color); /* لون الأيقونة داخل الدائرة */
+}
+
+body.dark-mode .feature-card h3,
+body.dark-mode .program-content h3,
+body.dark-mode .tip-card h3,
+/* Added for pages with inline styles */
+body.dark-mode .card h3,
+body.dark-mode .news-card h3,
+body.dark-mode .tip-item h3,
+body.dark-mode .nutrition-item h3,
+body.dark-mode .goal-item h3,
+body.dark-mode .contact-form-box h3,
+body.dark-mode .contact-social-section h3,
+body.dark-mode .contact-info .card h3,
+body.dark-mode .about-video h3
+{
+     color: var(--dark-primary-color);
+}
+
+body.dark-mode .feature-card p,
+body.dark-mode .program-content p,
+body.dark-mode .program-features li,
+body.dark-mode .program-features li i,
+body.dark-mode .tip-card p,
+body.dark-mode .tip-list li,
+body.dark-mode .tip-list li i,
+body.dark-mode .health-tip-item,
+body.dark-mode .health-tip-item .content h4,
+body.dark-mode .health-tip-item .content p,
+body.dark-mode .common-mistakes .mistake-item,
+body.dark-mode .common-mistakes .mistake-item .content h4,
+body.dark-mode .common-mistakes .mistake-item .content p,
+/* Added for pages with inline styles */
+body.dark-mode .card p,
+body.dark-mode .news-card p,
+body.dark-mode .tip-item p,
+body.dark-mode .tip-item ul li,
+body.dark-mode .nutrition-item p,
+body.dark-mode .nutrition-item ul li,
+body.dark-mode .goal-item p,
+body.dark-mode .goal-item ul li,
+body.dark-mode .contact-info .card p,
+body.dark-mode .contact-form-box p,
+body.dark-mode .form-group label,
+body.dark-mode .faq-answer
+{
+     color: var(--dark-text-color);
+}
+body.dark-mode .program-features li i,
+body.dark-mode .tip-list li i,
+body.dark-mode .health-tip-item .icon i,
+/* Added for pages with inline styles */
+body.dark-mode .tip-item ul li i,
+body.dark-mode .nutrition-item ul li i,
+body.dark-mode .goal-item ul li i {
+     color: var(--dark-primary-color); /* Consistent icon color */
+}
+
+body.dark-mode .health-tip-item .icon {
+     background-color: var(--dark-light-color);
+}
+body.dark-mode .mistake-icon {
+    background-color: var(--dark-accent-color);
+}
+
+
+body.dark-mode .about-section {
+    background-color: #222;
+    color: var(--dark-text-color);
+}
+body.dark-mode .about-section h2 {
+    color: var(--dark-text-color);
+}
+body.dark-mode .about-section p {
+    color: rgba(255, 255, 255, 0.8);
+}
+body.dark-mode .about-video video {
+    box-shadow: 0 10px 20px var(--dark-shadow-color);
+}
+/* Added for pages with inline styles */
+body.dark-mode .about {
+    background-color: #222;
+    color: var(--dark-text-color);
+}
+body.dark-mode .about-text h2 {
+    color: var(--dark-text-color);
+}
+body.dark-mode .about-text p {
+     color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* Styles for images that had inline styles */
+body.dark-mode .styled-image,
+body.dark-mode .styled-tip-image {
+    border-color: var(--dark-primary-color);
+}
+body.dark-mode .footer-image {
+    border-color: var(--dark-secondary-color);
+}
+
+
+body.dark-mode .faq-question {
+    background-color: var(--dark-light-color);
+    color: var(--dark-text-color);
+    border-color: var(--dark-border-color);
+}
+body.dark-mode .faq-question:hover {
+    background-color: #3a3a3a;
+}
+body.dark-mode .faq-answer {
+    border-top-color: var(--dark-border-color);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+body.dark-mode .cta-section {
+     background: linear-gradient(45deg, var(--dark-secondary-color), var(--dark-primary-color));
+     color: var(--dark-text-color);
+}
+body.dark-mode .cta-section h2,
+body.dark-mode .cta-section p {
+    color: var(--dark-text-color);
+}
+body.dark-mode .cta-section .btn-primary {
+     background-color: var(--dark-dark-color);
+     color: var(--dark-primary-color);
+     border-color: var(--dark-primary-color);
+}
+body.dark-mode .cta-section .btn-primary:hover {
+     background-color: #333;
+     color: var(--dark-primary-color);
+     border-color: var(--dark-primary-color);
+}
+/* Added for pages with inline styles */
+body.dark-mode .cta {
+     background-color: #2ecc71; /* A dark secondary color variant */
+     color: #1a1a1a;
+}
+body.dark-mode .cta h2,
+body.dark-mode .cta p {
+      color: #1a1a1a;
+}
+body.dark-mode .cta .btn {
+      background-color: #2c3e50;
+      color: #f9f9f9;
+}
+body.dark-mode .cta .btn:hover {
+      background-color: #3498db;
+}
+
+
+body.dark-mode .footer {
+    background-color: var(--dark-dark-color);
+    color: var(--dark-text-color);
+}
+
+body.dark-mode .footer h5 {
+    color: white;
+}
+body.dark-mode .footer h5::after {
+     background-color: var(--dark-primary-color);
+}
+body.dark-mode .footer .social-links a {
+    background-color: #555;
+    color: white;
+}
+body.dark-mode .footer .social-links a:hover {
+    background-color: var(--dark-primary-color);
+}
+
+body.dark-mode .footer .footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+}
+body.dark-mode .footer .footer-links a:hover {
+    color: var(--dark-primary-color);
+}
+body.dark-mode .footer .footer-contact li {
+    color: var(--dark-text-color);
+}
+body.dark-mode .footer .footer-contact li i {
+    color: var(--dark-primary-color);
+}
+
+body.dark-mode .newsletter-form .form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--dark-border-color);
+    color: var(--dark-text-color);
+}
+body.dark-mode .newsletter-form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+body.dark-mode .newsletter-form .btn {
+    background-color: var(--dark-primary-color);
+    border-color: var(--dark-primary-color);
+}
+body.dark-mode .newsletter-form .btn:hover {
+    background-color: #FF6B4A;
+    border-color: #FF6B4A;
+}
+
+
+body.dark-mode .footer-bottom {
+    border-top-color: #555;
+    color: rgba(255, 255, 255, 0.7);
+}
+body.dark-mode .footer-bottom-links a {
+    color: rgba(255, 255, 255, 0.7);
+}
+body.dark-mode .footer-bottom-links a:hover {
+    color: var(--dark-primary-color);
+}
+/* Added for pages with inline styles */
+body.dark-mode footer {
+     background-color: #0a0a0a;
+     color: #f9f9f9;
+}
+body.dark-mode footer h3 {
+    color: var(--primary-color);
+}
+body.dark-mode footer h3::after {
+    background-color: var(--secondary-color);
+}
+body.dark-mode footer p {
+     color: rgba(249, 249, 249, 0.8);
+}
+body.dark-mode footer a {
+    color: rgba(249, 249, 249, 0.7);
+}
+body.dark-mode footer a:hover {
+     color: var(--secondary-color);
+}
+body.dark-mode .footer-bottom {
+    border-top-color: #555;
+    color: rgba(249, 249, 249, 0.7);
+}
+
+
+/* Accessibility Controls Styles - Added */
+/* Position the accessibility controls within the navbar container */
+.navbar .container,
+header .container.header-container /* Added for inline styles */
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* للسماح للعناصر بالانتقال إلى سطر جديد في الشاشات الصغيرة */
+}
+
+.accessibility-controls {
+    display: flex;
+    align-items: center;
+    /* تحدد الترتيب في Flexbox. يمكن تعديله حسب التصميم */
+    order: 2; /* الترتيب الافتراضي بعد العلامة التجارية وقبل القائمة في RTL */
+    margin-right: 20px; /* مسافة بعد القائمة في LTR */
+}
+[dir="rtl"] .accessibility-controls {
+    order: 2; /* الترتيب بعد العلامة التجارية وقبل القائمة في RTL */
+    margin-right: 0;
+    margin-left: 20px; /* مسافة بعد العلامة التجارية في RTL */
+}
+
+
+.accessibility-controls button {
+    background-color: transparent;
+    border: 1px solid white; /* حدود بيضاء للوضع الفاتح */
+    color: white; /* نص أبيض للوضع الفاتح */
+    padding: 5px 10px;
+    margin-right: 5px; /* مسافة بين الأزرار في LTR */
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease; /* Use a consistent transition property */
+}
+[dir="rtl"] .accessibility-controls button {
+    margin-right: 0;
+    margin-left: 5px; /* مسافة بين الأزرار في RTL */
+}
+
+.accessibility-controls button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Dark mode button styles */
+body.dark-mode .accessibility-controls button {
+     border-color: var(--dark-text-color);
+     color: var(--dark-text-color);
+     background-color: rgba(0, 0, 0, 0.2);
+}
+body.dark-mode .accessibility-controls button:hover {
+     background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.accessibility-controls .theme-switch {
+    margin-right: 15px; /* مسافة بعد أزرار حجم النص في LTR */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+[dir="rtl"] .accessibility-controls .theme-switch {
+    margin-right: 0;
+    margin-left: 15px; /* مسافة بعد أزرار حجم النص في RTL */
+}
+
+
+.accessibility-controls .theme-switch input[type="checkbox"] {
+    display: none;
+}
+
+.accessibility-controls .theme-switch label {
+    display: block;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc; /* خلفية افتراضية للمفتاح */
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.accessibility-controls .theme-switch label::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px; /* موضع الدائرة في الوضع الفاتح */
+    width: 16px;
+    height: 16px;
+    background-color: white; /* لون الدائرة */
+    border-radius: 50%;
+    transition: left 0.3s ease, background-color 0.3s ease;
+}
+
+.accessibility-controls .theme-switch input[type="checkbox"]:checked + label {
+    background-color: var(--primary-color); /* لون المفتاح عند تفعيل الوضع الداكن */
+}
+
+.accessibility-controls .theme-switch input[type="checkbox"]:checked + label::after {
+    left: calc(100% - 18px); /* تحريك الدائرة لليمين في الوضع الداكن */
+    background-color: var(--dark-card-background); /* لون الدائرة في الوضع الداكن */
+}
+
+/* Responsive adjustments for accessibility controls */
+@media (max-width: 991.98px) { /* استخدم نقطة التوقف هذه لتناسب قائمة Navbar المنسدلة */
+     .navbar .container,
+     header .container.header-container /* Added for inline styles */
+     {
+         flex-direction: column; /* ترتيب العناصر عمودياً */
+         align-items: center; /* توسيط العناصر */
+     }
+     .navbar-brand,
+     header .logo /* Added for inline styles */
+      {
+         margin-bottom: 10px; /* مسافة أسفل الشعار */
+         order: 1; /* ترتيب الشعار أولاً */
+     }
+     .accessibility-controls {
+         margin-top: 10px; /* مسافة أعلى أدوات إمكانية الوصول */
+         margin-right: 0;
+         margin-left: 0;
+         width: 100%; /* لتوسيط الأزرار بداخلها */
+         justify-content: center; /* توسيط الأزرار داخل أدوات إمكانية الوصول */
+         order: 2; /* ترتيب أدوات إمكانية الوصول ثانياً */
+     }
+     [dir="rtl"] .accessibility-controls {
+         order: 2;
+     }
+
+     .accessibility-controls button {
+         margin-right: 10px; /* زيادة المسافة بين الأزرار في الشاشات الصغيرة */
+         margin-left: 10px;
+     }
+     [dir="rtl"] .accessibility-controls button {
+          margin-right: 10px;
+          margin-left: 10px;
+     }
+
+     .accessibility-controls .theme-switch {
+         margin-right: 10px; /* زيادة المسافة بين التبديل والأزرار */
+         margin-left: 10px;
+     }
+     [dir="rtl"] .accessibility-controls .theme-switch {
+          margin-right: 10px;
+          margin-left: 10px;
+     }
+
+     .navbar-collapse,
+     nav ul /* Added for inline styles */
+      { /* Style for the collapsible menu */
+          margin-top: 10px; /* مسافة أسفل أدوات إمكانية الوصول */
+          order: 3; /* ترتيب القائمة ثالثاً */
+          width: 100%; /* تأكد من أن القائمة تأخذ عرضاً كاملاً */
+          text-align: center; /* توسيط محتوى القائمة */
+          background-color: var(--dark-color); /* Add background for visibility */
+          padding: 1rem; /* Add padding */
+          border-radius: var(--border-radius); /* Add border radius */
+     }
+      .navbar .navbar-nav {
+          flex-direction: column; /* ترتيب عناصر القائمة عمودياً */
+      }
+       nav ul li { /* Added for inline styles */
+           margin: 5px 0; /* مسافة بين عناصر القائمة */
+           margin-right: 0; /* Reset margin-right for stacking */
+       }
+
+
+}
+
+
+@media (max-width: 767.98px) {
+    /* الأنماط الموجودة في style.css تحت هذا الشرط */
+     header nav ul { /* Added for inline styles */
+         top: 160px; /* Adjust top based on added controls */
+     }
+}
+
+@media (max-width: 500px) {
+     .accessibility-controls button {
+         padding: 3px 8px;
+         font-size: 0.8rem;
+     }
+     .accessibility-controls .theme-switch {
+         margin-right: 8px;
+         margin-left: 8px;
+     }
+     [dir="rtl"] .accessibility-controls .theme-switch {
+          margin-right: 8px;
+          margin-left: 8px;
+     }
+}
+
 
 /* Navigation */
 .navbar {
     background-color: var(--dark-color);
     padding: 1rem 0;
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 .navbar-brand img {
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 .navbar .nav-link {
     color: var(--light-color);
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    transition: var(--transition);
-}
-
-.navbar .nav-link:hover,
-.navbar .nav-link.active {
-    color: var(--primary-color);
-}
-
-.nav-buttons .btn {
-    padding: 0.5rem 1.5rem;
-    font-weight: 500;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-}
-
-.nav-buttons .btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.nav-buttons .btn-primary:hover {
-    background-color: #FF3A1A;
-    border-color: #FF3A1A;
-    transform: translateY(-2px);
-}
-
-/* Hero Section */
-.hero-section {
-    background: linear-gradient(135deg, var(--dark-color) 0%, #333 100%);
-    color: var(--light-color);
-    padding: 8rem 0 4rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: var(--light-color);
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.hero-buttons .btn {
-    padding: 0.8rem 2rem;
-    font-weight: 500;
-    border-radius: var(--border-radius);
-    margin-right: 1rem;
-    transition: var(--transition);
-}
-
-.hero-buttons .btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.hero-buttons .btn-primary:hover {
-    background-color: #FF3A1A;
-    border-color: #FF3A1A;
-    transform: translateY(-2px);
-}
-
-.hero-buttons .btn-outline-light:hover {
-    background-color: var(--light-color);
-    color: var(--dark-color);
-    transform: translateY(-2px);
-}
-
-/* Features Section */
-.features-section {
-    padding: 5rem 0;
-    background-color: var(--light-color);
-}
-
-.feature-card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
-    height: 100%;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.feature-icon {
-    width: 70px;
-    height: 70px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-}
-
-.feature-icon i {
-    font-size: 1.8rem;
-    color: white;
-}
-
-/* Programs Section */
-.programs-section {
-    padding: 5rem 0;
-    background-color: var(--dark-color);
-    color: var(--light-color);
-}
-
-.program-card {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    transition: var(--transition);
-}
-
-.program-card:hover {
-    transform: translateY(-10px);
-}
-
-.program-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.program-image img {
-    transition: var(--transition);
-}
-
-.program-card:hover .program-image img {
-    transform: scale(1.1);
-}
-
-.program-content {
-    padding: 2rem;
-}
-
-.program-features {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0;
-}
-
-.program-features li {
-    margin-bottom: 0.8rem;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.program-features li i {
-    color: var(--primary-color);
-    margin-right: 0.5rem;
-}
-
-/* Tips Section */
-.tips-categories {
-    padding: 5rem 0;
-    background-color: var(--light-color);
-}
-
-.tip-card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
-    height: 100%;
-}
-
-.tip-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.tip-icon {
-    width: 70px;
-    height: 70px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-}
-
-.tip-icon i {
-    font-size: 1.8rem;
-    color: white;
-}
-
-.tip-list {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0;
-}
-
-.tip-list li {
-    margin-bottom: 0.8rem;
-}
-
-.tip-list li i {
-    color: var(--primary-color);
-    margin-right: 0.5rem;
-}
-
-/* Health Tips Section */
-.health-tips {
-    padding: 5rem 0;
-    background-color: var(--dark-color);
-    color: var(--light-color);
-}
-
-.health-tip-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 2rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-}
-
-.health-tip-item:hover {
-    transform: translateX(-10px);
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-.health-tip-item .icon {
-    width: 50px;
-    height: 50px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 1rem;
-}
-
-.health-tip-item .icon i {
-    font-size: 1.5rem;
-    color: white;
-}
-
-/* Common Mistakes Section */
-.common-mistakes {
-    padding: 5rem 0;
-    background-color: var(--light-color);
-}
-
-.mistake-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 2rem;
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
-}
-
-.mistake-item:hover {
-    transform: translateX(10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.mistake-icon {
-    width: 50px;
-    height: 50px;
-    background-color: var(--danger-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 1rem;
-}
-
-.mistake-icon i {
-    font-size: 1.5rem;
-    color: white;
-}
-
-/* CTA Section */
-.cta-section {
-    padding: 5rem 0;
-    background: linear-gradient(135deg, var(--primary-color) 0%, #FF3A1A 100%);
-    color: white;
-    text-align: center;
-}
-
-.cta-content h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-}
-
-.cta-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-}
-
-.cta-content .btn {
-    padding: 1rem 3rem;
-    font-size: 1.2rem;
-    font-weight: 500;
-    background-color: white;
-    color: var(--primary-color);
-    border: none;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-}
-
-.cta-content .btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Footer */
-.footer {
-    background-color: var(--dark-color);
-    color: var(--light-color);
-    padding: 5rem 0 2rem;
-}
-
-.footer-about p {
-    opacity: 0.8;
-    margin: 1.5rem 0;
-}
-
-.social-links a {
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 0.5rem;
-    color: var(--light-color);
-    transition: var(--transition);
-}
-
-.social-links a:hover {
-    background-color: var(--primary-color);
-    color: white;
-    transform: translateY(-3px);
-}
-
-.footer h5 {
-    color: white;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-links li {
-    margin-bottom: 0.8rem;
-}
-
-.footer-links a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.footer-links a:hover {
-    color: var(--primary-color);
-    padding-right: 0.5rem;
-}
-
-.footer-contact {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-contact li {
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-}
-
-.footer-contact li i {
-    width: 30px;
-    color: var(--primary-color);
-}
-
-.newsletter-form .form-control {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
-    color: white;
-    padding: 0.8rem 1rem;
-}
-
-.newsletter-form .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.newsletter-form .btn {
-    padding: 0.8rem 1.5rem;
-    background-color: var(--primary-color);
-    border: none;
-}
-
-.footer-bottom {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-bottom p {
-    margin: 0;
-    opacity: 0.8;
-}
-
-.footer-bottom-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.footer-bottom-links li {
-    margin-right: 1.5rem;
-}
-
-.footer-bottom-links a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.footer-bottom-links a:hover {
-    color: var(--primary-color);
-}
-
-/* Responsive Design */
-@media (max-width: 991.98px) {
-    .navbar-collapse {
-        background-color: var(--dark-color);
-        padding: 1rem;
-        border-radius: var(--border-radius);
-        margin-top: 1rem;
-    }
-
-    .nav-buttons {
-        margin-top: 1rem;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-buttons .btn {
-        display: block;
-        width: 100%;
-        margin: 1rem 0;
-    }
-}
-
-@media (max-width: 767.98px) {
-    .section-header h2 {
-        font-size: 2rem;
-    }
-
-    .feature-card,
-    .program-card,
-    .tip-card {
-        margin-bottom: 2rem;
-    }
-
-    .footer-bottom-links {
-        justify-content: center;
-        margin-top: 1rem;
-    }
-}
-
-/* Animations */
-@keyframes float {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-.floating {
-    animation: float 3s ease-in-out infinite;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--light-color);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #FF3A1A;
-}
+    font-weight: 50
