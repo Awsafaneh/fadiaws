@@ -1,1135 +1,146 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فادي للياقة البدنية والتغذية الصحية</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Updated Style Block - Removed image-specific CSS except for logo, Added video styles */
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2ecc71;
-            --dark-color: #2c3e50;
-            --light-color: #ecf0f1;
-            --accent-color: #e74c3c;
-
-            /* Dark Mode Colors */
-            --body-bg-light: #f9f9f9;
-            --text-color-light: #333;
-            --card-bg-light: white;
-            --section-light-bg-light: var(--light-color);
-
-            --body-bg-dark: #1a1a1a;
-            --text-color-dark: #ecf0f1;
-            --card-bg-dark: #2c3e50;
-            --section-light-bg-dark: #34495e;
-        }
-
-        /* Apply dark mode styles */
-        body.dark-mode {
-            background-color: var(--body-bg-dark);
-            color: var(--text-color-dark);
-        }
-
-        body.dark-mode .section {
-             color: var(--text-color-dark); /* Ensure section text color updates */
-        }
-
-
-        body.dark-mode .section-title h2 {
-            color: var(--text-color-dark);
-        }
-
-        body.dark-mode .card {
-            background-color: var(--card-bg-dark);
-            color: var(--text-color-dark);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
-        }
-
-        body.dark-mode .card h3,
-        body.dark-mode .news-card h3,
-        body.dark-mode .contact-form-box h3 {
-             color: var(--text-color-dark);
-        }
-
-         body.dark-mode .card p,
-         body.dark-mode .news-card p {
-             color: rgba(255, 255, 255, 0.8);
-         }
-
-
-        body.dark-mode .about {
-            background-color: var(--section-light-bg-dark);
-        }
-
-         body.dark-mode .about-text h2 {
-             color: var(--text-color-dark);
-         }
-
-        body.dark-mode header {
-            background-color: #1a1a1a;
-            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
-        }
-
-         body.dark-mode nav ul li a:hover {
-             background-color: var(--primary-color);
-         }
-
-         body.dark-mode nav ul li a.active {
-             background-color: var(--primary-color);
-         }
-
-         body.dark-mode footer {
-             background-color: #1a1a1a;
-         }
-
-         body.dark-mode .footer-section h3 {
-             color: var(--text-color-dark);
-         }
-
-         body.dark-mode .footer-section ul li a {
-             color: rgba(255, 255, 255, 0.8);
-         }
-
-         body.dark-mode .footer-section ul li a:hover {
-             color: var(--primary-color);
-         }
-
-         body.dark-mode .social-icons a {
-             background-color: #333;
-         }
-
-         body.dark-mode .footer-bottom {
-             border-top-color: #333;
-         }
-
-        /* Accessibility Controls */
-        #accessibility-controls {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 5px;
-            padding: 5px;
-            display: flex;
-            gap: 5px;
-        }
-         /* Adjust position for RTL */
-         [dir="rtl"] #accessibility-controls {
-             left: auto;
-             right: 10px;
-         }
-
-
-        #accessibility-controls button {
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: background-color 0.3s ease;
-        }
-
-        #accessibility-controls button:hover {
-            background-color: #27ae60;
-        }
-
-         /* Responsive adjustments for controls */
-         @media (max-width: 768px) {
-             #accessibility-controls {
-                 top: auto;
-                 bottom: 10px;
-                 left: 50%;
-                 right: auto; /* Override RTL adjustment for centering */
-                 transform: translateX(-50%);
-                 background-color: rgba(0, 0, 0, 0.7); /* Slightly darker background for mobile */
-             }
-         }
-
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
-             transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
-        }
-
-        body {
-            background-color: var(--body-bg-light);
-            color: var(--text-color-light);
-            line-height: 1.6;
-             transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header Styles */
-        header {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo span {
-            color: var(--secondary-color);
-        }
-
-        .logo i {
-            color: var(--secondary-color);
-            margin-left: 8px;
-            font-size: 1.5rem;
-        }
-
-        /* Logo Image Style - Kept and styled */
-        .logo img {
-            height: 50px; /* Adjust as needed for your logo size */
-            margin-left: 10px; /* Space between logo and text */
-             /* Optional: ensure it fits nicely */
-             display: block;
-             object-fit: contain; /* Ensures the image scales without distortion */
-        }
-        [dir="rtl"] .logo img {
-            margin-right: 10px;
-            margin-left: 0;
-        }
-
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-right: 20px;
-        }
-
-        nav ul li:last-child {
-            margin-right: 0;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            padding: 10px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            background-color: var(--secondary-color);
-        }
-
-        /* Active class for current page */
-        .active {
-            background-color: var(--secondary-color);
-        }
-
-        /* Mobile Menu */
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        /* Removed Hero background image style */
-        .hero {
-            /* background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/800?text=Hero+Image&bgColor=2ecc71') center/cover no-repeat; */
-            background-color: var(--primary-color); /* Added a fallback background color */
-            height: 50vh; /* Adjusted height */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
-        }
-         .hero-content { /* Adjusted padding/margins if needed after image removal */
-             max-width: 800px; /* Keep max width */
-             margin: 0 auto; /* Center content */
-         }
-         .hero h1 {
-            font-size: 2.8rem; /* Adjusted font size */
-            margin-bottom: 15px;
-         }
-          .hero p {
-            font-size: 1.1rem; /* Adjusted font size */
-            margin-bottom: 20px;
-         }
-
-
-        /* Featured Section - Removed image styles and image HTML */
-        .featured {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--dark-color);
-             transition: color 0.3s ease;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 25%;
-            width: 50%;
-            height: 4px;
-            background-color: var(--secondary-color);
-        }
-         [dir="rtl"] .section-title h2::after {
-             left: 25%;
-             right: auto;
-         }
-
-
-        /* Removed styles for card images */
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background-color: var(--card-bg-light);
-            border-radius: 10px;
-            /* overflow: hidden; Removed as no images */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-            padding: 20px; /* Added padding to card content area */
-            text-align: center; /* Centered card content */
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        /* Removed .card-img and .card-img img styles */
-
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--dark-color);
-            transition: color 0.3s ease;
-        }
-
-        .card p {
-            margin-bottom: 20px;
-            color: #666;
-             transition: color 0.3s ease;
-        }
-
-        .card .btn {
-            padding: 8px 20px;
-            font-size: 0.9rem;
-        }
-
-        /* About Section - Added video styles */
-        .about {
-            padding: 5rem 0;
-            background-color: var(--section-light-bg-light);
-            transition: background-color 0.3s ease;
-        }
-
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-             flex-direction: row; /* Default row direction */
-        }
-        /* Adjusted flex direction for RTL for better text/video flow */
-         [dir="rtl"] .about-content {
-             flex-direction: row-reverse;
-         }
-
-
-        /* Added styles for the video container and video */
-        .about-video {
-            flex: 1; /* Allow video container to take equal space */
-             min-width: 300px; /* Minimum width before wrapping */
-        }
-
-         /* Added/Updated style for the video title */
-         .about-video h3 {
-             color: var(--dark-color); /* Color for the title */
-             margin-bottom: 15px; /* Space below the title */
-             text-align: center; /* Center the title above the video */
-             font-size: 1.6rem; /* Increased font size for prominence */
-             font-weight: bold; /* Ensure bold if needed */
-              transition: color 0.3s ease;
-         }
-
-
-        .about-video video {
-             display: block; /* Remove extra space below video */
-            width: 100%; /* Make video fill its container */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 10px; /* Match styling of old image */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Match styling of old image */
-        }
-
-
-        .about-text {
-            flex: 1; /* Allow text to take equal space */
-             min-width: 300px; /* Minimum width before wrapping */
-        }
-
-        .about-text h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--dark-color);
-             transition: color 0.3s ease;
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        /* News Section - Removed image styles and image HTML */
-        .news {
-            padding: 5rem 0;
-        }
-
-        .news-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-         .news-card { /* Reusing card style for news items */
-            background-color: var(--card-bg-light);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            padding: 20px; /* Added padding */
-             transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-         }
-
-        /* Removed .news-img and .news-img img styles */
-
-        .news-content { /* Adjusted news content padding */
-            padding: 0; /* Padding moved to .news-card */
-        }
-
-        .news-date {
-            color: var(--secondary-color);
-            font-weight: bold;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .news-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--dark-color);
-             transition: color 0.3s ease;
-        }
-
-        .news-card p {
-            margin-bottom: 20px;
-            color: #666;
-             transition: color 0.3s ease;
-        }
-
-
-        /* Removed CTA background image style */
-        .cta {
-            /* background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/api/placeholder/1200/800?text=CTA+Background&bgColor=3498db') center/cover no-repeat; */
-             background-color: var(--primary-color); /* Added a fallback background color */
-            color: white;
-            padding: 5rem 0;
-            text-align: center;
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .cta p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 4rem 0 2rem;
-             transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-        }
-
-        .footer-section h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-             transition: color 0.3s ease;
-        }
-
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--secondary-color);
-        }
-        [dir="rtl"] .footer-section h3::after {
-             right: 0;
-         }
-
-
-        .footer-section p {
-            margin-bottom: 15px;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-section ul li a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            color: var(--secondary-color);
-        }
-
-        .social-icons {
-            display: flex;
-            margin-top: 20px;
-             direction: ltr;
-             justify-content: flex-end;
-        }
-         [dir="rtl"] .social-icons {
-             justify-content: flex-start;
-         }
-
-
-        .social-icons a {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            background-color: #444;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            margin-left: 10px;
-            transition: all 0.3s ease, background-color 0.3s ease;
-        }
-         [dir="rtl"] .social-icons a {
-             margin-right: 10px;
-             margin-left: 0;
-         }
-
-
-        .social-icons a:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-
-        /* Removed footer logo image style */
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid #444;
-             transition: border-top-color 0.3s ease;
-        }
-
-         /* Specific styles for General Tips page (Reused) */
-         .tip-item { /* Reusing goal-item style */
-            background-color: var(--card-bg-light);
-            padding: 30px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-             transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .tip-item h3 {
-             color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .tip-item ul {
-            list-style: disc;
-            padding-right: 20px; /* For RTL list markers */
-        }
-
-        .tip-item ul li {
-            margin-bottom: 8px;
-        }
-
-        /* Specific styles for Contact Form (Reused & Adjusted) */
-        .contact-flex-container { /* Flexbox container */
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .contact-form-col {
-            flex: 1;
-             min-width: 300px;
-        }
-
-        .contact-form-box {
-            background-color: var(--card-bg-light);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-             transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .contact-form-box h3 {
-             color: var(--dark-color);
-             margin-bottom: 20px;
-              transition: color 0.3s ease;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: var(--dark-color);
-             transition: color 0.3s ease;
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group input[type="tel"],
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-family: 'Cairo', sans-serif;
-             background-color: var(--card-bg-light);
-             color: var(--text-color-light);
-             border-color: #ccc;
-              transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-        }
-
-         body.dark-mode .form-group input[type="text"],
-         body.dark-mode .form-group input[type="email"],
-         body.dark-mode .form-group input[type="tel"],
-         body.dark-mode .form-group select,
-         body.dark-mode .form-group textarea {
-             background-color: #34495e;
-             color: var(--text-color-dark);
-             border-color: #555;
-         }
-
-        .form-group textarea {
-            resize: vertical;
-        }
-
-        /* Removed map styles */
-        /* Removed .map-container */
-
-
-        /* Specific styles for FAQ (Reused) */
-        .faq-item {
-             background-color: var(--card-bg-light);
-             border: 1px solid #ddd;
-             border-radius: 8px;
-             margin-bottom: 15px;
-             overflow: hidden;
-             box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-             transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-         body.dark-mode .faq-item {
-             border-color: #555;
-             box-shadow: 0 1px 5px rgba(255, 255, 255, 0.08);
-         }
-
-
-        .faq-question {
-             padding: 15px 20px;
-             background-color: var(--section-light-bg-light);
-             cursor: pointer;
-             display: flex;
-             justify-content: space-between;
-             align-items: center;
-             font-weight: bold;
-             color: var(--dark-color);
-             transition: background-color 0.3s ease, color 0.3s ease;
-        }
-         body.dark-mode .faq-question {
-             background-color: #34495e;
-             color: var(--text-color-dark);
-         }
-
-
-        .faq-question:hover {
-            background-color: #e0e0e0;
-        }
-         body.dark-mode .faq-question:hover {
-             background-color: #2c3e50;
-         }
-
-
-        .faq-question i {
-             transition: transform 0.3s ease;
-        }
-         .faq-question i.rotated {
-            transform: rotate(180deg);
-         }
-
-
-        .faq-answer {
-             padding: 15px 20px;
-             border-top: 1px solid #eee;
-             display: none;
-              transition: border-top-color 0.3s ease;
-        }
-         body.dark-mode .faq-answer {
-             border-top-color: #555;
-         }
-
-
-        /* Responsive Styles */
-        @media (max-width: 900px) {
-            .about-content {
-                flex-direction: column; /* Stack text and video on smaller screens */
-            }
-             .contact-flex-container {
-                 flex-direction: column;
-             }
-             .contact-form-col {
-                  min-width: 100%;
-             }
-             .about-video, .about-text { /* Ensure both stack and take full width */
-                 min-width: 100%;
-             }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background-color: var(--dark-color);
-                flex-direction: column;
-                padding: 20px;
-                text-align: center;
-                 transition: background-color 0.3s ease;
-            }
-             body.dark-mode nav ul {
-                 background-color: #1a1a1a;
-             }
-
-
-            nav ul.show {
-                display: flex;
-            }
-
-            nav ul li {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            .footer-container {
-                 grid-template-columns: 1fr;
-                 text-align: center;
-            }
-
-            .footer-section h3::after {
-                right: 50%;
-                transform: translateX(50%);
-            }
-            [dir="rtl"] .footer-section h3::after {
-                 left: 50%;
-                 right: auto;
-                 transform: translateX(-50%);
-             }
-
-             .social-icons {
-                 justify-content: center;
-                 direction: ltr;
-             }
-             [dir="rtl"] .social-icons {
-                 justify-content: center;
-             }
-
-        }
-
-        @media (max-width: 500px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>رحلة اللياقة مع فادي</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-     <div id="accessibility-controls">
-        <button id="increase-text" title="تكبير النص">A+</button>
-        <button id="decrease-text" title="تصغير النص">A-</button>
-        <button id="mode-toggle" title="تبديل الوضع">
-             <i class="fas fa-moon"></i> </button>
+<nav>
+  <ul>
+    <li><a href="index.html" class="logo">فادي</a></li>
+    <li><a href="index.html">الرئيسية</a></li>
+    <li>
+      <a href="#">التمارين ▾</a>
+      <ul>
+        <li><a href="programs.html#strength">تمارين القوة</a></li>
+        <li><a href="programs.html#cardio">الكارديو</a></li>
+        <li><a href="programs.html#flexibility">المرونة</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">التغذية ▾</a>
+      <ul>
+        <li><a href="nutrition.html#bulking">زيادة العضلات</a></li>
+        <li><a href="nutrition.html#cutting">خسارة الوزن</a></li>
+        <li><a href="nutrition.html#recipes">وصفات صحية</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">الأهداف والنصائح ▾</a>
+      <ul>
+        <li><a href="goals.html#setting">تحديد الأهداف</a></li>
+        <li><a href="goals.html#adherence">الالتزام</a></li>
+        <li><a href="goals.html#injury">تجنب الإصابات</a></li>
+      </ul>
+    </li>
+    <li><a href="blog.html">المدونة</a></li>
+    <li><a href="contact.html">تواصل</a></li>
+  </ul>
+</nav>
+
+ 
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content container">
+      <h1>رحلة اللياقة مع فادي</h1>
+      <p>انضم إليّ في رحلتي لتحقيق أفضل نسخة مني من خلال التمارين الرياضية والتغذية الصحية.</p>
+      <a href="programs.html" class="btn-primary">اكتشف برامج التمرين</a>
     </div>
+  </section>
 
-    <header>
-        <div class="container header-container">
-            <a href="index.html" class="logo">
-                 <img src="logo.jpg" alt="فادي للياقة">
-                فادي  <span> للياقة </span>
-            </a>
-            <nav>
-                <ul id="navbar">
-                    <li><a href="index.html" class="active">الرئيسية</a></li>
-                    <li><a href="exercises.html">برامج التمارين</a></li>
-                    <li><a href="nutrition.html">النصائح الغذائية</a></li>
-                    <li><a href="goals.html">أهداف اللياقة</a></li>
-                    <li><a href="general-tips.html">نصائح عامة</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                </ul>
-                <button class="hamburger" id="hamburger">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
-        </div>
-    </header>
+  <section class="quick-links container" style="display: flex; align-items: flex-start; gap: 40px; margin-top: 100px;">
+  
+ 
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>ابدأ رحلة اللياقة البدنية الآن مع فادي</h1>
-            <p>استمتع بحياة صحية مع برامج التمارين المخصصة والنصائح الغذائية المناسبة لتحقيق أهدافك</p>
-            <a href="contact.html" class="btn">ابدأ الآن</a>
-        </div>
-    </section>
+  <!-- Cards on the right -->
+  <div style="flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+    <div class="card">
+      <img src="icons/programs.svg" alt="">
+      <h3>برامج التمرين</h3>
+      <p>استكشف تمارين القوة، الكارديو والمرونة.</p>
+    </div>
+    <div class="card">
+      <img src="icons/nutrition.svg" alt="">
+      <h3>التغذية الصحية</h3>
+      <p>أنظمة غذائية ووصفات صحية لمختلف الأهداف.</p>
+    </div>
+    <div class="card">
+      <img src="icons/blog.svg" alt="">
+      <h3>المدونة</h3>
+      <p>آخر المقالات والنصائح.</p>
+    </div>
+    <div class="card">
+      <img src="icons/contact.svg" alt="">
+      <h3>تواصل معي</h3>
+      <p>أسئلتك واستفساراتك دائمًا مرحب بها.</p>
+    </div>
+  </div>
+   <!-- Video on the left -->
+  <div style="flex: 1;">
+    <video src="Videos/videoplayback.mp4" autoplay muted loop playsinline style="width: 100%; border-radius: 12px;"></video>
+  </div>
+</section>
 
-    <section class="featured">
-        <div class="container">
-            <div class="section-title">
-                <h2>خدماتنا المميزة</h2>
-            </div>
-            <div class="card-container">
-                <div class="card">
-                    <div class="card-content">
-                        <h3>برامج تمارين متخصصة</h3>
-                        <p>برامج تمارين مصممة لمختلف المستويات تشمل تمارين القوة والكارديو والمرونة</p>
-                        <a href="exercises.html" class="btn">اكتشف المزيد</a>
-                    </div>
-                </div>
-                <div class="card">
-                     <div class="card-content">
-                        <h3>نصائح غذائية صحية</h3>
-                        <p>خطط غذائية متنوعة لزيادة العضلات، خسارة الوزن ووصفات صحية لذيذة</p>
-                        <a href="nutrition.html" class="btn">اكتشف المزيد</a>
-                    </div>
-                </div>
-                <div class="card">
-                     <div class="card-content">
-                        <h3>تحقيق أهداف اللياقة</h3>
-                        <p>نصائح وإرشادات لتحديد أهدافك بشكل صحيح والالتزام بها لتحقيق النتائج المرجوة</p>
-                        <a href="goals.html" class="btn">اكتشف المزيد</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Latest Posts -->
+  <section class="latest-posts container">
+    <h2>أحدث المقالات</h2>
+    <div class="posts-grid">
+      <article class="post-card">
+        <img src="posts/post1.jpg" alt="">
+        <h3>عنوان المقال الأول</h3>
+        <span class="date">15 مايو 2025</span>
+      </article>
+      <article class="post-card">
+        <img src="posts/post2.jpg" alt="">
+        <h3>عنوان المقال الثاني</h3>
+        <span class="date">10 مايو 2025</span>
+      </article>
+      <article class="post-card">
+        <img src="posts/post3.jpg" alt="">
+        <h3>عنوان المقال الثالث</h3>
+        <span class="date">05 مايو 2025</span>
+      </article>
+    </div>
+    <a href="blog.html" class="btn-secondary">شاهد المزيد</a>
+  </section>
 
-    <section class="about">
-        <div class="container">
-            <div class="about-content">
-                 <div class="about-video">
-                     <h3>غذائنا السليم سر صحتنا</h3>
-                    <video controls> <source src="video.mp4" type="video/mp4">
-                        متصفحك لا يدعم عرض الفيديو.
-                    </video>
-                </div>
-                <div class="about-text">
-                    <h2>من هو فادي؟</h2>
-                    <p>مدرب لياقة بدنية محترف ومؤثر على وسائل التواصل الاجتماعي، أكرس حياتي لمساعدة الآخرين على تحقيق أهدافهم في اللياقة البدنية والصحة العامة.</p>
-                    <p>بدأت رحلتي مع اللياقة البدنية منذ أكثر من 10 سنوات، وقررت مشاركة تجربتي ونصائحي مع العالم من خلال منصات التواصل الاجتماعي والآن من خلال هذا الموقع.</p>
-                    <p>هدفي هو إلهام وتشجيع الناس على اتباع نمط حياة صحي ونشط، وتقديم المعرفة والأدوات اللازمة لتحقيق التحول الصحي المطلوب بطريقة آمنة ومستدامة.</p>
-                     <a href="general-tips.html" class="btn">تعرف على المزيد</a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Social Media -->
+  <section class="social-media container">
+    <h2>تابعني على</h2>
+    <ul class="social-icons">
+    <li>
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener">
+      <img src="images/Instagram.png" alt="Instagram" style="width: 32px; height: 32px;">
+    </a>
+  </li>
+  <li>
+    <a href="https://www.youtube.com/" target="_blank" rel="noopener">
+      <img src="images/Youtube.webp" alt="YouTube" style="width: 32px; height: 32px;">
+    </a>
+  </li>
+  <li>
+    <a href="https://www.tiktok.com/" target="_blank" rel="noopener">
+      <img src="images/Tiktok.png" alt="TikTok" style="width: 32px; height: 32px;">
+    </a>
+  </li>
+    </ul>
+  </section>
 
-    <section class="news">
-        <div class="container">
-            <div class="section-title">
-                <h2>آخر التحديثات والنصائح</h2> </div>
-             <div class="card-container">
-                <div class="card">
-                    <div class="news-content">
-                        <span class="news-date">15 مايو 2025</span>
-                        <h3>أهمية الإحماء قبل أي تمرين</h3> <p>تعرف على لماذا يعتبر الإحماء خطوة أساسية لا يجب تخطيها قبل البدء بأي نشاط بدني وكيف تقوم به بشكل صحيح...</p>
-                         <a href="general-tips.html" class="btn">اقرأ المزيد</a>
-                    </div>
-                </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 جميع الحقوق محفوظة لفادي</p>
+      <div class="footer-links">
+        <a href="#">سياسة الخصوصية</a>
+        <a href="#">الشروط والأحكام</a>
+      </div>
+    </div>
+  </footer>
 
-                 <div class="card">
-                     <div class="news-content">
-                        <span class="news-date">10 مايو 2025</span>
-                        <h3>وصفة وجبة سريعة غنية بالبروتين بعد التمرين</h3> <p>وجبة سريعة ولذيذة لمساعدتك على الاستشفاء بعد التمرين المكثف. اكتشف المكونات وطريقة التحضير السهلة...</p>
-                         <a href="nutrition.html" class="btn">اقرأ المزيد</a>
-                    </div>
-                </div>
-
-                 <div class="card">
-                     <div class="news-content">
-                        <span class="news-date">5 مايو 2025</span>
-                        <h3>تحديد أهداف SMART: دليل للمبتدئين</h3> <p>هل أنت جديد في عالم اللياقة؟ تعلم كيفية تحديد أهداف واقعية ومحددة زمنياً باستخدام طريقة SMART لتحقيق نتائج فعالة...</p>
-                         <a href="goals.html" class="btn">اقرأ المزيد</a>
-                    </div>
-                </div>
-
-                </div>
-        </div>
-    </section>
-
-    <section class="cta">
-        <div class="container">
-            <h2>هل أنت مستعد لتغيير حياتك؟</h2>
-            <p>انضم إلى الآلاف الذين حققوا أهدافهم في اللياقة البدنية باتباع برامجنا وخططنا الغذائية المتخصصة</p>
-        </div>
-         <a href="contact.html" class="btn" style="margin-top: 20px;">ابدأ الآن</a>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-section">
-                    <h3>فادي للياقة</h3>
-                    <p>منصتك الشاملة لكل ما يتعلق باللياقة البدنية والتغذية الصحية والحفاظ على نمط حياة صحي.</p>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-                        <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>روابط سريعة</h3>
-                    <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="exercises.html">برامج التمارين</a></li>
-                        <li><a href="nutrition.html">النصائح الغذائية</a></li>
-                        <li><a href="goals.html">أهداف اللياقة</a></li>
-                        <li><a href="general-tips.html">نصائح عامة</a></li>
-                        <li><a href="contact.html">اتصل بنا</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>اتصل بنا</h3>
-                    <ul>
-                        <li><i class="fas fa-envelope"></i> info@fadi-fitness.com</li>
-                        <li><i class="fas fa-phone"></i> +962 791227346</li>
-                        <li><i class="fas fa-map-marker-alt"></i> عمان الأردن</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>النشرة الإخبارية</h3>
-                    <p>اشترك في نشرتنا الإخبارية للحصول على آخر الأخبار والتحديثات</p>
-                    <form action="subscribe.php" method="POST">
-                        <input type="email" placeholder="بريدك الإلكتروني" name="email" required style="padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 5px; border: none;">
-                        <button type="submit" class="btn" style="width: 100%;">اشترك</button>
-                    </form>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2025 فادي للياقة البدنية. جميع الحقوق محفوظة.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        document.getElementById('hamburger').addEventListener('click', function() {
-            document.getElementById('navbar').classList.toggle('show');
-        });
-         // Optional: Close menu when a link is clicked
-        document.querySelectorAll('#navbar a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navbar').classList.remove('show');
-            });
-        });
-
-         // JavaScript for Newsletter Submission (Placeholder)
-         document.querySelector('form[action="subscribe.php"]').addEventListener('submit', function(e) {
-            // e.preventDefault(); // uncomment this line to prevent actual submission for testing
-            alert('تم الاشتراك في النشرة البريدية بنجاح (هذه رسالة تجريبية)');
-            // Add actual subscription logic here
-         });
-
-         // Accessibility Features
-        document.addEventListener('DOMContentLoaded', function() {
-            const body = document.body;
-            const increaseTextBtn = document.getElementById('increase-text');
-            const decreaseTextBtn = document.getElementById('decrease-text');
-            const modeToggleBtn = document.getElementById('mode-toggle');
-            const modeIcon = modeToggleBtn ? modeToggleBtn.querySelector('i') : null; // Check if button exists before querying icon
-
-            const defaultFontSize = 16; // Base font size in px
-            const sizeStep = 1; // Size step in px - Corrected typo
-            const maxFontSize = 24; // Maximum font size in px
-            const minFontSize = 12; // Minimum font size in px
-
-            // Load saved preferences
-            const savedMode = localStorage.getItem('mode');
-            const savedFontSize = localStorage.getItem('fontSize');
-
-            if (savedMode === 'dark') {
-                body.classList.add('dark-mode');
-                if(modeIcon) { // Check if icon exists before manipulating
-                     modeIcon.classList.remove('fa-moon');
-                     modeIcon.classList.add('fa-sun');
-                }
-                modeToggleBtn.title = 'تبديل الوضع (ليلي)';
-            } else {
-                body.classList.remove('dark-mode');
-                if(modeIcon) { // Check if icon exists before manipulating
-                    modeIcon.classList.remove('fa-sun');
-                    modeIcon.classList.add('fa-moon');
-                }
-                 modeToggleBtn.title = 'تبديل الوضع (نهاري)';
-            }
-
-            if (savedFontSize) {
-                body.style.fontSize = savedFontSize + 'px';
-            } else {
-                 body.style.fontSize = defaultFontSize + 'px';
-            }
-
-
-            // Toggle Dark/Light Mode
-            if(modeToggleBtn) { // Ensure button exists before adding listener
-                 modeToggleBtn.addEventListener('click', function() {
-                     body.classList.toggle('dark-mode');
-                     if (body.classList.contains('dark-mode')) {
-                         localStorage.setItem('mode', 'dark');
-                         if(modeIcon) { // Check if icon exists before manipulating
-                              modeIcon.classList.remove('fa-moon');
-                              modeIcon.classList.add('fa-sun');
-                         }
-                         modeToggleBtn.title = 'تبديل الوضع (ليلي)';
-                     } else {
-                         localStorage.setItem('mode', 'light');
-                         if(modeIcon) { // Check if icon exists before manipulating
-                            modeIcon.classList.remove('fa-sun');
-                            modeIcon.classList.add('fa-moon');
-                         }
-                          modeToggleBtn.title = 'تبديل الوضع (نهاري)';
-                     }
-                 });
-            }
-
-
-            // Increase Text Size
-            if(increaseTextBtn) { // Ensure button exists before adding listener
-                 increaseTextBtn.addEventListener('click', function() {
-                     let currentSize = parseFloat(window.getComputedStyle(body).fontSize);
-                     if (currentSize < maxFontSize) {
-                         let newSize = currentSize + sizeStep;
-                         body.style.fontSize = newSize + 'px';
-                         localStorage.setItem('fontSize', newSize);
-                     }
-                 });
-            }
-
-
-            // Decrease Text Size
-             if(decreaseTextBtn) { // Ensure button exists before adding listener
-                 decreaseTextBtn.addEventListener('click', function() {
-                     let currentSize = parseFloat(window.getComputedStyle(body).fontSize);
-                     if (currentSize > minFontSize) {
-                         let newSize = currentSize - sizeStep;
-                         body.style.fontSize = newSize + 'px';
-                         localStorage.setItem('fontSize', newSize);
-                     }
-                 });
-             }
-
-        });
-    </script>
 </body>
 </html>
